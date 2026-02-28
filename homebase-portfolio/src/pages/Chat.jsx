@@ -40,7 +40,7 @@ export default function Chat() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white p-6">
+    <div className="min-h-screen bg-linear-to-br from-gray-900 via-gray-800 to-gray-900 text-white p-6">
       <div className="max-w-6xl mx-auto h-[calc(100vh-100px)] bg-gray-800/50 rounded-2xl border border-gray-700/50 overflow-hidden flex">
         {/* Chat List */}
         <div className="w-64 bg-gray-900/50 border-r border-gray-700/50 p-4">
