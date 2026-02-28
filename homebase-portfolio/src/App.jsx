@@ -1,4 +1,5 @@
-import { Routes, Route, Link, useLocation, Navigate, lazy, Suspense } from 'react-router-dom';
+import { Routes, Route, Link, useLocation, Navigate } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
 import Home from './pages/Home';
 import Login from './pages/Login';
 
