@@ -1,0 +1,23 @@
+{
+  "name": "telegram-bot",
+  "version": "1.0.0",
+  "description": "A production-ready Telegram bot using Groq.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "pm2:start": "pm2 start ecosystem.config.js"
+  },
+  "keywords": [
+    "telegram",
+    "bot",
+    "groq"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "groq-sdk": "^0.1.8",
+    "node-telegram-bot-api": "^0.61.0",
+    "pm2": "^5.3.0"
+  }
+}
