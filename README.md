@@ -19,8 +19,16 @@ This project contains two distinct Telegram bots:
 
 Copy the example environment file to create your own local version.
 
+For Unix-like systems (Linux/macOS):
+
 ```bash
 cp .env.example .env
+```
+
+For Windows (PowerShell):
+
+```powershell
+Copy-Item .env.example .env
 ```
 
 ### 2. Get Your API Keys & IDs
