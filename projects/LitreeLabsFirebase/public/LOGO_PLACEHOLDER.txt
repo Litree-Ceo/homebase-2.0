@@ -1,0 +1,34 @@
+# Create a proper logo using an online tool or design software
+# This is a placeholder file
+
+# Logo Specifications for MCP Marketplace:
+# - Size: 400x400 pixels
+# - Format: PNG with transparency
+# - Theme: Purple/blue gradient with cosmic/AI theme
+# - Elements: Consider including:
+#   - Abstract AI/neural network visualization
+#   - Cosmic particles or stars
+#   - Modern, tech-forward design
+#   - "LitLabs" text or "LL" monogram
+
+# Recommended Tools:
+# 1. Canva (https://canva.com) - Easy online design
+# 2. Figma (https://figma.com) - Professional design tool
+# 3. Adobe Express (https://express.adobe.com) - Quick logo maker
+# 4. DALL-E / Midjourney - AI-generated logo
+
+# Color Palette (from globals.css):
+# Primary: #7c3aed (purple)
+# Secondary: #3b82f6 (blue)
+# Accent: #06b6d4 (cyan)
+# Background: #0a0a0f (dark)
+
+# After creating the logo:
+# 1. Save as: litlabs-logo-400x400.png
+# 2. Place in: /public/litlabs-logo-400x400.png
+# 3. Verify dimensions: 400x400px exactly
+# 4. Optimize file size: < 100KB if possible
+# 5. Test transparency: Works on both light and dark backgrounds
+
+# Placeholder text - Replace with actual logo file
+TODO: Create 400x400 PNG logo before marketplace submission

@@ -1,0 +1,33 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#0f172a"/>
+  <rect x="50" y="50" width="1100" height="530" rx="20" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+  
+  <!-- Logo -->
+  <rect x="90" y="90" width="80" height="80" rx="16" fill="#10b981"/>
+  <text x="130" y="145" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="bold" fill="#0f172a" text-anchor="middle">LL</text>
+  
+  <!-- Title -->
+  <text x="190" y="125" font-family="system-ui, -apple-system, sans-serif" font-size="56" font-weight="bold" fill="#f8fafc">LitLabs OS</text>
+  <text x="190" y="165" font-family="system-ui, -apple-system, sans-serif" font-size="28" fill="#94a3b8">Money-Making AI Command Center</text>
+  
+  <!-- Features -->
+  <text x="90" y="250" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#10b981">✓</text>
+  <text x="130" y="250" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#e2e8f0">Daily Content Engine</text>
+  
+  <text x="90" y="300" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#10b981">✓</text>
+  <text x="130" y="300" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#e2e8f0">DM Sales Scripts</text>
+  
+  <text x="90" y="350" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#10b981">✓</text>
+  <text x="130" y="350" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#e2e8f0">Fraud Detection</text>
+  
+  <text x="90" y="400" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#10b981">✓</text>
+  <text x="130" y="400" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#e2e8f0">Live Dashboard</text>
+  
+  <!-- CTA -->
+  <rect x="90" y="460" width="300" height="70" rx="12" fill="#10b981"/>
+  <text x="240" y="505" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="bold" fill="#0f172a" text-anchor="middle">Start Free Trial</text>
+  
+  <!-- Pricing -->
+  <text x="950" y="500" font-family="system-ui, -apple-system, sans-serif" font-size="48" font-weight="bold" fill="#10b981" text-anchor="end">$49-199/mo</text>
+  <text x="950" y="540" font-family="system-ui, -apple-system, sans-serif" font-size="20" fill="#94a3b8" text-anchor="end">Choose your tier</text>
+</svg>

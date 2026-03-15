@@ -1,0 +1,36 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.1/schema.json",
+  "schema_version": "v2.1",
+  "name_for_human": "LitLabs AI",
+  "namespace": "litlabs_ai",
+  "description_for_human": "AI-powered content generation, marketing automation, and business intelligence for creators and professionals",
+  "description_for_model": "LitLabs AI helps teams generate marketing content, manage campaigns, and analyze business metrics. Integrated with Teams, Outlook, and Microsoft 365 Copilot.",
+  "logo_url": "https://litree-labstudio.com/logo.png",
+  "contact_email": "support@litree-labstudio.com",
+  "legal_info_url": "https://litree-labstudio.com/privacy-policy",
+  "privacy_policy_url": "https://litree-labstudio.com/privacy-policy",
+  "functions": [
+    {
+      "name": "generateContent",
+      "id": "generateContent",
+      "description": "Generate marketing content (captions, scripts, emails) using AI"
+    },
+    {
+      "name": "analyzeMetrics",
+      "id": "analyzeMetrics",
+      "description": "Get analytics and performance metrics for your content and campaigns"
+    },
+    {
+      "name": "manageSubscription",
+      "id": "manageSubscription",
+      "description": "View and manage your LitLabs AI subscription and billing"
+    },
+    {
+      "name": "sendEmail",
+      "id": "sendEmail",
+      "description": "Send emails through your Outlook account via LitLabs"
+    }
+  ]
+}
+
+
