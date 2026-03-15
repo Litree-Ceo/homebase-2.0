@@ -1,0 +1,26 @@
+# LitLabs Git Configuration
+# This file ensures clean, linear git history with no merge conflicts
+
+[pull]
+  ff = only
+
+[rebase]
+  autostash = true
+
+[branch]
+  autosetuprebase = always
+
+[push]
+  followTags = true
+
+[merge]
+  # Prevent accidental merges
+  ff = only
+  conflictStyle = diff3
+
+[fetch]
+  prune = true
+  pruneTags = true
+
+[status]
+  showUntrackedFiles = all

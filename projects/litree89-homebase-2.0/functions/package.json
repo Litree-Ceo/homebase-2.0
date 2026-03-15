@@ -1,0 +1,32 @@
+{
+  "name": "everythinghomebase-functions",
+  "version": "1.0.0",
+  "description": "Azure Functions for EverythingHomebase with Grok integration",
+  "main": "GrokChat/index.js",
+  "scripts": {
+    "start": "func start",
+    "build": "echo 'No build step required for Node.js Functions'",
+    "test": "echo 'Add tests here'",
+    "publish": "func azure functionapp publish EverythingHomebase-func --build remote"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.7",
+    "axios": "^1.4.0"
+  },
+  "devDependencies": {
+    "azure-functions-core-tools": "^4.x",
+    "@types/node": "^18.0.0"
+  },
+  "keywords": [
+    "azure",
+    "functions",
+    "grok",
+    "xai",
+    "ai"
+  ],
+  "author": "LiTree89",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

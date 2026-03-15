@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "checkJs": false,
+    "noEmit": true,
+    "lib": [
+      "ES2022"
+    ]
+  },
+  "typeAcquisition": {
+    "enable": true,
+    "include": [
+      "node",
+      "express"
+    ]
+  },
+  "include": [
+    "**/*.js"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

@@ -1,0 +1,7 @@
+[
+    {
+        "key": "ctrl+shift+y",
+        "command": "browse-lite.open",
+        "args": "https://m.youtube.com"
+    }
+]

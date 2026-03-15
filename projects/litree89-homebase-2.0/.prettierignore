@@ -1,0 +1,29 @@
+// Prettier ignore patterns
+node_modules/
+dist/
+build/
+.next/
+coverage/
+*.min.js
+*.min.css
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Azure Functions
+**/node_modules/**
+**/.venv/**
+local.settings.json
+__blobstorage__/
+__queuestorage__/
+__azurite_db*__.json
+
+# Build outputs
+**/dist/**
+**/build/**
+**/.next/**
+**/out/**
+
+# Generated files
+**/*.log
+**/.DS_Store

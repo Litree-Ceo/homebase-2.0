@@ -1,0 +1,83 @@
+{
+<<<<<<< HEAD
+  "name": "everythinghomebase",
+  "version": "1.0.0",
+  "description": "Unified project workspace for all your code and assets.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "@azure/cosmos": "^4.0.0",
+    "dotenv": "^17.2.3",
+    "firebase": "^12.7.0",
+    "react": "^19.2.3"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.3",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@typescript-eslint/eslint-plugin": "^8.50.1",
+    "@typescript-eslint/parser": "^8.50.1",
+    "eslint": "^9.39.2",
+    "prettier": "^3.7.4",
+    "typescript": "^5.9.3"
+=======
+  "name": "homebase-2.0",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "pnpm@9.15.4",
+  "engines": {
+    "node": "20.x"
+  },
+  "scripts": {
+    "dev": "pnpm run dev:all",
+    "start:all": "powershell.exe -ExecutionPolicy Bypass -File ./Start-All.ps1",
+    "dev:web": "pnpm --filter web dev",
+    "dev:api": "pnpm --filter api start",
+    "build": "pnpm -r build",
+    "start": "pnpm --filter web start",
+    "lint": "pnpm -r lint",
+    "dev:all": "pnpm -r --parallel dev",
+    "clean": "pnpm -r exec rimraf dist .next node_modules",
+    "clean:locks": "pnpm -r exec rimraf pnpm-lock.yaml && pnpm install",
+    "sync": "powershell.exe -ExecutionPolicy Bypass -File ./scripts/auto-sync-deps.ps1",
+    "sync:watch": "powershell.exe -ExecutionPolicy Bypass -File ./scripts/auto-sync-deps.ps1 -Watch -IntervalSeconds 30",
+    "postinstall": "echo Dependencies installed successfully",
+    "show-litlabs-website": "powershell.exe -ExecutionPolicy Bypass -File ./scripts/Start-LitlabsWeb.ps1",
+    "bots-manager": "node scripts/run-bot-manager.js",
+    "seed": "tsx scripts/seed-database.ts",
+    "seed:check": "tsx scripts/check-seed-status.ts",
+    "upwork:assist": "python scripts/upwork_assist.py",
+    "scan:push": "node scripts/scan-push-system.js",
+    "scan:push:free": "node scripts/scan-push-system.js --free",
+    "scan:push:pro": "node scripts/scan-push-system.js --pro",
+    "scan:push:ps1": "powershell.exe -ExecutionPolicy Bypass -File ./scripts/scan-push-system.ps1",
+    "scan:push:ps1:free": "powershell.exe -ExecutionPolicy Bypass -File ./scripts/scan-push-system.ps1 -Free",
+    "scan:push:ps1:pro": "powershell.exe -ExecutionPolicy Bypass -File ./scripts/scan-push-system.ps1 -Pro"
+  },
+  "dependencies": {
+    "@types/formidable": "^3.4.6",
+    "dotenv": "^17.2.3",
+    "formidable": "^3.5.4",
+    "jsonwebtoken": "^9.0.3",
+    "jwks-rsa": "^3.2.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "glob": "^11.0.0",
+      "inflight": "npm:@zkochan/inflight@^2.0.0"
+    }
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^25.0.3",
+    "@types/react": "^18.2.75",
+    "@types/react-dom": "^18.2.25",
+    "@types/three": "^0.182.0",
+    "serve": "^14.2.5",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.21.0"
+>>>>>>> 80d4a58b8a10d837a0d55619405529a6ed92b24f
+  }
+}

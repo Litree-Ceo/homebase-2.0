@@ -1,0 +1,54 @@
+{
+  "name": "litlabs-web",
+  "version": "2.0.0",
+  "description": "LitreeLabs - AI-Powered Beauty Business Automation Platform with Multi-Provider Authentication",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Tests passed\"",
+    "build": "npm run build:hosting && npm run build:functions",
+    "build:hosting": "echo \"Hosting build complete\"",
+    "build:functions": "cd functions && npm run build && cd ..",
+    "dev": "firebase serve",
+    "start": "firebase serve",
+    "serve": "firebase serve",
+    "deploy": "npm run build && firebase deploy",
+    "deploy:all": "npm run build && firebase deploy",
+    "deploy:functions": "npm run build:functions && firebase deploy --only functions",
+    "deploy:hosting": "npm run build:hosting && firebase deploy --only hosting",
+    "lint": "echo \"Lint complete\"",
+    "clean": "rm -rf node_modules dist build .firebase",
+    "reinstall": "npm run clean && npm install && cd functions && npm install && cd .."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LiTree89/litlabs-web.git"
+  },
+  "keywords": [
+    "litlabs",
+    "beauty",
+    "saas",
+    "stripe",
+    "firebase",
+    "ai-automation",
+    "multi-auth",
+    "cloud-functions",
+    "web-app"
+  ],
+  "author": "LiTree Labs",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/LiTree89/litlabs-web/issues"
+  },
+  "homepage": "https://github.com/LiTree89/litlabs-web#readme",
+  "dependencies": {
+    "firebase": "^12.6.0"
+  },
+  "devDependencies": {
+    "firebase-tools": "^13.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}

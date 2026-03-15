@@ -1,0 +1,46 @@
+---
+exclude-paths:
+  - ".git/**"
+  - "node_modules/**"
+  - ".next/**"
+  - "build/**"
+  - "dist/**"
+  - ".vercel/**"
+  - "coverage/**"
+  - "*.min.js"
+
+exclude-patterns:
+  - "(^|/)vendor/"
+  - "(^|/).git/"
+
+languages:
+  JavaScript:
+    pattern: '\.js$'
+  TypeScript:
+    pattern: '\.ts$|\.tsx$'
+  CSS:
+    pattern: '\.css$|\.scss$|\.sass$|\.less$'
+
+tools:
+  ESLint:
+    enabled: true
+    python: false
+  JSHint:
+    enabled: false
+  Pylint:
+    enabled: false
+  Stylelint:
+    enabled: true
+  Prettier:
+    enabled: true
+
+issues:
+  threshold: 10
+  exclude-paths:
+    - node_modules
+    - .next
+    - build
+
+coverage:
+  enabled: true
+  threshold: 50

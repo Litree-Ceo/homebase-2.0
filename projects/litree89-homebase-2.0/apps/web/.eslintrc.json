@@ -1,0 +1,43 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": ["eslint:recommended"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "ignorePatterns": [
+    ".next",
+    "dist",
+    "node_modules",
+    ".vercel",
+    "coverage",
+    "build",
+    "src/**/*.jsx",
+    "src/pages/metaverse.tsx",
+    "src/pages/.eslintrc.metaverse.js",
+    "src/hooks/useSmartFeatures.ts",
+    "src/components/media/VideoPlayer.tsx",
+    "src/components/media/MediaLibrary.tsx",
+    "src/components/media/WatchParty.tsx",
+    "src/components/social/UserProfile.tsx",
+    "src/components/social/SocialFeed.tsx",
+    "src/components/SubscriptionManager.jsx",
+    "src/lib/auth/AuthProvider.tsx"
+  ],
+  "rules": {
+    "no-unused-vars": "off",
+    "no-undef": "off",
+    "no-nested-ternary": "off",
+    "no-constant-condition": "off",
+    "no-inner-declarations": "off",
+    "prefer-const": "warn"
+  }
+}

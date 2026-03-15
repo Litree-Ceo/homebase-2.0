@@ -1,0 +1,55 @@
+# Git
+.git
+.gitignore
+.gitmodules
+.github
+
+# Node modules
+**/node_modules
+**/.next
+**/dist
+**/.cache
+
+# Logs
+**/*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Environment
+**/.env
+**/.env.local
+**/.env.*.local
+**/local.settings.json
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+**/coverage
+**/.nyc_output
+**/__pycache__
+**/*.pyc
+
+# Large folders to exclude
+EverythingHomebase/
+workspace/
+docs/
+ai-models/
+apps/desktop/
+apps/mobile/
+projects/
+
+# Keep only what's needed for Docker build
+!api/
+!apps/web/
+!packages/core/
+!pnpm-workspace.yaml
+!pnpm-lock.yaml

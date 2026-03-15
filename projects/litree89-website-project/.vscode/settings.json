@@ -1,0 +1,74 @@
+{
+    "tasks.runOnOpen": "Sync and Setup Project",
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "terminal.integrated.splitCwd": "workspaceRoot",
+    "workbench.colorCustomizations": {},
+    "workbench.colorTheme": "Default Dark Modern",
+    "window.autoDetectColorScheme": true,
+    "workbench.preferredDarkColorTheme": "Default Dark Modern",
+    "workbench.preferredLightColorTheme": "Default Light Modern",
+}
+// --- TERMINAL ---
+"terminal.integrated.defaultProfile.windows": "PowerShell",
+"terminal.integrated.profiles.windows": {
+    "Command Prompt": {
+        "path": [
+            "${env:windir}\\System32\\cmd.exe"
+        ],
+        "args": []
+    },
+    "PowerShell": {
+        "path": [
+            "${env:ProgramFiles}\\PowerShell\\7\\pwsh.exe",
+            "${env:windir}\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+        ],
+        "args": []
+    },
+    "Git Bash": {
+        "source": "Git Bash"
+    }
+},
+"terminal.integrated.inheritEnv": true,
+"terminal.integrated.env.windows": {},
+"terminal.integrated.shellIntegration.enabled": true,
+"terminal.integrated.enablePersistentSessions": true,
+"terminal.integrated.showExitAlert": true,
+"terminal.integrated.windowsEnableConpty": true,
+"terminal.integrated.fontFamily": "Cascadia Code, Consolas, 'Courier New', monospace",
+"terminal.integrated.fontSize": 14,
+"terminal.integrated.copyOnSelection": true,
+// --- EDITOR ---
+"editor.fontFamily": "Cascadia Code, Consolas, 'Courier New', monospace",
+"editor.fontSize": 16,
+"editor.tabSize": 2,
+"editor.insertSpaces": true,
+"editor.wordWrap": "on",
+"editor.minimap.enabled": true,
+"editor.formatOnSave": true,
+"editor.renderWhitespace": "all",
+"editor.smoothScrolling": true,
+"editor.cursorSmoothCaretAnimation": "on",
+"editor.guides.bracketPairs": true,
+// --- FILES ---
+"files.autoSave": "onWindowChange",
+"files.trimTrailingWhitespace": true,
+"files.insertFinalNewline": true,
+"files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/node_modules": true,
+    "**/dist": true
+},
+// --- SEARCH ---
+"search.useIgnoreFiles": true,
+"search.useGlobalIgnoreFiles": true,
+// --- EXPLORER ---
+"explorer.confirmDelete": false,
+"explorer.confirmDragAndDrop": false,
+// --- UI ---
+// "workbench.colorTheme": "Best Themes - Shades of Purple (Super Dark)",
+"workbench.iconTheme": "vs-seti",
+"workbench.startupEditor": "none",
+"workbench.editor.enablePreview": false,
+"breadcrumbs.enabled": true
+}

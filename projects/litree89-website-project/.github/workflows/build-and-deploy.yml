@@ -1,0 +1,50 @@
+name: Build and Deploy
+
+on:
+    push:
+        branches:
+            - main # or your default branch
+    pull_request:
+
+env:
+    AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+    AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+    AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+    AZURE_FUNCTION_APP_NAME: ${{ secrets.AZURE_FUNCTION_APP_NAME }}
+    AZURE_BACKEND_APP_NAME: ${{ secrets.AZURE_BACKEND_APP_NAME }}
+    AZURE_COPILOT_APP_NAME: ${{ secrets.AZURE_COPILOT_APP_NAME }}
+    AZURE_STATIC_WEB_APPS_API_TOKEN_PROD: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_PROD }}
+    AZURE_STATIC_WEB_APPS_API_TOKEN_PREVIEW: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_PREVIEW }}
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Azure Login (OIDC)
+              uses: azure/login@v2
+              with:
+                  client-id: ${{ secrets.AZURE_CLIENT_ID }}
+                  tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+                  subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: "20"
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Build the project
+              run: npm run build
+
+            # Optionally, deploy to Azure (Web App, Static Web App, etc.)
+            # - name: 'Deploy to Azure WebApp'
+            #   uses: azure/webapps-deploy@v2
+            #   with:
+            #     app-name: ${{ secrets.AZURE_BACKEND_APP_NAME }}
+            #     slot-name: 'production'
+            #     publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}

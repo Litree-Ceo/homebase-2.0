@@ -1,0 +1,30 @@
+# Android app (not needed for web deployment)
+android-app/
+
+# Development files
+*.log
+.env.local
+.env*.local
+
+# Build artifacts
+.next/cache/
+node_modules/
+
+# Testing
+coverage/
+.nyc_output/
+
+# Git
+.git/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Large assets that should be served from CDN
+*.apk
+*.aab

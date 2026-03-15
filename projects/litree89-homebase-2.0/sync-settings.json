@@ -1,0 +1,9 @@
+{
+  "syncIntervalMinutes": 5,
+  "logFile": "auto-git-sync.log",
+  "enableAutoGitSync": true,
+  "enableDailySync": true,
+  "dailySyncTime": "18:00",
+  "enableAgentAutoStart": true,
+  "agentStartupScript": "start-cooking-agent.bat"
+}

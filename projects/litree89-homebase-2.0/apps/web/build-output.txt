@@ -1,0 +1,41 @@
+ΓÇëWARNΓÇë Unsupported engine: wanted: {"node":"20.x"} (current: {"node":"v24.12.0","pnpm":"9.15.4"})
+
+> web@0.1.0 build E:\VSCode\HomeBase 2.0\apps\web
+> next build
+
+Γû▓ Next.js 16.1.1 (Turbopack)
+- Environments: .env.local
+
+  Creating an optimized production build ...
+Turbopack build encountered 1 warnings:
+./apps/web/src/app/api/upload/route.ts:89:14
+Next.js can't recognize the exported `config` field in route. Page config in `config` is deprecated and ignored, use individual exports instead.
+  87 |
+  88 | // Configure for large file uploads
+> 89 | export const config = {
+     |              ^^^^^^
+  90 |   api: {
+  91 |     bodyParser: {
+  92 |       sizeLimit: '50mb',
+
+The exported configuration object in a source file needs to have a very specific format from which some properties can be statically parsed at compiled-time.
+
+https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
+
+
+Γ£ô Compiled successfully in 14.6s
+  Running TypeScript ...
+Failed to compile.
+
+./src/app/friends/page.tsx:190:18
+Type error: Cannot find name 'UserCard'.
+
+  188 |             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+  189 |               {suggestedUsers.map(u => (
+> 190 |                 <UserCard key={u.id} user={u} />
+      |                  ^
+  191 |               ))}
+  192 |             </div>
+  193 |           )}
+Next.js build worker exited with code: 1 and signal: null
+ΓÇëELIFECYCLEΓÇë Command failed with exit code 1.

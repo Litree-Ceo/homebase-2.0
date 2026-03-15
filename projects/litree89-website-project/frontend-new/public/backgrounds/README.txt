@@ -1,0 +1,1 @@
+Drop your hero/abstract gradient backgrounds here as JPG or PNG.

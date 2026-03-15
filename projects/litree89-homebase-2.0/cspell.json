@@ -1,0 +1,28 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "homebase",
+    "litree",
+    "litlabs",
+    "kvprodlitree",
+    "azurite",
+    "pnpm",
+    "monorepo",
+    "bicep",
+    "cosmosdb",
+    "keyvault",
+    "signalr",
+    "grok",
+    "tailwindcss",
+    "nextjs"
+  ],
+  "ignorePaths": [
+    "node_modules/**",
+    "pnpm-lock.yaml",
+    "**/dist/**",
+    "**/.next/**",
+    "**/__blobstorage__/**",
+    "**/__azurite_db_*"
+  ]
+}

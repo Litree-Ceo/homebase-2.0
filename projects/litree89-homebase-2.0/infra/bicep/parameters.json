@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "value": "eastus"
+    },
+    "resourceGroupName": {
+      "value": "litreelabstudio-rg"
+    },
+    "cosmosAccountName": {
+      "value": "litlab-cosmos"
+    },
+    "keyVaultName": {
+      "value": "kvprodlitree14210"
+    },
+    "functionAppName": {
+      "value": "litlabs-func-app-prod"
+    },
+    "functionStorageAccountName": {
+      "value": "litlabsfuncsa"
+    },
+    "blobStorageAccountName": {
+      "value": "litlabsblobsa"
+    },
+    "signalrConnection": {
+      "value": "REPLACE_ME"
+    },
+    "grokApiKey": {
+      "value": "REPLACE_ME"
+    }
+  }
+}

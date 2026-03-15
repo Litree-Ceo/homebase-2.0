@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LITLAB - Media Platform</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+</body>
+</html>
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        p {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin-right: 10px;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 10px;
+            display: none;
+        }
+        .result.show {
+            display: block;
+        }
+        .result h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        .result pre {
+            background: #333;
+            color: #0f0;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Azure Full-Stack App</h1>
+        <p>Your website with serverless backend API</p>
+        
+        <button class="btn" onclick="testAPI()">Test API</button>
+        <button class="btn" onclick="getUserData()">Get User Data</button>
+        
+        <div id="result" class="result">
+            <h3>API Response:</h3>
+            <pre id="response"></pre>
+        </div>
+    </div>
+
+    <script>
+        async function testAPI() {
+            const resultDiv = document.getElementById('result');
+            const responseDiv = document.getElementById('response');
+            
+            try {
+                const response = await fetch('/api/hello');
+                const data = await response.json();
+                responseDiv.textContent = JSON.stringify(data, null, 2);
+                resultDiv.classList.add('show');
+            } catch (error) {
+                responseDiv.textContent = 'Error: ' + error.message;
+                resultDiv.classList.add('show');
+            }
+        }
+
+        async function getUserData() {
+            const resultDiv = document.getElementById('result');
+            const responseDiv = document.getElementById('response');
+            
+            try {
+                const response = await fetch('/api/users');
+                const data = await response.json();
+                responseDiv.textContent = JSON.stringify(data, null, 2);
+                resultDiv.classList.add('show');
+            } catch (error) {
+                responseDiv.textContent = 'Error: ' + error.message;
+                resultDiv.classList.add('show');
+            }
+        }
+    </script>
+</body>
+</html>

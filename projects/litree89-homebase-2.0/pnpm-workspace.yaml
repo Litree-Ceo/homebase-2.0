@@ -1,0 +1,9 @@
+# HomeBase 2.0 - Unified Workspace
+# Primary API: api/ (Azure Functions v4 TypeScript)
+# Frontend: apps/web/ (Next.js)
+# Shared: packages/core/ (utilities)
+
+packages:
+  - 'api'
+  - 'apps/*'
+  - 'packages/core'

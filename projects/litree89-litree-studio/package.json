@@ -1,0 +1,26 @@
+{
+  "name": "litreestudio",
+  "version": "1.0.0",
+  "description": "LiTree Studio - Full-Stack Azure App",
+  "scripts": {
+    "install:all": "npm install && cd app && npm install && cd ../api && npm install",
+    "build": "cd app && npm run build",
+    "dev": "npm install && cd app && npm install && npm run dev",
+    "api:start": "cd api && npm start",
+    "api:install": "cd api && npm install",
+    "app:build": "cd app && npm run build",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "test:app": "cd app && npm run test",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "type-check": "tsc --noEmit",
+    "start:all": "concurrently \"npm run dev\" \"npm run api:start\"",
+    "clean": "rimraf dist app/dist .vite .eslintcache"
+  },
+  "keywords": ["azure", "static-web-apps", "functions"],
+  "author": "LiTree89",
+  "license": "MIT"
+}

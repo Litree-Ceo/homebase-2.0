@@ -1,0 +1,48 @@
+body {
+  background-color: #f4f4f4;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  color: #fff;
+  text-align: center;
+  background: #35424a;
+  padding: 10px 0;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+
+nav {
+  margin: 20px 0;
+}
+
+nav a {
+  color: #fff;
+  margin: 0 15px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.footer {
+  color: #fff;
+  text-align: center;
+  background: #35424a;
+  width: 100%;
+  padding: 10px 0;
+  position: relative;
+  bottom: 0;
+}
+/*# sourceMappingURL=website-project.5525e4b8.css.map */

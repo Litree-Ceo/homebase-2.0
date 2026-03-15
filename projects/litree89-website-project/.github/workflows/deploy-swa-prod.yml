@@ -1,0 +1,47 @@
+# Professional GitHub Actions Workflow for Azure Static Web Apps (Production)
+# Deploys frontend/ to litlab-swa-prod using OIDC authentication
+
+name: Deploy SWA (prod frontend)
+
+env:
+    AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+    AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+    AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+    AZURE_FUNCTION_APP_NAME: ${{ secrets.AZURE_FUNCTION_APP_NAME }}
+    AZURE_BACKEND_APP_NAME: ${{ secrets.AZURE_BACKEND_APP_NAME }}
+    AZURE_COPILOT_APP_NAME: ${{ secrets.AZURE_COPILOT_APP_NAME }}
+    AZURE_STATIC_WEB_APPS_API_TOKEN_PROD: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_PROD }}
+    AZURE_STATIC_WEB_APPS_API_TOKEN_PREVIEW: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_PREVIEW }}
+
+on:
+    push:
+        branches: ["main"]
+        paths:
+            - "frontend/**"
+            - ".github/workflows/deploy-swa-prod.yml"
+
+jobs:
+    build_and_deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: "20"
+
+            - name: Install
+              run: npm ci
+              working-directory: frontend
+
+            - name: Build
+              run: npm run build
+              working-directory: frontend
+
+            - name: Deploy
+              uses: Azure/static-web-apps-deploy@v1
+              with:
+                  azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_PROD }}
+                  repo_token: ${{ secrets.GITHUB_TOKEN }}
+                  app_location: "frontend"
+                  output_location: "dist"

@@ -1,0 +1,22 @@
+{
+  "name": "website-project",
+  "version": "1.0.0",
+  "description": "A simple website project.",
+  "main": "src/scripts/main.js",
+  "scripts": {
+    "dev": "live-server public",
+    "start": "serve public -l 5000",
+    "build": "parcel build src/index.html --dist-dir public",
+    "test": "echo 'Running tests...'"
+  },
+  "keywords": [],
+  "author": "Larry Bol <dyingbreed243@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "parcel": "^2.11.0",
+    "serve": "^14.2.0"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}

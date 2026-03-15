@@ -1,0 +1,32 @@
+FROM node:20-alpine as builder
+
+WORKDIR /app
+
+# Install global tools
+RUN npm install -g pnpm
+
+# Copy package files
+COPY package*.json pnpm-lock.yaml ./
+COPY packages ./packages
+COPY apps ./apps
+
+# Install dependencies and build
+RUN pnpm install --frozen-lockfile
+RUN pnpm -C apps/web build
+
+# Runtime stage
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Install serve to run Next.js
+RUN npm install -g serve
+
+# Copy built Next.js from builder
+COPY --from=builder /app/apps/web/.next ./.next
+COPY --from=builder /app/apps/web/public ./public
+COPY --from=builder /app/apps/web/package.json ./package.json
+
+# Start web server
+EXPOSE 3000
+CMD ["serve", "-s", ".next", "-l", "3000"]

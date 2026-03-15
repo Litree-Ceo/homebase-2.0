@@ -1,0 +1,42 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Sync, Install, and Build All",
+      "type": "shell",
+      "command": "git pull; npm install; cd frontend; npm install; npm run build; cd ../frontend-new; npm install; npm run build; cd ../services/copilot-engine; npm install; npm run build; cd ../../..",
+      "problemMatcher": [],
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "Deploy Frontend to Azure Static Web App",
+      "type": "shell",
+      "command": "az staticwebapp deploy --name litlabstudio-frontend --resource-group LitreeLabstudio --source frontend --output json",
+      "problemMatcher": [],
+      "group": "build"
+    },
+    {
+      "label": "Deploy Backend to Azure App Service",
+      "type": "shell",
+      "command": "git push https://litlabstudio-backend.scm.azurewebsites.net/litlabstudio-backend.git main:master",
+      "problemMatcher": [],
+      "group": "build"
+    },
+    {
+      "label": "Show Frontend Status",
+      "type": "shell",
+      "command": "az staticwebapp show --name litlabstudio-frontend --resource-group LitreeLabstudio --output table",
+      "problemMatcher": []
+    },
+    {
+      "label": "Show Backend Status",
+      "type": "shell",
+      "command": "az webapp show --name litlabstudio-backend --resource-group LitreeLabstudio --output table",
+      "problemMatcher": []
+    }
+  ]
+}

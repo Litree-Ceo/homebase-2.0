@@ -1,0 +1,110 @@
+### HomeBase Bot System - REST API Tests
+### Run with REST Client extension (humao.rest-client)
+
+@baseUrl = http://localhost:7071/api
+
+# ═══════════════════════════════════════════════════════════════════
+# BOT MANAGEMENT
+# ═══════════════════════════════════════════════════════════════════
+
+### List all bots
+GET {{baseUrl}}/bots HTTP/1.1
+
+### Get bot signals (recent opportunities/alerts)
+GET {{baseUrl}}/bots/signals?limit=20 HTTP/1.1
+
+# ═══════════════════════════════════════════════════════════════════
+# MANUAL BOT EXECUTION
+# ═══════════════════════════════════════════════════════════════════
+
+### Run ALL bots manually (quick scan)
+POST {{baseUrl}}/bots/run-all HTTP/1.1
+Content-Type: application/json
+
+### Run specific bot: Price Alert
+POST {{baseUrl}}/bots/demo-price-alert/run HTTP/1.1
+Content-Type: application/json
+
+### Run specific bot: Opportunity Detector
+POST {{baseUrl}}/bots/demo-opportunity/run HTTP/1.1
+Content-Type: application/json
+
+### Run specific bot: SMA Crossover
+POST {{baseUrl}}/bots/sma-crossover-bot/run HTTP/1.1
+Content-Type: application/json
+
+# ═══════════════════════════════════════════════════════════════════
+# PAPER TRADING
+# ═══════════════════════════════════════════════════════════════════
+
+### Get paper trading portfolio
+GET {{baseUrl}}/bots/portfolio HTTP/1.1
+
+### Paper trade: BUY $100 of Bitcoin
+POST {{baseUrl}}/bots/portfolio/trade HTTP/1.1
+Content-Type: application/json
+
+{
+  "side": "buy",
+  "coinId": "bitcoin",
+  "amountUsd": 100
+}
+
+### Paper trade: BUY $50 of Ethereum
+POST {{baseUrl}}/bots/portfolio/trade HTTP/1.1
+Content-Type: application/json
+
+{
+  "side": "buy",
+  "coinId": "ethereum",
+  "amountUsd": 50
+}
+
+### Paper trade: BUY $25 of Solana
+POST {{baseUrl}}/bots/portfolio/trade HTTP/1.1
+Content-Type: application/json
+
+{
+  "side": "buy",
+  "coinId": "solana",
+  "amountUsd": 25
+}
+
+### Paper trade: SELL all Bitcoin
+POST {{baseUrl}}/bots/portfolio/trade HTTP/1.1
+Content-Type: application/json
+
+{
+  "side": "sell",
+  "coinId": "bitcoin"
+}
+
+### Paper trade: SELL specific amount of ETH
+POST {{baseUrl}}/bots/portfolio/trade HTTP/1.1
+Content-Type: application/json
+
+{
+  "side": "sell",
+  "coinId": "ethereum",
+  "coinAmount": 0.25
+}
+
+# ═══════════════════════════════════════════════════════════════════
+# CRYPTO PRICES (existing endpoint)
+# ═══════════════════════════════════════════════════════════════════
+
+### Get default prices (BTC, ETH, SOL)
+GET {{baseUrl}}/crypto HTTP/1.1
+
+### Get specific coins
+GET {{baseUrl}}/crypto?ids=bitcoin,ethereum,solana,cardano,polkadot HTTP/1.1
+
+### Get meme coins
+GET {{baseUrl}}/crypto?ids=dogecoin,shiba-inu,pepe,bonk,floki HTTP/1.1
+
+# ═══════════════════════════════════════════════════════════════════
+# HEALTH CHECK
+# ═══════════════════════════════════════════════════════════════════
+
+### Health endpoint
+GET {{baseUrl}}/health HTTP/1.1

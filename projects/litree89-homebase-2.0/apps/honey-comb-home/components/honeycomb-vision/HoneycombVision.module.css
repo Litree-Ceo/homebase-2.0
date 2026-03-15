@@ -1,0 +1,224 @@
+.honeycombVision {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.honeycombGrid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.honeycombCell {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: pulse 4s infinite ease-in-out;
+}
+
+.honeycombCell:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 20px currentColor;
+}
+
+.dripContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.drip {
+  animation: drip-fall 3s linear forwards;
+  filter: drop-shadow(0 0 5px currentColor);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  pointer-events: none;
+}
+
+.scanLine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.8),
+    transparent
+  );
+  animation: scan 2s linear infinite;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.gridOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.3;
+  animation: grid-move 10s linear infinite;
+}
+
+.statusIndicator {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid #800080;
+  border-radius: 8px;
+  padding: 10px 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px #800080;
+}
+
+.statusPulse {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: status-pulse 2s infinite;
+}
+
+.statusText {
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  color: #ffd700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes drip-fall {
+  from {
+    transform: translateY(-20px) scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(100vh) scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes scan {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes grid-move {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}
+
+@keyframes status-pulse {
+  0%, 100% {
+    box-shadow: 0 0 5px #ffd700;
+  }
+  50% {
+    box-shadow: 0 0 20px #ffd700;
+  }
+}
+
+/* Color schemes */
+.black-purple-gold-yellow .honeycombCell {
+  background: linear-gradient(45deg, #800080, #ffd700);
+  border-color: #ffff00;
+}
+
+.black-purple-gold-yellow .drip {
+  color: #800080;
+  text-shadow: 0 0 10px #ffd700;
+}
+
+.black-purple-gold-yellow .scanLine {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #ffff00,
+    transparent
+  );
+  box-shadow: 0 0 10px #ffff00;
+}
+
+.black-purple-gold-yellow .statusIndicator {
+  border-color: #800080;
+  box-shadow: 0 0 20px #800080;
+}
+
+.black-purple-gold-yellow .statusText {
+  color: #ffff00;
+  text-shadow: 0 0 5px #800080;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .statusIndicator {
+    bottom: 10px;
+    right: 10px;
+    padding: 8px 16px;
+  }
+  
+  .statusText {
+    font-size: 12px;
+  }
+  
+  .honeycombCell {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .honeycombCell {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .drip {
+    font-size: 16px;
+  }
+}

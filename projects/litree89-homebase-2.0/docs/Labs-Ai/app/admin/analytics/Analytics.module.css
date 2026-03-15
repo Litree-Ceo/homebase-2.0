@@ -1,0 +1,21 @@
+.analyticsContainer {
+    padding: 2rem;
+    background: #181818;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px 0 #000a;
+    margin: 2rem 0;
+}
+
+.analyticsCard {
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    background: #232323;
+    color: #fff;
+    box-shadow: 0 2px 12px 0 #0005;
+}
+
+.analyticsHighlight {
+    color: #FFD700;
+    font-weight: bold;
+}

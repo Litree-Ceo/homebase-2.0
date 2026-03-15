@@ -1,0 +1,44 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "FUNCTIONS_NODE_BLOCK_ON_ENTRY_POINT_ERROR": "true",
+
+    "// DATABASE": "─────────────────────────────────────",
+    "COSMOS_ENDPOINT": "https://localhost:8081",
+    "COSMOS_KEY": "YOUR_COSMOS_KEY_HERE",
+    "COSMOS_DATABASE": "homebase",
+
+    "// STORAGE": "─────────────────────────────────────",
+    "BLOB_CONNECTION_STRING": "UseDevelopmentStorage=true",
+
+    "// AZURE": "─────────────────────────────────────",
+    "KEY_VAULT_URI": "https://YOUR_VAULT.vault.azure.net/",
+    "APPLICATIONINSIGHTS_CONNECTION_STRING": "",
+
+    "// NOTIFICATIONS": "─────────────────────────────────────",
+    "DISCORD_WEBHOOK_URL": "",
+    "WEBHOOK_URL": "",
+    "TWILIO_ACCOUNT_SID": "",
+    "TWILIO_AUTH_TOKEN": "",
+    "TWILIO_PHONE_FROM": "",
+    "TWILIO_PHONE_TO": "",
+
+    "// EXCHANGE (for trading bots)": "─────────────────────────────────────",
+    "EXCHANGE_NAME": "binance",
+    "EXCHANGE_API_KEY": "",
+    "EXCHANGE_SECRET": "",
+    "EXCHANGE_SANDBOX": "true",
+
+    "// EXTERNAL APIs": "─────────────────────────────────────",
+    "COINGECKO_API_KEY": "",
+    "PADDLE_WEBHOOK_SECRET": "",
+    "PADDLE_ENV": "sandbox"
+  },
+  "Host": {
+    "CORS": "http://localhost:3000,http://127.0.0.1:3000,http://192.168.0.111:3000",
+    "CORSCredentials": false,
+    "LocalHttpPort": 7071
+  }
+}

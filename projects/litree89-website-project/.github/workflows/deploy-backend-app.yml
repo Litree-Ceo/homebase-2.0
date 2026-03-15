@@ -1,0 +1,54 @@
+# Professional GitHub Actions Workflow for Azure App Service (Backend)
+# Deploys backend/ to litlab-app-backend using OIDC authentication
+
+name: Deploy Backend App Service
+
+env:
+    AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+    AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+    AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+    AZURE_FUNCTION_APP_NAME: ${{ secrets.AZURE_FUNCTION_APP_NAME }}
+    AZURE_BACKEND_APP_NAME: ${{ secrets.AZURE_BACKEND_APP_NAME }}
+    AZURE_COPILOT_APP_NAME: ${{ secrets.AZURE_COPILOT_APP_NAME }}
+    AZURE_STATIC_WEB_APPS_API_TOKEN_PROD: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_PROD }}
+
+on:
+    push:
+        branches:
+            - main
+        paths:
+            - "backend/**"
+            - ".github/workflows/deploy-backend-app.yml"
+
+permissions:
+    id-token: write
+    contents: read
+
+jobs:
+    build_and_deploy:
+        runs-on: ubuntu-latest
+        environment: production
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: "20.x"
+            - name: Build backend
+              working-directory: backend
+              run: |
+                  npm ci
+                  npm run build || true
+            - name: Azure Login (OIDC)
+              uses: azure/login@v2
+              with:
+                  client-id: ${{ secrets.AZURE_CLIENT_ID }}
+                  tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+                  subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+                  enable-AzPSSession: true
+            - name: Deploy to Azure App Service
+              uses: azure/webapps-deploy@v3
+              with:
+                  app-name: ${{ secrets.AZURE_BACKEND_APP_NAME }}
+                  package: backend

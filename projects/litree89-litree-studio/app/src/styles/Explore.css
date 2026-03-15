@@ -1,0 +1,113 @@
+/* Explore Page Styling */
+.explore-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 40px 20px;
+}
+
+.explore-header {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.explore-header h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.explore-header p {
+  font-size: 18px;
+  color: #666;
+}
+
+.explore-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.tab {
+  background: white;
+  border: 2px solid #ddd;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s;
+  border-radius: 20px;
+}
+
+.tab:hover {
+  border-color: #667eea;
+}
+
+.tab.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: transparent;
+}
+
+.explore-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.card p {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.card small {
+  color: #667eea;
+  font-size: 12px;
+}
+
+.placeholder {
+  text-align: center;
+  padding: 100px 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.placeholder p {
+  font-size: 24px;
+  color: #666;
+}

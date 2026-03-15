@@ -1,0 +1,83 @@
+# Dependencies
+node_modules/
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Environment variables
+.env
+.env.local
+.env.local.*
+.env.production.local
+.env.test.local
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+coverage/
+
+# IDE/Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Firebase
+.firebase/
+.firebaserc
+functions/node_modules/
+
+# Testing
+jest.config.js
+.nyc_output/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+Thumbs.db
+.env.docker
+.env.local.backup*
+
+# User-specific files (Windows)
+*.DAT
+*.TM.blf
+*.regtrans-ms
+.aitk/
+.wallaby/
+.copilot/
+.android/
+.cargo/
+.cache/
+.config/
+.docker/
+.gnupg/
+.gradle/
+.lldb/
+.m2/
+.minttyrc
+.ollama/
+.python_history
+.quokka/
+.redhat/
+.rustup/
+AppData/
+Downloads/
+source/
+stripe-cli/
+stripe.exe
+ntuser.dat.*
+.bash_history
+.gitconfig
+
+
+#Ignore vscode AI rules
+.github\instructions\codacy.instructions.md

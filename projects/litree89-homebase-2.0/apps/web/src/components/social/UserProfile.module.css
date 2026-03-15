@@ -1,0 +1,29 @@
+.coverPhotoContainer {
+  height: 12rem; /* h-48 */
+  border-radius: 1.5rem 1.5rem 0 0; /* rounded-t-3xl */
+}
+
+.coverPhotoContainer.withImage {
+  background-size: cover;
+  background-position: center;
+}
+
+.coverPhotoContainer.noImage {
+  background: linear-gradient(
+    to right,
+    rgb(120, 53, 15, 0.4),
+    rgb(124, 45, 6, 0.4)
+  ); /* from-amber-900/40 to-orange-900/40 */
+}
+
+.coverPhotoContainer.withDynamicBg {
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+}
+
+@media (min-width: 768px) {
+  .coverPhotoContainer {
+    height: 16rem; /* md:h-64 */
+  }
+}
