@@ -1,0 +1,27 @@
+# Core
+fastapi
+uvicorn[standard]
+
+# Database
+sqlalchemy
+asyncpg
+aiosqlite
+
+# API & Validation
+pydantic[email]
+pydantic-settings
+python-dotenv
+
+# Security
+python-jose[cryptography]
+passlib[bcrypt]
+
+# Performance
+
+# Utilities
+httpx
+psutil
+pynvml
+paramiko
+structlog
+prometheus-client

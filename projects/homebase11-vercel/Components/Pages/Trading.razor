@@ -1,0 +1,403 @@
+@page "/trading"
+@rendermode InteractiveServer
+
+<PageTitle>HomeBase 11 | Trading</PageTitle>
+
+<div class="trading-container p-5">
+    <div class="d-flex justify-content-between align-items-center mb-5">
+        <div>
+            <h1 class="brand-text">TRADING <span class="version">HUB</span></h1>
+            <p class="subtitle text-uppercase">Markets & Analytics</p>
+        </div>
+        <div class="header-stats">
+            <div class="portfolio-value">
+                <span class="label">Portfolio Value</span>
+                <span class="value">$@portfolioValue.ToString("N0")</span>
+            </div>
+            <div class="profit @((profit >= 0) ? "positive" : "negative")">
+                <span>@(profit >= 0 ? "+" : "")@profit%</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4 mb-5">
+        <div class="col-md-3">
+            <div class="stat-glass text-center">
+                <div class="stat-value">@activeTrades</div>
+                <div class="stat-label">ACTIVE TRADES</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-glass text-center">
+                <div class="stat-value">$@dailyProfit.ToString("N0")</div>
+                <div class="stat-label text-success">TODAY'S PROFIT</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-glass text-center">
+                <div class="stat-value">@winRate%</div>
+                <div class="stat-label">WIN RATE</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-glass text-center">
+                <div class="stat-value">@botsRunning</div>
+                <div class="stat-label">BOTS RUNNING</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-8">
+            <div class="content-glass p-4 mb-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="section-title mb-0">MARKET OVERVIEW</h3>
+                    <div class="time-selector">
+                        <button class="time-btn">1H</button>
+                        <button class="time-btn">24H</button>
+                        <button class="time-btn active">7D</button>
+                        <button class="time-btn">1M</button>
+                    </div>
+                </div>
+
+                <div class="chart-placeholder">
+                    <div class="chart-line" style="height: 40%;"></div>
+                    <div class="chart-grid">
+                        @for (int i = 0; i < 7; i++)
+                        {
+                            <div class="grid-line"></div>
+                        }
+                    </div>
+                    <div class="chart-labels">
+                        <span>Mon</span>
+                        <span>Tue</span>
+                        <span>Wed</span>
+                        <span>Thu</span>
+                        <span>Fri</span>
+                        <span>Sat</span>
+                        <span>Sun</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-glass p-4">
+                <h3 class="section-title">YOUR POSITIONS</h3>
+                <div class="positions-table mt-4">
+                    @foreach (var position in positions)
+                    {
+                        <div class="position-row">
+                            <div class="position-asset">
+                                <div class="asset-icon" style="background: @position.Color">@position.Icon</div>
+                                <div class="asset-info">
+                                    <div class="asset-name">@position.Name</div>
+                                    <div class="asset-amount">@position.Amount @position.Symbol</div>
+                                </div>
+                            </div>
+                            <div class="position-price">
+                                <div class="price">$@position.Price.ToString("N2")</div>
+                                <div class="change @((position.Change >= 0) ? "positive" : "negative")">
+                                    @(position.Change >= 0 ? "+" : "")@position.Change%
+                                </div>
+                            </div>
+                            <div class="position-value">
+                                <div class="value">$@position.Value.ToString("N2")</div>
+                                <div class="pnl @((position.PnL >= 0) ? "positive" : "negative")">
+                                    @(position.PnL >= 0 ? "+" : "")$@position.PnL.ToString("N2")
+                                </div>
+                            </div>
+                            <button class="trade-btn">TRADE</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="content-glass p-4 mb-4">
+                <h3 class="section-title">ACTIVE BOTS</h3>
+                <div class="bots-list mt-4">
+                    @foreach (var bot in bots)
+                    {
+                        <div class="bot-item">
+                            <div class="bot-info">
+                                <div class="bot-name">@bot.Name</div>
+                                <div class="bot-status @bot.Status">@bot.StatusText</div>
+                            </div>
+                            <div class="bot-profit @((bot.Profit >= 0) ? "positive" : "negative")">
+                                @(bot.Profit >= 0 ? "+" : "")$@bot.Profit.ToString("N2")}
+                            </div>
+                        </div>
+                    }
+                </div>
+                <button class="add-bot-btn">+ ADD BOT</button>
+            </div>
+
+            <div class="content-glass p-4">
+                <h3 class="section-title">QUICK TRADE</h3>
+                <div class="quick-trade mt-4">
+                    <div class="trade-tabs">
+                        <button class="trade-tab active">BUY</button>
+                        <button class="trade-tab">SELL</button>
+                    </div>
+                    <select class="glass-select">
+                        <option>Bitcoin (BTC)</option>
+                        <option>Ethereum (ETH)</option>
+                        <option>Solana (SOL)</option>
+                    </select>
+                    <input type="number" class="glass-input" placeholder="Amount" />
+                    <div class="trade-summary">
+                        <div class="summary-row">
+                            <span>Price</span>
+                            <span>$67,432.50</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Fee (0.1%)</span>
+                            <span>$67.43</span>
+                        </div>
+                    </div>
+                    <button class="execute-btn">PLACE ORDER</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    :root {
+        --brand-blue: #00d2ff;
+        --brand-purple: #9d50bb;
+        --glass-bg: rgba(22, 27, 34, 0.6);
+        --glass-border: rgba(255, 255, 255, 0.05);
+    }
+
+    .trading-container { color: white; }
+    .brand-text { font-weight: 900; letter-spacing: -1px; }
+    .brand-text .version { color: var(--brand-blue); }
+    .subtitle { font-size: 0.75rem; letter-spacing: 4px; color: #8b949e; font-weight: 700; }
+
+    .header-stats { display: flex; align-items: center; gap: 20px; }
+    .portfolio-value { text-align: right; }
+    .portfolio-value .label { display: block; font-size: 0.7rem; color: #8b949e; }
+    .portfolio-value .value { font-size: 1.8rem; font-weight: 900; }
+    .profit { font-size: 1.2rem; font-weight: 800; padding: 8px 16px; border-radius: 10px; }
+    .profit.positive { background: rgba(63, 185, 80, 0.1); color: #3fb950; }
+    .profit.negative { background: rgba(248, 81, 73, 0.1); color: #f85149; }
+
+    .stat-glass {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 16px;
+        padding: 24px;
+    }
+    .stat-value { font-size: 2rem; font-weight: 900; }
+    .stat-label { font-size: 0.65rem; font-weight: 800; color: #8b949e; letter-spacing: 1.5px; margin-top: 8px; }
+    .text-success { color: #3fb950; }
+
+    .content-glass { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 20px; }
+    .section-title { font-size: 0.8rem; font-weight: 800; color: #8b949e; letter-spacing: 2px; }
+
+    .time-selector { display: flex; gap: 8px; }
+    .time-btn {
+        background: transparent;
+        border: 1px solid var(--glass-border);
+        border-radius: 6px;
+        padding: 6px 12px;
+        color: #8b949e;
+        font-size: 0.7rem;
+        font-weight: 700;
+        cursor: pointer;
+    }
+    .time-btn.active { background: var(--brand-blue); border-color: var(--brand-blue); color: white; }
+
+    .chart-placeholder {
+        height: 200px;
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 12px;
+        position: relative;
+        overflow: hidden;
+    }
+    .chart-line {
+        position: absolute;
+        bottom: 30px;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to right, var(--brand-blue), var(--brand-purple));
+        clip-path: polygon(0 100%, 0 60%, 16% 50%, 33% 55%, 50% 40%, 66% 45%, 83% 30%, 100% 35%, 100% 100%);
+    }
+    .chart-grid {
+        position: absolute;
+        bottom: 30px;
+        left: 0;
+        right: 0;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+    .grid-line {
+        width: 1px;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.05);
+    }
+    .chart-labels {
+        position: absolute;
+        bottom: 5px;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+        font-size: 0.65rem;
+        color: #484f58;
+    }
+
+    .positions-table { display: flex; flex-direction: column; gap: 12px; }
+    .position-row {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 16px;
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 12px;
+    }
+    .position-asset { display: flex; align-items: center; gap: 12px; flex: 1; }
+    .asset-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+    }
+    .asset-name { font-weight: 700; }
+    .asset-amount { font-size: 0.8rem; color: #8b949e; }
+    .position-price { width: 100px; text-align: right; }
+    .price { font-weight: 700; }
+    .change { font-size: 0.8rem; }
+    .change.positive { color: #3fb950; }
+    .change.negative { color: #f85149; }
+    .position-value { width: 120px; text-align: right; }
+    .value { font-weight: 700; }
+    .pnl { font-size: 0.8rem; }
+    .pnl.positive { color: #3fb950; }
+    .pnl.negative { color: #f85149; }
+    .trade-btn {
+        background: transparent;
+        border: 1px solid var(--brand-blue);
+        border-radius: 8px;
+        padding: 8px 16px;
+        color: var(--brand-blue);
+        font-weight: 700;
+        font-size: 0.75rem;
+        cursor: pointer;
+    }
+
+    .bots-list { display: flex; flex-direction: column; gap: 12px; }
+    .bot-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px;
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 10px;
+    }
+    .bot-name { font-weight: 700; font-size: 0.9rem; }
+    .bot-status { font-size: 0.7rem; }
+    .bot-status.active { color: #3fb950; }
+    .bot-profit { font-weight: 700; font-size: 0.9rem; }
+    .bot-profit.positive { color: #3fb950; }
+    .bot-profit.negative { color: #f85149; }
+    .add-bot-btn {
+        width: 100%;
+        margin-top: 16px;
+        background: transparent;
+        border: 1px dashed var(--glass-border);
+        border-radius: 10px;
+        padding: 12px;
+        color: #8b949e;
+        font-weight: 700;
+        cursor: pointer;
+    }
+    .add-bot-btn:hover { border-color: var(--brand-blue); color: var(--brand-blue); }
+
+    .quick-trade { display: flex; flex-direction: column; gap: 12px; }
+    .trade-tabs { display: flex; gap: 8px; }
+    .trade-tab {
+        flex: 1;
+        background: transparent;
+        border: 1px solid var(--glass-border);
+        border-radius: 8px;
+        padding: 10px;
+        color: #8b949e;
+        font-weight: 700;
+        cursor: pointer;
+    }
+    .trade-tab.active { background: #3fb950; border-color: #3fb950; color: white; }
+    .glass-select, .glass-input {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--glass-border);
+        border-radius: 10px;
+        padding: 12px;
+        color: white;
+        font-size: 0.95rem;
+    }
+    .trade-summary { background: rgba(255, 255, 255, 0.02); border-radius: 10px; padding: 12px; }
+    .summary-row { display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 8px; color: #8b949e; }
+    .summary-row:last-child { margin-bottom: 0; }
+    .execute-btn {
+        background: linear-gradient(135deg, #3fb950, #2ea043);
+        border: none;
+        border-radius: 10px;
+        padding: 14px;
+        color: white;
+        font-weight: 800;
+        cursor: pointer;
+    }
+</style>
+
+@code {
+    private decimal portfolioValue = 127450;
+    private decimal profit = 12.4m;
+    private int activeTrades = 5;
+    private decimal dailyProfit = 1247;
+    private int winRate = 68;
+    private int botsRunning = 3;
+
+    private List<Position> positions = new()
+    {
+        new Position { Name = "Bitcoin", Symbol = "BTC", Amount = 0.5m, Price = 67432.50m, Change = 2.34m, Value = 33716.25m, PnL = 1234.56m, Icon = "₿", Color = "#f7931a" },
+        new Position { Name = "Ethereum", Symbol = "ETH", Amount = 5.2m, Price = 3456.78m, Change = -1.23m, Value = 17975.26m, PnL = -234.12m, Icon = "Ξ", Color = "#627eea" },
+        new Position { Name = "Solana", Symbol = "SOL", Amount = 150m, Price = 145.67m, Change = 5.67m, Value = 21850.50m, PnL = 2345.67m, Icon = "◎", Color = "#9945ff" },
+        new Position { Name = "Cardano", Symbol = "ADA", Amount = 10000m, Price = 0.45m, Change = -0.89m, Value = 4500m, PnL = -156.78m, Icon = "₳", Color = "#0033ad" }
+    };
+
+    private List<TradingBot> bots = new()
+    {
+        new TradingBot { Name = "Grid Trader", Status = "active", StatusText = "Running", Profit = 456.78m },
+        new TradingBot { Name = "Momentum Bot", Status = "active", StatusText = "Running", Profit = 234.56m },
+        new TradingBot { Name = "Scalper Pro", Status = "paused", StatusText = "Paused", Profit = 123.45m }
+    };
+
+    public class Position
+    {
+        public string Name { get; set; } = "";
+        public string Symbol { get; set; } = "";
+        public decimal Amount { get; set; }
+        public decimal Price { get; set; }
+        public decimal Change { get; set; }
+        public decimal Value { get; set; }
+        public decimal PnL { get; set; }
+        public string Icon { get; set; } = "";
+        public string Color { get; set; } = "";
+    }
+
+    public class TradingBot
+    {
+        public string Name { get; set; } = "";
+        public string Status { get; set; } = "";
+        public string StatusText { get; set; } = "";
+        public decimal Profit { get; set; }
+    }
+}

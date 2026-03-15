@@ -1,0 +1,94 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v11.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v11.0": {
+      "HomeBase11/1.0.0": {
+        "dependencies": {
+          "HomeBase11.Client": "1.0.0",
+          "Microsoft.AspNetCore.Components.WebAssembly.Server": "11.0.0-preview.2.26159.112"
+        },
+        "runtime": {
+          "HomeBase11.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Components.WebAssembly/11.0.0-preview.2.26159.112": {
+        "dependencies": {
+          "Microsoft.JSInterop.WebAssembly": "11.0.0-preview.2.26159.112"
+        },
+        "runtime": {
+          "lib/net11.0/Microsoft.AspNetCore.Components.WebAssembly.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.0.26.16012"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Components.WebAssembly.Server/11.0.0-preview.2.26159.112": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.WebAssembly": "11.0.0-preview.2.26159.112"
+        },
+        "runtime": {
+          "lib/net11.0/Microsoft.AspNetCore.Components.WebAssembly.Server.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.0.26.16012"
+          }
+        }
+      },
+      "Microsoft.JSInterop.WebAssembly/11.0.0-preview.2.26159.112": {
+        "runtime": {
+          "lib/net11.0/Microsoft.JSInterop.WebAssembly.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.0.26.16012"
+          }
+        }
+      },
+      "HomeBase11.Client/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.WebAssembly": "11.0.0-preview.2.26159.112"
+        },
+        "runtime": {
+          "HomeBase11.Client.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "HomeBase11/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.AspNetCore.Components.WebAssembly/11.0.0-preview.2.26159.112": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VMsndqBcUA3lUKvZFXbgZwK+kob79Li50ZkAOAiDtfeQQbMGxjMfh8YE4Wdmpc3fcA7i+dyRkzVrVS/qkW8kWg==",
+      "path": "microsoft.aspnetcore.components.webassembly/11.0.0-preview.2.26159.112",
+      "hashPath": "microsoft.aspnetcore.components.webassembly.11.0.0-preview.2.26159.112.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Components.WebAssembly.Server/11.0.0-preview.2.26159.112": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JFOGGF29eqDAU0hC6NzotcTGcqnFfVzEnTIMZwUjAZWheABjLt6PrD6bItvkfuaOuvmc0gbx9ker24YHF0KY+w==",
+      "path": "microsoft.aspnetcore.components.webassembly.server/11.0.0-preview.2.26159.112",
+      "hashPath": "microsoft.aspnetcore.components.webassembly.server.11.0.0-preview.2.26159.112.nupkg.sha512"
+    },
+    "Microsoft.JSInterop.WebAssembly/11.0.0-preview.2.26159.112": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GOxnMxF6HxFKELdn+Jcoi3iF8Qbr315IYunQ2HsEMXqDtOCZIf5G4YkQ0eHOLLKvjnjYDhmHcW4NuGjEr5K9AA==",
+      "path": "microsoft.jsinterop.webassembly/11.0.0-preview.2.26159.112",
+      "hashPath": "microsoft.jsinterop.webassembly.11.0.0-preview.2.26159.112.nupkg.sha512"
+    },
+    "HomeBase11.Client/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

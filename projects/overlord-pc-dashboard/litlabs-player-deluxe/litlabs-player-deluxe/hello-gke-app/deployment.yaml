@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-gke-deployment
+  labels:
+    app: hello-gke
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-gke
+  template:
+    metadata:
+      labels:
+        app: hello-gke
+    spec:
+      containers:
+      - name: hello-gke-app
+        image: us-central1-docker.pkg.dev/PROJECT_ID/hello-repo/hello-gke:v1
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 30
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        securityContext:
+          runAsNonRoot: true
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          readOnlyRootFilesystem: true
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-gke-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: hello-gke
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080

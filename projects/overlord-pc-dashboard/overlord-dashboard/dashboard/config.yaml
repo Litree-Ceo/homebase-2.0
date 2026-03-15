@@ -1,0 +1,42 @@
+# ══════════════════════════════════════════════════════════════
+#  OVERLORD DASHBOARD — Configuration
+#  Edit this file to change settings without touching server.py
+# ══════════════════════════════════════════════════════════════
+
+server:
+  host: "0.0.0.0"    # 0.0.0.0 = all interfaces (LAN access), 127.0.0.1 = local only
+  port: 8081
+
+auth:
+  enabled: true  # Set to true to require API key authentication
+  # API key should be set via OVERLORD_API_KEY environment variable
+
+rate_limit:
+  enabled: true
+  requests_per_second: 5   # max sustained requests per IP
+  burst: 15                 # initial token burst (handles page load assets)
+
+dashboard:
+  refresh_interval_ms: 2000  # how often the browser polls /api/stats
+
+logging:
+  level: "INFO"          # DEBUG | INFO | WARNING | ERROR | CRITICAL
+  file: "overlord.log"   # log file name (written next to server.py)
+  max_bytes: 1048576     # rotate after 1 MB
+  backup_count: 3        # keep 3 rotated files
+
+# ── Firebase Integration (Real-time Sync + Hosting) ────────────────
+firebase:
+  enabled: false  # Set to true to enable Firebase sync
+  # Get your database URL from Firebase Console → Realtime Database
+  # Example: "https://overlord-dashboard-default-rtdb.firebaseio.com"
+  database_url: "${FIREBASE_DATABASE_URL}"
+  # Download service account key from Firebase Console → Project Settings → Service Accounts
+  # Save as firebase-key.json in this directory
+  service_account_key: "firebase-key.json"
+
+# ── Real-Debrid Integration ────────────────────────────────────────
+real_debrid:
+  # API key should be set via RD_API_KEY environment variable
+  # Get your API key from: https://real-debrid.com/apitoken
+  api_key: "${RD_API_KEY}"

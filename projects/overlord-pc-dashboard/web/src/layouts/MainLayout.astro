@@ -1,0 +1,143 @@
+---
+import GlobalShell from '../components/layout/GlobalShell.tsx';
+import MediaPlayerIsland from '../components/media/MediaPlayerIsland.astro';
+
+export interface Props {
+  title: string;
+  requireAuth?: boolean;
+}
+const { title = 'Overlord PC Dashboard', requireAuth = true } = Astro.props;
+const pathname = Astro.url.pathname;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title} | OVERLORD SYSTEM</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="description" content="A comprehensive PC monitoring and control dashboard for power users and enthusiasts." />
+  <meta name="theme-color" content="#000000" />
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Critical font preloaded for LCP -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Accessibility styles -->
+  <link rel="stylesheet" href="/src/styles/accessibility.css">
+  
+  <style is:global>
+    :root {
+      --primary: #8b5cf6;
+      --primary-glow: rgba(139, 92, 246, 0.5);
+      --cyan: #06b6d4;
+      --cyan-glow: rgba(6, 182, 212, 0.5);
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+    
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: #111;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: #333;
+      border-radius: 4px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: #8b5cf6;
+    }
+    
+    /* Selection */
+    ::selection {
+      background: rgba(139, 92, 246, 0.3);
+      color: #fff;
+    }
+    
+    /* Focus visible */
+    :focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+    
+    /* Smooth transitions for interactive elements */
+    button, a, input {
+      transition: all 0.2s ease;
+    }
+  </style>
+</head>
+<body class="bg-black text-white antialiased">
+  <!-- Server-rendered critical content - prevents layout shift -->
+  <div class="min-h-screen flex items-center justify-center bg-black">
+    <h1 class="text-4xl md:text-5xl font-black text-white tracking-tighter" style="font-family: 'Inter', sans-serif;">
+      OVERLORD SYSTEM
+    </h1>
+  </div>
+
+  <!-- Custom cursor effect -->
+  <div id="cursor-glow" class="fixed w-64 h-64 rounded-full pointer-events-none z-50 opacity-30 mix-blend-screen" style="background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%); transform: translate(-50%, -50%); transition: opacity 0.3s;"></div>
+  
+  <GlobalShell client:idle requireAuth={requireAuth} title={title} pathname={pathname}>
+    <slot />
+  </GlobalShell>
+  
+  <MediaPlayerIsland />
+
+  
+  <script is:inline>
+    // Cursor glow effect
+    const cursorGlow = document.getElementById('cursor-glow');
+    let mouseX = 0, mouseY = 0;
+    let currentX = 0, currentY = 0;
+    
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+    
+    function animateCursor() {
+      currentX += (mouseX - currentX) * 0.1;
+      currentY += (mouseY - currentY) * 0.1;
+      cursorGlow.style.left = currentX + 'px';
+      cursorGlow.style.top = currentY + 'px';
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+    
+    // Hide cursor glow on touch devices
+    if ('ontouchstart' in window) {
+      cursorGlow.style.display = 'none';
+    }
+  </script>
+</body>
+</html>

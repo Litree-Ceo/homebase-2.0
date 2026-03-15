@@ -1,0 +1,31 @@
+﻿@using HomeBase11.Components
+@using HomeBase11.Components.Pages
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta name="description" content="HomeBase 11 - Studio Command Center. A modern dashboard for managing your studio operations." />
+    <meta name="theme-color" content="#0d1117" />
+    <BasePath />
+    <ResourcePreloader />
+    <link rel="stylesheet" href="@Assets["lib/bootstrap/dist/css/bootstrap.min.css"]" />
+    <link rel="stylesheet" href="@Assets["app.css"]" />
+    <link rel="stylesheet" href="@Assets["HomeBase11.styles.css"]" />
+    <ImportMap />
+    <link rel="icon" type="image/png" href="favicon.png" aria-label="HomeBase 11 favicon" />
+    <HeadOutlet @rendermode="InteractiveWebAssembly" />
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <main id="main-content">
+        <Routes @rendermode="InteractiveWebAssembly" />
+    </main>
+    <ReconnectModal />
+    <script src="@Assets["_framework/blazor.web.js"]"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

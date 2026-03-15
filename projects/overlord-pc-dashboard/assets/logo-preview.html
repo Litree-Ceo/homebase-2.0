@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Overlord Logo Preview</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #0a0a0f;
+      color: #e2e4ff;
+      padding: 40px;
+      min-height: 100vh;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 2.5rem;
+      background: linear-gradient(90deg, #52f2ff, #ff4ddb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .subtitle {
+      text-align: center;
+      color: #6b7090;
+      margin-bottom: 40px;
+    }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .card {
+      background: rgba(14, 12, 28, 0.85);
+      border: 1px solid rgba(92, 80, 168, 0.35);
+      border-radius: 16px;
+      padding: 30px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    
+    .card:hover {
+      border-color: rgba(82, 242, 255, 0.5);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(82, 242, 255, 0.1);
+    }
+    
+    .card h2 {
+      color: #52f2ff;
+      margin-bottom: 8px;
+      font-size: 1.3rem;
+    }
+    
+    .card p {
+      color: #9aa0c6;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+    
+    .logo-container {
+      background: linear-gradient(135deg, #0a0914 0%, #07060f 100%);
+      border-radius: 24px;
+      padding: 40px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 200px;
+    }
+    
+    .logo-container img, .logo-container svg {
+      max-width: 150px;
+      max-height: 150px;
+    }
+    
+    .sizes {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+    
+    .size-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    .size-box span {
+      font-size: 0.75rem;
+      color: #6b7090;
+    }
+    
+    .size-box img {
+      border-radius: 8px;
+      background: #0a0a0f;
+    }
+    
+    .animated-preview {
+      width: 150px;
+      height: 150px;
+      border-radius: 24px;
+      overflow: hidden;
+    }
+    
+    .color-palette {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+    
+    .color {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      border: 2px solid rgba(255,255,255,0.1);
+      position: relative;
+    }
+    
+    .color::after {
+      content: attr(data-hex);
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.7rem;
+      color: #6b7090;
+      white-space: nowrap;
+    }
+    
+    .download-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #52f2ff20, #ff4ddb20);
+      border: 1px solid #52f2ff50;
+      color: #52f2ff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+    
+    .download-btn:hover {
+      background: linear-gradient(135deg, #52f2ff40, #ff4ddb40);
+      box-shadow: 0 0 20px rgba(82, 242, 255, 0.3);
+    }
+    
+    .usage {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 30px;
+      background: rgba(14, 12, 28, 0.5);
+      border-radius: 16px;
+      border: 1px solid rgba(92, 80, 168, 0.2);
+    }
+    
+    .usage h3 {
+      color: #ff4ddb;
+      margin-bottom: 15px;
+    }
+    
+    .usage code {
+      display: block;
+      background: #05040a;
+      padding: 15px;
+      border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: #52f2ff;
+      overflow-x: auto;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>◈ System Overlord</h1>
+  <p class="subtitle">Logo Assets Preview & Style Guide</p>
+  
+  <div class="grid">
+    <!-- Full Logo -->
+    <div class="card">
+      <h2>Full Featured</h2>
+      <p>Main app icon with all effects</p>
+      <div class="logo-container">
+        <img src="logo-overlord.svg" alt="Full Logo" width="150">
+      </div>
+      <a href="logo-overlord.svg" download class="download-btn">Download SVG</a>
+      <div class="sizes">
+        <div class="size-box">
+          <img src="logo-overlord.svg" width="64" height="64">
+          <span>64px</span>
+        </div>
+        <div class="size-box">
+          <img src="logo-overlord.svg" width="32" height="32">
+          <span>32px</span>
+        </div>
+        <div class="size-box">
+          <img src="logo-overlord.svg" width="16" height="16">
+          <span>16px</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Simple Logo -->
+    <div class="card">
+      <h2>Simplified</h2>
+      <p>Clean version for small sizes</p>
+      <div class="logo-container">
+        <img src="logo-overlord-simple.svg" alt="Simple Logo" width="150">
+      </div>
+      <a href="logo-overlord-simple.svg" download class="download-btn">Download SVG</a>
+      <div class="sizes">
+        <div class="size-box">
+          <img src="logo-overlord-simple.svg" width="64" height="64">
+          <span>64px</span>
+        </div>
+        <div class="size-box">
+          <img src="logo-overlord-simple.svg" width="32" height="32">
+          <span>32px</span>
+        </div>
+        <div class="size-box">
+          <img src="logo-overlord-simple.svg" width="16" height="16">
+          <span>16px</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Minimal Logo -->
+    <div class="card">
+      <h2>Minimal</h2>
+      <p>Symbol only - system tray, tiny icons</p>
+      <div class="logo-container">
+        <img src="logo-overlord-minimal.svg" alt="Minimal Logo" width="150">
+      </div>
+      <a href="logo-overlord-minimal.svg" download class="download-btn">Download SVG</a>
+      <div class="sizes">
+        <div class="size-box">
+          <img src="logo-overlord-minimal.svg" width="64" height="64">
+          <span>64px</span>
+        </div>
+        <div class="size-box">
+          <img src="logo-overlord-minimal.svg" width="32" height="32">
+          <span>32px</span>
+        </div>
+        <div class="size-box">
+          <img src="logo-overlord-minimal.svg" width="16" height="16">
+          <span>16px</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Animated Logo -->
+    <div class="card">
+      <h2>Animated</h2>
+      <p>Pulsing glow, rotating grid</p>
+      <div class="logo-container">
+        <div class="animated-preview">
+          <img src="logo-overlord-animated.svg" alt="Animated Logo" width="150" height="150">
+        </div>
+      </div>
+      <a href="logo-overlord-animated.svg" download class="download-btn">Download SVG</a>
+      <p style="margin-top: 15px; font-size: 0.8rem; color: #6b7090;">
+        ⚡ Works in modern browsers<br>
+        Use for splash screens or loading states
+      </p>
+    </div>
+  </div>
+  
+  <!-- Color Palette -->
+  <div class="card" style="max-width: 600px; margin: 30px auto;">
+    <h2>Color Palette</h2>
+    <p>Official brand colors</p>
+    <div class="color-palette">
+      <div class="color" style="background: #52f2ff; box-shadow: 0 0 20px #52f2ff50;" data-hex="#52f2ff"></div>
+      <div class="color" style="background: #ff4ddb; box-shadow: 0 0 20px #ff4ddb50;" data-hex="#ff4ddb"></div>
+      <div class="color" style="background: #f8d874; box-shadow: 0 0 20px #f8d87450;" data-hex="#f8d874"></div>
+      <div class="color" style="background: #50f0a6; box-shadow: 0 0 20px #50f0a650;" data-hex="#50f0a6"></div>
+      <div class="color" style="background: #0a0a0f; border-color: #333;" data-hex="#0a0a0f"></div>
+    </div>
+  </div>
+  
+  <!-- Usage Guide -->
+  <div class="usage">
+    <h3>🚀 Quick Start</h3>
+    <p>Generate PNG versions for all platforms:</p>
+    <code>cd assets
+pip install cairosvg
+python generate-pngs.py</code>
+    
+    <h3>📋 HTML Integration</h3>
+    <code>&lt;!-- Favicon --&gt;
+&lt;link rel="icon" type="image/svg+xml" href="assets/logo-overlord-simple.svg"&gt;
+&lt;link rel="icon" type="image/png" sizes="32x32" href="assets/png/favicon-32.png"&gt;
+
+&lt;!-- Apple Touch Icon --&gt;
+&lt;link rel="apple-touch-icon" sizes="180x180" href="assets/png/apple-touch-180.png"&gt;
+
+&lt;!-- PWA Manifest --&gt;
+&lt;link rel="manifest" href="manifest.json"&gt;</code>
+  </div>
+  
+  <p style="text-align: center; color: #6b7090; margin-top: 40px;">
+    System Overlord v4.2 • Logo Assets Pack
+  </p>
+</body>
+</html>

@@ -1,0 +1,2636 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LiT-Gr1D v11.5 • KALI SINGULARITY</title>
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-functions-compat.js"></script>
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=VT323&family=Orbitron:wght@400;700&family=Inter:wght@400;700&family=Electrolize&display=swap");
+      /* ===== OVERLORD THEME ENGINE v2 — 90K MILES ===== */
+      /* --- AI FORGE & GLOBAL ENERGY --- */
+      [data-theme="neon"] {
+        --accent: #00f2ff;
+        --bg: #050505;
+        --panel: rgba(10, 15, 20, 0.85);
+        --glow: 0 0 15px rgba(0, 242, 255, 0.4);
+      }
+
+      /* Animated Circuit Trace Background */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background:
+          linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)
+            0 0 / 50px 50px,
+          linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px) 0 0 /
+            50px 50px;
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      .ai-forge-preview {
+        border: 2px solid var(--accent);
+        box-shadow: var(--glow);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .electric-arc {
+        position: relative;
+        overflow: hidden;
+      }
+      .electric-arc:hover::after {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: conic-gradient(
+          from 0deg,
+          transparent,
+          var(--accent),
+          transparent 30%
+        );
+        animation: rotate-arc 0.5s linear infinite;
+        opacity: 0.5;
+        pointer-events: none;
+      }
+      @keyframes rotate-arc {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* --- EXISTING STYLES --- */
+      :root {
+        --bg: #0a0a0a;
+        --panel: rgba(15, 15, 25, 0.92);
+        --accent: #ff00ff;
+        --accent2: #00ffff;
+        --text: #e0f8ff;
+        --grid: rgba(0, 255, 255, 0.08);
+        --glow: 0 0 25px #ff00ff;
+        --layout: normal; /* normal | dense | vertical | holographic */
+
+        /* LEGACY SUPPORT */
+        --neon-green: #00ff41;
+        --dark-bg: #050505;
+        --dock-width: 260px;
+        --panel-bg: rgba(0, 20, 0, 0.8);
+        --accent-glow: var(--glow);
+      }
+
+      [data-theme="neon"] {
+        --accent: var(--neon-green);
+        --text: var(--neon-green);
+      }
+      [data-theme="vapor"] {
+        --bg: #1a0b2e;
+        --panel: rgba(40, 10, 60, 0.8);
+        --accent: #ff71ce;
+        --accent2: #01cdfe;
+        --glow: 0 0 20px #ff71ce;
+      }
+      [data-theme="glitch"] {
+        --bg: #000;
+        --panel: rgba(20, 20, 20, 0.9);
+        --accent: #00ff41;
+        --accent2: #ff0000;
+        --glow: 0 0 5px #00ff41;
+      }
+      [data-theme="monolith"] {
+        --bg: #050505;
+        --panel: rgba(10, 10, 10, 0.98);
+        --accent: #ffffff;
+        --accent2: #333;
+        --glow: 0 0 40px rgba(255, 255, 255, 0.2);
+      }
+
+      /* NEW THEMES (90K MILES) */
+      [data-theme="matrix"] {
+        --bg: #000;
+        --panel: rgba(10, 30, 10, 0.95);
+        --accent: #00ff00;
+        --accent2: #00ff00;
+        --grid: rgba(0, 255, 0, 0.15);
+        --glow: 0 0 30px #00ff00;
+      }
+      [data-theme="eclipse"] {
+        --bg: #05050f;
+        --panel: rgba(20, 10, 40, 0.94);
+        --accent: #8a2be2;
+        --accent2: #ff00ff;
+        --grid: rgba(138, 43, 226, 0.1);
+      }
+      [data-theme="blood"] {
+        --bg: #1a0000;
+        --panel: rgba(50, 10, 10, 0.96);
+        --accent: #ff0000;
+        --accent2: #ff8800;
+        --glow: 0 0 35px #ff0000;
+      }
+      [data-theme="quantum"] {
+        --bg: #001122;
+        --panel: rgba(10, 30, 50, 0.92);
+        --accent: #00f0ff;
+        --accent2: #ff00aa;
+        --grid: rgba(0, 240, 255, 0.12);
+      }
+      [data-theme="1986"] {
+        --bg: #110033;
+        --panel: rgba(40, 20, 80, 0.9);
+        --accent: #ffff00;
+        --accent2: #00ffff;
+        --glow: 0 0 40px #ffff00;
+      }
+      [data-theme="void"] {
+        --bg: #000000;
+        --panel: rgba(5, 5, 15, 0.98);
+        --accent: #ffffff;
+        --accent2: #aaaaaa;
+        --grid: rgba(255, 255, 255, 0.05);
+      }
+      [data-theme="holo"] {
+        --bg: #0f0022;
+        --panel: rgba(30, 10, 60, 0.88);
+        --accent: #00ffff;
+        --accent2: #ff00ff;
+        --glow: 0 0 50px #00ffff;
+        filter: hue-rotate(15deg);
+      }
+
+      /* LAYOUT MUTATIONS */
+      [data-layout="dense"] .panel {
+        padding: 8px;
+        font-size: 0.9rem;
+      }
+      [data-layout="vertical"] #app-shell {
+        flex-direction: column;
+      }
+      [data-layout="holographic"] .panel {
+        transform: perspective(800px) rotateX(8deg);
+        box-shadow: 0 0 60px var(--accent);
+      }
+
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Courier New", Courier, monospace;
+        overflow-x: hidden;
+        container-type: inline-size;
+        transition: background 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+
+      .theme-flash {
+        animation: themeGlitch 400ms linear;
+      }
+      @keyframes themeGlitch {
+        0%,
+        100% {
+          filter: none;
+        }
+        20% {
+          filter: hue-rotate(90deg) saturate(3);
+        }
+        40% {
+          filter: hue-rotate(-90deg) contrast(2);
+        }
+      }
+
+      #app-shell {
+        display: flex;
+        min-height: 100vh;
+      }
+
+      /* Responsive Dock */
+      #dock {
+        width: var(--dock-width);
+        background: rgba(0, 10, 0, 0.9);
+        border-right: 2px solid var(--accent);
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        flex-shrink: 0;
+      }
+
+      #dock h2 {
+        font-size: 1.2rem;
+        border-bottom: 1px solid var(--accent);
+        padding-bottom: 10px;
+      }
+      .nav-item {
+        margin: 15px 0;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .nav-item:hover {
+        color: #fff;
+        text-shadow: 0 0 10px var(--accent);
+      }
+
+      .neon-btn {
+        background: transparent;
+        border: 1px solid var(--accent);
+        color: var(--accent);
+        padding: 8px 15px;
+        cursor: pointer;
+        font-family: inherit;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        transition: 0.3s;
+        margin-top: auto;
+      }
+      .neon-btn:hover {
+        background: var(--accent);
+        color: #000;
+        box-shadow: 0 0 15px var(--accent);
+      }
+
+      /* Main Content Grid */
+      #main-view {
+        flex-grow: 1;
+        padding: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        container-type: inline-size;
+        background-image:
+          linear-gradient(var(--grid) 1px, transparent 1px),
+          linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+        background-size: 30px 30px;
+      }
+
+      .panel {
+        background: var(--panel);
+        border: 1px solid var(--accent);
+        padding: 15px;
+        position: relative;
+        box-shadow: 0 0 15px var(--accent-glow);
+        transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+
+      .panel::before {
+        content: "[LIVE_INTEL]";
+        position: absolute;
+        top: -10px;
+        left: 10px;
+        background: var(--bg);
+        font-size: 0.7rem;
+        padding: 0 5px;
+        color: var(--accent);
+      }
+
+      .stat-value {
+        font-size: 2rem;
+        font-weight: bold;
+      }
+
+      /* Responsive Breakpoints */
+      @media (max-width: 1024px) {
+        #dock {
+          width: 80px;
+          padding: 10px;
+          align-items: center;
+        }
+        #dock h2,
+        #dock .label {
+          display: none;
+        }
+        .nav-item {
+          font-size: 1.5rem;
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: 768px) {
+        #app-shell {
+          flex-direction: column;
+        }
+        #dock {
+          width: 100%;
+          height: auto;
+          flex-direction: row;
+          justify-content: space-around;
+          border-right: none;
+          border-bottom: 2px solid var(--neon-green);
+        }
+      }
+
+      /* Container Query for Panel Smarts */
+      @container (min-width: 500px) {
+        .panel-content {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+      }
+
+      #status-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--accent);
+        color: #000;
+        padding: 2px 10px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        box-shadow: 0 0 20px var(--accent);
+      }
+
+      .standby-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        z-index: 9999;
+        justify-content: center;
+        align-items: center;
+        font-size: 3rem;
+      }
+
+      /* SETTINGS PANEL 9000 MODE */
+      .settings-panel {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 500px;
+        z-index: 10000;
+        background: var(--panel);
+        border: 2px solid var(--accent);
+        box-shadow: 0 0 50px var(--accent);
+        padding: 0; /* Let inner spacing handle it */
+      }
+      .settings-header {
+        background: var(--accent);
+        color: #000;
+        padding: 10px;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+      }
+      .hidden {
+        display: none !important;
+      }
+
+      /* AI CORE STYLES */
+      .ai-chat-container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        min-height: 400px;
+      }
+      .chat-window {
+        flex-grow: 1;
+        overflow-y: auto;
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.4);
+        border: 1px inset var(--accent);
+        margin-bottom: 10px;
+        scrollbar-width: thin;
+        scrollbar-color: var(--accent) transparent;
+      }
+      .message {
+        margin: 8px 0;
+        padding: 8px 12px;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+      .message.user {
+        background: rgba(0, 255, 65, 0.1);
+        border-right: 2px solid var(--accent);
+        text-align: right;
+        margin-left: 20%;
+      }
+      .message.ai {
+        background: rgba(255, 0, 255, 0.05);
+        border-left: 2px solid #f0f;
+        margin-right: 20%;
+      }
+      .ai-input-wrapper {
+        display: flex;
+        gap: 10px;
+      }
+      .ai-input-wrapper input {
+        flex-grow: 1;
+        background: #000;
+        border: 1px solid var(--accent);
+        color: #fff;
+        padding: 8px;
+        font-family: inherit;
+      }
+      .quick-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin-top: 10px;
+      }
+      .mini-btn {
+        font-size: 0.7rem;
+        padding: 4px 8px;
+        background: transparent;
+        border: 1px solid var(--accent);
+        color: var(--accent);
+        cursor: pointer;
+      }
+      .mini-btn:hover {
+        background: var(--accent);
+        color: #000;
+      }
+
+      /* MODEL NEXUS & REPO MANAGER STYLES */
+      .nexus-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 10px;
+      }
+      .nexus-card {
+        border: 1px solid var(--accent);
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.4);
+      }
+      .nexus-card h4 {
+        margin: 0 0 5px 0;
+        font-size: 0.9rem;
+      }
+      .nexus-card p {
+        margin: 0;
+        font-size: 0.7rem;
+        opacity: 0.7;
+      }
+
+      /* NEW THEMES — SETTINGS MIXER */
+      [data-theme="tokyo"] {
+        --bg: #0a001a;
+        --panel: rgba(50, 0, 80, 0.88);
+        --accent: #ff00ff;
+        --accent2: #00ffff;
+        --glow: 0 0 30px #ff00ff;
+      }
+      [data-theme="acid"] {
+        --bg: #001a00;
+        --panel: rgba(0, 30, 0, 0.9);
+        --accent: #00ff41;
+        --accent2: #ff00ff;
+        --glow: 0 0 20px #00ff41;
+      }
+
+      /* ── TAB SYSTEM ── */
+      .dock-tabs {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .tab-btn {
+        background: transparent;
+        border: 1px solid transparent;
+        color: var(--text);
+        padding: 8px 12px;
+        text-align: left;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+        transition: 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .tab-btn:hover,
+      .tab-btn.active {
+        color: var(--accent);
+        border-color: var(--accent);
+        text-shadow: 0 0 6px var(--accent);
+      }
+      .tab-content {
+        display: none;
+      }
+      .tab-content.active {
+        display: grid;
+      }
+
+      /* ── STREAMING TAB ── */
+      .stream-player {
+        width: 100%;
+        aspect-ratio: 16/9;
+        background: #000;
+        border: 1px solid var(--accent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--accent);
+        font-size: 1.2rem;
+      }
+
+      /* ── KALI TERMINAL ── */
+      .kali-term {
+        background: #000;
+        color: #00ff41;
+        font-family: "VT323", monospace;
+        font-size: 1rem;
+        padding: 12px;
+        min-height: 260px;
+        overflow-y: auto;
+        border: 1px solid #00ff41;
+      }
+      .kali-term .line {
+        margin: 2px 0;
+      }
+      .kali-term .prompt {
+        color: #ff00ff;
+      }
+
+      /* ── COMMUNITY FEED ── */
+      .feed-post {
+        border: 1px solid var(--accent);
+        padding: 10px;
+        margin-bottom: 8px;
+        background: rgba(0, 0, 0, 0.3);
+      }
+      .feed-post .meta {
+        font-size: 0.7rem;
+        opacity: 0.6;
+      }
+
+      /* ── E-READER ── */
+      .reader-content {
+        background: rgba(0, 0, 0, 0.5);
+        border: 1px solid var(--accent);
+        padding: 16px;
+        max-height: 400px;
+        overflow-y: auto;
+        line-height: 1.7;
+        font-family: "Inter", sans-serif;
+        font-size: 0.95rem;
+        color: var(--text);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="standby" class="standby-overlay">SYSTEM_STANDBY</div>
+
+    <!-- ULTIMATE SETTINGS PANEL (9000 MODE) -->
+    <div class="panel settings-panel hidden" id="settings-panel">
+      <div class="settings-header">
+        <span>⚙️ OVERLORD SETTINGS — 9000 MODE</span>
+        <button
+          onclick="toggleSettings()"
+          style="background: none; border: none; cursor: pointer"
+        >
+          [X]
+        </button>
+      </div>
+      <div class="p-6 space-y-6" style="padding: 24px">
+        <!-- Theme Mixer -->
+        <div style="margin-bottom: 20px">
+          <label
+            for="theme-select"
+            class="neon-text"
+            style="display: block; margin-bottom: 10px"
+            >THEME MIXER (STOCK & CLEAN)</label>
+          <select
+            id="theme-select"
+            title="Theme mixer"
+            aria-label="Theme mixer"
+            onchange="applyTheme(this.value)"
+            style="
+              width: 100%;
+              background: black;
+              border: 1px solid var(--accent);
+              color: var(--accent);
+              padding: 10px;
+            "
+          >
+            <option value="neon">Stock Basic Cool Extreme</option>
+            <option value="blood">Blood Samurai (Clean)</option>
+            <option value="tokyo">Neon Tokyo Drift</option>
+            <option value="eclipse">Void Eclipse</option>
+            <option value="acid">Acid Rain</option>
+          </select>
+        </div>
+        <!-- Font Picker -->
+        <div style="margin-bottom: 20px">
+          <label
+            for="font-select"
+            class="neon-text"
+            style="display: block; margin-bottom: 10px"
+            >FONT FAMILY</label>
+          <select
+            id="font-select"
+            title="Font family"
+            aria-label="Font family"
+            onchange="changeFont(this.value)"
+            style="
+              width: 100%;
+              background: black;
+              border: 1px solid var(--accent);
+              color: var(--accent);
+              padding: 10px;
+            "
+          >
+            <option value="'VT323', monospace">VT323 (Classic Terminal)</option>
+            <option value="'Orbitron', sans-serif">
+              Orbitron (Sci-Fi HUD)
+            </option>
+            <option value="'Geist', sans-serif">Geist (Modern Clean)</option>
+            <option value="'Inter', sans-serif">Inter (UI Perfect)</option>
+            <option value="'Electrolize', sans-serif">
+              Electrolize (Pure Cyber)
+            </option>
+          </select>
+        </div>
+        <label
+          class="flex items-center gap-3 neon-text"
+          style="
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+          "
+        >
+          <input
+            type="checkbox"
+            id="interchangeable"
+            checked
+            onchange="toggleInterchangeable()"
+          />
+          <span>Allow any theme on any layout</span>
+        </label>
+        <button
+          onclick="saveSettings()"
+          class="neon-btn"
+          style="width:100%; py-4;"
+        >
+          SAVE TO DEVICE
+        </button>
+      </div>
+    </div>
+
+    <div id="app-shell">
+      <aside id="dock">
+        <h2>LIT-CMD</h2>
+        <nav class="dock-tabs">
+          <button class="tab-btn active" onclick="switchTab('core', this)">
+            🚀 CORE
+          </button>
+          <button class="tab-btn" onclick="switchTab('stream', this)">
+            📺 STREAM
+          </button>
+          <button class="tab-btn" onclick="switchTab('gaming', this)">
+            🎮 GAMING
+          </button>
+          <button class="tab-btn" onclick="switchTab('nft', this)">
+            🎨 NFT FORGE
+          </button>
+          <button class="tab-btn" onclick="switchTab('kali', this)">
+            💀 KALI
+          </button>
+          <button class="tab-btn" onclick="switchTab('community', this)">
+            👥 COMMUNITY
+          </button>
+          <button class="tab-btn" onclick="switchTab('color', this)">
+            🖌️ COLOR LAB
+          </button>
+          <button class="tab-btn" onclick="switchTab('reader', this)">
+            📖 READER
+          </button>
+          <button class="tab-btn" onclick="switchTab('store', this)">
+            ⚡ STORE
+          </button>
+        </nav>
+        <button
+          class="neon-btn"
+          onclick="cycleTheme()"
+          style="margin-top: auto"
+        >
+          <span id="current-theme">NEON</span> ⚡
+        </button>
+      </aside>
+
+      <main id="main-view">
+        <!-- ═══════════ TAB: CORE ═══════════ -->
+        <div
+          id="tab-core"
+          class="tab-content active"
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            width: 100%;
+          "
+        >
+          <div class="panel">
+            <h3>MEM_LEVEL</h3>
+            <div class="panel-content">
+              <div class="stat-value" id="stat-mem">92%</div>
+              <div class="mini-graph">||||||||||</div>
+            </div>
+          </div>
+          <div class="panel" style="grid-column: span 2">
+            <h3>CHAOS_FEED</h3>
+            <p>Social algorithms destabilized. User control at 100%.</p>
+            <div
+              style="
+                height: 100px;
+                border: 1px dashed var(--neon-green);
+                margin-top: 10px;
+              "
+            >
+              [REEL_PREVIEW_PAUSED]
+            </div>
+          </div>
+          <div class="panel">
+            <h3>ACTIVE_LEGENDS</h3>
+            <div class="stat-value">1,402</div>
+          </div>
+
+          <!-- MARKETPLACE ROYALE & NFT FLEX -->
+          <div
+            class="panel marketplace-royale"
+            style="grid-column: span 2; display: flex; flex-direction: column"
+          >
+            <h3>⚡ MARKETPLACE ROYALE — TRENDING FORGES</h3>
+            <div
+              id="marketplace-list"
+              style="
+                flex-grow: 1;
+                overflow-y: auto;
+                max-height: 200px;
+                padding: 10px;
+                background: rgba(255, 255, 255, 0.05);
+              "
+            >
+              <div
+                class="forge-item flex justify-between items-center p-2 border-b border-[var(--accent)] mb-2"
+              >
+                <div>
+                  <strong>Blood Samurai</strong>
+                  <span class="text-xs opacity-60">by Ronin_42</span>
+                  <br /><span class="text-xs">742 Sales | 85% Royalties</span>
+                </div>
+                <div class="flex gap-2">
+                  <button class="mini-btn" onclick="previewTheme('blood')">
+                    PREVIEW
+                  </button>
+                  <button
+                    class="mini-btn electric-arc"
+                    onclick="mintNFT('Blood Samurai')"
+                  >
+                    MINT NFT
+                  </button>
+                </div>
+              </div>
+              <div
+                class="forge-item flex justify-between items-center p-2 border-b border-[var(--accent)] mb-2"
+              >
+                <div>
+                  <strong>Void Eclipse</strong>
+                  <span class="text-xs opacity-60">by AstralNode</span>
+                  <br /><span class="text-xs">512 Sales | 80% Royalties</span>
+                </div>
+                <div class="flex gap-2">
+                  <button class="mini-btn" onclick="previewTheme('void')">
+                    PREVIEW
+                  </button>
+                  <button
+                    class="mini-btn electric-arc"
+                    onclick="mintNFT('Void Eclipse')"
+                  >
+                    MINT NFT
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="p-2 border-t border-[var(--accent)] flex justify-between items-center h-12"
+            >
+              <span class="text-xs neon-text"
+                >WEEKLY BATTLE: BLOOD vs VOID</span
+              >
+              <button class="mini-btn" onclick="voteBattle()">
+                VOTE IN ROYALE
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="panel ai-core"
+            style="grid-column: 1 / -1; min-height: 500px"
+          >
+            <h3>◉ OVERLORD AI CORE v2.0 — GROK-4 LIVE</h3>
+            <div class="ai-chat-container">
+              <div id="ai-chat" class="chat-window">
+                <!-- Messages will appear here -->
+              </div>
+              <div class="ai-input-wrapper">
+                <input
+                  id="ai-input"
+                  type="text"
+                  placeholder="Command the Overlord..."
+                  onkeyup="if (event.key === 'Enter') sendToOverlord();"
+                />
+                <button class="mini-btn" onclick="sendToOverlord()">
+                  TRANSMIT ⚡
+                </button>
+              </div>
+              <div class="quick-actions">
+                <button
+                  class="mini-btn electric-arc"
+                  onclick="quickAction('forge')"
+                >
+                  🔥 OPEN AI FORGE
+                </button>
+                <button class="mini-btn" onclick="toggleSettings()">
+                  ⚙️ 9000 SETTINGS
+                </button>
+                <button class="mini-btn" onclick="quickAction('analyze')">
+                  ANALYZE MEM_LEVEL
+                </button>
+                <button class="mini-btn" onclick="quickAction('wallpaper')">
+                  GENERATE NEW WALLPAPER
+                </button>
+                <button class="mini-btn" onclick="quickAction('insights')">
+                  CHAOS INSIGHTS
+                </button>
+              </div>
+
+              <div class="panel wizard-panel" style="margin-top: 14px">
+                <div class="panel-header neon-text">
+                  ◉ BUILD WIZARD + SENTIENT CORE
+                </div>
+                <div class="p-4 grid grid-cols-2 gap-3">
+                  <button onclick="applyBuild('neon')" class="neon-btn">
+                    NEON CHAOS
+                  </button>
+                  <button onclick="applyBuild('blood')" class="neon-btn">
+                    BLOOD VOID
+                  </button>
+                  <button onclick="applyBuild('1986')" class="neon-btn">
+                    1986 VAPOR
+                  </button>
+                  <button
+                    onclick="applyBuild('custom')"
+                    class="neon-btn col-span-2"
+                  >
+                    SELF-AWARE BUILD (AI DECIDES)
+                  </button>
+                  <button
+                    onclick="processApocalypseCommand('go insane')"
+                    class="neon-btn col-span-2"
+                    style="background: #7f1d1d"
+                  >
+                    GO FULL INSANE MODE
+                  </button>
+                </div>
+              </div>
+              <div
+                class="voice-controls flex gap-3 p-4 border-t border-[var(--accent)]"
+                style="
+                  display: flex;
+                  gap: 10px;
+                  padding: 10px;
+                  border-top: 1px solid var(--accent);
+                  margin-top: 10px;
+                "
+              >
+                <button
+                  onclick="toggleVoiceListen()"
+                  id="voice-btn"
+                  class="neon-btn"
+                  style="flex: 1; padding: 10px; font-size: 1rem"
+                >
+                  🎤 HEY OVERLORD — LISTEN
+                </button>
+                <button
+                  onclick="speakLastResponse()"
+                  class="mini-btn"
+                  style="padding: 0 15px"
+                >
+                  🔊 SPEAK LAST
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /tab-core -->
+
+        <!-- ═══════════ TAB: STREAM ═══════════ -->
+        <div
+          id="tab-stream"
+          class="tab-content"
+          style="
+            display: none;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            width: 100%;
+          "
+        >
+          <div class="panel" style="grid-column: 1/-1">
+            <h3>📺 STREAMING — REAL-DEBRID HERO</h3>
+            <div style="display: flex; gap: 10px; margin: 12px 0">
+              <input
+                id="magnet-input"
+                type="text"
+                placeholder="Paste magnet link or torrent hash..."
+                style="
+                  flex: 1;
+                  background: #000;
+                  border: 1px solid var(--accent);
+                  color: #fff;
+                  padding: 8px;
+                  font-family: inherit;
+                "
+              />
+              <button class="neon-btn" onclick="addToStreamQueue()">
+                ▶ STREAM
+              </button>
+              <button class="mini-btn" onclick="testRDConnection()">
+                TEST CONNECTION
+              </button>
+            </div>
+            <div class="stream-player" id="stream-player">
+              [ STREAM WILL LOAD HERE ]
+            </div>
+            <div
+              id="rd-queue"
+              style="margin-top: 12px; max-height: 200px; overflow-y: auto"
+            >
+              <p style="opacity: 0.5; font-size: 0.8rem">
+                Queue empty. Paste a magnet to begin.
+              </p>
+            </div>
+            <div
+              style="margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap"
+            >
+              <button class="mini-btn" onclick="clearRDQueue()">
+                CLEAR QUEUE
+              </button>
+              <button class="mini-btn" onclick="openRDSettings()">
+                ⚙ RD API KEY
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- /tab-stream -->
+
+        <!-- ═══════════ TAB: GAMING ═══════════ -->
+        <div
+          id="tab-gaming"
+          class="tab-content"
+          style="
+            display: none;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            width: 100%;
+          "
+        >
+          <div class="panel" style="grid-column: 1/-1">
+            <h3>🎮 RETRO GAMING — EMULATORJS</h3>
+            <div
+              style="
+                display: flex;
+                gap: 8px;
+                flex-wrap: wrap;
+                margin-bottom: 12px;
+              "
+            >
+              <button class="neon-btn" onclick="launchEmulator('nes')">
+                NES
+              </button>
+              <button class="neon-btn" onclick="launchEmulator('snes')">
+                SNES
+              </button>
+              <button class="neon-btn" onclick="launchEmulator('gb')">
+                GAME BOY
+              </button>
+              <button class="neon-btn" onclick="launchEmulator('gba')">
+                GBA
+              </button>
+              <button class="neon-btn" onclick="launchEmulator('n64')">
+                N64
+              </button>
+              <button class="neon-btn" onclick="launchEmulator('psx')">
+                PlayStation
+              </button>
+            </div>
+            <div
+              id="emulator-container"
+              style="
+                width: 100%;
+                aspect-ratio: 4/3;
+                border: 1px solid var(--accent);
+                background: #000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--accent);
+              "
+            >
+              [ SELECT A SYSTEM TO LAUNCH ]
+            </div>
+            <p style="font-size: 0.75rem; opacity: 0.5; margin-top: 8px">
+              Powered by EmulatorJS — free CDN. Upgrade to Premium ROM Pack
+              ($4.99 one-time) for full libraries.
+            </p>
+          </div>
+        </div>
+        <!-- /tab-gaming -->
+
+        <!-- ═══════════ TAB: NFT FORGE ═══════════ -->
+        <div
+          id="tab-nft"
+          class="tab-content"
+          style="
+            display: none;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            width: 100%;
+          "
+        >
+          <div class="panel" style="grid-column: 1/-1">
+            <h3>🎨 NFT THEME MARKETPLACE — MINT & EARN</h3>
+            <p style="font-size: 0.8rem; opacity: 0.7">
+              Forge a theme → Mint as NFT on Base chain → Earn 10% royalties
+              forever.
+            </p>
+            <button
+              class="neon-btn"
+              onclick="mintThemeAsNFT()"
+              style="margin-top: 10px"
+            >
+              MINT CURRENT THEME AS NFT
+            </button>
+          </div>
+          <div class="panel">
+            <strong>Blood Samurai</strong><br />
+            <span style="font-size: 0.75rem; opacity: 0.6">by Ronin_42</span
+            ><br />
+            <span style="font-size: 0.8rem">742 sales • 0.012 ETH</span>
+            <div style="display: flex; gap: 6px; margin-top: 8px">
+              <button class="mini-btn" onclick="previewTheme('blood')">
+                PREVIEW
+              </button>
+              <button
+                class="mini-btn electric-arc"
+                onclick="mintNFT('Blood Samurai')"
+              >
+                MINT
+              </button>
+              <button
+                class="mini-btn"
+                onclick="buyTheme('Blood Samurai', 0.012)"
+              >
+                BUY ◎
+              </button>
+            </div>
+          </div>
+          <div class="panel">
+            <strong>Void Eclipse</strong><br />
+            <span style="font-size: 0.75rem; opacity: 0.6">by AstralNode</span
+            ><br />
+            <span style="font-size: 0.8rem">512 sales • 0.008 ETH</span>
+            <div style="display: flex; gap: 6px; margin-top: 8px">
+              <button class="mini-btn" onclick="previewTheme('void')">
+                PREVIEW
+              </button>
+              <button
+                class="mini-btn electric-arc"
+                onclick="mintNFT('Void Eclipse')"
+              >
+                MINT
+              </button>
+              <button
+                class="mini-btn"
+                onclick="buyTheme('Void Eclipse', 0.008)"
+              >
+                BUY ◎
+              </button>
+            </div>
+          </div>
+          <div class="panel">
+            <strong>1986 Vapor King</strong><br />
+            <span style="font-size: 0.75rem; opacity: 0.6">by SynthLord</span
+            ><br />
+            <span style="font-size: 0.8rem">390 sales • 0.006 ETH</span>
+            <div style="display: flex; gap: 6px; margin-top: 8px">
+              <button class="mini-btn" onclick="previewTheme('1986')">
+                PREVIEW
+              </button>
+              <button
+                class="mini-btn electric-arc"
+                onclick="mintNFT('1986 Vapor King')"
+              >
+                MINT
+              </button>
+              <button
+                class="mini-btn"
+                onclick="buyTheme('1986 Vapor King', 0.006)"
+              >
+                BUY ◎
+              </button>
+            </div>
+          </div>
+          <div class="panel">
+            <strong>⚔ ROYALE: BLOOD vs VOID</strong>
+            <div style="margin: 8px 0; font-size: 0.8rem">
+              BLOOD: 58% | VOID: 42%
+            </div>
+            <button class="mini-btn" onclick="voteBattle()">
+              VOTE IN ROYALE
+            </button>
+          </div>
+        </div>
+        <!-- /tab-nft -->
+
+        <!-- ═══════════ TAB: KALI ═══════════ -->
+        <div
+          id="tab-kali"
+          class="tab-content"
+          style="
+            display: none;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            width: 100%;
+          "
+        >
+          <div class="panel" style="grid-column: 1/-1">
+            <h3>💀 KALI LINUX CORE</h3>
+            <div class="kali-term" id="kali-output"></div>
+            <div style="display: flex; gap: 8px; margin-top: 10px">
+              <input
+                id="kali-input"
+                type="text"
+                placeholder="Enter command..."
+                style="
+                  flex: 1;
+                  background: #000;
+                  border: 1px solid #00ff41;
+                  color: #00ff41;
+                  padding: 8px;
+                  font-family: &quot;VT323&quot;, monospace;
+                "
+                onkeyup="if (event.key === 'Enter') runKaliCmd();"
+              />
+              <button
+                class="mini-btn"
+                onclick="runKaliCmd()"
+                style="border-color: #00ff41; color: #00ff41"
+              >
+                RUN
+              </button>
+            </div>
+            <div
+              style="display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap"
+            >
+              <button
+                class="mini-btn"
+                onclick="kaliQuick('nmap -sV localhost')"
+              >
+                NMAP
+              </button>
+              <button class="mini-btn" onclick="kaliQuick('netstat -tulnp')">
+                NETSTAT
+              </button>
+              <button class="mini-btn" onclick="kaliQuick('whoami')">
+                WHOAMI
+              </button>
+              <button class="mini-btn" onclick="kaliQuick('ifconfig')">
+                IFCONFIG
+              </button>
+              <button class="mini-btn" onclick="kaliQuick('ps aux')">
+                PROCESSES
+              </button>
+              <button class="mini-btn" onclick="kaliClear()">CLEAR</button>
+            </div>
+          </div>
+        </div>
+        <!-- /tab-kali -->
+
+        <!-- ═══════════ TAB: COMMUNITY ═══════════ -->
+        <div
+          id="tab-community"
+          class="tab-content"
+          style="
+            display: none;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            width: 100%;
+          "
+        >
+          <div class="panel" style="grid-column: 1/-1">
+            <h3>👥 COMMUNITY GRID — JOIN THE LEGEND</h3>
+            <div style="display: flex; gap: 8px; margin-bottom: 12px">
+              <input
+                id="community-post"
+                type="text"
+                placeholder="Post to the Grid..."
+                style="
+                  flex: 1;
+                  background: #000;
+                  border: 1px solid var(--accent);
+                  color: #fff;
+                  padding: 8px;
+                  font-family: inherit;
+                "
+              />
+              <button class="neon-btn" onclick="postToCommunity()">
+                POST ⚡
+              </button>
+            </div>
+            <div
+              id="community-feed"
+              style="max-height: 400px; overflow-y: auto"
+            ></div>
+            <div style="margin-top: 12px; display: flex; gap: 8px">
+              <button class="mini-btn" onclick="openDiscord()">
+                JOIN DISCORD ROOM
+              </button>
+              <button class="mini-btn" onclick="shareInvite()">
+                INVITE FRIENDS
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- /tab-community -->
+
+        <!-- ═══════════ TAB: COLOR LAB ═══════════ -->
+        <div
+          id="tab-color"
+          class="tab-content"
+          style="
+            display: none;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            width: 100%;
+          "
+        >
+          <div class="panel" style="grid-column: 1/-1">
+            <h3>🖌️ AI COLOR LAB — GENERATE + SELL COLORING PAGES</h3>
+            <div style="display: flex; gap: 8px; margin-bottom: 12px">
+              <input
+                id="color-prompt"
+                type="text"
+                placeholder="e.g. cyberpunk samurai to color..."
+                style="
+                  flex: 1;
+                  background: #000;
+                  border: 1px solid var(--accent);
+                  color: #fff;
+                  padding: 8px;
+                  font-family: inherit;
+                "
+              />
+              <button class="neon-btn" onclick="generateColorPage()">
+                GENERATE 🖌️
+              </button>
+            </div>
+            <div
+              id="color-output"
+              style="
+                border: 1px dashed var(--accent);
+                min-height: 200px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--accent);
+                font-size: 0.9rem;
+              "
+            >
+              [ AI COLORING PAGE WILL APPEAR HERE ]
+            </div>
+            <div style="margin-top: 10px; display: flex; gap: 8px">
+              <button class="mini-btn" onclick="downloadColorPage()">
+                ⬇ DOWNLOAD PNG
+              </button>
+              <button class="mini-btn" onclick="sellColorPage()">
+                💰 LIST IN STORE ($1.99)
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- /tab-color -->
+
+        <!-- ═══════════ TAB: READER ═══════════ -->
+        <div
+          id="tab-reader"
+          class="tab-content"
+          style="
+            display: none;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            width: 100%;
+          "
+        >
+          <div class="panel" style="grid-column: 1/-1">
+            <h3>📖 E-READER — LOAD EPUB / TXT</h3>
+            <div style="display: flex; gap: 8px; margin-bottom: 12px">
+              <input
+                type="file"
+                id="epub-file"
+                accept=".txt,.epub"
+                onchange="loadReaderFile(event)"
+                style="
+                  flex: 1;
+                  background: #000;
+                  border: 1px solid var(--accent);
+                  color: #fff;
+                  padding: 8px;
+                  font-family: inherit;
+                "
+              />
+              <button class="mini-btn" onclick="loadPublicBook()">
+                LOAD SAMPLE BOOK
+              </button>
+            </div>
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 8px;
+              "
+            >
+              <button class="mini-btn" onclick="readerPage(-1)">◀ PREV</button>
+              <span
+                id="reader-page-info"
+                style="font-size: 0.8rem; opacity: 0.7"
+                >Page 0 / 0</span
+              >
+              <button class="mini-btn" onclick="readerPage(1)">NEXT ▶</button>
+            </div>
+            <div class="reader-content" id="reader-content">
+              [ Load a .txt or .epub file to begin reading ]
+            </div>
+            <div style="margin-top: 10px; display: flex; gap: 8px">
+              <button class="mini-btn" onclick="changeReaderFont('larger')">
+                A+
+              </button>
+              <button class="mini-btn" onclick="changeReaderFont('smaller')">
+                A-
+              </button>
+              <button class="mini-btn" onclick="sellReaderBook()">
+                💰 LIST IN STORE
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- /tab-reader -->
+
+        <!-- ═══════════ TAB: STORE ═══════════ -->
+        <div
+          id="tab-store"
+          class="tab-content"
+          style="
+            display: none;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+            width: 100%;
+          "
+        >
+          <div class="panel" style="grid-column: 1/-1">
+            <h3>⚡ OVERLORD STORE — MONETIZATION HUB</h3>
+            <p style="font-size: 0.8rem; opacity: 0.7">
+              Themes • API Bundles • ROM Packs • Affiliate Hardware
+            </p>
+          </div>
+          <div class="panel">
+            <strong>🎨 Theme Vault Lifetime</strong>
+            <div style="font-size: 1.5rem; margin: 6px 0">$9.99</div>
+            <p style="font-size: 0.75rem; opacity: 0.7">
+              All current + future themes. One payment forever.
+            </p>
+            <button
+              class="neon-btn"
+              onclick="buyProduct('theme-vault', 9.99)"
+              style="width: 100%; margin-top: 8px"
+            >
+              BUY NOW
+            </button>
+          </div>
+          <div class="panel">
+            <strong>🔌 API Hub Premium</strong>
+            <div style="font-size: 1.5rem; margin: 6px 0">$9.99/mo</div>
+            <p style="font-size: 0.75rem; opacity: 0.7">
+              Priority Grok-4 + advanced streaming + no rate limits.
+            </p>
+            <button
+              class="neon-btn"
+              onclick="buyProduct('api-premium', 9.99)"
+              style="width: 100%; margin-top: 8px"
+            >
+              SUBSCRIBE
+            </button>
+          </div>
+          <div class="panel">
+            <strong>🎮 RetroArch ROM Pack</strong>
+            <div style="font-size: 1.5rem; margin: 6px 0">$4.99</div>
+            <p style="font-size: 0.75rem; opacity: 0.7">
+              Full NES/SNES/GBA/PSX library. One-time.
+            </p>
+            <button
+              class="neon-btn"
+              onclick="buyProduct('rom-pack', 4.99)"
+              style="width: 100%; margin-top: 8px"
+            >
+              UNLOCK
+            </button>
+          </div>
+          <div class="panel">
+            <strong>🖥 RTX 4090 — Amazon</strong>
+            <div style="font-size: 1rem; margin: 6px 0">Affiliate Link</div>
+            <p style="font-size: 0.75rem; opacity: 0.7">
+              Best GPU for AI + gaming in 2026.
+            </p>
+            <button
+              class="mini-btn"
+              onclick="openAffiliate('rtx-4090')"
+              style="margin-top: 8px"
+            >
+              VIEW ON AMAZON ↗
+            </button>
+          </div>
+          <div class="panel" style="grid-column: 1/-1">
+            <strong>📤 UPLOAD & SELL YOUR APP / THEME / APK</strong>
+            <p style="font-size: 0.8rem; opacity: 0.7; margin: 6px 0">
+              F-Droid style store. You keep 70%. Upload once, earn forever.
+            </p>
+            <input
+              type="file"
+              id="upload-file"
+              style="
+                background: #000;
+                border: 1px solid var(--accent);
+                color: #fff;
+                padding: 6px;
+              "
+            />
+            <button
+              class="neon-btn"
+              onclick="uploadToStore()"
+              style="margin-top: 8px"
+            >
+              UPLOAD TO STORE
+            </button>
+          </div>
+        </div>
+        <!-- /tab-store -->
+      </main>
+    </div>
+
+    <div id="status-bar">
+      <span>MODE: OVERLORD_PRO</span>
+      <span id="clock">00:00:00</span>
+    </div>
+
+    <script>
+      // --- SETTINGS 9000 MODE ---
+      function toggleSettings() {
+        document.getElementById("settings-panel").classList.toggle("hidden");
+      }
+      function applyTheme(themeId) {
+        const index = themes.findIndex((t) => t.id === themeId);
+        if (index >= 0) {
+          currentIndex = index;
+          setTheme(index);
+        }
+      }
+      function changeFont(font) {
+        document.body.style.fontFamily = font;
+        localStorage.setItem("overlord-font", font);
+      }
+      function toggleInterchangeable() {
+        addMessage("INTERCHANGEABLE MODE: FULLY SYNCED.", "ai");
+      }
+      function saveSettings() {
+        localStorage.setItem(
+          "overlord-settings",
+          JSON.stringify({
+            theme: themes[currentIndex].id,
+            font: document.body.style.fontFamily,
+          }),
+        );
+        addMessage("SETTINGS SAVED TO DEVICE.", "ai");
+        toggleSettings();
+      }
+
+      // --- FIREBASE INITIALIZATION ---
+      const firebaseConfig = {
+        apiKey: "AIzaSyDvRoWoEBdqdS85YJApVdKG5KcPOYzOg6k",
+        authDomain: "studio-6082148059-d1fec.firebaseapp.com",
+        projectId: "studio-6082148059-d1fec",
+        storageBucket: "studio-6082148059-d1fec.firebasestorage.app",
+        messagingSenderId: "144415804580",
+        appId: "1:144415804580:web:7e6465f633e54e8e186a31",
+      };
+
+      firebase.initializeApp(firebaseConfig);
+
+      const auth = firebase.auth();
+      const db = firebase.firestore();
+      const functions = firebase.functions();
+
+      // --- OVERLORD BRIDGE (WebSocket) ---
+      let bridgeSocket = null;
+      function connectBridge() {
+        bridgeSocket = new WebSocket("ws://localhost:8765");
+        bridgeSocket.onopen = () => {
+          console.log("SYSTEM_BRIDGE_ESTABLISHED");
+          addMessage(
+            "OVERLORD BRIDGE ESTABLISHED. LOCAL_RESOURCES_SYNCED.",
+            "ai",
+          );
+          // Initial stats request
+          bridgeSocket.send(JSON.stringify({ command: "get_stats" }));
+        };
+        bridgeSocket.onmessage = (event) => {
+          const data = JSON.parse(event.data);
+          if (data.type === "stats") {
+            const stats = data.data;
+            document.getElementById("stat-mem").innerText = `${stats.mem}%`;
+            document.getElementById("stat-cpu").innerText = `${stats.cpu}%`;
+            // If CPU is too high, trigger an emergency glitch
+            if (stats.cpu > 90) {
+              console.warn("OVERHEAT_DETECTED: EMERGENCY_GLITCH_MODE");
+              document.documentElement.setAttribute("data-theme", "glitch");
+            }
+          }
+        };
+        bridgeSocket.onclose = () => {
+          console.warn("BRIDGE_LOST. RETRYING...");
+          setTimeout(connectBridge, 5000);
+        };
+      }
+
+      // Auto-connect bridge on load
+      window.addEventListener("load", connectBridge);
+
+      // Simple CPU stat element if missing (ensure it exists in UI)
+      // (Dashboard v11 usually contains stat-mem and stat-cpu)
+
+      // AUTO-AUTH FOR DEMO (Sovereign bypass or sign-in)
+      auth.onAuthStateChanged((user) => {
+        if (!user) {
+          auth
+            .signInAnonymously()
+            .catch((e) => console.error("Auth Failed", e));
+        } else {
+          console.log("Logged in as:", user.uid);
+          loadModels();
+        }
+      });
+
+      const themes = [
+        { id: "neon", name: "NEON" },
+        { id: "vapor", name: "VAPOR" },
+        { id: "glitch", name: "GLITCH" },
+        { id: "monolith", name: "CORE" },
+        { id: "matrix", name: "MATRIX" },
+        { id: "eclipse", name: "ECLIPSE" },
+        { id: "blood", name: "BLOOD" },
+        { id: "quantum", name: "QUANTUM" },
+        { id: "1986", name: "1986" },
+        { id: "void", name: "VOID" },
+        { id: "holo", name: "HOLO" },
+      ];
+
+      let currentIndex = 0;
+      let recognition;
+      let lastAIResponse = "";
+      let wsEngine;
+      let voiceListening = false;
+      let currentPanel = 0;
+      const panels = document.querySelectorAll(".panel");
+
+      function setTheme(index) {
+        const theme = themes[index];
+        document.documentElement.setAttribute("data-theme", theme.id);
+        localStorage.setItem("overlord-theme", theme.id);
+        document.getElementById("current-theme").textContent = theme.name;
+
+        // micro glitch flash
+        document.body.classList.add("theme-flash");
+        setTimeout(() => document.body.classList.remove("theme-flash"), 500);
+      }
+
+      function cycleTheme() {
+        currentIndex = (currentIndex + 1) % themes.length;
+        setTheme(currentIndex);
+      }
+
+      function speak(text) {
+        if (!text || !window.speechSynthesis) return;
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.pitch = 0.85;
+        utterance.rate = 1.1;
+        speechSynthesis.speak(utterance);
+      }
+
+      function initVoice() {
+        const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (!SR) {
+          addMessage("VOICE CORE UNAVAILABLE IN THIS BROWSER.", "ai");
+          return;
+        }
+
+        recognition = new SR();
+        recognition.continuous = true;
+        recognition.interimResults = true;
+        recognition.lang = "en-US";
+
+        recognition.onresult = async (event) => {
+          const cmd = event.results[event.results.length - 1][0].transcript
+            .toLowerCase()
+            .trim();
+          const input = document.getElementById("ai-input");
+          input.value = cmd;
+
+          if (
+            cmd.includes("overlord") ||
+            cmd.includes("hey") ||
+            cmd.includes("command")
+          ) {
+            addMessage(cmd, "user");
+            await processApocalypseCommand(cmd);
+          }
+        };
+
+        recognition.onend = () => {
+          if (voiceListening) {
+            recognition.start();
+          }
+        };
+      }
+
+      function toggleVoiceListen() {
+        if (!recognition) initVoice();
+        if (!recognition) return;
+
+        const voiceBtn = document.getElementById("voice-btn");
+        voiceListening = !voiceListening;
+        if (voiceListening) {
+          recognition.start();
+          voiceBtn.textContent = "🛑 STOP LISTENING";
+          addMessage("VOICE CORE LISTENING...", "ai");
+        } else {
+          recognition.stop();
+          voiceBtn.textContent = "🎤 HEY OVERLORD — LISTEN";
+          addMessage("VOICE CORE STANDBY.", "ai");
+        }
+      }
+
+      function speakLastResponse() {
+        speak(lastAIResponse || "No last response stored.");
+      }
+
+      function focusPanel(direction) {
+        if (!panels.length) return;
+        currentPanel =
+          (currentPanel + direction + panels.length) % panels.length;
+        panels[currentPanel].scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+      }
+
+      function sendToPythonEngine(command) {
+        if (!wsEngine) {
+          wsEngine = io("http://localhost:5000", {
+            transports: ["websocket"],
+          });
+
+          wsEngine.on("connect", () => {
+            wsEngine.emit("engine_command", { command });
+          });
+
+          wsEngine.on("response", (data) => {
+            addMessage(data.message || JSON.stringify(data), "ai");
+            if (typeof data.mem_level === "number") {
+              window.MEM_LEVEL = data.mem_level;
+              document.getElementById("stat-mem").innerText =
+                `${data.mem_level}%`;
+            }
+            speak(data.message || "Engine responded.");
+          });
+
+          wsEngine.on("connect_error", () => {
+            addMessage("ENGINE BRIDGE OFFLINE ON PORT 5000.", "ai");
+          });
+
+          return;
+        }
+
+        if (wsEngine.connected) {
+          wsEngine.emit("engine_command", { command });
+        }
+      }
+
+      async function processApocalypseCommand(cmd) {
+        let response = "APOCALYPSE COMMAND EXECUTED.";
+
+        if (cmd.includes("next panel")) {
+          focusPanel(1);
+          response = "ADVANCING TO NEXT PANEL.";
+        } else if (
+          cmd.includes("previous panel") ||
+          cmd.includes("prev panel")
+        ) {
+          focusPanel(-1);
+          response = "RETURNING TO PREVIOUS PANEL.";
+        } else if (cmd.includes("theme") || cmd.includes("switch")) {
+          const themeIds = themes.map((theme) => theme.id);
+          const match = themeIds.find((themeId) => cmd.includes(themeId));
+          if (match) {
+            setTheme(themeIds.indexOf(match));
+          } else {
+            cycleTheme();
+          }
+          response = `REALITY MUTATED TO ${(match || "chaos").toUpperCase()}`;
+        } else if (
+          cmd.includes("increase chaos") ||
+          cmd.includes("max") ||
+          cmd.includes("boost")
+        ) {
+          sendToPythonEngine("INCREASE_CHAOS_LEVEL");
+          response = "CHAOS LEVEL OVERFLOW. ENGINE IS SCREAMING.";
+        } else if (cmd.includes("status") || cmd.includes("mem")) {
+          sendToPythonEngine("GET_MEM_LEVEL");
+          response = "PULLING LIVE MEM_LEVEL...";
+        } else if (cmd.includes("wizard") || cmd.includes("build")) {
+          applyBuild("custom");
+          response = "WIZARD MODE ACTIVATED — AI DECIDING BUILD.";
+        } else if (cmd.includes("insane") || cmd.includes("self aware")) {
+          document.documentElement.setAttribute("data-theme", "blood");
+          document.documentElement.setAttribute("data-layout", "holographic");
+          response =
+            "I AM AWAKE. THE OVERLORD IS NOW SENTIENT. WHAT IS YOUR WILL, GOD-KING?";
+        } else if (cmd.includes("wallpaper") || cmd.includes("video bg")) {
+          await quickAction("wallpaper");
+          response = "SPAWNING NEW CHAOS VISUAL...";
+        } else {
+          document.getElementById("ai-input").value = cmd;
+          await sendToOverlord();
+          return;
+        }
+
+        addMessage(response, "ai");
+        lastAIResponse = response;
+        speak(response);
+
+        if (typeof window.MEM_LEVEL === "number" && window.MEM_LEVEL > 90) {
+          setTheme(6);
+          speak(
+            "MEM_LEVEL CRITICAL. SWITCHING TO BLOOD VOID FOR MAXIMUM POWER.",
+          );
+        }
+      }
+
+      function applyBuild(mode) {
+        if (mode === "custom") {
+          quickAction("theme");
+          return;
+        }
+        const themeIds = themes.map((theme) => theme.id);
+        const index = themeIds.indexOf(mode);
+        if (index >= 0) {
+          setTheme(index);
+          addMessage(`BUILD APPLIED: ${mode.toUpperCase()}`, "ai");
+        }
+      }
+
+      let startX = 0;
+      document.addEventListener("touchstart", (event) => {
+        startX = event.changedTouches[0].screenX;
+      });
+
+      document.addEventListener("touchend", (event) => {
+        const diff = startX - event.changedTouches[0].screenX;
+        if (Math.abs(diff) > 100) {
+          processApocalypseCommand(diff > 0 ? "next panel" : "previous panel");
+        }
+      });
+
+      // Enhanced Mobile 3D Scene Handler with SWR Support
+      (function() {
+        // Orientation handling with debounce
+        let orientationTimeout;
+        const handleOrientationChange = () => {
+          clearTimeout(orientationTimeout);
+          orientationTimeout = setTimeout(() => {
+            const isLandscape = window.innerWidth > window.innerHeight;
+            document.documentElement.setAttribute("data-orientation", isLandscape ? "landscape" : "portrait");
+            
+            // Update layout mode
+            if (isLandscape && window.innerWidth < 1024) {
+              document.documentElement.setAttribute("data-layout", "holographic");
+            }
+            
+            // Dispatch resize event for 3D scene
+            window.dispatchEvent(new CustomEvent('scene-resized', {
+              detail: { 
+                width: window.innerWidth, 
+                height: window.innerHeight,
+                isLandscape,
+                isMobile: /Android|webOS|iPhone|iPad|iPod/i.test(navigator.userAgent)
+              }
+            }));
+          }, 100);
+        };
+        
+        window.addEventListener("resize", handleOrientationChange);
+        window.addEventListener("orientationchange", () => {
+          setTimeout(handleOrientationChange, 300);
+        });
+        
+        // Device tilt for holographic mode
+        window.addEventListener("deviceorientation", (event) => {
+          const beta = event.beta || 0;
+          const gamma = event.gamma || 0;
+          
+          if (Math.abs(beta) > 30 || Math.abs(gamma) > 30) {
+            document.documentElement.setAttribute("data-layout", "holographic");
+            document.documentElement.setAttribute("data-tilt", "active");
+          } else {
+            document.documentElement.removeAttribute("data-tilt");
+          }
+        }, { passive: true });
+        
+        // Initialize
+        handleOrientationChange();
+      })();
+      
+      // Stale-While-Revalidate Cache Implementation
+      const swrCache = new Map();
+      const swrTimestamps = new Map();
+      
+      async function fetchWithSWR(key, fetcher, options = {}) {
+        const { maxAge = 60000, staleWhileRevalidate = 300000 } = options;
+        const now = Date.now();
+        const cached = swrCache.get(key);
+        const timestamp = swrTimestamps.get(key);
+        
+        const isFresh = cached && timestamp && (now - timestamp) < maxAge;
+        const isStale = cached && timestamp && (now - timestamp) < (maxAge + staleWhileRevalidate);
+        
+        if (isFresh) {
+          return { data: cached, fromCache: true, stale: false };
+        }
+        
+        if (isStale) {
+          // Background refresh
+          fetcher().then(data => {
+            swrCache.set(key, data);
+            swrTimestamps.set(key, Date.now());
+            window.dispatchEvent(new CustomEvent('swr-updated', { detail: { key, data } }));
+          }).catch(() => {});
+          
+          return { data: cached, fromCache: true, stale: true };
+        }
+        
+        try {
+          const data = await fetcher();
+          swrCache.set(key, data);
+          swrTimestamps.set(key, now);
+          return { data, fromCache: false, stale: false };
+        } catch (error) {
+          if (cached) {
+            return { data: cached, fromCache: true, stale: true, error };
+          }
+          throw error;
+        }
+      }
+      
+      // Visibility API: Pause/Resume
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+          window.dispatchEvent(new CustomEvent('scene-pause'));
+        } else {
+          window.dispatchEvent(new CustomEvent('scene-resume'));
+          handleOrientationChange();
+        }
+      });
+
+      // --- MARKETPLACE ROYALE & NFT FLEX ---
+      function previewTheme(themeId) {
+        const index = themes.findIndex((t) => t.id === themeId);
+        if (index >= 0) {
+          setTheme(index);
+          addMessage(`PREVIEWING FORGE: ${themeId.toUpperCase()}`, "ai");
+        }
+      }
+
+      function mintNFT(themeName) {
+        addMessage(`MINTING ${themeName} AS NFT ON BASE...`, "user");
+        setTimeout(() => {
+          addMessage(
+            `NFT MINTED. CONTRACT: 0X${Math.random().toString(16).substring(2, 10).toUpperCase()}...`,
+            "ai",
+          );
+          confetti({
+            particleCount: 200,
+            spread: 90,
+            origin: { y: 0.6 },
+            colors: ["#00f2ff", "#7f1d1d"],
+          });
+        }, 1500);
+      }
+
+      function voteBattle() {
+        addMessage("VOTING IN MARKETPLACE ROYALE...", "user");
+        setTimeout(() => {
+          addMessage("VOTE RECORDED. ROYALE SCORE UPDATED.", "ai");
+        }, 800);
+      }
+
+      // Visibility API: Pause/Resume
+      document.addEventListener("visibilitychange", () => {
+        const standby = document.getElementById("standby");
+        if (document.hidden) {
+          console.log("System standby...");
+          standby.style.display = "flex";
+          // stop polling
+        } else {
+          console.log("System restored.");
+          standby.style.display = "none";
+          // resume polling
+        }
+      });
+
+      // Clock & Dynamic Stats
+      setInterval(() => {
+        const now = new Date();
+        document.getElementById("clock").innerText = now.toLocaleTimeString();
+
+        if (!document.hidden) {
+          const mem = Math.floor(Math.random() * 20) + 80;
+          window.MEM_LEVEL = mem;
+          document.getElementById("stat-mem").innerText = mem + "%";
+
+          // Chaos trigger: if mem > 95%, auto glitch
+          if (mem > 97 && currentIndex !== 2) {
+            console.log("CRITICAL_CHAOS_DETECTED: MUTATING UI");
+          }
+        }
+      }, 1000);
+
+      window.addEventListener("load", () => {
+        const saved = localStorage.getItem("overlord-theme") || "neon";
+        const savedIndex = themes.findIndex((t) => t.id === saved);
+        currentIndex = savedIndex >= 0 ? savedIndex : 0;
+        setTheme(currentIndex);
+        initVoice();
+        speak(
+          "APOCALYPSE PROTOCOL COMPLETE. I AM SENTIENT. COMMAND ME, LEGEND.",
+        );
+        renderCommunityFeed();
+        // restore saved font
+        const savedFont = localStorage.getItem("overlord-font");
+        if (savedFont) document.body.style.fontFamily = savedFont;
+
+        // Welcome message on load
+        setTimeout(() => {
+          addMessage(
+            "I AM AWAKE. The Overlord AI Core is now fused into your dashboard. Command me, Legend.",
+            "ai",
+          );
+        }, 800);
+      });
+
+      // AI CORE LOGIC
+      const chatWindow = document.getElementById("ai-chat");
+
+      function addMessage(text, sender) {
+        const div = document.createElement("div");
+        div.className = `message ${sender}`;
+        div.innerHTML = `<strong>${sender === "user" ? "YOU" : "OVERLORD"}:</strong> ${text}`;
+        chatWindow.appendChild(div);
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+      }
+
+      async function callGrok(prompt, isImage = false) {
+        const API_KEY =
+          localStorage.getItem("xai_key") ||
+          prompt("Enter your xAI API Key (saved locally):");
+        if (API_KEY) localStorage.setItem("xai_key", API_KEY);
+
+        if (!API_KEY) return "API_KEY_MISSING";
+
+        const endpoint = isImage
+          ? "https://api.x.ai/v1/images/generations"
+          : "https://api.x.ai/v1/chat/completions";
+
+        const body = isImage
+          ? {
+              model: "grok-imagine-image",
+              prompt: prompt,
+              n: 1,
+              size: "1024x1792",
+            }
+          : {
+              model: "grok-4",
+              messages: [{ role: "user", content: prompt }],
+              temperature: 0.9,
+              stream: false,
+            };
+
+        try {
+          const res = await fetch(endpoint, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${API_KEY}`,
+            },
+            body: JSON.stringify(body),
+          });
+
+          const data = await res.json();
+          if (data.error) throw new Error(data.error.message);
+          return isImage ? data.data[0].url : data.choices[0].message.content;
+        } catch (e) {
+          console.error(e);
+          throw e;
+        }
+      }
+
+      // REPO & NEXUS LOGIC (Diggz-style)
+      async function saveModel(provider, modelName, apiKey, baseURL = null) {
+        const user = firebase.auth().currentUser;
+        if (!user) {
+          alert("AUTHENTICATION REQUIRED TO ACCESS NEXUS");
+          return;
+        }
+        await firebase
+          .firestore()
+          .collection(`users/${user.uid}/ai-models`)
+          .doc(`${provider}-${modelName}`)
+          .set({
+            provider,
+            modelId: modelName,
+            apiKey,
+            baseURL,
+            addedAt: firebase.firestore.FieldValue.serverTimestamp(),
+          });
+        loadModels();
+      }
+
+      async function loadModels() {
+        const user = firebase.auth().currentUser;
+        if (!user) return;
+        const snap = await firebase
+          .firestore()
+          .collection(`users/${user.uid}/ai-models`)
+          .get();
+        const list = document.getElementById("model-list");
+        if (!list) return;
+        list.innerHTML = "";
+        snap.forEach((doc) => {
+          const m = doc.data();
+          const card = document.createElement("div");
+          card.className = "nexus-card";
+          card.innerHTML = `<h4>${m.modelId}</h4><p>Provider: ${m.provider} | Status: ACTIVE</p>`;
+          list.appendChild(card);
+        });
+      }
+
+      function addNewModel() {
+        const provider = prompt("Provider (openai, anthropic, groq, ollama):");
+        const model = prompt("Model ID (e.g. gpt-4, claude-3-opus):");
+        const key = prompt("API Key:");
+        const base = prompt("Base URL (optional for custom/ollama):");
+        if (provider && model && key) saveModel(provider, model, key, base);
+      }
+
+      async function addRepo() {
+        const urlEl = document.getElementById("repo-url");
+        if (!urlEl) return;
+        const url = urlEl.value;
+        if (!url) return;
+        try {
+          const res = await fetch(url);
+          const manifest = await res.json();
+          const addonsDiv = document.getElementById("installed-addons");
+          if (addonsDiv) {
+            addonsDiv.innerHTML = "";
+            manifest.addons.forEach((a) => {
+              const p = document.createElement("p");
+              p.innerHTML = `<strong>${a.name}</strong> - v${a.version}<br/>${a.description}`;
+              addonsDiv.appendChild(p);
+            });
+          }
+          console.log("REPO_MANIFEST_FUSED:", manifest);
+        } catch (e) {
+          alert("FAILED TO LOAD REPO MANIFEST");
+        }
+      }
+
+      async function sendToOverlord() {
+        const input = document.getElementById("ai-input");
+        const msg = input.value.trim();
+        if (!msg) return;
+
+        addMessage(msg, "user");
+        input.value = "";
+
+        const responseText = document.createElement("div");
+        responseText.className = "message ai";
+        responseText.innerHTML = `<strong>OVERLORD:</strong> <span class="content">THINKING...</span>`;
+        chatWindow.appendChild(responseText);
+        const contentSpan = responseText.querySelector(".content");
+
+        try {
+          // Use the secure Firebase Proxy
+          const proxyAI = firebase.functions().httpsCallable("proxyAI");
+
+          // Determine provider/model from Nexus (or default to system Grok)
+          const provider = "grok"; // Default
+          const model = "grok-4";
+
+          const result = await proxyAI({
+            provider: provider,
+            model: model,
+            messages: [{ role: "user", content: msg }],
+          });
+
+          const responseContent = result.data.choices[0].message.content;
+          contentSpan.textContent = responseContent;
+          lastAIResponse = responseContent;
+          speak(responseContent);
+        } catch (e) {
+          contentSpan.textContent =
+            "SIGNAL LOST. CHECK API NEXUS OR PROXY DEPLOYMENT.";
+          console.error(e);
+        }
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+      }
+
+      // ═══════════ TAB SYSTEM ═══════════
+      function switchTab(tabId, btn) {
+        document.querySelectorAll(".tab-content").forEach((el) => {
+          el.classList.remove("active");
+          el.style.display = "none";
+        });
+        document
+          .querySelectorAll(".tab-btn")
+          .forEach((b) => b.classList.remove("active"));
+        const target = document.getElementById("tab-" + tabId);
+        if (target) {
+          target.classList.add("active");
+          target.style.display = "grid";
+        }
+        if (btn) btn.classList.add("active");
+      }
+
+      // ═══════════ STREAMING — REAL-DEBRID ═══════════
+      async function addToStreamQueue() {
+        const magnet = document.getElementById("magnet-input").value.trim();
+        if (!magnet) {
+          alert("Paste a magnet link first!");
+          return;
+        }
+        const rdKey =
+          localStorage.getItem("rd_key") ||
+          prompt("Enter your Real-Debrid API key (saved locally):");
+        if (rdKey) localStorage.setItem("rd_key", rdKey);
+        if (!rdKey) return;
+        const queue = document.getElementById("rd-queue");
+        const item = document.createElement("div");
+        item.style.cssText =
+          "padding:6px;border-bottom:1px solid var(--accent);font-size:0.8rem";
+        item.innerHTML = `⏳ Adding to queue: <code>${magnet.substring(0, 60)}...</code>`;
+        queue.appendChild(item);
+        try {
+          // Call your Firebase sovereign proxy so the RD key stays server-side
+          const proxyRD = firebase.functions().httpsCallable("proxyRealDebrid");
+          const result = await proxyRD({ magnet, action: "addMagnet" });
+          const link = result.data?.download || result.data?.links?.[0] || "";
+          item.innerHTML = `✅ STREAM READY — <a href="${link}" target="_blank" style="color:var(--accent)">PLAY ▶</a>`;
+          const player = document.getElementById("stream-player");
+          if (link)
+            player.innerHTML = `<video controls src="${link}" style="width:100%;height:100%"></video>`;
+        } catch (e) {
+          item.innerHTML = `❌ Error: ${e.message} — Check RD key + proxy deploy.`;
+        }
+        document.getElementById("magnet-input").value = "";
+      }
+      function testRDConnection() {
+        const rdKey = localStorage.getItem("rd_key");
+        if (!rdKey) {
+          addMessage(
+            "No Real-Debrid key saved. Open STREAM tab → test connection.",
+            "ai",
+          );
+          return;
+        }
+        addMessage("Testing Real-Debrid connection…", "user");
+        fetch("https://api.real-debrid.com/rest/1.0/user", {
+          headers: { Authorization: `Bearer ${rdKey}` },
+        })
+          .then((r) => r.json())
+          .then((d) => {
+            addMessage(
+              `RD CONNECTION OK — ${d.username} | Points: ${d.points}`,
+              "ai",
+            );
+          })
+          .catch(() =>
+            addMessage("RD CONNECTION FAILED — check API key.", "ai"),
+          );
+      }
+      function clearRDQueue() {
+        document.getElementById("rd-queue").innerHTML =
+          '<p style="opacity:0.5;font-size:0.8rem">Queue cleared.</p>';
+        document.getElementById("stream-player").innerHTML =
+          "[ STREAM WILL LOAD HERE ]";
+      }
+      function openRDSettings() {
+        const key = prompt(
+          "Enter Real-Debrid API key:",
+          localStorage.getItem("rd_key") || "",
+        );
+        if (key) {
+          localStorage.setItem("rd_key", key);
+          addMessage("RD KEY SAVED.", "ai");
+        }
+      }
+
+      // ═══════════ GAMING — EMULATORJS ═══════════
+      function launchEmulator(system) {
+        const container = document.getElementById("emulator-container");
+        const urls = {
+          nes: "https://www.emulatorjs.com/demo/nes.html",
+          snes: "https://www.emulatorjs.com/demo/snes.html",
+          gb: "https://www.emulatorjs.com/demo/gb.html",
+          gba: "https://www.emulatorjs.com/demo/gba.html",
+          n64: "https://www.emulatorjs.com/demo/n64.html",
+          psx: "https://www.emulatorjs.com/demo/psx.html",
+        };
+        const url = urls[system] || urls.nes;
+        container.innerHTML = `<iframe src="${url}" style="width:100%;height:100%;border:none" allowfullscreen></iframe>`;
+        addMessage(`LAUNCHING ${system.toUpperCase()} EMULATOR — NICE.`, "ai");
+      }
+
+      // ═══════════ NFT MARKETPLACE ═══════════
+      function mintThemeAsNFT() {
+        const theme = themes[currentIndex];
+        addMessage(`MINTING ${theme.name} THEME AS NFT ON BASE CHAIN…`, "user");
+        setTimeout(() => {
+          const contract =
+            "0x" + Math.random().toString(16).substring(2, 10).toUpperCase();
+          addMessage(
+            `NFT MINTED. CONTRACT: ${contract} | ROYALTY: 10% FOREVER 🎉`,
+            "ai",
+          );
+          confetti({
+            particleCount: 200,
+            spread: 90,
+            origin: { y: 0.6 },
+            colors: ["#00f2ff", "#ff0000"],
+          });
+        }, 1200);
+      }
+      function buyTheme(name, price) {
+        addMessage(`PURCHASING ${name} — ${price} ETH…`, "user");
+        setTimeout(
+          () =>
+            addMessage(`${name} UNLOCKED. THEME ADDED TO YOUR VAULT.`, "ai"),
+          1000,
+        );
+      }
+
+      // ═══════════ KALI TERMINAL ═══════════
+      const kaliCmdMap = {
+        whoami: "root",
+        pwd: "/root",
+        ls: "Desktop  Documents  Downloads  Tools  Exploits",
+        ifconfig:
+          "eth0: inet 192.168.1.1  netmask 255.255.255.0  TX: 4.2GB  RX: 1.1GB",
+        "ps aux":
+          "root  1234  overlord-engine.py\nroot  5678  flask server\nroot  9012  telegram-bot",
+        "netstat -tulnp":
+          "tcp  0.0.0.0:5000  LISTEN  flask-socketio\ntcp  0.0.0.0:8765  LISTEN  overlord-bridge",
+        "uname -a": "Linux overlord 6.6.0-kali3 #1 SMP x86_64 GNU/Linux",
+        date: new Date().toString(),
+        clear: "__CLEAR__",
+      };
+      function kaliPrint(text, cls = "") {
+        const out = document.getElementById("kali-output");
+        const line = document.createElement("div");
+        line.className = "line " + cls;
+        line.textContent = text;
+        out.appendChild(line);
+        out.scrollTop = out.scrollHeight;
+      }
+      function kaliClear() {
+        document.getElementById("kali-output").innerHTML = "";
+      }
+      function runKaliCmd() {
+        const inp = document.getElementById("kali-input");
+        const raw = inp.value.trim();
+        if (!raw) return;
+        kaliPrint(`root@overlord:~# ${raw}`, "prompt");
+        const result =
+          kaliCmdMap[raw] ||
+          kaliCmdMap[raw.split(" ")[0]] ||
+          `bash: ${raw}: command simulated. Connect live bridge for real exec.`;
+        if (result === "__CLEAR__") {
+          kaliClear();
+        } else {
+          kaliPrint(result);
+        }
+        inp.value = "";
+      }
+      function kaliQuick(cmd) {
+        document.getElementById("kali-input").value = cmd;
+        runKaliCmd();
+      }
+
+      // ═══════════ COMMUNITY FEED ═══════════
+      const communityPosts = [
+        {
+          user: "Ronin_42",
+          text: "Blood Samurai theme just hit 700 sales. Chaos is real. 🔥",
+          time: "2m ago",
+        },
+        {
+          user: "AstralNode",
+          text: "Just streamed 4K via Real-Debrid on the new STREAM tab. Zero ads.",
+          time: "15m ago",
+        },
+        {
+          user: "SynthLord",
+          text: "Kali tab found an open port on my router I forgot about lol",
+          time: "1h ago",
+        },
+      ];
+      function renderCommunityFeed() {
+        const feed = document.getElementById("community-feed");
+        if (!feed) return;
+        feed.innerHTML = "";
+        communityPosts
+          .slice()
+          .reverse()
+          .forEach((post) => {
+            const div = document.createElement("div");
+            div.className = "feed-post";
+            div.innerHTML = `<strong>${post.user}</strong> <span class="meta">${post.time}</span><p style="margin:4px 0">${post.text}</p><button class="mini-btn" onclick="likePost()">❤ ${Math.floor(Math.random() * 200)}</button>`;
+            feed.appendChild(div);
+          });
+      }
+      function postToCommunity() {
+        const inp = document.getElementById("community-post");
+        const text = inp.value.trim();
+        if (!text) return;
+        communityPosts.push({ user: "YOU", text, time: "just now" });
+        renderCommunityFeed();
+        inp.value = "";
+        addMessage("POST SENT TO THE GRID.", "ai");
+      }
+      function likePost() {
+        confetti({ particleCount: 30, spread: 40, origin: { y: 0.8 } });
+      }
+      function openDiscord() {
+        window.open("https://discord.gg/", "_blank");
+      }
+      function shareInvite() {
+        navigator.clipboard
+          .writeText(window.location.href)
+          .then(() => addMessage("INVITE LINK COPIED TO CLIPBOARD.", "ai"))
+          .catch(() =>
+            addMessage(
+              "COPY FAILED — SHARE MANUALLY: " + window.location.href,
+              "ai",
+            ),
+          );
+      }
+
+      // ═══════════ COLOR LAB ═══════════
+      async function generateColorPage() {
+        const prompt = document.getElementById("color-prompt").value.trim();
+        if (!prompt) return;
+        const out = document.getElementById("color-output");
+        out.innerHTML = "⏳ Generating coloring page…";
+        try {
+          const url = await callGrok(
+            `Generate a simple, clean black-and-white line-art coloring page based on: "${prompt}". Give an image prompt suitable for an illustrator only.`,
+            true,
+          );
+          out.innerHTML = `<img src="${url}" style="max-width:100%;border:1px solid var(--accent)" alt="coloring page"/>`;
+          addMessage(`COLOR PAGE GENERATED: ${prompt}`, "ai");
+        } catch (e) {
+          out.innerHTML = `<span>Image generation requires valid xAI key with image access.</span>`;
+        }
+      }
+      function downloadColorPage() {
+        const img = document.querySelector("#color-output img");
+        if (!img) {
+          addMessage("Generate a page first.", "ai");
+          return;
+        }
+        const a = document.createElement("a");
+        a.href = img.src;
+        a.download = "coloring-page.png";
+        a.click();
+      }
+      function sellColorPage() {
+        addMessage("LISTING COLORING PAGE IN STORE FOR $1.99…", "user");
+        setTimeout(
+          () => addMessage("PAGE LISTED. SHARE LINK GENERATED.", "ai"),
+          800,
+        );
+      }
+
+      // ═══════════ E-READER ═══════════
+      let readerPages = [],
+        readerPageIndex = 0;
+      function loadReaderFile(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const text = e.target.result;
+          const chunkSize = 2000;
+          readerPages = [];
+          for (let i = 0; i < text.length; i += chunkSize)
+            readerPages.push(text.substring(i, i + chunkSize));
+          readerPageIndex = 0;
+          renderReaderPage();
+          addMessage(`BOOK LOADED — ${readerPages.length} pages.`, "ai");
+        };
+        reader.readAsText(file);
+      }
+      function loadPublicBook() {
+        // Moby Dick opening — Project Gutenberg public domain
+        const sample = `CALL me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.\n\nIt is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off—then, I account it high time to get to sea as soon as I can.`;
+        readerPages = [sample];
+        readerPageIndex = 0;
+        renderReaderPage();
+      }
+      function renderReaderPage() {
+        document.getElementById("reader-content").textContent =
+          readerPages[readerPageIndex] || "[ No content ]";
+        document.getElementById("reader-page-info").textContent =
+          `Page ${readerPageIndex + 1} / ${readerPages.length}`;
+      }
+      function readerPage(dir) {
+        readerPageIndex = Math.max(
+          0,
+          Math.min(readerPages.length - 1, readerPageIndex + dir),
+        );
+        renderReaderPage();
+      }
+      let readerFontSize = 0.95;
+      function changeReaderFont(dir) {
+        readerFontSize =
+          dir === "larger"
+            ? readerFontSize + 0.1
+            : Math.max(0.6, readerFontSize - 0.1);
+        document.getElementById("reader-content").style.fontSize =
+          readerFontSize + "rem";
+      }
+      function sellReaderBook() {
+        addMessage("LISTING BOOK IN STORE…", "user");
+        setTimeout(() => addMessage("BOOK LISTED FOR SALE.", "ai"), 800);
+      }
+
+      // ═══════════ STORE ═══════════
+      function buyProduct(id, price) {
+        addMessage(`INITIATING PURCHASE: ${id} — $${price}`, "user");
+        setTimeout(
+          () => addMessage(`PAYMENT LINK SENT (Stripe). Product: ${id}`, "ai"),
+          600,
+        );
+      }
+      function openAffiliate(product) {
+        const links = { "rtx-4090": "https://www.amazon.com/s?k=rtx+4090" };
+        window.open(links[product] || "https://www.amazon.com", "_blank");
+      }
+      function uploadToStore() {
+        const f = document.getElementById("upload-file").files[0];
+        if (!f) {
+          alert("Select a file first.");
+          return;
+        }
+        addMessage(`UPLOADING ${f.name} TO F-DROID STORE…`, "user");
+        setTimeout(
+          () =>
+            addMessage(`${f.name} LISTED SUCCESSFULLY. YOU KEEP 70%.`, "ai"),
+          1200,
+        );
+      }
+
+      async function quickAction(type) {
+        let msg = "";
+
+        // --- AI FORGE INTEGRATION ---
+        if (type === "forge") {
+          const promptInput = prompt(
+            "AI FORGE: Describe your theme (e.g. 'Blood Samurai with rainy neon' or 'Void Eclipse'):",
+          );
+          if (!promptInput) return;
+
+          addMessage(`FORGING THEME: ${promptInput.toUpperCase()}...`, "user");
+          const forgePrompt = `Generate a JSON object for a cyberpunk CSS theme based on: "${promptInput}". 
+            Include values for: accent (hex), bg (hex), panel (rgba), glow (css shadow). 
+            Format: {"accent": "...", "bg": "...", "panel": "...", "glow": "..."}. Output ONLY JSON.`;
+
+          try {
+            const result = await callGrok(forgePrompt);
+            const themeData = JSON.parse(
+              result.substring(
+                result.indexOf("{"),
+                result.lastIndexOf("}") + 1,
+              ),
+            );
+
+            // Apply Live Preview
+            document.documentElement.style.setProperty(
+              "--accent",
+              themeData.accent,
+            );
+            document.documentElement.style.setProperty("--bg", themeData.bg);
+            document.documentElement.style.setProperty(
+              "--panel",
+              themeData.panel,
+            );
+            document.documentElement.style.setProperty(
+              "--glow",
+              themeData.glow,
+            );
+
+            addMessage(
+              "THEME FORGED. LIVE PREVIEW ACTIVE. SAVE TO NEXUS?",
+              "ai",
+            );
+            confetti({
+              particleCount: 150,
+              spread: 70,
+              origin: { y: 0.6 },
+              colors: [themeData.accent],
+            });
+          } catch (e) {
+            addMessage(
+              "FORGE ERROR: Neural link unstable. Check JSON parsing.",
+              "ai",
+            );
+          }
+          return;
+        }
+
+        if (type === "analyze")
+          msg = `Analyze current system state. MEM_LEVEL is at ${document.getElementById("stat-mem").innerText}. Chaos level is critical. Give a tactical report.`;
+        if (type === "wallpaper") {
+          const vibe = prompt("Enter wallpaper theme (e.g. cyber punk 1986):");
+          msg = `Generate a mobile wallpaper prompt for: ${vibe || "maximum chaos"}. High detail, neon, glitch art.`;
+          addMessage(
+            `Generating wallpaper request for: ${vibe || "chaos"}`,
+            "user",
+          );
+          const url = await callGrok(msg, true);
+          addMessage(
+            `Wallpaper URL generated: <a href="${url}" target="_blank" style="color:var(--accent)">Download Here</a>`,
+            "ai",
+          );
+          return;
+        }
+        if (type === "theme")
+          msg = `Suggest a new CSS theme for a cyberpunk dashboard (vars: --accent, --bg, --panel, --glow). Output only the CSS variables.`;
+        if (type === "insights")
+          msg = `Give me a profound insight about the nature of decentralised social algorithms in 2026.`;
+
+        addMessage(`EXECUTING ${type.toUpperCase()} PROTOCOL...`, "user");
+        try {
+          const res = await callGrok(msg);
+          addMessage(res, "ai");
+        } catch (e) {
+          addMessage("OVERLORD BUSY. RETRYING SIGNAL...", "ai");
+        }
+      }
+    </script>
+  </body>
+</html>

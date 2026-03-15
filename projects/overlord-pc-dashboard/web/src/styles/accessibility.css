@@ -1,0 +1,158 @@
+/* Accessibility Improvements */
+
+/* Focus indicators for keyboard navigation */
+.focus-visible:focus-visible {
+  outline: 2px solid #8b5cf6;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.2);
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .bg-gray-900\/50 {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+  }
+  
+  .text-gray-400 {
+    color: #ffffff !important;
+  }
+  
+  .border-white\/10 {
+    border-color: rgba(255, 255, 255, 0.5) !important;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .animate-pulse,
+  .animate-pulse-subtle {
+    animation: none !important;
+  }
+}
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip to content link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #8b5cf6;
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* Focus styles for interactive elements */
+button:focus-visible,
+a:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #8b5cf6;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.2);
+}
+
+/* Ensure sufficient color contrast */
+.text-gray-300 {
+  color: #d1d5db; /* Improved contrast */
+}
+
+.text-gray-400 {
+  color: #9ca3af; /* Improved contrast */
+}
+
+/* Progress bar accessibility */
+.progress-bar {
+  position: relative;
+}
+
+.progress-bar::before {
+  content: attr(data-value) '%';
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Custom control states */
+[aria-disabled="true"] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+[aria-busy="true"] {
+  position: relative;
+}
+
+[aria-busy="true"]::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 -8px;
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Landmark roles styling */
+main {
+  scroll-behavior: smooth;
+}
+
+nav[aria-label] {
+  position: relative;
+}
+
+/* Interactive element affordances */
+button:hover:not(:disabled),
+a:hover:not([aria-disabled="true"]) {
+  transform: translateY(-1px);
+}
+
+/* Ensure keyboard navigation is visible */
+*:focus-visible {
+  outline: 2px solid #8b5cf6 !important;
+  outline-offset: 2px !important;
+}
+
+/* Dark mode focus adjustments */
+@media (prefers-color-scheme: dark) {
+  *:focus-visible {
+    outline-color: #a78bfa;
+  }
+}

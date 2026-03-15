@@ -1,0 +1,329 @@
+@page "/studio"
+@rendermode InteractiveServer
+
+<PageTitle>HomeBase 11 | AI Studio</PageTitle>
+
+<div class="studio-container p-5">
+    <div class="d-flex justify-content-between align-items-center mb-5">
+        <div>
+            <h1 class="brand-text">AI <span class="version">STUDIO</span></h1>
+            <p class="subtitle text-uppercase">Agents & Workflows</p>
+        </div>
+        <button class="create-btn">
+            <span>+</span> NEW AGENT
+        </button>
+    </div>
+
+    <div class="row g-4 mb-5">
+        <div class="col-md-3">
+            <div class="stat-glass text-center">
+                <div class="stat-value">@activeAgents</div>
+                <div class="stat-label">ACTIVE AGENTS</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-glass text-center">
+                <div class="stat-value">@totalTasks</div>
+                <div class="stat-label text-success">TASKS COMPLETED</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-glass text-center">
+                <div class="stat-value">@modelsLoaded</div>
+                <div class="stat-label">MODELS LOADED</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-glass text-center">
+                <div class="stat-value">@uptime</div>
+                <div class="stat-label">UPTIME</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-8">
+            <div class="content-glass p-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="section-title mb-0">YOUR AGENTS</h3>
+                    <div class="filter-tabs">
+                        <button class="filter-tab active">ALL</button>
+                        <button class="filter-tab">RUNNING</button>
+                        <button class="filter-tab">IDLE</button>
+                    </div>
+                </div>
+
+                <div class="agents-grid">
+                    @foreach (var agent in agents)
+                    {
+                        <div class="agent-card">
+                            <div class="agent-header" style="background: linear-gradient(135deg, @agent.Color, @agent.Color2)">
+                                <span class="agent-status @agent.Status"></span>
+                            </div>
+                            <div class="agent-content">
+                                <div class="agent-icon" style="background: @agent.Color">@agent.Icon</div>
+                                <div class="agent-info">
+                                    <div class="agent-name">@agent.Name</div>
+                                    <div class="agent-model">@agent.Model</div>
+                                </div>
+                                <div class="agent-stats">
+                                    <div class="stat">
+                                        <span class="stat-value">@agent.TasksCompleted</span>
+                                        <span class="stat-label">Tasks</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-value">@agent.ResponseTime</span>
+                                        <span class="stat-label">ms</span>
+                                    </div>
+                                </div>
+                                <div class="agent-actions">
+                                    <button class="action-btn primary">CHAT</button>
+                                    <button class="action-btn">CONFIG</button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="content-glass p-4 mb-4">
+                <h3 class="section-title">QUICK CHAT</h3>
+                <div class="quick-chat mt-4">
+                    <div class="chat-messages">
+                        <div class="message received">
+                            <div class="message-bubble">Hello! I'm Claude. How can I help you today?</div>
+                        </div>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" class="glass-input" placeholder="Ask anything..." />
+                        <button class="send-btn">➤</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-glass p-4">
+                <h3 class="section-title">AVAILABLE MODELS</h3>
+                <div class="models-list mt-4">
+                    @foreach (var model in models)
+                    {
+                        <div class="model-item">
+                            <div class="model-icon">@model.Icon</div>
+                            <div class="model-info">
+                                <div class="model-name">@model.Name</div>
+                                <div class="model-meta">@model.Size • @model.Status</div>
+                            </div>
+                            <button class="load-btn">LOAD</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    :root {
+        --brand-blue: #00d2ff;
+        --brand-purple: #9d50bb;
+        --glass-bg: rgba(22, 27, 34, 0.6);
+        --glass-border: rgba(255, 255, 255, 0.05);
+    }
+
+    .studio-container { color: white; }
+    .brand-text { font-weight: 900; letter-spacing: -1px; }
+    .brand-text .version { color: var(--brand-blue); }
+    .subtitle { font-size: 0.75rem; letter-spacing: 4px; color: #8b949e; font-weight: 700; }
+
+    .create-btn {
+        background: linear-gradient(135deg, var(--brand-purple), #6d3896);
+        border: none;
+        border-radius: 12px;
+        padding: 12px 24px;
+        color: white;
+        font-weight: 800;
+        font-size: 0.85rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .create-btn span { font-size: 1.2rem; }
+
+    .stat-glass {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 16px;
+        padding: 24px;
+    }
+    .stat-value { font-size: 2rem; font-weight: 900; }
+    .stat-label { font-size: 0.65rem; font-weight: 800; color: #8b949e; letter-spacing: 1.5px; margin-top: 8px; }
+    .text-success { color: #3fb950; }
+
+    .content-glass { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 20px; }
+    .section-title { font-size: 0.8rem; font-weight: 800; color: #8b949e; letter-spacing: 2px; }
+
+    .filter-tabs { display: flex; gap: 8px; }
+    .filter-tab {
+        background: transparent;
+        border: 1px solid var(--glass-border);
+        border-radius: 8px;
+        padding: 6px 16px;
+        color: #8b949e;
+        font-size: 0.75rem;
+        font-weight: 700;
+        cursor: pointer;
+    }
+    .filter-tab.active { background: var(--brand-blue); border-color: var(--brand-blue); color: white; }
+
+    .agents-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .agent-card {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid var(--glass-border);
+        border-radius: 16px;
+        overflow: hidden;
+    }
+
+    .agent-header {
+        height: 60px;
+        position: relative;
+    }
+    .agent-status {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+    }
+    .agent-status.running { background: #3fb950; box-shadow: 0 0 10px #3fb950; }
+    .agent-status.idle { background: #484f58; }
+
+    .agent-content { padding: 16px; }
+    .agent-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+    }
+    .agent-name { font-weight: 700; font-size: 1.1rem; }
+    .agent-model { font-size: 0.75rem; color: #8b949e; margin-bottom: 12px; }
+
+    .agent-stats { display: flex; gap: 24px; margin-bottom: 16px; }
+    .agent-stats .stat { text-align: center; }
+    .agent-stats .stat-value { font-size: 1.2rem; }
+    .agent-stats .stat-label { font-size: 0.65rem; }
+
+    .agent-actions { display: flex; gap: 8px; }
+    .action-btn {
+        flex: 1;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--glass-border);
+        border-radius: 8px;
+        padding: 10px;
+        color: white;
+        font-weight: 700;
+        font-size: 0.8rem;
+        cursor: pointer;
+    }
+    .action-btn.primary { background: var(--brand-blue); border-color: var(--brand-blue); }
+
+    .quick-chat {}
+    .chat-messages { height: 150px; overflow-y: auto; margin-bottom: 12px; }
+    .message { margin-bottom: 12px; }
+    .message-bubble {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 12px;
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+    .chat-input { display: flex; gap: 8px; }
+    .glass-input {
+        flex: 1;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--glass-border);
+        border-radius: 10px;
+        padding: 10px 14px;
+        color: white;
+    }
+    .send-btn {
+        background: var(--brand-blue);
+        border: none;
+        border-radius: 10px;
+        width: 44px;
+        cursor: pointer;
+    }
+
+    .models-list { display: flex; flex-direction: column; gap: 12px; }
+    .model-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px;
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 10px;
+    }
+    .model-icon { font-size: 1.3rem; }
+    .model-info { flex: 1; }
+    .model-name { font-weight: 700; font-size: 0.9rem; }
+    .model-meta { font-size: 0.7rem; color: #8b949e; }
+    .load-btn {
+        background: transparent;
+        border: 1px solid var(--brand-purple);
+        border-radius: 6px;
+        padding: 6px 12px;
+        color: var(--brand-purple);
+        font-size: 0.7rem;
+        font-weight: 700;
+        cursor: pointer;
+    }
+</style>
+
+@code {
+    private int activeAgents = 4;
+    private int totalTasks = 1247;
+    private int modelsLoaded = 3;
+    private string uptime = "14h 23m";
+
+    private List<Agent> agents = new()
+    {
+        new Agent { Name = "Claude", Icon = "C", Model = "Claude 3.5 Sonnet", Status = "running", Color = "#9d50bb", Color2 = "#6d3896", TasksCompleted = 342, ResponseTime = 245 },
+        new Agent { Name = "Code Assist", Icon = "💻", Model = "CodeLlama 34B", Status = "running", Color = "#58a6ff", Color2 = "#1a5ccc", TasksCompleted = 567, ResponseTime = 180 },
+        new Agent { Name = "Data Analyst", Icon = "📊", Model = "Mistral 7B", Status = "idle", Color = "#3fb950", Color2 = "#1a7d2e", TasksCompleted = 189, ResponseTime = 120 },
+        new Agent { Name = "Writer Bot", Icon = "✍️", Model = "GPT-4o Mini", Status = "running", Color = "#f0883e", Color2 = "#8c521a", TasksCompleted = 149, ResponseTime = 320 }
+    };
+
+    private List<AIModel> models = new()
+    {
+        new AIModel { Name = "Llama 3.1 70B", Icon = "🦙", Size = "140GB", Status = "Ready" },
+        new AIModel { Name = "Mistral Large", Icon = "🌪️", Size = "94GB", Status = "Ready" },
+        new AIModel { Name = "CodeLlama 70B", Icon = "💻", Size = "138GB", Status = "Downloading" },
+        new AIModel { Name = "Phi-3 Medium", Icon = "Φ", Size = "14GB", Status = "Ready" }
+    };
+
+    public class Agent
+    {
+        public string Name { get; set; } = "";
+        public string Icon { get; set; } = "";
+        public string Model { get; set; } = "";
+        public string Status { get; set; } = "";
+        public string Color { get; set; } = "";
+        public string Color2 { get; set; } = "";
+        public int TasksCompleted { get; set; }
+        public int ResponseTime { get; set; }
+    }
+
+    public class AIModel
+    {
+        public string Name { get; set; } = "";
+        public string Icon { get; set; } = "";
+        public string Size { get; set; } = "";
+        public string Status { get; set; } = "";
+    }
+}

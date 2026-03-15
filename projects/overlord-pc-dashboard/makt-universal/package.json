@@ -1,0 +1,27 @@
+{
+  "name": "makt-universal",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "./node_modules/.bin/next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@react-three/drei": "^9.114.0",
+    "@react-three/fiber": "^8.18.0",
+    "@react-three/rapier": "^1.3.1",
+    "autoprefixer": "^10.4.27",
+    "ethers": "^6.16.0",
+    "next": "^14.2.35",
+    "postcss": "^8.5.8",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^4.2.1",
+    "three": "^0.183.2",
+    "viem": "^2.47.0",
+    "wagmi": "^3.5.0",
+    "web3": "^4.16.0"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "mountpoint",
+    "fstype",
+    "noheader",
+    "nounits",
+    "rocm",
+    "showuse",
+    "showtemp",
+    "showmeminfo",
+    "nvml",
+    "pynvml",
+    "DEVICES",
+    "DECLTYPES",
+    "syscalls",
+    "supabase"
+  ],
+  "ignorePaths": [
+    "node_modules/**",
+    "dist/**",
+    "build/**",
+    "*.log"
+  ]
+}

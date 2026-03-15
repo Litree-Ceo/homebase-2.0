@@ -1,0 +1,228 @@
+{
+  "toolCatalog": {
+    "metadata": {
+      "version": "1.0.0",
+      "lastUpdated": "2025-03-01T00:00:00Z",
+      "approvalRequired": false
+    },
+    "categories": {
+      "reconnaissance": {
+        "description": "Passive information gathering tools (no target impact)",
+        "riskLevel": "LOW",
+        "requiresApproval": false,
+        "tools": [
+          {
+            "id": "nmap-scan",
+            "name": "nmap",
+            "description": "Network port scanning and service detection",
+            "executable": "nmap",
+            "platforms": ["termux", "pc-native", "pc-docker", "kali-remote"],
+            "parameterSchema": {
+              "target": {
+                "type": "string",
+                "format": "hostname|ipv4|ipv6|cidr",
+                "required": true,
+                "validation": "!matches(INTERNAL_RANGES)"
+              },
+              "ports": {
+                "type": "string",
+                "pattern": "^[0-9,:-]+$",
+                "default": "1-65535",
+                "maxPorts": 1000
+              },
+              "scanType": {
+                "type": "enum",
+                "allowed": ["-sS", "-sT", "-sU"],
+                "default": "-sS"
+              },
+              "timeout": {
+                "type": "integer",
+                "min": 60,
+                "max": 3600,
+                "default": 300
+              }
+            },
+            "constraints": {
+              "maxConcurrent": 2,
+              "maxDaily": 10,
+              "requiresConfirmation": false,
+              "outputStorage": "gcs",
+              "retentionDays": 30
+            }
+          },
+          {
+            "id": "httpx-probe",
+            "name": "httpx",
+            "description": "HTTP/HTTPS service probing and title extraction",
+            "executable": "httpx",
+            "platforms": ["termux", "pc-native", "pc-docker"],
+            "parameterSchema": {
+              "urls": {
+                "type": "string",
+                "required": true,
+                "validation": "!matches(INTERNAL_RANGES)"
+              },
+              "timeout": {
+                "type": "integer",
+                "min": 5,
+                "max": 60,
+                "default": 10
+              },
+              "followRedirects": {
+                "type": "boolean",
+                "default": true
+              }
+            },
+            "constraints": {
+              "maxConcurrent": 5,
+              "maxDaily": 50,
+              "requiresConfirmation": false,
+              "outputStorage": "firestore"
+            }
+          }
+        ]
+      },
+      "webVulnerability": {
+        "description": "Web application security testing (requires target consent or ownership)",
+        "riskLevel": "MEDIUM",
+        "requiresApproval": true,
+        "tools": [
+          {
+            "id": "nikto-scan",
+            "name": "nikto",
+            "description": "Web server vulnerability scanner",
+            "executable": "nikto",
+            "platforms": ["pc-docker", "kali-remote"],
+            "parameterSchema": {
+              "target": {
+                "type": "string",
+                "format": "url",
+                "required": true,
+                "validation": "ownership_verification_required"
+              },
+              "port": {
+                "type": "integer",
+                "min": 1,
+                "max": 65535,
+                "default": 80
+              },
+              "ssl": {
+                "type": "boolean",
+                "default": false
+              }
+            },
+            "constraints": {
+              "maxConcurrent": 1,
+              "maxDaily": 3,
+              "requiresConfirmation": true,
+              "biometricGate": true,
+              "outputStorage": "gcs-encrypted",
+              "notificationOnCompletion": true
+            }
+          },
+          {
+            "id": "sqlmap-injection",
+            "name": "sqlmap",
+            "description": "SQL injection detection and exploitation",
+            "executable": "sqlmap",
+            "platforms": ["pc-docker", "kali-remote"],
+            "parameterSchema": {
+              "url": {
+                "type": "string",
+                "format": "url",
+                "required": true,
+                "validation": "ownership_verification_required"
+              },
+              "techniques": {
+                "type": "array",
+                "allowed": ["B", "E", "U", "S", "T"],
+                "default": ["B", "E", "U", "S"]
+              },
+              "riskLevel": {
+                "type": "enum",
+                "allowed": [1, 2, 3],
+                "default": 1
+              }
+            },
+            "constraints": {
+              "maxConcurrent": 1,
+              "maxDaily": 2,
+              "requiresConfirmation": true,
+              "biometricGate": true,
+              "maxDuration": 1800,
+              "outputStorage": "gcs-encrypted",
+              "auditLogging": "comprehensive"
+            }
+          }
+        ]
+      },
+      "passwordSecurity": {
+        "description": "Hash cracking and credential testing (offline only)",
+        "riskLevel": "HIGH",
+        "requiresApproval": true,
+        "tools": [
+          {
+            "id": "hashcat-crack",
+            "name": "hashcat",
+            "description": "GPU-accelerated hash cracking",
+            "executable": "hashcat",
+            "platforms": ["pc-native-gpu"],
+            "parameterSchema": {
+              "hashFile": {
+                "type": "string",
+                "format": "filepath",
+                "required": true,
+                "validation": "local_path_only"
+              },
+              "hashType": {
+                "type": "integer",
+                "required": true,
+                "validation": "known_hash_type"
+              },
+              "dictionary": {
+                "type": "string",
+                "format": "filepath|builtin",
+                "default": "rockyou.txt"
+              },
+              "rules": {
+                "type": "string",
+                "default": "OneRuleToRuleThemAll"
+              }
+            },
+            "constraints": {
+              "maxConcurrent": 1,
+              "maxDaily": 5,
+              "requiresConfirmation": true,
+              "biometricGate": true,
+              "offlineOnly": true,
+              "cpuThrottle": "50%",
+              "outputStorage": "local-encrypted"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "executionConstraints": {
+    "internalRanges": ["10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16", "127.0.0.1"],
+    "blockedDomains": ["example.com", "test.com"],
+    "rateLimits": {
+      "global": {
+        "perHour": 20,
+        "perDay": 100
+      },
+      "perUser": {
+        "perHour": 10,
+        "perDay": 50
+      },
+      "perTool": {
+        "perHour": 5,
+        "perDay": 20
+      }
+    },
+    "timeWindows": {
+      "allowedHours": "08:00-23:00",
+      "timezone": "UTC"
+    }
+  }
+}

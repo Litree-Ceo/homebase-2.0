@@ -1,0 +1,5 @@
+{
+  "command": {
+    "action": "goto",
+    "args": ["server.py"]
+  }

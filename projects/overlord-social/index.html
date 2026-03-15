@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overlord Social | The Grid Network</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <h1 class="logo">⚡ OVERLORD</h1>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search The Grid..." id="searchInput">
+                </div>
+            </div>
+            <div class="nav-right">
+                <button class="nav-btn" onclick="showSection('home')">🏠 Home</button>
+                <button class="nav-btn" onclick="showSection('profile')">👤 Profile</button>
+                <button class="nav-btn" onclick="showSection('apps')">⚙️ Apps</button>
+                <button class="nav-btn" id="authBtn" onclick="toggleAuth()">🔐 Login</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Auth Modal -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAuthModal()">&times;</span>
+            <h2 id="authTitle">Enter The Grid</h2>
+            <input type="email" id="authEmail" placeholder="Email" />
+            <input type="password" id="authPassword" placeholder="Password" />
+            <input type="text" id="authUsername" placeholder="Username (for signup)" style="display:none" />
+            <button onclick="handleAuth()" id="authSubmitBtn">Login</button>
+            <p class="auth-toggle">
+                <span id="authToggleText">Don't have an account?</span>
+                <a href="#" onclick="toggleAuthMode(); return false;" id="authToggleLink">Sign up</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- HOME FEED -->
+        <section id="home" class="section active">
+            <div class="feed-container">
+                <!-- Create Post -->
+                <div class="create-post">
+                    <div class="post-input-container">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=user" alt="Avatar" class="avatar">
+                        <textarea id="postContent" placeholder="What's happening in The Grid?" rows="3"></textarea>
+                    </div>
+                    <div class="post-actions">
+                        <button class="btn-secondary" onclick="addImage()">📷 Image</button>
+                        <button class="btn-primary" onclick="createPost()">⚡ Post</button>
+                    </div>
+                </div>
+
+                <!-- Posts Feed -->
+                <div id="postsContainer">
+                    <!-- Dynamic posts will appear here -->
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="widget">
+                    <h3>🌐 Your Grid Apps</h3>
+                    <div class="app-links">
+                        <a href="http://localhost:8080" target="_blank" class="app-link">
+                            <span class="app-icon">📊</span>
+                            <span>PC Dashboard</span>
+                        </a>
+                        <a href="https://github.com/Litree-Ceo/L1T_GRID" target="_blank" class="app-link">
+                            <span class="app-icon">🎬</span>
+                            <span>L1T Streaming</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="widget">
+                    <h3>⚡ Online Now</h3>
+                    <div id="onlineUsers">
+                        <div class="user-item">
+                            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=admin" alt="Admin" class="avatar-sm">
+                            <span>System Admin</span>
+                            <span class="status-dot online"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="widget">
+                    <h3>📊 Grid Stats</h3>
+                    <div class="stat-item">
+                        <span>Total Posts</span>
+                        <span id="totalPosts">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Active Users</span>
+                        <span id="activeUsers">1</span>
+                    </div>
+                </div>
+            </aside>
+        </section>
+
+        <!-- PROFILE SECTION -->
+        <section id="profile" class="section">
+            <div class="profile-container">
+                <div class="profile-header">
+                    <div class="profile-cover"></div>
+                    <div class="profile-info">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=user" alt="Profile" class="profile-avatar">
+                        <div class="profile-details">
+                            <h2 id="profileName">Grid User</h2>
+                            <p id="profileBio">Connected to The Grid</p>
+                            <button class="btn-primary" onclick="editProfile()">Edit Profile</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="profile-content">
+                    <div class="profile-nav">
+                        <button class="active">Posts</button>
+                        <button>Friends</button>
+                        <button>Photos</button>
+                    </div>
+                    <div id="userPosts" class="user-posts">
+                        <!-- User's posts will appear here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- APPS SECTION -->
+        <section id="apps" class="section">
+            <div class="apps-header">
+                <h1>⚡ THE GRID</h1>
+                <p>Your Complete Overlord Ecosystem</p>
+            </div>
+            
+            <div class="apps-grid">
+                <div class="app-card" id="card-dashboard">
+                    <div class="app-status" id="status-dashboard">🔴 Offline</div>
+                    <div class="app-icon-large">📊</div>
+                    <h3>PC Dashboard</h3>
+                    <p>Monitor your system in real-time</p>
+                    <div class="app-stats">
+                        <span>CPU • RAM • GPU • Network</span>
+                    </div>
+                    <div class="app-actions">
+                        <a href="http://localhost:8080" target="_blank" class="btn-primary" onclick="trackAppOpen('dashboard')">⚡ Launch</a>
+                        <button class="btn-secondary" onclick="checkAppStatus('dashboard', 'http://localhost:8080')">🔄 Check Status</button>
+                    </div>
+                </div>
+                
+                <div class="app-card" id="card-stream">
+                    <div class="app-status" id="status-stream">🔴 Offline</div>
+                    <div class="app-icon-large">🎬</div>
+                    <h3>L1T Stream</h3>
+                    <p>Torrent streaming & media center</p>
+                    <div class="app-stats">
+                        <span>Real-Debrid • Magnet Links</span>
+                    </div>
+                    <div class="app-actions">
+                        <a href="http://localhost:5000" target="_blank" class="btn-primary" onclick="trackAppOpen('stream')">⚡ Launch</a>
+                        <button class="btn-secondary" onclick="window.open('https://github.com/Litree-Ceo/L1T_GRID', '_blank')">📂 GitHub</button>
+                    </div>
+                </div>
+                
+                <div class="app-card" id="card-phase0">
+                    <div class="app-status">⏳ Coming Soon</div>
+                    <div class="app-icon-large">⚡</div>
+                    <h3>System Overlord</h3>
+                    <p>Phase 0 automation & revenue system</p>
+                    <div class="app-stats">
+                        <span>Firebase • Next.js • Termux Bots</span>
+                    </div>
+                    <div class="app-actions">
+                        <button class="btn-secondary" onclick="window.open('https://github.com/Litree-Ceo/System-Overlord-Phase0', '_blank')">📂 GitHub</button>
+                        <button class="btn-secondary" disabled>⚡ Coming Soon</button>
+                    </div>
+                </div>
+                
+                <div class="app-card" id="card-social">
+                    <div class="app-status">🟢 Active</div>
+                    <div class="app-icon-large">🌐</div>
+                    <h3>Overlord Social</h3>
+                    <p>This platform - Grid social network</p>
+                    <div class="app-stats">
+                        <span id="social-stats">Loading...</span>
+                    </div>
+                    <div class="app-actions">
+                        <button class="btn-primary" onclick="showSection('home')">⚡ Go to Feed</button>
+                        <button class="btn-secondary" onclick="window.open('https://github.com/Litree-Ceo/Overlord-Social', '_blank')">📂 GitHub</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="quick-launch">
+                <h3>⚡ Quick Launch All</h3>
+                <button class="btn-primary btn-large" onclick="launchAll()">🚀 Start All Grid Apps</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    
+    <!-- App Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>

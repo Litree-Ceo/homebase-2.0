@@ -1,0 +1,367 @@
+@page "/groups"
+@rendermode InteractiveServer
+
+<PageTitle>HomeBase 11 | Groups</PageTitle>
+
+<div class="groups-container p-5">
+    <div class="d-flex justify-content-between align-items-center mb-5">
+        <div>
+            <h1 class="brand-text">COMMUNITIES <span class="version">HUB</span></h1>
+            <p class="subtitle text-uppercase">Groups & Sub-Feeds</p>
+        </div>
+        <button class="create-btn">
+            <span>+</span> CREATE GROUP
+        </button>
+    </div>
+
+    <div class="row g-4 mb-5">
+        <div class="col-md-3">
+            <div class="stat-glass text-center">
+                <div class="stat-value">@groups.Count</div>
+                <div class="stat-label">YOUR GROUPS</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-glass text-center">
+                <div class="stat-value">@adminGroups</div>
+                <div class="stat-label text-success">ADMINISTERING</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-glass text-center">
+                <div class="stat-value">@totalMembers</div>
+                <div class="stat-label">TOTAL MEMBERS</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-glass text-center">
+                <div class="stat-value">@pendingInvites</div>
+                <div class="stat-label text-warning">PENDING INVITES</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-8">
+            <div class="content-glass p-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="section-title mb-0">YOUR GROUPS</h3>
+                    <div class="filter-tabs">
+                        <button class="filter-tab active">ALL</button>
+                        <button class="filter-tab">MEMBER</button>
+                        <button class="filter-tab">ADMIN</button>
+                    </div>
+                </div>
+
+                <div class="groups-grid">
+                    @foreach (var group in groups)
+                    {
+                        <div class="group-card">
+                            <div class="group-banner" style="background: linear-gradient(135deg, @group.BannerColor, @group.BannerColor2)">
+                                <span class="group-badge">@group.Badge</span>
+                            </div>
+                            <div class="group-content">
+                                <div class="group-icon" style="background: @group.IconColor">@group.Icon</div>
+                                <div class="group-info">
+                                    <div class="group-name">@group.Name</div>
+                                    <div class="group-meta">@group.Members members • @group.Posts posts this week</div>
+                                </div>
+                                <button class="btn-view">VIEW</button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="content-glass p-4 mb-4">
+                <h3 class="section-title">PENDING INVITES</h3>
+                <div class="invites-list mt-4">
+                    @foreach (var invite in invites)
+                    {
+                        <div class="invite-item">
+                            <div class="invite-icon" style="background: @invite.IconColor">@invite.Icon</div>
+                            <div class="invite-info">
+                                <div class="invite-name">@invite.Name</div>
+                                <div class="invite-meta">@invite.InvitedBy invited you</div>
+                            </div>
+                            <div class="invite-actions">
+                                <button class="btn-accept" @onclick="() => AcceptInvite(invite.Id)">✓</button>
+                                <button class="btn-decline" @onclick="() => DeclineInvite(invite.Id)">✕</button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="content-glass p-4">
+                <h3 class="section-title">DISCOVER GROUPS</h3>
+                <div class="discover-list mt-4">
+                    @foreach (var discover in discoverGroups)
+                    {
+                        <div class="discover-item">
+                            <div class="discover-icon" style="background: @discover.IconColor">@discover.Icon</div>
+                            <div class="discover-info">
+                                <div class="discover-name">@discover.Name</div>
+                                <div class="discover-meta">@discover.Members members</div>
+                            </div>
+                            <button class="btn-join" @onclick="() => JoinGroup(discover.Id)">JOIN</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    :root {
+        --brand-blue: #00d2ff;
+        --brand-purple: #9d50bb;
+        --glass-bg: rgba(22, 27, 34, 0.6);
+        --glass-border: rgba(255, 255, 255, 0.05);
+    }
+
+    .groups-container { color: white; }
+    .brand-text { font-weight: 900; letter-spacing: -1px; }
+    .brand-text .version { color: var(--brand-blue); }
+    .subtitle { font-size: 0.75rem; letter-spacing: 4px; color: #8b949e; font-weight: 700; }
+
+    .create-btn {
+        background: linear-gradient(135deg, var(--brand-blue), #3a7bd5);
+        border: none;
+        border-radius: 12px;
+        padding: 12px 24px;
+        color: white;
+        font-weight: 800;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.2s;
+    }
+    .create-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px -10px var(--brand-blue); }
+    .create-btn span { font-size: 1.2rem; }
+
+    .stat-glass {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 16px;
+        padding: 24px;
+    }
+    .stat-value { font-size: 2rem; font-weight: 900; }
+    .stat-label { font-size: 0.65rem; font-weight: 800; color: #8b949e; letter-spacing: 1.5px; margin-top: 8px; }
+    .text-success { color: #3fb950; }
+    .text-warning { color: #d29922; }
+
+    .content-glass { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 20px; }
+    .section-title { font-size: 0.8rem; font-weight: 800; color: #8b949e; letter-spacing: 2px; }
+
+    .filter-tabs { display: flex; gap: 8px; }
+    .filter-tab {
+        background: transparent;
+        border: 1px solid var(--glass-border);
+        border-radius: 8px;
+        padding: 6px 16px;
+        color: #8b949e;
+        font-size: 0.75rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    .filter-tab.active, .filter-tab:hover {
+        background: var(--brand-blue);
+        border-color: var(--brand-blue);
+        color: white;
+    }
+
+    .groups-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .group-card {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid var(--glass-border);
+        border-radius: 16px;
+        overflow: hidden;
+        transition: all 0.2s;
+    }
+    .group-card:hover { transform: translateY(-4px); border-color: var(--brand-blue); }
+
+    .group-banner {
+        height: 60px;
+        position: relative;
+    }
+    .group-badge {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 4px 8px;
+        border-radius: 6px;
+        font-size: 0.65rem;
+        font-weight: 700;
+    }
+
+    .group-content {
+        padding: 16px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .group-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        flex-shrink: 0;
+    }
+
+    .group-info { flex: 1; min-width: 0; }
+    .group-name { font-weight: 700; font-size: 0.95rem; margin-bottom: 2px; }
+    .group-meta { font-size: 0.7rem; color: #8b949e; }
+
+    .btn-view {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--glass-border);
+        border-radius: 8px;
+        padding: 8px 16px;
+        color: white;
+        font-size: 0.75rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    .btn-view:hover { background: var(--brand-blue); border-color: var(--brand-blue); }
+
+    .invites-list, .discover-list { display: flex; flex-direction: column; gap: 12px; }
+    .invite-item, .discover-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px;
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 10px;
+    }
+
+    .invite-icon, .discover-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+    }
+
+    .invite-info, .discover-info { flex: 1; }
+    .invite-name, .discover-name { font-weight: 700; font-size: 0.9rem; }
+    .invite-meta, .discover-meta { font-size: 0.7rem; color: #8b949e; }
+
+    .invite-actions { display: flex; gap: 6px; }
+    .btn-accept, .btn-decline, .btn-join {
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        font-weight: 800;
+        transition: all 0.2s;
+    }
+    .btn-accept { width: 32px; height: 32px; background: rgba(63, 185, 80, 0.2); color: #3fb950; }
+    .btn-accept:hover { background: #3fb950; color: white; }
+    .btn-decline { width: 32px; height: 32px; background: rgba(248, 81, 73, 0.2); color: #f85149; }
+    .btn-decline:hover { background: #f85149; color: white; }
+    .btn-join { padding: 8px 16px; background: var(--brand-blue); color: white; font-size: 0.75rem; }
+    .btn-join:hover { transform: scale(1.05); }
+</style>
+
+@code {
+    private int adminGroups = 2;
+    private int totalMembers = 847;
+    private int pendingInvites = 3;
+
+    private List<Group> groups = new()
+    {
+        new Group { Name = "Project Alpha", Icon = "🚀", IconColor = "#3fb950", BannerColor = "#1a4d2e", BannerColor2 = "#2d6a4f", Members = 156, Posts = 42, Badge = "PUBLIC" },
+        new Group { Name = "Dev Community", Icon = "💻", IconColor = "#58a6ff", BannerColor = "#1a3a5c", BannerColor2 = "#2d5a8c", Members = 324, Posts = 89, Badge = "PUBLIC" },
+        new Group { Name = "AI Researchers", Icon = "🤖", IconColor = "#9d50bb", BannerColor = "#3d1a5c", BannerColor2 = "#5c2d8c", Members = 89, Posts = 23, Badge = "PRIVATE" },
+        new Group { Name = "Gaming Squad", Icon = "🎮", IconColor = "#f0883e", BannerColor = "#5c3d1a", BannerColor2 = "#8c5c2d", Members = 278, Posts = 67, Badge = "PUBLIC" }
+    };
+
+    private List<Invite> invites = new()
+    {
+        new Invite { Id = 1, Name = "Tech Enthusiasts", Icon = "⚡", IconColor = "#ffa657", InvitedBy = "Alex Chen" },
+        new Invite { Id = 2, Name = "Startup Founders", Icon = "🏢", IconColor = "#79c0ff", InvitedBy = "Sarah Miller" },
+        new Invite { Id = 3, Name = "Music Lovers", Icon = "🎵", IconColor = "#f778ba", InvitedBy = "James Wilson" }
+    };
+
+    private List<Discover> discoverGroups = new()
+    {
+        new Discover { Id = 1, Name = "Crypto Traders", Icon = "₿", IconColor = "#f0883e", Members = 1205 },
+        new Discover { Id = 2, Name = "Film Makers", Icon = "🎬", IconColor = "#f85149", Members = 456 },
+        new Discover { Id = 3, Name = "Fitness Club", Icon = "💪", IconColor = "#3fb950", Members = 789 }
+    };
+
+    private void AcceptInvite(int id)
+    {
+        var invite = invites.FirstOrDefault(i => i.Id == id);
+        if (invite != null)
+        {
+            groups.Add(new Group { Name = invite.Name, Icon = invite.Icon, IconColor = invite.IconColor, BannerColor = "#1a1a2e", BannerColor2 = "#2d2d4a", Members = 0, Posts = 0, Badge = "NEW" });
+            invites.Remove(invite);
+            pendingInvites--;
+        }
+    }
+
+    private void DeclineInvite(int id)
+    {
+        var invite = invites.FirstOrDefault(i => i.Id == id);
+        if (invite != null)
+        {
+            invites.Remove(invite);
+            pendingInvites--;
+        }
+    }
+
+    private void JoinGroup(int id)
+    {
+        var discover = discoverGroups.FirstOrDefault(d => d.Id == id);
+        if (discover != null)
+        {
+            discoverGroups.Remove(discover);
+        }
+    }
+
+    private class Group
+    {
+        public string Name { get; set; } = "";
+        public string Icon { get; set; } = "";
+        public string IconColor { get; set; } = "";
+        public string BannerColor { get; set; } = "";
+        public string BannerColor2 { get; set; } = "";
+        public int Members { get; set; }
+        public int Posts { get; set; }
+        public string Badge { get; set; } = "";
+    }
+
+    private class Invite
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = "";
+        public string Icon { get; set; } = "";
+        public string IconColor { get; set; } = "";
+        public string InvitedBy { get; set; } = "";
+    }
+
+    private class Discover
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = "";
+        public string Icon { get; set; } = "";
+        public string IconColor { get; set; } = "";
+        public int Members { get; set; }
+    }
+}

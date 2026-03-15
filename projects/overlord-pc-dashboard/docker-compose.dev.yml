@@ -1,0 +1,53 @@
+services:
+  overlord:
+    build: .
+    container_name: overlord-dashboard-dev
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      # HOT RELOAD: Code changes instantly reflect (no rebuild)
+      - ./server.py:/app/server.py
+      - ./index.html:/app/index.html
+      - ./style.css:/app/style.css
+      - ./config.yaml:/app/config.yaml
+      - ./requirements.txt:/app/requirements.txt
+      
+      # Persist logs outside container
+      - ./overlord-dev.log:/app/overlord.log
+      
+      # Cache pip packages to speed up rebuilds
+      - pip-cache:/root/.cache/pip
+    
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PYTHONDONTWRITEBYTECODE=1
+    
+    # Watch for file changes and auto-restart
+    develop:
+      watch:
+        - path: ./server.py
+          action: restart
+          target: /app/server.py
+        - path: ./config.yaml
+          action: restart
+          target: /app/config.yaml
+        - path: ./requirements.txt
+          action: rebuild
+          target: /app/requirements.txt
+        - path: ./index.html
+          action: sync
+          target: /app/index.html
+        - path: ./style.css
+          action: sync
+          target: /app/style.css
+    
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8080/api/health', timeout=3)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+
+volumes:
+  pip-cache:

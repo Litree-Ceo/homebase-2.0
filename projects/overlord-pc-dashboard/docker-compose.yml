@@ -1,0 +1,40 @@
+
+
+services:
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=litreelab
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '8001:8001'
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/litreelab
+      - SECRET_KEY=${SECRET_KEY:-change-this-in-production}
+      - POSTGRES_URL=postgresql://postgres:postgres@db:5432/litreelab
+    volumes:
+      - ./overlord.db:/app/overlord.db
+
+  frontend:
+    build:
+      context: ./web
+    ports:
+      - '4321:4321'
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:

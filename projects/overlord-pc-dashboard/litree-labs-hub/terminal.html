@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiTree Terminal</title>
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --text: #00f0ff;
+            --text-dim: #008b94;
+            --accent: #ff00e5;
+            --success: #00ff88;
+            --warning: #ffaa00;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            background: var(--bg);
+            color: var(--text);
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .terminal {
+            height: 100vh;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            border-bottom: 1px solid var(--text-dim);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .title {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .status {
+            font-size: 0.8rem;
+            color: var(--success);
+        }
+
+        .output {
+            flex: 1;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+
+        .line {
+            margin-bottom: 5px;
+            line-height: 1.5;
+        }
+
+        .line.prompt {
+            color: var(--accent);
+        }
+
+        .line.error {
+            color: var(--warning);
+        }
+
+        .line.success {
+            color: var(--success);
+        }
+
+        .line.info {
+            color: var(--text-dim);
+        }
+
+        .input-line {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .prompt {
+            color: var(--accent);
+            white-space: nowrap;
+        }
+
+        input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: var(--text);
+            font-family: inherit;
+            font-size: inherit;
+            outline: none;
+        }
+
+        .help-text {
+            color: var(--text-dim);
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--text-dim);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="terminal">
+        <div class="header">
+            <span class="title">🌳 LiTree Labs Terminal v2.0</span>
+            <span class="status">● Connected</span>
+        </div>
+        <div class="output" id="output"></div>
+        <div class="input-line">
+            <span class="prompt">litree@hub:~$</span>
+            <input type="text" id="input" autofocus autocomplete="off" spellcheck="false">
+        </div>
+        <div class="help-text">
+            Commands: status, studio, overlord, sync, agents, logs, clear, help
+        </div>
+    </div>
+
+    <script>
+        const output = document.getElementById('output');
+        const input = document.getElementById('input');
+
+        const commands = {
+            help: () => `
+Available commands:
+  status      - Check all service status
+  studio      - Open LiTree Studio
+  overlord    - Open Overlord Dashboard  
+  sync        - Sync projects between apps
+  agents      - List AI agents status
+  logs        - Show recent system logs
+  clear       - Clear terminal
+  help        - Show this help message
+            `,
+            
+            status: async () => {
+                try {
+                    const res = await fetch('http://localhost:7777/api/overview');
+                    const data = await res.json();
+                    return `
+System Status:
+  Studio:   ${data.services.studio.status === 'online' ? '✓ Online' : '✗ Offline'}
+  Overlord: ${data.services.overlord.status === 'online' ? '✓ Online' : '✗ Offline'}
+  Hub:      ✓ Online
+  Sessions: ${data.stats.totalSessions}
+  Projects: ${data.stats.activeProjects}
+                    `;
+                } catch (e) {
+                    return 'Error: Smart Bridge not running on port 7777';
+                }
+            },
+            
+            studio: () => {
+                window.open('http://localhost:3000', '_blank');
+                return 'Opening LiTree Studio...';
+            },
+            
+            overlord: () => {
+                window.open('http://localhost:8080', '_blank');
+                return 'Opening Overlord Dashboard...';
+            },
+            
+            sync: async () => {
+                try {
+                    const res = await fetch('http://localhost:7777/api/sync', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ source: 'terminal', data: {} })
+                    });
+                    const data = await res.json();
+                    return `Sync complete: ${data.syncId}`;
+                } catch (e) {
+                    return 'Sync failed: ' + e.message;
+                }
+            },
+            
+            agents: async () => {
+                try {
+                    const res = await fetch('http://localhost:7777/api/overview');
+                    const data = await res.json();
+                    let output = 'AI Agents:\n';
+                    Object.entries(data.agents).forEach(([key, agent]) => {
+                        output += `  ${agent.name}: ${agent.status}\n`;
+                        output += `    Capabilities: ${agent.capabilities.join(', ')}\n`;
+                    });
+                    return output;
+                } catch (e) {
+                    return 'Error fetching agents';
+                }
+            },
+            
+            logs: async () => {
+                try {
+                    const res = await fetch('http://localhost:7777/api/logs');
+                    const data = await res.json();
+                    return data.slice(-5).map(log => 
+                        `[${new Date(log.time).toLocaleTimeString()}] ${log.message}`
+                    ).join('\n');
+                } catch (e) {
+                    return 'Error fetching logs';
+                }
+            },
+            
+            clear: () => {
+                output.innerHTML = '';
+                return '';
+            }
+        };
+
+        function addLine(text, className = '') {
+            if (!text) return;
+            const line = document.createElement('div');
+            line.className = `line ${className}`;
+            line.textContent = text;
+            output.appendChild(line);
+            output.scrollTop = output.scrollHeight;
+        }
+
+        async function executeCommand(cmd) {
+            addLine(`litree@hub:~$ ${cmd}`, 'prompt');
+            
+            const [command, ...args] = cmd.trim().toLowerCase().split(' ');
+            
+            if (commands[command]) {
+                try {
+                    const result = await commands[command](args);
+                    if (result) addLine(result, 'info');
+                } catch (e) {
+                    addLine(`Error: ${e.message}`, 'error');
+                }
+            } else if (cmd.trim()) {
+                addLine(`Command not found: ${command}. Type 'help' for available commands.`, 'error');
+            }
+        }
+
+        input.addEventListener('keydown', async (e) => {
+            if (e.key === 'Enter') {
+                const cmd = input.value;
+                input.value = '';
+                await executeCommand(cmd);
+            }
+        });
+
+        // Initial message
+        addLine('LiTree Labs Smart Terminal v2.0', 'success');
+        addLine('Type "help" for available commands\n', 'info');
+
+        // Focus input
+        input.focus();
+    </script>
+</body>
+</html>

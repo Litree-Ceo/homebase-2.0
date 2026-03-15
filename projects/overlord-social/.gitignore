@@ -1,0 +1,28 @@
+# Firebase
+.firebase/
+firebase-key.json
+.firebaserc
+
+# Environment
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+npm-debug.log*
+
+# Dependencies (if you add any)
+node_modules/
+package-lock.json
+yarn.lock

@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --makt-gold: #FFD700;
+  --makt-cyan: #00FFFF;
+  --makt-black: #0A0A0A;
+  --makt-dark-gold: #C7A500;
+  --makt-light-cyan: #99FFFF;
+  --makt-glow: rgba(0, 255, 255, 0.5);
+}
+
+body {
+  @apply bg-makt-black text-makt-gold font-sans;
+}
+
+@keyframes pulseGold {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes glowCyan {
+  0% { text-shadow: 0 0 10px var(--makt-glow); }
+  50% { text-shadow: 0 0 20px var(--makt-glow); }
+  100% { text-shadow: 0 0 10px var(--makt-glow); }
+}
+
+@keyframes hexRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.pulse-gold {
+  animation: pulseGold 2s infinite;
+}
+
+.glow-cyan {
+  animation: glowCyan 1.5s infinite;
+}
+
+.hex-rotate {
+  animation: hexRotate 20s linear infinite;
+}
+
+.makt-button {
+  @apply bg-makt-gold text-makt-black px-4 py-2 rounded-md hover:bg-makt-dark-gold transition-all;
+}
+
+.makt-card {
+  @apply bg-makt-black border border-makt-cyan p-4 rounded-lg shadow-lg shadow-makt-glow;
+}

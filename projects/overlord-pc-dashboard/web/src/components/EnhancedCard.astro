@@ -1,0 +1,59 @@
+--- 
+ // src/components/EnhancedCard.astro 
+ export interface Props { 
+   theme: 'rift' | 'cyber' | 'celestial'; 
+   title: string; 
+   artUrl: string; 
+   frameUrl: string; 
+   stats: { label: string; value: string }[]; 
+ } 
+  
+ const { theme, title, artUrl, frameUrl, stats } = Astro.props; 
+  
+ const themes = { 
+   rift: { 
+     container: 'from-purple-900/80 to-red-900/80', 
+     title: 'text-red-400 font-serif', 
+     statLabel: 'text-red-300/80', 
+     statValue: 'text-red-200', 
+   }, 
+   cyber: { 
+     container: 'from-cyan-900/80 to-blue-900/80', 
+     title: 'text-cyan-300 font-mono uppercase', 
+     statLabel: 'text-cyan-400/80', 
+     statValue: 'text-cyan-200', 
+   }, 
+   celestial: { 
+     container: 'from-indigo-900/80 to-yellow-900/80', 
+     title: 'text-yellow-300 font-serif', 
+     statLabel: 'text-yellow-200/80', 
+     statValue: 'text-yellow-100', 
+   }, 
+ }; 
+  
+ const currentTheme = themes[theme]; 
+ --- 
+  
+ <div class:list={['relative w-full max-w-sm aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl shadow-black/50 transition-transform duration-300 hover:scale-105', currentTheme.container]}> 
+   <!-- Frame Layer (Background) --> 
+   <img src={frameUrl} alt={`${title} Frame`} class="absolute inset-0 w-full h-full object-cover z-0" /> 
+  
+   <!-- Art Layer (Middle) --> 
+   <div class="absolute inset-[10%] z-10"> 
+     <img src={artUrl} alt={title} class="w-full h-full object-cover rounded-lg shadow-lg" /> 
+   </div> 
+  
+   <!-- Content Layer (Front) --> 
+   <div class="absolute inset-0 z-20 flex flex-col justify-between p-[12%]"> 
+     <h2 class:list={['text-2xl font-bold text-center tracking-wider', currentTheme.title]}>{title}</h2> 
+     <div class="flex justify-around text-center"> 
+       {stats.map(stat => ( 
+         <div> 
+           <p class:list={['text-xs uppercase', currentTheme.statLabel]}>{stat.label}</p> 
+           <p class:list={['text-lg font-bold', currentTheme.statValue]}>{stat.value}</p> 
+         </div> 
+       ))} 
+     </div> 
+   </div> 
+ </div> 
+ 

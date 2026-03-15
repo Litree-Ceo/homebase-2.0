@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0a"/>
+      <stop offset="100%" style="stop-color:#1a1a2e"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00f2ff"/>
+      <stop offset="100%" style="stop-color:#ff00ff"/>
+    </linearGradient>
+    <filter id="glow-filter" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="512" height="512" rx="64" fill="url(#bg)"/>
+  
+  <!-- Grid Pattern -->
+  <g stroke="rgba(0,242,255,0.2)" stroke-width="1">
+    <line x1="0" y1="128" x2="512" y2="128"/>
+    <line x1="0" y1="256" x2="512" y2="256"/>
+    <line x1="0" y1="384" x2="512" y2="384"/>
+    <line x1="128" y1="0" x2="128" y2="512"/>
+    <line x1="256" y1="0" x2="256" y2="512"/>
+    <line x1="384" y1="0" x2="384" y2="512"/>
+  </g>
+  
+  <!-- Central Icon -->
+  <g transform="translate(256, 256)" filter="url(#glow-filter)">
+    <!-- Outer Ring -->
+    <circle cx="0" cy="0" r="140" fill="none" stroke="url(#glow)" stroke-width="4"/>
+    <circle cx="0" cy="0" r="130" fill="none" stroke="url(#glow)" stroke-width="1" opacity="0.5"/>
+    
+    <!-- Inner Hexagon -->
+    <polygon points="0,-80 69.28,-40 69.28,40 0,80 -69.28,40 -69.28,-40" 
+             fill="none" stroke="url(#glow)" stroke-width="3"/>
+    
+    <!-- Center Lightning -->
+    <polygon points="-15,-50 15,-50 0,0 25,0 -10,50 -25,0 0,0" 
+             fill="url(#glow)"/>
+    
+    <!-- Corner Accents -->
+    <circle cx="-140" cy="-140" r="8" fill="#00f2ff"/>
+    <circle cx="140" cy="-140" r="8" fill="#00f2ff"/>
+    <circle cx="-140" cy="140" r="8" fill="#ff00ff"/>
+    <circle cx="140" cy="140" r="8" fill="#ff00ff"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="256" y="420" text-anchor="middle" font-family="monospace" font-size="24" 
+        fill="#00f2ff" letter-spacing="8" font-weight="bold">L1T-GR1D</text>
+</svg>

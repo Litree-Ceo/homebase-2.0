@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "i4q26Jrkoa4=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\litre\\homebase-3.0\\HomeBase11\\HomeBase11\\HomeBase11.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\litre\\.nuget\\packages\\microsoft.aspnetcore.app.internal.assets\\11.0.0-preview.2.26159.112\\microsoft.aspnetcore.app.internal.assets.11.0.0-preview.2.26159.112.nupkg.sha512",
+    "C:\\Users\\litre\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly\\11.0.0-preview.2.26159.112\\microsoft.aspnetcore.components.webassembly.11.0.0-preview.2.26159.112.nupkg.sha512",
+    "C:\\Users\\litre\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly.server\\11.0.0-preview.2.26159.112\\microsoft.aspnetcore.components.webassembly.server.11.0.0-preview.2.26159.112.nupkg.sha512",
+    "C:\\Users\\litre\\.nuget\\packages\\microsoft.jsinterop.webassembly\\11.0.0-preview.2.26159.112\\microsoft.jsinterop.webassembly.11.0.0-preview.2.26159.112.nupkg.sha512"
+  ],
+  "logs": []
+}

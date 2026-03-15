@@ -1,0 +1,46 @@
+# Overlord PC Dashboard Configuration
+# This file contains server configuration settings
+
+server:
+  host: "127.0.0.1"
+  port: 8080
+
+auth:
+  enabled: true
+  # API key is loaded from .env file (recommended) or set here
+  # Never commit actual API keys - use environment variable instead
+  api_key: ""
+
+rate_limit:
+  enabled: true
+  requests_per_second: 10
+  burst: 20
+  block_duration: 60
+
+dashboard:
+  refresh_interval_ms: 5000
+  max_history_entries: 60
+
+logging:
+  level: "INFO"
+  file: "overlord.log"
+  max_bytes: 1048576
+  backup_count: 3
+  json_format: false
+
+security:
+  csp: "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;"
+  secure_headers: true
+  cors_origins: []
+  allowed_hosts:
+    - "localhost"
+    - "127.0.0.1"
+
+database:
+  enabled: true
+  path: "overlord.db"
+  retention_days: 30
+
+firebase:
+  enabled: false
+  config: ""

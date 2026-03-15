@@ -1,0 +1,4 @@
+FLASK_ENV=development
+OVERLORD_AUTH_TOKEN=dev-token-for-local-use-only
+OPENROUTER_API_KEY=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
+ 

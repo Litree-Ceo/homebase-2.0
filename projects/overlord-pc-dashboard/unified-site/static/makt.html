@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAKT | Multi-Agent Knowledge Terminal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #151520;
+            --bg-card: rgba(20, 20, 35, 0.85);
+            --accent-primary: #00f0ff;
+            --accent-secondary: #ff00e5;
+            --accent-green: #00ff88;
+            --text-primary: #ffffff;
+            --text-secondary: #8b8b9e;
+            --text-muted: #5a5a6e;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --font-display: 'Orbitron', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 40px;
+        }
+
+        .bg-animation {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(0, 255, 136, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(0, 240, 255, 0.05) 0%, transparent 50%),
+                var(--bg-primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .terminal-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--accent-green);
+            text-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
+        }
+
+        .subtitle {
+            font-family: var(--font-mono);
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .terminal-window {
+            background: rgba(0, 20, 10, 0.95);
+            border: 1px solid var(--accent-green);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 40px 0;
+            font-family: var(--font-mono);
+            box-shadow: 0 0 40px rgba(0, 255, 136, 0.1);
+        }
+
+        .terminal-header {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(0, 255, 136, 0.2);
+        }
+
+        .terminal-btn {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .terminal-btn.red { background: #ff5f56; }
+        .terminal-btn.yellow { background: #ffbd2e; }
+        .terminal-btn.green { background: #27c93f; }
+
+        .terminal-content {
+            color: var(--accent-green);
+            line-height: 1.8;
+        }
+
+        .terminal-line {
+            margin-bottom: 10px;
+        }
+
+        .prompt {
+            color: var(--accent-primary);
+        }
+
+        .command {
+            color: var(--text-primary);
+        }
+
+        .output {
+            color: var(--text-secondary);
+            margin-left: 20px;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 18px;
+            background: var(--accent-green);
+            animation: blink 1s infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .agents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .agent-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s;
+        }
+
+        .agent-card:hover {
+            border-color: var(--accent-green);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 255, 136, 0.1);
+        }
+
+        .agent-status {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; box-shadow: 0 0 5px var(--accent-green); }
+            50% { opacity: 0.5; box-shadow: 0 0 15px var(--accent-green); }
+        }
+
+        .agent-name {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .agent-role {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 12px 30px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-family: var(--font-display);
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+    
+    <div class="container">
+        <header>
+            <div class="terminal-icon">🤖</div>
+            <h1>MAKT</h1>
+            <p class="subtitle">Multi-Agent Knowledge Terminal // Agent Zero Protocol</p>
+        </header>
+
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="terminal-btn red"></div>
+                <div class="terminal-btn yellow"></div>
+                <div class="terminal-btn green"></div>
+                <span style="margin-left: 10px; color: var(--text-muted); font-size: 0.8rem;">agent_zero@litlabs:~</span>
+            </div>
+            <div class="terminal-content">
+                <div class="terminal-line">
+                    <span class="prompt">$</span> <span class="command">makt --init --protocol=alpha</span>
+                </div>
+                <div class="terminal-line output">
+                    Initializing Multi-Agent Knowledge Terminal...<br>
+                    Connecting to neural mesh network... OK<br>
+                    Synchronizing 892 nodes... OK<br>
+                    Loading agent swarms... OK
+                </div>
+                <div class="terminal-line">
+                    <span class="prompt">$</span> <span class="command">agents --list --status=active</span>
+                </div>
+                <div class="terminal-line output">
+                    > Agent Zero [NOMINAL] - System Orchestrator<br>
+                    > ProfitPilot [ACTIVE] - Yield Optimizer<br>
+                    > SocialSync [ACTIVE] - Network Coordinator<br>
+                    > ContentForge [STANDBY] - Creative Engine<br>
+                    > SecurityDaemon [ACTIVE] - Guardian Protocol
+                </div>
+                <div class="terminal-line">
+                    <span class="prompt">$</span> <span class="cursor"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="agents-grid">
+            <div class="agent-card">
+                <div class="agent-name"><span class="agent-status"></span>Agent Zero</div>
+                <div class="agent-role">System Orchestrator</div>
+                <p style="font-size: 0.9rem; color: var(--text-secondary);">Coordinates all sub-agents and manages system-wide operations.</p>
+            </div>
+            <div class="agent-card">
+                <div class="agent-name"><span class="agent-status"></span>ProfitPilot</div>
+                <div class="agent-role">Yield Optimizer</div>
+                <p style="font-size: 0.9rem; color: var(--text-secondary);">AI-powered trading and yield farming across multiple chains.</p>
+            </div>
+            <div class="agent-card">
+                <div class="agent-name"><span class="agent-status"></span>SocialSync</div>
+                <div class="agent-role">Network Coordinator</div>
+                <p style="font-size: 0.9rem; color: var(--text-secondary);">Manages social connections and community interactions.</p>
+            </div>
+            <div class="agent-card">
+                <div class="agent-name"><span class="agent-status"></span>ContentForge</div>
+                <div class="agent-role">Creative Engine</div>
+                <p style="font-size: 0.9rem; color: var(--text-secondary);">Generates and optimizes content across all platforms.</p>
+            </div>
+        </div>
+
+        <center>
+            <a href="/" class="back-btn">← Return to Command Center</a>
+        </center>
+    </div>
+</body>
+</html>

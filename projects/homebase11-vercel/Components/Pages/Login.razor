@@ -1,0 +1,315 @@
+@page "/"
+@using System.ComponentModel.DataAnnotations
+@inject NavigationManager Navigation
+@inject HomeBase11.Client.Services.FirebaseAuthService AuthService
+@inject IJSRuntime JS
+@rendermode InteractiveServer
+
+<script src="/firebase-auth.js" type="module"></script>
+
+<PageTitle>HomeBase 11 | Access</PageTitle>
+
+<main id="main-content" class="login-wrapper">
+    <div class="glass-card shadow-lg">
+        <div class="glow-effect"></div>
+        
+        <div class="text-center mb-5">
+            <h1 class="brand-text">HOMEBASE <span class="version">3.0</span></h1>
+            <p class="subtitle text-uppercase">Studio Command Center</p>
+        </div>
+
+        @if (isSignupMode)
+        {
+            <EditForm Model="@signupModel" OnValidSubmit="HandleSignup" FormName="signupForm">
+                <DataAnnotationsValidator />
+                
+                <div class="form-group mb-4">
+                    <label for="signup-email" class="glass-label">IDENTITY</label>
+                    <div class="input-container">
+                        <InputText id="signup-email" type="email" class="glass-input" @bind-Value="signupModel.Email" placeholder="Enter email" aria-required="true" />
+                    </div>
+                    <ValidationMessage For="@(() => signupModel.Email)" class="text-danger-custom" />
+                </div>
+
+                <div class="form-group mb-4">
+                    <label for="signup-password" class="glass-label">ACCESS KEY</label>
+                    <div class="input-container">
+                        <InputText id="signup-password" type="password" class="glass-input" @bind-Value="signupModel.Password" placeholder="Create password" aria-required="true" />
+                    </div>
+                    <ValidationMessage For="@(() => signupModel.Password)" class="text-danger-custom" />
+                </div>
+
+                <div class="form-group mb-4">
+                    <label for="signup-displayname" class="glass-label">DISPLAY NAME</label>
+                    <div class="input-container">
+                        <InputText id="signup-displayname" class="glass-input" @bind-Value="signupModel.DisplayName" placeholder="Your name" />
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-dope" disabled="@isLoading" aria-label="Create Account">
+                    @if (isLoading)
+                    {
+                        <span>CREATING...</span>
+                    }
+                    else
+                    {
+                        <span>CREATE ACCOUNT</span>
+                    }
+                    <div class="btn-glow"></div>
+                </button>
+                
+                @if (!string.IsNullOrEmpty(errorMessage))
+                {
+                    <div class="alert-error mt-4 fade-in">
+                        <i class="bi bi-exclamation-triangle-fill"></i> @errorMessage
+                    </div>
+                }
+            </EditForm>
+            
+            <div class="text-center mt-4">
+                <button type="button" class="btn-link" @onclick="ToggleMode">
+                    Already have an account? Sign in
+                </button>
+            </div>
+        }
+        else
+        {
+            <EditForm Model="@loginModel" OnValidSubmit="HandleLogin" FormName="loginForm">
+                <DataAnnotationsValidator />
+                
+                <div class="form-group mb-4">
+                    <label for="username" class="glass-label">IDENTITY</label>
+                    <div class="input-container">
+                        <InputText id="username" class="glass-input" @bind-Value="loginModel.Username" placeholder="Enter email" aria-required="true" />
+                    </div>
+                    <ValidationMessage For="@(() => loginModel.Username)" class="text-danger-custom" />
+                </div>
+
+                <div class="form-group mb-4">
+                    <label for="password" class="glass-label">ACCESS KEY</label>
+                    <div class="input-container">
+                        <InputText id="password" type="password" class="glass-input" @bind-Value="loginModel.Password" placeholder="••••••••" aria-required="true" />
+                    </div>
+                    <ValidationMessage For="@(() => loginModel.Password)" class="text-danger-custom" />
+                </div>
+
+                <button type="submit" class="btn-dope" disabled="@isLoading" aria-label="Initialize Studio - Sign in">
+                    @if (isLoading)
+                    {
+                        <span>VERIFYING...</span>
+                    }
+                    else
+                    {
+                        <span>INITIALIZE STUDIO</span>
+                    }
+                    <div class="btn-glow"></div>
+                </button>
+                
+                @if (!string.IsNullOrEmpty(errorMessage))
+                {
+                    <div class="alert-error mt-4 fade-in">
+                        <i class="bi bi-exclamation-triangle-fill"></i> @errorMessage
+                    </div>
+                }
+            </EditForm>
+            
+            <div class="text-center mt-4">
+                <button type="button" class="btn-link" @onclick="ToggleMode">
+                    Need an account? Sign up
+                </button>
+            </div>
+        }
+        
+        <div class="footer-meta text-center mt-5">
+            <span class="meta-tag">CORE v11.0</span>
+            <span class="meta-divider"></span>
+            <span class="meta-tag">FIREBASE AUTH</span>
+        </div>
+    </div>
+</main>
+
+<style>
+    :root {
+        --brand-blue: #00d2ff;
+        --brand-purple: #9d50bb;
+        --glass-bg: rgba(13, 17, 23, 0.7);
+        --glass-border: rgba(255, 255, 255, 0.1);
+    }
+
+    .login-wrapper {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #0d1117;
+        background-image: 
+            radial-gradient(at 0% 0%, rgba(0, 210, 255, 0.15) 0px, transparent 50%),
+            radial-gradient(at 100% 100%, rgba(157, 80, 187, 0.15) 0px, transparent 50%);
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    .glass-card {
+        background: var(--glass-bg);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid var(--glass-border);
+        border-radius: 24px;
+        padding: 60px 40px;
+        width: 100%;
+        max-width: 480px;
+        position: relative;
+        z-index: 10;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+
+    .glow-effect {
+        position: absolute;
+        top: -2px; left: -2px; right: -2px; bottom: -2px;
+        background: linear-gradient(45deg, var(--brand-blue), var(--brand-purple));
+        z-index: -1;
+        border-radius: 26px;
+        opacity: 0.3;
+        filter: blur(20px);
+    }
+
+    .brand-text { font-weight: 900; letter-spacing: -1px; color: white; margin-bottom: 0; }
+    .brand-text .version { background: linear-gradient(to right, var(--brand-blue), var(--brand-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .subtitle { font-size: 0.75rem; letter-spacing: 4px; color: #8b949e; font-weight: 700; }
+    .glass-label { display: block; font-size: 0.7rem; font-weight: 800; color: #8b949e; letter-spacing: 1.5px; margin-bottom: 8px; }
+
+    .glass-input {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--glass-border);
+        border-radius: 12px;
+        padding: 14px 18px;
+        color: white;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        font-size: 0.95rem;
+    }
+
+    .glass-input:focus {
+        background: rgba(255, 255, 255, 0.07);
+        border-color: var(--brand-blue);
+        outline: none;
+        box-shadow: 0 0 20px rgba(0, 210, 255, 0.15);
+        transform: translateY(-1px);
+    }
+
+    .btn-dope {
+        width: 100%;
+        background: linear-gradient(45deg, #00d2ff, #3a7bd5);
+        border: none;
+        border-radius: 12px;
+        padding: 16px;
+        color: white;
+        font-weight: 800;
+        letter-spacing: 1px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s;
+        margin-top: 10px;
+    }
+
+    .btn-dope:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 10px 30px -10px #00d2ff; }
+    .btn-dope:active { transform: translateY(0); }
+    .btn-dope:disabled { opacity: 0.7; cursor: not-allowed; }
+    .btn-link { background: none; border: none; color: #8b949e; cursor: pointer; font-size: 0.85rem; text-decoration: underline; }
+    .btn-link:hover { color: #00d2ff; }
+    .footer-meta { display: flex; align-items: center; justify-content: center; gap: 12px; }
+    .meta-tag { font-size: 0.65rem; font-weight: 800; color: #484f58; letter-spacing: 1px; }
+    .meta-divider { width: 4px; height: 4px; background: #30363d; border-radius: 50%; }
+    .text-danger-custom { color: #ff7b72; font-size: 0.75rem; margin-top: 6px; display: block; }
+    .alert-error { background: rgba(248, 81, 73, 0.1); border-left: 3px solid #f85149; padding: 12px; color: #f85149; border-radius: 8px; font-size: 0.85rem; }
+    .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+    @@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+
+@code {
+    private bool isSignupMode = false;
+    private SignupModel signupModel = new SignupModel();
+    private LoginModel loginModel = new LoginModel();
+    private string? errorMessage;
+    private bool isLoading = false;
+
+    private void ToggleMode()
+    {
+        isSignupMode = !isSignupMode;
+        errorMessage = null;
+    }
+
+    private async Task HandleSignup()
+    {
+        isLoading = true;
+        errorMessage = null;
+        try
+        {
+            // Simulate registration logic
+            var result = await AuthService.SignInAsync(signupModel.Email, signupModel.Password);
+            if (result != null)
+            {
+                Navigation.NavigateTo("/");
+            }
+            else
+            {
+                errorMessage = "Registration failed. Please try again.";
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Registration error: {ex.Message}";
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+
+    private async Task HandleLogin()
+    {
+        isLoading = true;
+        errorMessage = null;
+        try
+        {
+            var result = await AuthService.SignInAsync(loginModel.Username, loginModel.Password);
+            if (result != null)
+            {
+                Navigation.NavigateTo("/");
+            }
+            else
+            {
+                errorMessage = "Authentication failed. Please check your credentials.";
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Authentication error: {ex.Message}";
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+
+    public class SignupModel
+    {
+        [Required]
+        public string Email { get; set; } = string.Empty;
+        [Required]
+        public string Password { get; set; } = string.Empty;
+        public string DisplayName { get; set; } = string.Empty;
+    }
+
+    public class LoginModel
+    {
+        [Required]
+        public string Username { get; set; } = string.Empty;
+        [Required]
+        public string Password { get; set; } = string.Empty;
+    }
+}

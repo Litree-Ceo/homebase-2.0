@@ -1,0 +1,23 @@
+{
+  "exclude": [
+    "**/node_modules",
+    "**/__pycache__",
+    "**/.venv",
+    "**/.venv3",
+    "**/.venv312",
+    "**/venv",
+    "**/dist",
+    "**/build",
+    "**/.git",
+    "**/litlabs-player-deluxe",
+    "**/overlord-dashboard",
+    "**/overlord-modern",
+    "**/overlord-monolith",
+    "**/repos",
+    "**/retroarch_roms",
+    "**/wallpapers",
+    "**/_Archive"
+  ],
+  "pythonVersion": "3.12",
+  "typeCheckingMode": "basic"
+}

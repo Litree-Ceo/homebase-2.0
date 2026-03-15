@@ -1,0 +1,49 @@
+--- 
+ // src/pages/index.astro 
+ import EnhancedCard from '../components/EnhancedCard.astro'; 
+ import MainLayout from '../layouts/MainLayout.astro'; 
+  
+ const cardData = [ 
+   { 
+     theme: 'rift', 
+     title: 'THE UPSIDE-DOWN RIFT', 
+     artUrl: 'https://i.imgur.com/8dhpL6b.png', // Placeholder art 
+     frameUrl: 'https://i.imgur.com/Jv7pBf8.png', // Placeholder frame 
+     stats: [ 
+       { label: 'Power', value: '85' }, 
+       { label: 'Corrupt', value: '92' }, 
+     ], 
+   }, 
+   { 
+     theme: 'cyber', 
+     title: 'NEON CYBER-MAGE', 
+     artUrl: 'https://i.imgur.com/Y1Z5dJc.png', // Placeholder art 
+     frameUrl: 'https://i.imgur.com/A2d9f9d.png', // Placeholder frame 
+     stats: [ 
+       { label: 'Tech', value: '95' }, 
+       { label: 'Mana', value: '88' }, 
+     ], 
+   }, 
+   { 
+     theme: 'celestial', 
+     title: 'CELESTIAL DRAGON-NODE', 
+     artUrl: 'https://i.imgur.com/sS22Fqj.png', // Placeholder art 
+     frameUrl: 'https://i.imgur.com/tVq0aD3.png', // Placeholder frame 
+     stats: [ 
+       { label: 'Cosmic', value: '99' }, 
+       { label: 'Astro', value: '97' }, 
+     ], 
+   }, 
+ ]; 
+ --- 
+  
+ <MainLayout title="Card Gallery"> 
+   <div class="min-h-screen w-full bg-gray-900 flex items-center justify-center p-8"> 
+     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"> 
+       {cardData.map(card => ( 
+         <EnhancedCard {...card} /> 
+       ))} 
+     </div> 
+   </div> 
+ </MainLayout> 
+ 

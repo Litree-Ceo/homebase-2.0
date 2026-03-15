@@ -1,0 +1,1508 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>THE GRID | Your Creative Network — LiTreeLabStudio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Firebase SDK (compat mode) v11.3.1 -->
+    <script src="https://www.gstatic.com/firebasejs/11.3.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.3.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.3.1/firebase-storage-compat.js"></script>
+    <script src="firebase-config.js"></script>
+  </head>
+  <body>
+    <!-- Top Navigation Bar -->
+    <nav class="navbar terminal-glass">
+      <div class="nav-container">
+        <div class="nav-left">
+          <div class="nav-brand">
+            <h1 class="logo lit-logo">⚡ THE GRID</h1>
+            <span class="nav-studio">by LiTreeLabStudio</span>
+          </div>
+          <input
+            type="text"
+            class="search-bar terminal-input"
+            placeholder="> Search The Grid..."
+            id="searchInput"
+          />
+        </div>
+        <div class="nav-center">
+          <button
+            class="nav-icon-btn"
+            onclick="showSection('discover')"
+            title="Discover People"
+          >
+            <span class="nav-icon">🔍</span>
+            <span class="nav-label">DISCOVER</span>
+          </button>
+          <button
+            class="nav-icon-btn"
+            onclick="showSection('ai-create')"
+            title="AI Studio"
+          >
+            <span class="nav-icon">🎨</span> <span class="nav-label">AI</span>
+          </button>
+          <button
+            class="nav-icon-btn active"
+            onclick="showSection('home')"
+            title="Home"
+          >
+            <span class="nav-icon">🏠</span> <span class="nav-label">HOME</span>
+          </button>
+          <button
+            class="nav-icon-btn"
+            onclick="showSection('LiTreeLabStudio')"
+            title="LiTreeLabStudio Control Center"
+          >
+            <span class="nav-icon">🛡️</span>
+            <span class="nav-label">CONTROL</span>
+          </button>
+          <button
+            class="nav-icon-btn"
+            onclick="showSection('marketplace')"
+            title="Marketplace"
+          >
+            <span class="nav-icon">🛒</span>
+            <span class="nav-label">MARKET</span>
+          </button>
+          <button
+            class="nav-icon-btn"
+            onclick="showSection('reels')"
+            title="Reels"
+          >
+            <span class="nav-icon">🎬</span>
+          </button>
+          <button
+            class="nav-icon-btn"
+            onclick="showSection('video')"
+            title="Video Hub"
+          >
+            <span class="nav-icon">📺</span>
+          </button>
+          <button
+            class="nav-icon-btn"
+            onclick="showSection('gaming')"
+            title="Gaming + Retro"
+          >
+            <span class="nav-icon">🕹️</span>
+          </button>
+          <button
+            class="nav-icon-btn"
+            onclick="showSection('pages')"
+            title="Pages"
+          >
+            <span class="nav-icon">🚩</span>
+          </button>
+        </div>
+        <div class="nav-right">
+          <button
+            class="nav-icon-btn"
+            onclick="showSection('messages')"
+            title="Messages"
+          >
+            <span class="nav-icon">💬</span>
+          </button>
+          <button
+            class="nav-icon-btn notif-btn"
+            onclick="showSection('notifications')"
+            title="Notifications"
+          >
+            <span class="nav-icon">🔔</span>
+            <span class="notification-badge hide" id="notificationBadge"></span>
+          </button>
+          <button class="nav-icon-btn" id="open-bot-inbox" title="Bot Inbox">
+            <span class="nav-icon">🤖</span>
+            <span class="nav-label">BOT INBOX</span>
+            <span class="notification-badge hide" id="botInboxBadge"></span>
+          </button>
+          <button
+            class="nav-icon-btn"
+            onclick="showSection('profile')"
+            title="Profile"
+            id="navProfileBtn"
+          >
+            <div class="nav-mini-avatar" id="navMiniAvatar">
+              <img
+                src="https://api.dicebear.com/9.x/notionists/svg?seed=guest&backgroundColor=7c6dff&backgroundType=gradientLinear"
+                alt="Profile"
+                id="navAvatarImg"
+              />
+            </div>
+          </button>
+          <span class="fb-badge offline" id="firebaseBadge">⚠ Offline</span>
+          <button class="nav-btn auth-btn" id="authBtn" onclick="toggleAuth()">
+            🔐 Login
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Auth Modal -->
+    <div id="authModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeAuthModal()">&times;</span>
+        <div class="auth-brand">
+          <h2 id="authTitle">Enter The Grid</h2>
+          <p class="auth-studio">— LiTreeLabStudio —</p>
+        </div>
+        <p class="modal-tagline">
+          Your Creative Network · Sign up free · Email works instantly
+        </p>
+        <input type="email" id="authEmail" placeholder="Email" />
+        <input type="password" id="authPassword" placeholder="Password" />
+        <input
+          type="text"
+          id="authUsername"
+          placeholder="Username (for signup)"
+          class="hide"
+        />
+        <button
+          onclick="handleAuth()"
+          id="authSubmitBtn"
+          class="btn-primary auth-submit-btn"
+        >
+          Login
+        </button>
+        <div class="modal-divider">or</div>
+        <button class="btn-google" onclick="handleGoogleAuth()">
+          <img
+            src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+            width="18"
+            alt="G"
+          />
+          Continue with Google
+        </button>
+        <button class="btn-oauth" onclick="handleFacebookAuth()">
+          Continue with Facebook
+        </button>
+        <button class="btn-oauth" onclick="handleDiscordAuth()">
+          Continue with Discord
+        </button>
+        <button class="btn-oauth" id="phoneAuthBtn" onclick="handlePhoneAuth()">
+          Continue with SMS
+        </button>
+        <div id="recaptcha-container"></div>
+        <p class="auth-toggle">
+          <span id="authToggleText">Don't have an account?</span>
+          <a
+            href="#"
+            onclick="
+              toggleAuthMode();
+              return false;
+            "
+            id="authToggleLink"
+            >Sign up</a
+          >
+        </p>
+      </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+      <!-- Left Dock (Desktop) -->
+      <aside class="sidebar-left">
+        <div class="widget">
+          <h3>⚡ Dock</h3>
+          <div class="dock-links">
+            <button class="menu-item active" onclick="showSection('home')">
+              🏠 Social Hub
+            </button>
+            <button class="menu-item" onclick="showSection('discover')">
+              🔍 Discover People
+            </button>
+            <button class="menu-item" onclick="showSection('LiTreeLabStudio')">
+              🛡️ Control Center
+            </button>
+            <button class="menu-item" onclick="showSection('marketplace')">
+              🛒 NFT Marketplace
+            </button>
+            <button class="menu-item" onclick="showSection('reels')">
+              🎬 Reels
+            </button>
+            <button class="menu-item" onclick="showSection('video')">
+              📺 Video Hub
+            </button>
+            <button class="menu-item" onclick="showSection('gaming')">
+              🕹️ Gaming + Retro
+            </button>
+            <button class="menu-item" onclick="showSection('friends')">
+              👥 Friends
+            </button>
+            <button class="menu-item" onclick="showSection('messages')">
+              💬 Messages
+            </button>
+            <button class="menu-item" onclick="showSection('profile')">
+              👤 Profile
+            </button>
+            <button class="menu-item" onclick="toggleAuth()">
+              🔐 Login / Logout
+            </button>
+          </div>
+        </div>
+
+        <div class="widget">
+          <h3>🤖 AI Studio</h3>
+          <div class="dock-links">
+            <button class="menu-item" onclick="showSection('ai-create')">
+              🎨 Generate Image
+            </button>
+            <button class="menu-item" onclick="showSection('groups')">
+              👨‍👩‍👧‍👦 Groups
+            </button>
+            <button class="menu-item" onclick="showSection('events')">
+              📅 Events
+            </button>
+            <button class="menu-item" onclick="showSection('pages')">
+              🚩 Pages
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Center Content -->
+      <main class="content">
+        <!-- ========== HERO SECTION (KODI STYLE) ========== -->
+        <section id="hero" class="section hero-section">
+          <div class="hero-content hero-container">
+            <h1 class="hero-title">⚡ THE GRID</h1>
+            <h2 class="hero-subtitle">Your Creative Network</h2>
+            <p class="hero-studio">by LiTreeLabStudio</p>
+            <div class="hero-tiles">
+              <button
+                class="overlord-card hero-btn"
+                onclick="showSection('home')"
+              >
+                🏠 SOCIAL HUB
+              </button>
+              <button
+                class="overlord-card hero-btn"
+                onclick="showSection('LiTreeLabStudio')"
+              >
+                🛡️ OVERLORD CORE
+              </button>
+              <button
+                class="overlord-card hero-btn"
+                onclick="showSection('marketplace')"
+              >
+                🛒 NFT MARKET
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========== HOME FEED ========== -->
+        <section id="home" class="section">
+          <!-- Stories Bar -->
+          <div class="stories-section">
+            <h3 class="stories-header">📖 Stories</h3>
+            <div class="stories-container" id="storiesContainer">
+              <!-- Dynamic stories -->
+            </div>
+          </div>
+
+          <!-- Create Post Card -->
+          <div class="create-post-card">
+            <div class="create-post-author-row">
+              <div class="create-post-user-avatar" id="createPostAvatar">
+                <img
+                  src="https://api.dicebear.com/9.x/notionists/svg?seed=guest&backgroundColor=7c6dff&backgroundType=gradientLinear"
+                  alt="You"
+                  id="createPostAvatarImg"
+                />
+              </div>
+              <div>
+                <div class="create-post-user-name" id="createPostUsername">
+                  Guest
+                </div>
+                <div class="create-post-user-privacy">🌐 Public</div>
+              </div>
+            </div>
+            <textarea
+              id="postContent"
+              placeholder="What's on your mind?"
+              rows="3"
+            ></textarea>
+            <div class="post-options">
+              <label for="postPrivacy">Privacy:</label>
+              <select id="postPrivacy" class="privacy-select">
+                <option value="public">🌐 Public</option>
+                <option value="friends">👥 Friends Only</option>
+                <option value="private">🔒 Private</option>
+              </select>
+            </div>
+            <div class="post-options">
+              <!-- Hidden media file input -->
+              <input
+                type="file"
+                id="mediaInput"
+                accept="image/*,video/*"
+                hidden
+                onchange="handleMediaSelected(this)"
+              />
+              <div class="upload-progress" id="uploadProgress">
+                <div class="upload-progress-bar" id="uploadProgressBar"></div>
+              </div>
+              <button
+                class="btn-secondary"
+                onclick="document.getElementById('mediaInput').click()"
+              >
+                📷 Photo
+              </button>
+              <button
+                class="btn-secondary"
+                onclick="document.getElementById('mediaInput').click()"
+              >
+                🎥 Video
+              </button>
+              <button
+                class="btn-secondary"
+                onclick="
+                  showToast('Feeling/activity picker is next in queue', 'info')
+                "
+              >
+                😊 Feeling
+              </button>
+              <button class="btn-primary" onclick="createPost()">
+                ⚡ Post
+              </button>
+            </div>
+          </div>
+
+          <!-- Posts Feed -->
+          <div id="postsContainer" class="posts-feed">
+            <!-- Dynamic posts -->
+          </div>
+          <!-- Bot Inbox Panel -->
+          <div id="bot-inbox-panel" class="modal">
+            <div class="modal-content">
+              <span class="close" id="close-bot-inbox">&times;</span>
+              <h2>Bot Inbox</h2>
+              <div id="bot-inbox-list">
+                <p class="loading">Loading bot events...</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- ========== LiTreeLabStudio CONTROL CENTER ========== -->
+        <section id="LiTreeLabStudio" class="section active">
+          <div class="control-center-header">
+            <h2>🛡️ LiTreeLabStudio CONTROL</h2>
+            <p>System Monitoring & Stream Engine Integrated</p>
+          </div>
+
+          <div class="LiTreeLabStudio-grid">
+            <!-- Dashboard Card -->
+            <div class="LiTreeLabStudio-card">
+              <div class="card-icon">📊</div>
+              <h3>System Dashboard</h3>
+              <p>
+                Live health monitoring, resource tracking, and PC diagnostics.
+              </p>
+              <a
+                href="http://192.168.0.77:8080"
+                target="_blank"
+                rel="noopener"
+                class="btn-primary"
+                >Open Dashboard</a
+              >
+            </div>
+
+            <!-- Grid Card -->
+            <div class="LiTreeLabStudio-card">
+              <div class="card-icon">🛰️</div>
+              <h3>L1T_GRID Stream</h3>
+              <p>
+                Real-Debrid powered entertainment and media streaming engine.
+              </p>
+              <a
+                href="http://localhost:5000"
+                target="_blank"
+                rel="noopener"
+                class="btn-primary"
+                >Open Stream Engine</a
+              >
+            </div>
+
+            <!-- Status Card -->
+            <div class="LiTreeLabStudio-card status-card">
+              <div class="card-icon">⚡</div>
+              <h3>System Status</h3>
+              <div id="systemHealthStatus">
+                <span class="status-indicator online"></span> ONLINE
+              </div>
+              <small>Monolith Link: Active</small>
+            </div>
+          </div>
+        </section>
+        <!-- ========== FRIENDS ========== -->
+        <section id="friends" class="section">
+          <div class="content-header">
+            <h2>👥 Friends</h2>
+            <button
+              class="btn-primary"
+              onclick="
+                showToast(
+                  'Friend suggestions are loading from Discover',
+                  'info',
+                )
+              "
+            >
+              Find Friends
+            </button>
+          </div>
+
+          <!-- Friend Requests -->
+          <div class="card">
+            <h3>Friend Requests</h3>
+            <div id="friendRequestsList">
+              <!-- Dynamic friend requests -->
+            </div>
+          </div>
+
+          <!-- All Friends -->
+          <div class="card">
+            <h3>All Friends</h3>
+            <div id="friendsList">
+              <!-- Dynamic friends list -->
+            </div>
+          </div>
+        </section>
+
+        <!-- ========== DISCOVER PEOPLE ========== -->
+        <section id="discover" class="section">
+          <div class="content-header">
+            <h2>🔍 Discover People</h2>
+            <button class="btn-primary" onclick="generateInviteLink()">
+              🔗 Invite Friends
+            </button>
+          </div>
+
+          <div id="inviteLinkBanner" class="card hide invite-link-banner">
+            <h3>Your Invite Link</h3>
+            <p class="invite-link-text" id="inviteLinkText"></p>
+            <button class="btn-secondary" onclick="copyInviteLink()">
+              📋 Copy Link
+            </button>
+          </div>
+
+          <div class="card">
+            <h3>👥 People You May Know</h3>
+            <p class="discover-subtext">
+              Sign in to see personalized suggestions. Here are some sample
+              profiles:
+            </p>
+            <div id="discoverPeopleGrid" class="discover-people-grid">
+              <!-- Injected by JS -->
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📨 Send an Invite</h3>
+            <div class="invite-row">
+              <input
+                type="email"
+                id="inviteEmail"
+                placeholder="friend@email.com"
+                class="invite-email-input"
+              />
+              <button class="btn-primary" onclick="sendInviteEmail()">
+                Send Invite
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========== AI CREATE ========== -->
+        <section id="ai-create" class="section">
+          <div class="content-header">
+            <h2>🎨 AI Studio</h2>
+            <span class="ai-powered-badge"
+              >Powered by Pollinations.ai · 100% Free</span
+            >
+          </div>
+
+          <div class="card">
+            <h3>🖼️ Image Generator</h3>
+            <p class="ai-helper-text">
+              Describe anything — it generates instantly, no account needed.
+            </p>
+            <textarea
+              id="aiImagePrompt"
+              rows="3"
+              placeholder="A cyberpunk city at night with neon lights and a purple sky..."
+              class="ai-prompt-input"
+            ></textarea>
+            <div class="ai-controls-row">
+              <select id="aiStyle" class="ai-select" title="AI Image Style">
+                <option value="">Natural</option>
+                <option value="cinematic">Cinematic</option>
+                <option value="anime">Anime</option>
+                <option value="photorealistic">Photorealistic</option>
+                <option value="oil painting">Oil Painting</option>
+                <option value="sketch">Sketch</option>
+                <option value="cyberpunk">Cyberpunk</option>
+                <option value="watercolor">Watercolor</option>
+              </select>
+              <select id="aiSize" class="ai-select" title="AI Image Size">
+                <option value="1024/1024">Square (1:1)</option>
+                <option value="1280/720">Landscape (16:9)</option>
+                <option value="720/1280">Portrait (9:16)</option>
+              </select>
+              <button
+                class="btn-primary"
+                onclick="generateAIImage()"
+                id="aiGenBtn"
+              >
+                ⚡ Generate Image
+              </button>
+              <button class="btn-secondary" onclick="generateAIImage(true)">
+                🎲 Surprise Me
+              </button>
+            </div>
+          </div>
+
+          <div id="aiResultCard" class="card hide">
+            <div class="ai-result-head">
+              <h3>Result</h3>
+              <div class="ai-result-actions">
+                <button
+                  class="btn-secondary"
+                  onclick="downloadAIImage()"
+                  class="ai-result-btn"
+                >
+                  ⬇ Download
+                </button>
+                <button
+                  class="btn-primary"
+                  onclick="shareAIImage()"
+                  class="ai-result-btn"
+                >
+                  📤 Post to Feed
+                </button>
+              </div>
+            </div>
+            <img
+              id="aiResultImg"
+              src=""
+              alt="AI Generated"
+              class="ai-result-image"
+            />
+            <p id="aiResultPromptLabel" class="ai-result-prompt"></p>
+          </div>
+
+          <div class="card">
+            <h3>🎬 Free Video Resources</h3>
+            <p class="video-resources-text">
+              Best free AI video generators (open in new tab):
+            </p>
+            <div class="video-resources-list">
+              <a
+                href="https://app.runwayml.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="quick-link"
+                >🎬 Runway ML — 125 free credits/month</a
+              >
+              <a
+                href="https://klingai.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="quick-link"
+                >🎞 Kling AI — free tier, high quality</a
+              >
+              <a
+                href="https://pika.art"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="quick-link"
+                >💜 Pika Art — text/image to video, free</a
+              >
+              <a
+                href="https://www.capcut.com/ai-video-generator"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="quick-link"
+                >✂️ CapCut AI — free video from text</a
+              >
+            </div>
+          </div>
+        </section>
+
+        <!-- ========== MESSAGES (WORKING) ========== -->
+        <section id="messages" class="section">
+          <div class="messages-layout">
+            <!-- Conversations List -->
+            <div class="messages-sidebar">
+              <div class="messages-sidebar-header">
+                <span class="messages-title">💬 Messages</span>
+                <button
+                  class="btn-primary"
+                  class="messages-new-btn"
+                  onclick="startNewConversation()"
+                >
+                  + New
+                </button>
+              </div>
+              <input
+                type="text"
+                id="msgSearch"
+                placeholder="Search messages..."
+                oninput="filterConversations(this.value)"
+                class="messages-search"
+              />
+              <div id="conversationList" class="conversation-list">
+                <!-- Injected by JS -->
+              </div>
+            </div>
+
+            <!-- Chat Window -->
+            <div class="chat-window">
+              <div id="chatHeader" class="chat-header">
+                <div id="chatAvatar" class="chat-avatar">?</div>
+                <div>
+                  <div id="chatName" class="chat-name">
+                    Select a conversation
+                  </div>
+                  <div id="chatStatus" class="chat-status">—</div>
+                </div>
+              </div>
+              <div id="chatMessages" class="chat-messages">
+                <div class="chat-empty">
+                  Select a conversation or start a new one
+                </div>
+              </div>
+              <div id="chatInputBar" class="chat-input-bar">
+                <input
+                  type="text"
+                  id="chatInput"
+                  placeholder="Message..."
+                  onkeydown="
+                    if (event.key === 'Enter' && !event.shiftKey) {
+                      event.preventDefault();
+                      sendChatMessage();
+                    }
+                  "
+                  class="chat-input"
+                  disabled
+                />
+                <button
+                  class="btn-primary"
+                  onclick="sendChatMessage()"
+                  class="chat-send-btn"
+                  id="sendMsgBtn"
+                  disabled
+                >
+                  ➤
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========== GROUPS ========== -->
+        <section id="groups" class="section">
+          <div class="content-header">
+            <h2>👨‍👩‍👧‍👦 Groups</h2>
+            <button class="btn-primary" onclick="createGroup()">
+              + Create Group
+            </button>
+          </div>
+
+          <div id="groupsList" class="groups-grid">
+            <!-- Dynamic groups -->
+          </div>
+        </section>
+
+        <!-- ========== EVENTS ========== -->
+        <section id="events" class="section">
+          <div class="content-header">
+            <h2>📅 Events</h2>
+            <button class="btn-primary" onclick="createEvent()">
+              + Create Event
+            </button>
+          </div>
+
+          <div id="eventsList" class="events-grid">
+            <!-- Dynamic events -->
+          </div>
+        </section>
+
+        <!-- ========== REELS (CINEMATIC) ========== -->
+        <section id="reels" class="section">
+          <div class="content-header reels-header">
+            <h2 class="reels-title">🎬 CINEMATIC REELS</h2>
+          </div>
+
+          <div id="reelsContainer" class="reels-vertical-feed reels-feed">
+            <!-- Full-screen cinematic reels will be injected here -->
+          </div>
+        </section>
+
+        <!-- ========== VIDEO HUB ========== -->
+        <section id="video" class="section">
+          <div class="content-header">
+            <h2>📺 VIDEO HUB</h2>
+          </div>
+          <div id="videoHubList" class="video-hub-grid">
+            <!-- Video cards injected by JS -->
+          </div>
+        </section>
+
+        <!-- ========== GAMING + RETROARCH ========== -->
+        <section id="gaming" class="section">
+          <div class="content-header">
+            <h2>🕹️ GAMING + RETROARCH</h2>
+          </div>
+          <div class="card">
+            <h3>🚀 RetroArch Quick Launch</h3>
+            <p class="gaming-helper-text">
+              Use one of these options depending on your setup.
+            </p>
+            <div class="gaming-actions-row">
+              <button class="btn-primary" onclick="launchRetroArchDesktop()">
+                Open RetroArch (Desktop)
+              </button>
+              <button class="btn-secondary" onclick="copyTermuxRetroCommand()">
+                Copy Termux Command
+              </button>
+              <button class="btn-secondary" onclick="copyRetroArchPathHint()">
+                Copy ROM Path Hint
+              </button>
+            </div>
+          </div>
+          <div id="gamingHubList" class="gaming-hub-grid">
+            <!-- Gaming cards injected by JS -->
+          </div>
+        </section>
+
+        <!-- ========== MARKETPLACE ========== -->
+        <section id="marketplace" class="section">
+          <div class="content-header">
+            <h2>🛒 NFT MARKETPLACE</h2>
+            <div class="marketplace-controls">
+              <button class="btn-primary" onclick="sellMarketplaceItem()">
+                + List NFT
+              </button>
+              <select
+                id="marketplaceCategory"
+                class="category-select category-select-styled"
+                title="Marketplace Category"
+                onchange="filterMarketplaceCategory(this.value)"
+              >
+                <option value="all">All Categories</option>
+                <option value="art">Art</option>
+                <option value="music">Music</option>
+                <option value="gaming">Gaming</option>
+                <option value="collectible">Collectible</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="nftListingFormCard" class="card app-form-card hide">
+            <h3>List New NFT</h3>
+            <div class="app-form-grid">
+              <input
+                type="text"
+                id="nftTitleInput"
+                placeholder="NFT title"
+                class="app-form-input"
+              />
+              <input
+                type="text"
+                id="nftPriceInput"
+                placeholder="Price (e.g. 0.20 ETH or 45 USDC)"
+                class="app-form-input"
+              />
+              <select
+                id="nftCategoryInput"
+                class="app-form-input"
+                title="NFT Category"
+              >
+                <option value="art">Art</option>
+                <option value="music">Music</option>
+                <option value="gaming">Gaming</option>
+                <option value="collectible">Collectible</option>
+              </select>
+              <select
+                id="nftChainInput"
+                class="app-form-input"
+                title="NFT Chain"
+              >
+                <option value="Ethereum">Ethereum</option>
+                <option value="Polygon">Polygon</option>
+                <option value="Base">Base</option>
+                <option value="Solana">Solana</option>
+              </select>
+              <input
+                type="url"
+                id="nftImageInput"
+                placeholder="Image URL"
+                class="app-form-input app-form-span"
+              />
+            </div>
+            <div class="app-form-actions">
+              <button class="btn-primary" onclick="submitNFTListingForm()">
+                Publish NFT
+              </button>
+              <button class="btn-secondary" onclick="closeNFTListingForm()">
+                Cancel
+              </button>
+            </div>
+          </div>
+
+          <div id="marketplaceList" class="marketplace-grid-layout">
+            <!-- Marketplace items injected here -->
+          </div>
+        </section>
+        <!-- ========== PAGES ========== -->
+        <section id="pages" class="section">
+          <div class="content-header">
+            <h2>🚩 Pages</h2>
+            <button
+              class="btn-primary"
+              onclick="
+                showToast(
+                  'Pages coming soon — share your brand or project',
+                  'info',
+                )
+              "
+            >
+              + Create Page
+            </button>
+          </div>
+          <div class="empty-state">
+            <div class="empty-state-icon">🚩</div>
+            <div class="empty-state-title">Pages Coming Soon</div>
+            <div class="empty-state-text">
+              Create public pages for your brand, studio, or project. Follow
+              pages to get updates in your feed.
+            </div>
+          </div>
+        </section>
+        <!-- ========== NOTIFICATIONS ========== -->
+        <section id="notifications" class="section">
+          <div class="content-header">
+            <h2>🔔 Notifications</h2>
+            <button class="btn-secondary" onclick="clearAllNotifications()">
+              Clear All
+            </button>
+          </div>
+          <div id="notificationsList" class="posts-feed">
+            <!-- Injected by JS -->
+          </div>
+        </section>
+
+        <section id="profile" class="section">
+          <div class="profile-header">
+            <div class="cover-photo cover-photo-default" id="coverPhoto">
+              <input
+                type="file"
+                id="coverPhotoInput"
+                accept="image/*"
+                hidden
+                onchange="handleCoverPhotoSelected(this)"
+              />
+              <button
+                class="btn-secondary cover-photo-btn"
+                onclick="openCoverPhotoPicker()"
+              >
+                📷 Change Cover
+              </button>
+            </div>
+            <div class="profile-info-container">
+              <!-- Avatar wrap with animated ring -->
+              <div class="profile-avatar-wrap" id="profileAvatarWrap">
+                <div class="profile-avatar-ring" id="profileAvatarRing"></div>
+                <div class="profile-avatar-large" id="profileAvatar">
+                  <img
+                    src="https://api.dicebear.com/9.x/notionists/svg?seed=guest&backgroundColor=7c6dff&backgroundType=gradientLinear"
+                    alt="Profile"
+                    class="avatar-large"
+                    id="profileAvatarImg"
+                  />
+                  <button
+                    class="avatar-change-btn"
+                    onclick="openAvatarStudio()"
+                    aria-label="Change avatar"
+                  >
+                    <span>🎨</span>
+                    <span class="avatar-change-label">Change</span>
+                  </button>
+                </div>
+                <div class="avatar-online-dot" id="profileOnlineDot"></div>
+              </div>
+              <div class="profile-details">
+                <h2 id="profileName">
+                  Guest User
+                  <span
+                    class="badge-verified profile-badge-hidden"
+                    id="profileVerifiedBadge"
+                    >✦ Verified</span
+                  >
+                  <span
+                    class="badge-creator profile-badge-hidden"
+                    id="profileCreatorBadge"
+                    >⚡ Creator</span
+                  >
+                </h2>
+                <div class="profile-handle" id="profileHandle">@guest</div>
+                <div class="profile-bio-editable" id="profileBio">
+                  Your bio will appear here
+                </div>
+                <div class="profile-badges-row" id="profileBadgesRow"></div>
+                <div class="profile-stats">
+                  <div class="profile-stat">
+                    <span class="profile-stat-value" id="profilePostCount"
+                      >0</span
+                    >
+                    <span class="profile-stat-label">Posts</span>
+                  </div>
+                  <div class="profile-stat">
+                    <span class="profile-stat-value" id="profileFriendCount"
+                      >0</span
+                    >
+                    <span class="profile-stat-label">Friends</span>
+                  </div>
+                  <div class="profile-stat">
+                    <span class="profile-stat-value" id="profileFollowerCount"
+                      >0</span
+                    >
+                    <span class="profile-stat-label">Followers</span>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="btn-primary profile-edit-btn"
+                onclick="editProfile()"
+              >
+                ✏️ Edit Profile
+              </button>
+            </div>
+          </div>
+
+          <div id="profileEditFormCard" class="card app-form-card hide">
+            <h3>Edit Profile</h3>
+            <div class="app-form-grid">
+              <input
+                type="text"
+                id="profileBioInput"
+                placeholder="Bio"
+                class="app-form-input app-form-span"
+              />
+              <input
+                type="text"
+                id="profileLocationInput"
+                placeholder="Location"
+                class="app-form-input"
+              />
+              <input
+                type="url"
+                id="profileWebsiteInput"
+                placeholder="Website"
+                class="app-form-input"
+              />
+            </div>
+            <div class="app-form-actions">
+              <button class="btn-primary" onclick="saveProfileFromForm()">
+                Save Profile
+              </button>
+              <button class="btn-secondary" onclick="closeProfileEditor()">
+                Cancel
+              </button>
+            </div>
+          </div>
+
+          <!-- Profile Tabs -->
+          <div class="profile-tabs">
+            <button class="tab-btn active" onclick="showProfileTab('posts')">
+              Posts
+            </button>
+            <button class="tab-btn" onclick="showProfileTab('about')">
+              About
+            </button>
+            <button class="tab-btn" onclick="showProfileTab('photos')">
+              Photos
+            </button>
+            <button class="tab-btn" onclick="showProfileTab('friends')">
+              Friends
+            </button>
+            <button class="tab-btn" onclick="showProfileTab('avatar-studio')">
+              🎨 Avatar
+            </button>
+          </div>
+
+          <!-- Profile Content -->
+          <div id="profilePosts" class="profile-tab-content active">
+            <div id="userPosts">
+              <!-- User's posts -->
+            </div>
+          </div>
+
+          <div id="profileAbout" class="profile-tab-content">
+            <div class="card">
+              <h3>About</h3>
+              <div class="about-section">
+                <p id="userBio">No bio yet</p>
+                <p id="userLocation">📍 Location not set</p>
+                <p id="userWebsite">🌐 No website</p>
+              </div>
+            </div>
+          </div>
+
+          <div id="profilePhotos" class="profile-tab-content">
+            <div class="card">
+              <h3>Photos</h3>
+              <p class="empty-state-text">Photo albums coming soon!</p>
+            </div>
+          </div>
+
+          <div id="profileFriends" class="profile-tab-content">
+            <div class="card">
+              <h3>Friends</h3>
+              <div id="profileFriendsList">
+                <!-- Friends list -->
+              </div>
+            </div>
+          </div>
+
+          <!-- ════ AVATAR STUDIO TAB ════ -->
+          <div id="profileavatar-studio" class="profile-tab-content">
+            <div class="card">
+              <h3>🎨 Avatar Studio</h3>
+              <p class="avatar-studio-helper">
+                Pick a style, choose a frame, or AI-generate your own unique
+                avatar.
+              </p>
+
+              <!-- Style picker -->
+              <div class="avatar-studio-section">
+                <div class="avatar-studio-heading">Avatar Style</div>
+                <div class="avatar-studio-grid" id="avatarStyleGrid">
+                  <!-- Injected by openAvatarStudio() JS -->
+                </div>
+              </div>
+
+              <!-- Frame picker -->
+              <div class="avatar-studio-section">
+                <div class="avatar-studio-heading">Avatar Frame</div>
+                <div class="avatar-frame-picker" id="avatarFramePicker">
+                  <button
+                    class="frame-swatch swatch-violet active"
+                    onclick="setAvatarFrame('violet', this)"
+                    title="Violet"
+                  >
+                    <div class="swatch-inner"></div>
+                  </button>
+                  <button
+                    class="frame-swatch swatch-cyan"
+                    onclick="setAvatarFrame('cyan', this)"
+                    title="Cyan"
+                  >
+                    <div class="swatch-inner"></div>
+                  </button>
+                  <button
+                    class="frame-swatch swatch-fire"
+                    onclick="setAvatarFrame('fire', this)"
+                    title="Fire"
+                  >
+                    <div class="swatch-inner"></div>
+                  </button>
+                  <button
+                    class="frame-swatch swatch-gold"
+                    onclick="setAvatarFrame('gold', this)"
+                    title="Gold"
+                  >
+                    <div class="swatch-inner"></div>
+                  </button>
+                  <button
+                    class="frame-swatch swatch-off"
+                    onclick="setAvatarFrame('off', this)"
+                    title="None"
+                  >
+                    <div class="swatch-inner"></div>
+                  </button>
+                </div>
+              </div>
+
+              <!-- AI Avatar generator -->
+              <div>
+                <div class="avatar-studio-heading">
+                  ⚡ AI Avatar (Pollinations)
+                </div>
+                <div class="ai-avatar-row">
+                  <div class="ai-avatar-preview" id="aiAvatarPreview">
+                    <img
+                      src=""
+                      alt="AI Avatar"
+                      id="aiAvatarImg"
+                      class="ai-avatar-hidden"
+                    />
+                  </div>
+                  <div class="ai-avatar-controls">
+                    <input
+                      type="text"
+                      id="aiAvatarPrompt"
+                      placeholder="cyberpunk warrior, neon purple, digital art portrait..."
+                      class="ai-avatar-input"
+                    />
+                    <div class="ai-avatar-actions">
+                      <button
+                        class="btn-primary"
+                        onclick="generateAIAvatar()"
+                        id="aiAvatarBtn"
+                      >
+                        ⚡ Generate
+                      </button>
+                      <button
+                        class="btn-secondary ai-avatar-hidden"
+                        onclick="applyAIAvatar()"
+                        id="applyAIAvatarBtn"
+                      >
+                        ✅ Use as Avatar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Right Widgets (Desktop) -->
+      <aside class="sidebar-right">
+        <div class="widget">
+          <h3>⚡ Quick Links</h3>
+          <div class="quick-links">
+            <a
+              href="http://localhost:8080"
+              target="_blank"
+              rel="noopener"
+              class="quick-link"
+            >
+              📊 PC Dashboard
+            </a>
+            <a
+              href="http://localhost:8080"
+              target="_blank"
+              rel="noopener"
+              class="quick-link"
+            >
+              🛰️ Stream Engine
+            </a>
+            <a
+              href="#"
+              onclick="
+                createStory();
+                return false;
+              "
+              class="quick-link"
+            >
+              📖 Create Story
+            </a>
+            <a
+              href="#"
+              onclick="
+                createGroup();
+                return false;
+              "
+              class="quick-link"
+            >
+              👨‍👩‍👧‍👦 Create Group
+            </a>
+            <a
+              href="#"
+              onclick="
+                createEvent();
+                return false;
+              "
+              class="quick-link"
+            >
+              📅 Create Event
+            </a>
+          </div>
+        </div>
+
+        <div class="widget">
+          <h3>📊 Grid Stats</h3>
+          <div class="stat-row">
+            <span>Total Posts:</span>
+            <span id="totalPosts">0</span>
+          </div>
+          <div class="stat-row">
+            <span>Active Users:</span>
+            <span id="totalUsers">0</span>
+          </div>
+          <div class="stat-row">
+            <span>Groups:</span>
+            <span id="totalGroups">0</span>
+          </div>
+          <div class="stat-row">
+            <span>Events:</span>
+            <span id="totalEvents">0</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Toast notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Load litreelabsocial-style app script -->
+    <script src="app-litreelabsocial.js"></script>
+
+    <!-- ════ AVATAR STUDIO RUNTIME ════ -->
+    <script>
+      // ── Config ──────────────────────────────────────────────────────────
+      const DICEBEAR_BASE = "https://api.dicebear.com/9.x";
+      const AVATAR_STYLES = [
+        {
+          id: "notionists",
+          label: "Notionists",
+          bg: "7c6dff",
+          type: "gradientLinear",
+        },
+        { id: "lorelei", label: "Lorelei", bg: "0f1422", type: "solid" },
+        { id: "adventurer", label: "Adventurer", bg: "b6e3f4", type: "solid" },
+        { id: "pixel-art", label: "Pixel Art", bg: "292929", type: "solid" },
+        { id: "big-ears", label: "Big Ears", bg: "614334", type: "solid" },
+        { id: "bottts", label: "Robots", bg: "0d1b2a", type: "solid" },
+        { id: "fun-emoji", label: "Fun Emoji", bg: "ffd93d", type: "solid" },
+        { id: "croodles", label: "Croodles", bg: "fefefe", type: "solid" },
+      ];
+
+      let _avatarSeed = localStorage.getItem("avatarSeed") || "guest";
+      let _avatarStyle = localStorage.getItem("avatarStyle") || "notionists";
+      let _avatarFrame = localStorage.getItem("avatarFrame") || "violet";
+      let _aiAvatarUrl = null;
+
+      function avatarURL(style, seed, bg, type = "gradientLinear") {
+        return `${DICEBEAR_BASE}/${style}/svg?seed=${encodeURIComponent(seed)}&backgroundColor=${bg}&backgroundType=${type}`;
+      }
+
+      function getCurrentAvatarURL() {
+        if (_aiAvatarUrl) return _aiAvatarUrl;
+        const s =
+          AVATAR_STYLES.find((x) => x.id === _avatarStyle) || AVATAR_STYLES[0];
+        return avatarURL(s.id, _avatarSeed, s.bg, s.type);
+      }
+
+      // Apply avatar to every element that shows it
+      function applyAvatarEverywhere(url) {
+        ["profileAvatarImg", "navAvatarImg", "createPostAvatarImg"].forEach(
+          (id) => {
+            const el = document.getElementById(id);
+            if (el) el.src = url;
+          },
+        );
+        // post/chat avatars driven by app.js — we store and let it pick up
+        localStorage.setItem("avatarURL", url);
+      }
+
+      // ── Frame ────────────────────────────────────────────────────────────
+      function setAvatarFrame(frame, btn) {
+        _avatarFrame = frame;
+        localStorage.setItem("avatarFrame", frame);
+        const wrap = document.getElementById("profileAvatarWrap");
+        if (wrap) {
+          wrap.className = `profile-avatar-wrap avatar-frame-${frame}`;
+        }
+        document
+          .querySelectorAll(".frame-swatch")
+          .forEach((b) => b.classList.remove("active"));
+        if (btn) btn.classList.add("active");
+      }
+
+      // ── Profile tab show (extend existing showProfileTab) ────────────────
+      const _origShowProfileTab = window.showProfileTab;
+      window.showProfileTab = function (tab) {
+        if (_origShowProfileTab) _origShowProfileTab(tab);
+        document.querySelectorAll(".profile-tab-content").forEach((el) => {
+          el.classList.remove("active");
+        });
+        document
+          .querySelectorAll(".tab-btn")
+          .forEach((b) => b.classList.remove("active"));
+        const content = document.getElementById("profile" + tab);
+        if (content) content.classList.add("active");
+        const allBtns = document.querySelectorAll(".tab-btn");
+        allBtns.forEach((b) => {
+          if (b.textContent.toLowerCase().includes(tab.replace("-", " ")))
+            b.classList.add("active");
+        });
+
+        if (tab === "avatar-studio") buildAvatarStyleGrid();
+      };
+
+      // ── Avatar Studio Open (switches to tab + builds grid) ───────────────
+      function openAvatarStudio() {
+        // Called from the "🎨 Change" button on profile - switch to tab & build
+        showProfileTab("avatar-studio");
+        buildAvatarStyleGrid();
+      }
+
+      // ── Build Avatar Style Grid (safe to call multiple times) ────────────
+      function buildAvatarStyleGrid() {
+        const grid = document.getElementById("avatarStyleGrid");
+        if (!grid || grid.dataset.built) return;
+        grid.dataset.built = "1";
+
+        AVATAR_STYLES.forEach((s) => {
+          const url = avatarURL(s.id, _avatarSeed, s.bg, s.type);
+          const card = document.createElement("div");
+          card.className =
+            "avatar-style-card" +
+            (s.id === _avatarStyle ? " active-style" : "");
+          card.innerHTML = `
+            <img src="${url}" alt="${s.label}" loading="lazy" />
+            <div class="avatar-style-label">${s.label}</div>
+          `;
+          card.addEventListener("click", () => {
+            _avatarStyle = s.id;
+            localStorage.setItem("avatarStyle", s.id);
+            _aiAvatarUrl = null; // clear AI override
+            document
+              .querySelectorAll(".avatar-style-card")
+              .forEach((c) => c.classList.remove("active-style"));
+            card.classList.add("active-style");
+            applyAvatarEverywhere(getCurrentAvatarURL());
+            if (window.showToast)
+              showToast(`Avatar style: ${s.label}`, "success");
+          });
+          grid.appendChild(card);
+        });
+
+        // Activate saved frame swatch
+        document.querySelectorAll(".frame-swatch").forEach((b) => {
+          b.classList.remove("active");
+          const title = b.getAttribute("title")?.toLowerCase();
+          if (title === _avatarFrame || (!title && _avatarFrame === "violet"))
+            b.classList.add("active");
+        });
+        setAvatarFrame(_avatarFrame, null);
+      }
+
+      // ── AI Avatar (Pollinations) ─────────────────────────────────────────
+      async function generateAIAvatar() {
+        const prompt = document.getElementById("aiAvatarPrompt")?.value?.trim();
+        if (!prompt) {
+          if (window.showToast) showToast("Enter a prompt first", "error");
+          return;
+        }
+
+        const btn = document.getElementById("aiAvatarBtn");
+        if (btn) {
+          btn.textContent = "⏳ Generating...";
+          btn.disabled = true;
+        }
+
+        const encodedPrompt = encodeURIComponent(
+          `avatar portrait, ${prompt}, centered face, square format, high detail`,
+        );
+        const url = `https://image.pollinations.ai/prompt/${encodedPrompt}?width=256&height=256&seed=${Date.now()}`;
+
+        const preview = document.getElementById("aiAvatarImg");
+        const applyBtn = document.getElementById("applyAIAvatarBtn");
+        try {
+          await new Promise((resolve, reject) => {
+            const img = new Image();
+            img.onload = resolve;
+            img.onerror = reject;
+            img.src = url;
+          });
+          if (preview) {
+            preview.src = url;
+            preview.style.display = "block";
+          }
+          if (applyBtn) applyBtn.style.display = "";
+          _aiAvatarUrl = url;
+          if (window.showToast) showToast("AI avatar generated!", "success");
+        } catch {
+          if (window.showToast)
+            showToast("Generation failed — try again", "error");
+        } finally {
+          if (btn) {
+            btn.textContent = "⚡ Generate";
+            btn.disabled = false;
+          }
+        }
+      }
+
+      function applyAIAvatar() {
+        if (!_aiAvatarUrl) return;
+        applyAvatarEverywhere(_aiAvatarUrl);
+        if (window.showToast) showToast("AI avatar applied!", "success");
+        document.getElementById("applyAIAvatarBtn").style.display = "none";
+      }
+
+      // ── Bootstrap on load ────────────────────────────────────────────────
+      window.addEventListener("DOMContentLoaded", () => {
+        // Build avatar style grid immediately (so it’s ready before tab click)
+        setTimeout(buildAvatarStyleGrid, 300);
+        // Apply saved avatar
+        const saved = localStorage.getItem("avatarURL");
+        if (saved) {
+          applyAvatarEverywhere(saved);
+        } else {
+          applyAvatarEverywhere(getCurrentAvatarURL());
+        }
+
+        // Apply saved frame
+        const wrap = document.getElementById("profileAvatarWrap");
+        if (wrap)
+          wrap.className = `profile-avatar-wrap avatar-frame-${_avatarFrame}`;
+
+        // Sync username into create-post area when auth state changes
+        // (works alongside app-litreelabsocial.js which calls updateUI)
+        const obs = new MutationObserver(() => {
+          const name = document
+            .getElementById("profileName")
+            ?.textContent?.trim();
+          const u = document.getElementById("createPostUsername");
+          if (u && name && name !== "Guest User") u.textContent = name;
+        });
+        const pn = document.getElementById("profileName");
+        if (pn)
+          obs.observe(pn, {
+            childList: true,
+            subtree: true,
+            characterData: true,
+          });
+      });
+    </script>
+
+    <div class="mobile-nav-bottom">
+      <button class="nav-icon-btn active" onclick="showSection('home')">
+        <span class="nav-icon">🏠</span>
+      </button>
+      <button class="nav-icon-btn" onclick="showSection('marketplace')">
+        <span class="nav-icon">🛒</span>
+      </button>
+      <button class="nav-icon-btn" onclick="showSection('video')">
+        <span class="nav-icon">📺</span>
+      </button>
+      <button
+        class="nav-icon-btn"
+        onclick="
+          showSection('home');
+          document.getElementById('postContent') &&
+            document.getElementById('postContent').focus();
+        "
+      >
+        <span class="nav-icon">➕</span>
+      </button>
+      <button class="nav-icon-btn" onclick="showSection('gaming')">
+        <span class="nav-icon">🕹️</span>
+      </button>
+      <button class="nav-icon-btn" onclick="showSection('profile')">
+        <span class="nav-icon">👤</span>
+      </button>
+    </div>
+  </body>
+</html>

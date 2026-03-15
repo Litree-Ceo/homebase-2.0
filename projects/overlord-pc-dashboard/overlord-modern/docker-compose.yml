@@ -1,0 +1,89 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:16-alpine
+    container_name: overlord-postgres
+    environment:
+      POSTGRES_USER: overlord
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-overlord}
+      POSTGRES_DB: overlord
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U overlord"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - overlord-network
+
+  # Backend API
+  backend:
+    build: ./backend
+    container_name: overlord-backend
+    environment:
+      DATABASE_URL: postgresql+asyncpg://overlord:${DB_PASSWORD:-overlord}@postgres/overlord
+      SECRET_KEY: ${SECRET_KEY:-change-me-in-production}
+      API_KEY: ${API_KEY:-ovrd_development_key}
+      WEBSOCKET_TOKEN: ${WEBSOCKET_TOKEN:-ws_development_token}
+      DEBUG: "true"
+      LOG_LEVEL: INFO
+      CORS_ORIGINS: '["http://localhost:5173", "http://localhost:3000"]'
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./backend:/app
+      - /app/.venv
+    networks:
+      - overlord-network
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  # Frontend React App
+  frontend:
+    build: ./frontend
+    container_name: overlord-frontend
+    environment:
+      VITE_API_URL: http://localhost:8000/api/v1
+      VITE_WS_URL: ws://localhost:8000/ws
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    networks:
+      - overlord-network
+    command: npm run dev -- --host
+
+  # Data Collector (background service)
+  collector:
+    build: ./backend
+    container_name: overlord-collector
+    environment:
+      DATABASE_URL: postgresql+asyncpg://overlord:${DB_PASSWORD:-overlord}@postgres/overlord
+      API_KEY: ${API_KEY:-ovrd_development_key}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./backend:/app
+      - /app/.venv
+    networks:
+      - overlord-network
+    command: python -m app.collector
+    profiles:
+      - collector
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  overlord-network:
+    driver: bridge

@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>AIO</title>
+        <link rel="stylesheet" href="style.css?v7" media="all" />
+        <link rel="icon" href="img/favicon.png">
+        <script type="text/javascript" src="forms.js"></script>
+        <script type="text/javascript" src="toggle-dark-mode.js"></script>
+    </head>
+
+    <body>
+        <div class="wrapper">
+                
+    <header>
+        <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 142 71" width="62" height="50">
+            <use href="img/nextcloud-logo.svg#logo"></use>
+        </svg>
+        <form method="POST" action="api/auth/logout">
+            <input type="hidden" name="csrf_name" value="csrf69a7dc76d5afc">
+            <input type="hidden" name="csrf_value" value="7yMdBtf08eDC3hnumBy8UibR9t5XuPNllUbvLycm3lLaFC0+4sOT0fq8Lo2hJIQzFePDvGCPlVahddkbHx/pYA==">
+            <input type="submit" value="Log out" />
+        </form>
+    </header>
+
+    <div class="container">
+        <main>
+                        <h1>Nextcloud AIO v12.7.0
+</h1>
+
+                        <script type="text/javascript" src="second-tab-warning.js"></script>
+
+                        <script type="text/javascript" src="timezone.js"></script>
+
+                        <script type="text/javascript" src="containers-form-submit.js?v5"></script>
+
+                                                                                                                        
+            
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                            
+                                                            <p>You are running the <a target="_blank" rel="noopener noreferrer" href="https://github.com/nextcloud/all-in-one#how-to-switch-the-channel"><strong>latest</strong></a> channel. (<a href="api/docker/logs?id=nextcloud-aio-mastercontainer" target="_blank" rel="noopener noreferrer">Logs</a>)</p>
+                                    
+                
+                                                                                                                            <p>Initial Nextcloud username: <strong>admin</strong></p>
+                                                            <p>Initial Nextcloud password: <strong id="initial-nextcloud-password">36dcf92d6acd81e248e77e4f355de4da510362423e8cbc9d</strong></p>
+                                                        <p><a href="https://192-168-0-77.sslip.io" class="button" target="_blank" rel="noopener noreferrer">Open your Nextcloud ↗</a></p>
+                                                            <p>If your Nextcloud does not open when clicking the button above, see <strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/nextcloud/all-in-one/discussions/2105">this documentation</a></strong></p>
+                                                                        
+                                            <details>
+    <summary>Click here to view the current AIO config and documentation links</summary>
+            <p>Nextcloud's config.php file is stored in the nextcloud_aio_nextcloud Docker volume and can be edited by following the <a target="_blank" rel="noopener noreferrer" href="https://github.com/nextcloud/all-in-one#how-to-edit-nextclouds-configphp-file-with-a-texteditor">config.php documentation</a>.</p>
+        <p>You can run Nextcloud's usual occ commands by following the <a target="_blank" rel="noopener noreferrer" href="https://github.com/nextcloud/all-in-one#how-to-run-occ-commands">occ documentation</a></strong>.</p>
+    
+    <p>
+                    Nextcloud's datadir is getting stored in the nextcloud_aio_nextcloud_data Docker volume.
+                See the <a target="_blank" rel="noopener noreferrer" href="https://github.com/nextcloud/all-in-one#how-to-change-the-default-location-of-nextclouds-datadir">NEXTCLOUD_DATADIR documentation</a> on how to change this.
+    </p>
+
+    <p>
+                    The Nextcloud container is confined and local external storage in Nextcloud is disabled.
+                See the <a target="_blank" rel="noopener noreferrer" href="https://github.com/nextcloud/all-in-one#how-to-allow-the-nextcloud-container-to-access-directories-on-the-host">NEXTCLOUD_MOUNT documentation</a> on how to change this.</p>
+
+    <p>Nextcloud has an upload limit of 16G configured (for public link uploads. Bigger uploads are always possible when users are logged in). See the <a target="_blank" rel="noopener noreferrer" href="https://github.com/nextcloud/all-in-one#how-to-adjust-the-upload-limit-for-nextcloud">NEXTCLOUD_UPLOAD_LIMIT documentation</a> on how to change this.</p>
+
+    <p>For Nextcloud, a memory limit of 512M per PHP process is configured. See the <a target="_blank" rel="noopener noreferrer" href="https://github.com/nextcloud/all-in-one#how-to-adjust-the-php-memory-limit-for-nextcloud">NEXTCLOUD_MEMORY_LIMIT documentation</a> on how to change this.</p>
+
+    <p>Nextcloud has a timeout of 3600 seconds configured (important for big file uploads). See the <a target="_blank" rel="noopener noreferrer" href="https://github.com/nextcloud/all-in-one#how-to-adjust-the-max-execution-time-for-nextcloud">NEXTCLOUD_MAX_TIME documentation</a> on how to change this.</p>
+
+    <p>
+                    Hardware acceleration is not enabled. It's recommended to enable hardware transcoding for better performance.
+                See the <a target="_blank" rel="noopener noreferrer" href="https://github.com/nextcloud/all-in-one#how-to-enable-hardware-acceleration-for-nextcloud">hardware acceleration documentation</a> on how to change this.</p>
+
+    <p>For further documentation on AIO, refer to <strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/nextcloud/all-in-one#nextcloud-all-in-one">this page</a></strong>. You can use the browser search [CTRL]+[F] to search through the documentation. Additional documentation can be found <strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/nextcloud/all-in-one/discussions/categories/wiki">here</a></strong>.</p>
+</details>
+
+                    
+                                            <h2>Containers</h2>
+                        <ul>
+                                                                                                                            <li>
+  <span>
+          <span class="status error"></span>
+      Apache
+      (<a href="api/docker/logs?id=nextcloud-aio-apache" target="_blank" rel="noopener noreferrer">Stopped</a>)
+              (<a target="_blank" rel="noopener noreferrer" href="https://github.com/nextcloud/all-in-one/discussions/2105">docs</a>)
+              ⚠️&nbsp;Update&nbsp;available
+      </span>
+  </li>                                                                                                                                <li>
+  <span>
+          <span class="status success"></span>
+      Database
+      (<a href="api/docker/logs?id=nextcloud-aio-database" target="_blank" rel="noopener noreferrer">Running</a>)
+              </span>
+  </li>                                                                                                                                <li>
+  <span>
+          <span class="status error"></span>
+      Nextcloud
+      (<a href="api/docker/logs?id=nextcloud-aio-nextcloud" target="_blank" rel="noopener noreferrer">Stopped</a>)
+                  ⚠️&nbsp;Update&nbsp;available
+      </span>
+  </li>                                                                                                                                <li>
+  <span>
+          <span class="status running"></span>
+      Notify Push
+      (<a href="api/docker/logs?id=nextcloud-aio-notify-push" target="_blank" rel="noopener noreferrer">Starting</a>)
+              </span>
+  </li>                                                                                                                                <li>
+  <span>
+          <span class="status success"></span>
+      Redis
+      (<a href="api/docker/logs?id=nextcloud-aio-redis" target="_blank" rel="noopener noreferrer">Running</a>)
+              </span>
+  </li>                                                                                                                                <li>
+  <span>
+          <span class="status success"></span>
+      Collabora
+      (<a href="api/docker/logs?id=nextcloud-aio-collabora" target="_blank" rel="noopener noreferrer">Running</a>)
+              (<a target="_blank" rel="noopener noreferrer" href="https://github.com/nextcloud/all-in-one/discussions/1358">docs</a>)
+          </span>
+  </li>                                                                                                                                <li>
+  <span>
+          <span class="status success"></span>
+      Talk
+      (<a href="api/docker/logs?id=nextcloud-aio-talk" target="_blank" rel="noopener noreferrer">Running</a>)
+              (<a target="_blank" rel="noopener noreferrer" href="https://github.com/nextcloud/all-in-one/discussions/1358">docs</a>)
+          </span>
+  </li>                                                                                                                                                                                                                                                                                                                    <li>
+  <span>
+          <span class="status success"></span>
+      Imaginary
+      (<a href="api/docker/logs?id=nextcloud-aio-imaginary" target="_blank" rel="noopener noreferrer">Running</a>)
+              </span>
+  </li>                                                                                                                                <li>
+  <span>
+          <span class="status success"></span>
+      Whiteboard
+      (<a href="api/docker/logs?id=nextcloud-aio-whiteboard" target="_blank" rel="noopener noreferrer">Running</a>)
+              </span>
+  </li>                                                                                    </ul>
+
+                                                                                    <p>⚠️ Container updates are available. Click on <strong>Stop containers</strong> and <strong>Start and update containers</strong> to update them. You should consider creating a backup first.</p>
+                                                                        
+                                                                                                    <form method="POST" action="api/docker/stop" class="xhr">
+                                <input type="hidden" name="csrf_name" value="csrf69a7dc76d5afc">
+                                <input type="hidden" name="csrf_value" value="7yMdBtf08eDC3hnumBy8UibR9t5XuPNllUbvLycm3lLaFC0+4sOT0fq8Lo2hJIQzFePDvGCPlVahddkbHx/pYA==">
+                                <input type="submit" value="Stop containers" />
+                            </form>
+                                            
+                    
+                                                                                    <h2>Backup and restore</h2>
+                                <p>Please enter the directory path below where backups will be created on the host system and submit it. It's best to choose a location on a separate drive and not on your root drive.</p>
+                                <p>
+                                To store backups remotely instead, fill in the
+                                <a target="_blank" rel="noopener noreferrer" href="https://borgbackup.readthedocs.io/en/stable/usage/general.html#repository-urls">remote borg repo url and submit it</a>.
+                                You will be provided with an SSH public key for authorization at the remote afterwards.
+                                </p>
+                                <form method="POST" action="api/configuration" class="xhr">
+                                    <label>Local backup location</label> <input type="text" id="borg_backup_host_location" name="borg_backup_host_location" placeholder="/mnt/backup"/><br>
+                                    <label>Remote borg repo</label> <input type="text" name="borg_remote_repo" placeholder="ssh://user@host:port/path/to/repo"/><br>
+                                    <input type="hidden" name="csrf_name" value="csrf69a7dc76d5afc">
+                                    <input type="hidden" name="csrf_value" value="7yMdBtf08eDC3hnumBy8UibR9t5XuPNllUbvLycm3lLaFC0+4sOT0fq8Lo2hJIQzFePDvGCPlVahddkbHx/pYA==">
+                                    <input type="submit" value="Submit backup location" />
+                                </form>
+                                <p>The folder path that you enter must start with <strong>/</strong> and must <strong>not</strong> end with <strong>/</strong>.</p>
+<p>An example for Linux is <strong>/mnt/backup</strong>.</p>
+<p>On Synology it could be <strong>/volume1/docker/nextcloud/backup</strong>.</p>
+<p>For macOS it may be <strong>/var/backup</strong>.</p>
+<p>On Windows it might be <strong>/run/desktop/mnt/host/c/backup</strong>. (This path is equivalent to 'C:\backup' on your Windows host so you need to translate the path accordingly. Hint: the path that you enter needs to start with '/run/desktop/mnt/host/'. Append to that the exact location on your windows host, e.g. 'c/backup' which is equivalent to 'C:\backup'.) ⚠️ <strong>Please note</strong>: This does not work with external drives like USB or network drives and only with internal drives like SATA or NVME drives.</p>
+<p>Another option is to enter a specific volume name here: <strong>nextcloud_aio_backupdir</strong>. This volume needs to be created beforehand manually by you in order to be able to use it. See <a target="_blank" rel="noopener noreferrer" href="https://github.com/nextcloud/all-in-one#how-to-create-the-backup-volume-on-windows">this documentation</a> for an example.</p>
+
+                                                    
+                        
+                                                    
+                                                                                    <h2>AIO passphrase change</h2>
+                                <details>
+                                    <summary>Click here to change your AIO passphrase</summary>
+                                    <p>You can change your AIO passphrase below:</p>
+                                    <form method="POST" action="api/configuration" class="xhr">
+                                        <input type="password" autocomplete="current-password" name="current-master-password" placeholder="Your current AIO passphrase" id="current-master-password" oninput="showPassword('current-master-password')">
+                                        <input type="password" autocomplete="new-password" name="new-master-password" placeholder="Your new AIO passphrase" id="new-master-password" oninput="showPassword('new-master-password')">
+                                        <input type="hidden" name="csrf_name" value="csrf69a7dc76d5afc">
+                                        <input type="hidden" name="csrf_value" value="7yMdBtf08eDC3hnumBy8UibR9t5XuPNllUbvLycm3lLaFC0+4sOT0fq8Lo2hJIQzFePDvGCPlVahddkbHx/pYA==">
+                                        <input type="submit" value="Submit passphrase change" />
+                                    </form>
+                                    <p>The new passphrase needs to be at least 24 characters long. Allowed characters are the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Latin_alphabet#/media/File:Abecedarium.png"><strong>latin characters</strong></a> <strong>a-z</strong>, <strong>A-Z</strong>, <strong>0-9</strong> and <strong>spaces</strong>.</p>
+                                </details>
+                                                                                            
+                        <h2>Optional containers</h2>
+<p>In this section you can enable or disable optional containers.</p>
+    <p><strong>Please note:</strong> You can enable or disable the options below only when your containers are stopped.</p>
+<form id="options-form" method="POST" action="api/configuration" class="xhr">
+    <input type="hidden" name="csrf_name" value="csrf69a7dc76d5afc">
+    <input type="hidden" name="csrf_value" value="7yMdBtf08eDC3hnumBy8UibR9t5XuPNllUbvLycm3lLaFC0+4sOT0fq8Lo2hJIQzFePDvGCPlVahddkbHx/pYA==">
+    <input type="hidden" name="options-form" value="options-form">
+    <h3>Office Suite</h3>
+        <div class="office-suite-cards">
+        <input
+            type="radio"
+            id="office-collabora"
+            name="office_suite_choice"
+            value="collabora"
+            class="office-radio"
+                            checked="checked"
+                    >
+        <label class="office-card office-card-disabled" for="office-collabora">
+            <div class="office-card-header">
+                <h4>Nextcloud Office</h4>
+                <svg class="office-checkmark" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" fill="var(--color-nextcloud-blue)"/>
+                    <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <ul class="office-features">
+                <li>Best Nextcloud integration</li>
+                <li>Open source</li>
+                <li>Good performance</li>
+                <li>Best security: documents never leave your server</li>
+                <li>Best ODF compatibility</li>
+                <li>Best support for legacy files</li>
+            </ul>
+                    </label>
+        <input type="hidden" id="collabora" name="collabora" value="" data-initial-state="true">
+        <input
+            type="radio"
+            id="office-onlyoffice"
+            name="office_suite_choice"
+            value="onlyoffice"
+            class="office-radio"
+                    >
+        <label class="office-card office-card-disabled" for="office-onlyoffice">
+            <div class="office-card-header">
+                <h4>OnlyOffice</h4>
+                <svg class="office-checkmark" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" fill="var(--color-nextcloud-blue)"/>
+                    <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <ul class="office-features">
+                <li>Good Nextcloud integration</li>
+                <li>Open core</li>
+                <li>Best performance</li>
+                <li>Best Microsoft compatibility</li>
+                <li>Limited ODF compatibility</li>
+            </ul>
+                    </label>
+        <input type="hidden" id="onlyoffice" name="onlyoffice" value="" data-initial-state="false">
+    </div>
+        <input class="options-form-submit" type="submit" value="Save changes" />
+    <h3>Additional Optional Containers</h3>
+    <p>
+        <input
+            type="checkbox"
+            id="clamav"
+            name="clamav"
+                            data-initial-state="false"
+                    >
+        <label for="clamav">ClamAV (Antivirus backend for Nextcloud, needs ~1GB additional RAM)</label>
+    </p>
+    <p>
+        <input
+            type="checkbox"
+            id="fulltextsearch"
+            name="fulltextsearch"
+                            data-initial-state="false"
+                    >
+        <label for="fulltextsearch">
+            Fulltextsearch (needs ~1GB additional RAM, <a target="_blank" rel="noopener noreferrer" href="https://github.com/nextcloud/all-in-one/discussions/5768">does not work on Kernels without Seccomp</a>)
+                            . <strong>Please note:</strong> the initial indexing can take a long time during which Nextcloud will be unavailable
+                    </label>
+    </p>
+    <p>
+        <input
+            type="checkbox"
+            id="imaginary"
+            name="imaginary"
+                            checked="checked"
+                data-initial-state="true"
+                    >
+        <label for="imaginary">Imaginary (for previews of heic, heif, illustrator, pdf, svg, tiff and webp. Imaginary is currently <a target="_blank" rel="noopener noreferrer" href="https://github.com/nextcloud/server/issues/34262">incompatible with server-side-encryption</a>)</label>
+    </p>
+    <p>
+        <input
+            type="checkbox"
+            id="talk"
+            name="talk"
+                            checked="checked"
+                data-initial-state="true"
+                    >
+        <label for="talk">Nextcloud Talk (needs ports 3478/TCP and 3478/UDP open/forwarded in your firewall/router)</label>
+    </p>
+    <p>
+        <input
+            type="checkbox"
+            id="talk-recording"
+            name="talk-recording"
+                            data-initial-state="false"
+                    >
+        <label for="talk-recording">Nextcloud Talk Recording-server (needs Nextcloud Talk being enabled and ~1GB additional RAM and ~2 additional vCPUs)</label>
+    </p>
+
+    <p>
+        <input
+            type="checkbox"
+            id="docker-socket-proxy"
+            name="docker-socket-proxy"
+                            data-initial-state="false"
+                    >
+        <label for="docker-socket-proxy">Docker Socket Proxy (needed for <a target="_blank" rel="noopener noreferrer" href="https://github.com/cloud-py-api/app_api#nextcloud-appapi">Nextcloud App API</a>)</label>
+    </p>
+    <p>
+        <input
+            type="checkbox"
+            id="whiteboard"
+            name="whiteboard"
+                            checked="checked"
+                data-initial-state="true"
+                    >
+        <label for="whiteboard">Whiteboard</label>
+    </p>
+    <input class="options-form-submit" type="submit" value="Save changes" />
+</form>
+<p><strong>Minimal system requirements:</strong> When any optional container is enabled, at least 2GB RAM, a dual-core CPU and 40GB system storage are required. When enabling ClamAV,  Nextcloud Talk Recording-server or Fulltextsearch, at least 3GB RAM are required. For Talk Recording-server additional 2 vCPUs are required. When enabling everything, at least 5GB RAM and a quad-core CPU are required. Recommended are at least 1GB more RAM than the minimal requirement. For further advice and recommendations see <strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/nextcloud/all-in-one/discussions/1335">this documentation</a></strong></p>
+    <script type="text/javascript" src="disable-clamav.js"></script>
+    <script type="text/javascript" src="disable-docker-socket-proxy.js"></script>
+    <script type="text/javascript" src="disable-talk.js"></script>
+    <script type="text/javascript" src="disable-collabora.js?v2"></script>
+    <script type="text/javascript" src="disable-onlyoffice.js?v2"></script>
+    <script type="text/javascript" src="disable-imaginary.js"></script>
+    <script type="text/javascript" src="disable-fulltextsearch.js"></script>
+    <script type="text/javascript" src="disable-talk-recording.js"></script>
+    <script type="text/javascript" src="disable-whiteboard.js"></script>
+
+
+
+                        <h2>Timezone change</h2>
+                                                                                <p><strong>Please note:</strong> You can change the timezone when your containers are stopped.</p>
+                                                <h2>Community Containers</h2>
+<p>In this section you can enable or disable optional Community Containers that are not included by default in the main installation. These containers are provided by the community and can be useful for various purposes and are automatically integrated in AIOs backup solution and update mechanisms.</p>
+<p><strong>⚠️ Caution: </strong>Community Containers are maintained by the community and not officially by Nextcloud. Some containers may not be compatible with your system, may not work as expected or may discontinue. Use them at your own risk. Please read the documentation for each container first before adding any as some are also incompatible between each other! Never add all of them at the same time!</p>
+    <p><strong>Please note:</strong> You can enable or disable the options below only when your containers are stopped.</p>
+<details>
+    <summary>Show/Hide available Community Containers</summary>
+    <form id="community-form" method="POST" action="api/configuration" class="xhr">
+        <input type="hidden" name="csrf_name" value="csrf69a7dc76d5afc">
+        <input type="hidden" name="csrf_value" value="7yMdBtf08eDC3hnumBy8UibR9t5XuPNllUbvLycm3lLaFC0+4sOT0fq8Lo2hJIQzFePDvGCPlVahddkbHx/pYA==">
+        <input type="hidden" name="community-form" value="community-form">
+                    <p>
+                <input
+                    type="checkbox"
+                    id="borgbackup-viewer"
+                    value="borgbackup-viewer"
+                    name="borgbackup-viewer"
+                                            data-initial-state="false"
+                                                                disabled="disabled"
+                                    >
+                <label for="borgbackup-viewer">Borg Backup Viewer 
+                                            <a href="https://github.com/nextcloud/all-in-one/tree/main/community-containers/borgbackup-viewer" target="_blank" rel="noopener noreferrer">(Documentation)</a>
+                                    </label>
+            </p>
+                    <p>
+                <input
+                    type="checkbox"
+                    id="caddy"
+                    value="caddy"
+                    name="caddy"
+                                            data-initial-state="false"
+                                                                disabled="disabled"
+                                    >
+                <label for="caddy">Caddy with geoblocking 
+                                            <a href="https://github.com/nextcloud/all-in-one/tree/main/community-containers/caddy" target="_blank" rel="noopener noreferrer">(Documentation)</a>
+                                    </label>
+            </p>
+                    <p>
+                <input
+                    type="checkbox"
+                    id="calcardbackup"
+                    value="calcardbackup"
+                    name="calcardbackup"
+                                            data-initial-state="false"
+                                                                disabled="disabled"
+                                    >
+                <label for="calcardbackup">Calendar and contacts backup 
+                                            <a href="https://github.com/nextcloud/all-in-one/tree/main/community-containers/calcardbackup" target="_blank" rel="noopener noreferrer">(Documentation)</a>
+                                    </label>
+            </p>
+                    <p>
+                <input
+                    type="checkbox"
+                    id="container-management"
+                    value="container-management"
+                    name="container-management"
+                                            data-initial-state="false"
+                                                                disabled="disabled"
+                                    >
+                <label for="container-management">Container Management 
+                                            <a href="https://github.com/nextcloud/all-in-one/tree/main/community-containers/container-management" target="_blank" rel="noopener noreferrer">(Documentation)</a>
+                                    </label>
+            </p>
+                    <p>
+                <input
+                    type="checkbox"
+                    id="dlna"
+                    value="dlna"
+                    name="dlna"
+                                            data-initial-state="false"
+                                                                disabled="disabled"
+                                    >
+                <label for="dlna">DLNA 
+                                            <a href="https://github.com/nextcloud/all-in-one/tree/main/community-containers/dlna" target="_blank" rel="noopener noreferrer">(Documentation)</a>
+                                    </label>
+            </p>
+                    <p>
+                <input
+                    type="checkbox"
+                    id="facerecognition"
+                    value="facerecognition"
+                    name="facerecognition"
+                                            data-initial-state="false"
+                                                                disabled="disabled"
+                                    >
+                <label for="facerecognition">Computing container for facerecognition 
+                                            <a href="https://github.com/nextcloud/all-in-one/tree/main/community-containers/facerecognition" target="_blank" rel="noopener noreferrer">(Documentation)</a>
+                                    </label>
+            </p>
+                    <p>
+                <input
+                    type="checkbox"
+                    id="fail2ban"
+                    value="fail2ban"
+                    name="fail2ban"
+                                            data-initial-state="false"
+                                                                disabled="disabled"
+                                    >
+                <label for="fail2ban">Fail2ban 
+                                            <a href="https://github.com/nextcloud/all-in-one/tree/main/community-containers/fail2ban" target="_blank" rel="noopener noreferrer">(Documentation)</a>
+                                    </label>
+            </p>
+                    <p>
+                <input
+                    type="checkbox"
+                    id="helloworld"
+                    value="helloworld"
+                    name="helloworld"
+                                            data-initial-state="false"
+                                                                disabled="disabled"
+                                    >
+                <label for="helloworld">Hello world 
+                                            <a href="https://github.com/nextcloud/all-in-one/tree/main/community-containers/helloworld" target="_blank" rel="noopener noreferrer">(Documentation)</a>
+                                    </label>
+            </p>
+                    <p>
+                <input
+                    type="checkbox"
+                    id="jellyfin"
+                    value="jellyfin"
+                    name="jellyfin"
+                                            data-initial-state="false"
+                                                                disabled="disabled"
+                                    >
+                <label for="jellyfin">Jellyfin 
+                                            <a href="https://github.com/nextcloud/all-in-one/tree/main/community-containers/jellyfin" target="_blank" rel="noopener noreferrer">(Documentation)</a>
+                                    </label>
+            </p>
+                    <p>
+                <input
+                    type="checkbox"
+                    id="jellyseerr"
+                    value="jellyseerr"
+                    name="jellyseerr"
+                                            data-initial-state="false"
+                                                                disabled="disabled"
+                                    >
+                <label for="jellyseerr">Jellyseerr 
+                                            <a href="https://github.com/nextcloud/all-in-one/tree/main/community-containers/jellyseerr" target="_blank" rel="noopener noreferrer">(Documentation)</a>
+                                    </label>
+            </p>
+                    <p>
+                <input
+                    type="checkbox"
+                    id="languagetool"
+                    value="languagetool"
+                    name="languagetool"
+                                            data-initial-state="false"
+                                                                disabled="disabled"
+                                    >
+                <label for="languagetool">LanguageTool for Collabora 
+                                            <a href="https://github.com/nextcloud/all-in-one/tree/main/community-containers/languagetool" target="_blank" rel="noopener noreferrer">(Documentation)</a>
+                                    </label>
+            </p>
+                    <p>
+                <input
+                    type="checkbox"
+                    id="libretranslate"
+                    value="libretranslate"
+                    name="libretranslate"
+                                            data-initial-state="false"
+                                                                disabled="disabled"
+                                    >
+                <label for="libretranslate">LibreTranslate (deprecated) 
+                                            <a href="https://github.com/nextcloud/all-in-one/tree/main/community-containers/libretranslate" target="_blank" rel="noopener noreferrer">(Documentation)</a>
+                                    </label>
+            </p>
+                    <p>
+                <input
+                    type="checkbox"
+                    id="lldap"
+                    value="lldap"
+                    name="lldap"
+                                            data-initial-state="false"
+                                                                disabled="disabled"
+                                    >
+                <label for="lldap">Light LDAP implementation 
+                                            <a href="https://github.com/nextcloud/all-in-one/tree/main/community-containers/lldap" target="_blank" rel="noopener noreferrer">(Documentation)</a>
+                                    </label>
+            </p>
+                    <p>
+                <input
+                    type="checkbox"
+                    id="local-ai"
+                    value="local-ai"
+                    name="local-ai"
+                                            data-initial-state="false"
+                                                                disabled="disabled"
+                                    >
+                <label for="local-ai">Local AI 
+                                            <a href="https://github.com/nextcloud/all-in-one/tree/main/community-containers/local-ai" target="_blank" rel="noopener noreferrer">(Documentation)</a>
+                                    </label>
+            </p>
+                    <p>
+                <input
+                    type="checkbox"
+                    id="makemkv"
+                    value="makemkv"
+                    name="makemkv"
+                                            data-initial-state="false"
+                                                                disabled="disabled"
+                                    >
+                <label for="makemkv">MakeMKV 
+                                            <a href="https://github.com/nextcloud/all-in-one/tree/main/community-containers/makemkv" target="_blank" rel="noopener noreferrer">(Documentation)</a>
+                                    </label>
+            </p>
+                    <p>
+                <input
+                    type="checkbox"
+                    id="memories"
+                    value="memories"
+                    name="memories"
+                                            data-initial-state="false"
+                                                                disabled="disabled"
+                                    >
+                <label for="memories">Memories Transcoder 
+                                            <a href="https://github.com/nextcloud/all-in-one/tree/main/community-containers/memories" target="_blank" rel="noopener noreferrer">(Documentation)</a>
+                                    </label>
+            </p>
+                    <p>
+                <input
+                    type="checkbox"
+                    id="minio"
+                    value="minio"
+                    name="minio"
+                                            data-initial-state="false"
+                                                                disabled="disabled"
+                                    >
+                <label for="minio">Minio S3 Storage 
+                                            <a href="https://github.com/nextcloud/all-in-one/tree/main/community-containers/minio" target="_blank" rel="noopener noreferrer">(Documentation)</a>
+                                    </label>
+            </p>
+                    <p>
+                <input
+                    type="checkbox"
+                    id="nextcloud-exporter"
+                    value="nextcloud-exporter"
+                    name="nextcloud-exporter"
+                                            data-initial-state="false"
+                                                                disabled="disabled"
+                                    >
+                <label for="nextcloud-exporter">Prometheus Nextcloud Exporter 
+                                            <a href="https://github.com/nextcloud/all-in-one/tree/main/community-containers/nextcloud-exporter" target="_blank" rel="noopener noreferrer">(Documentation)</a>
+                                    </label>
+            </p>
+                    <p>
+                <input
+                    type="checkbox"
+                    id="nocodb"
+                    value="nocodb"
+                    name="nocodb"
+                                            data-initial-state="false"
+                                                                disabled="disabled"
+                                    >
+                <label for="nocodb">NocoDB (deprecated) 
+                                            <a href="https://github.com/nextcloud/all-in-one/tree/main/community-containers/nocodb" target="_blank" rel="noopener noreferrer">(Documentation)</a>
+                                    </label>
+            </p>
+                    <p>
+                <input
+                    type="checkbox"
+                    id="notifications"
+                    value="notifications"
+                    name="notifications"
+                                            data-initial-state="false"
+                                                                disabled="disabled"
+                                    >
+                <label for="notifications">Notifications 
+                                            <a href="https://github.com/nextcloud/all-in-one/tree/main/community-containers/notifications" target="_blank" rel="noopener noreferrer">(Documentation)</a>
+                                    </label>
+            </p>
+                    <p>
+                <input
+                    type="checkbox"
+                    id="npmplus"
+                    value="npmplus"
+                    name="npmplus"
+                                            data-initial-state="false"
+                                                                disabled="disabled"
+                                    >
+                <label for="npmplus">NPMplus 
+                                            <a href="https://github.com/nextcloud/all-in-one/tree/main/community-containers/npmplus" target="_blank" rel="noopener noreferrer">(Documentation)</a>
+                                    </label>
+            </p>
+                    <p>
+                <input
+                    type="checkbox"
+                    id="pi-hole"
+                    value="pi-hole"
+                    name="pi-hole"
+                                            data-initial-state="false"
+                                                                disabled="disabled"
+                                    >
+                <label for="pi-hole">Pi-hole 
+                                            <a href="https://github.com/nextcloud/all-in-one/tree/main/community-containers/pi-hole" target="_blank" rel="noopener noreferrer">(Documentation)</a>
+                                    </label>
+            </p>
+                    <p>
+                <input
+                    type="checkbox"
+                    id="plex"
+                    value="plex"
+                    name="plex"
+                                            data-initial-state="false"
+                                                                disabled="disabled"
+                                    >
+                <label for="plex">Plex 
+                                            <a href="https://github.com/nextcloud/all-in-one/tree/main/community-containers/plex" target="_blank" rel="noopener noreferrer">(Documentation)</a>
+                                    </label>
+            </p>
+                    <p>
+                <input
+                    type="checkbox"
+                    id="scrutiny"
+                    value="scrutiny"
+                    name="scrutiny"
+                                            data-initial-state="false"
+                                                                disabled="disabled"
+                                    >
+                <label for="scrutiny">Scrutiny 
+                                            <a href="https://github.com/nextcloud/all-in-one/tree/main/community-containers/scrutiny" target="_blank" rel="noopener noreferrer">(Documentation)</a>
+                                    </label>
+            </p>
+                    <p>
+                <input
+                    type="checkbox"
+                    id="smbserver"
+                    value="smbserver"
+                    name="smbserver"
+                                            data-initial-state="false"
+                                                                disabled="disabled"
+                                    >
+                <label for="smbserver">SMB-server 
+                                            <a href="https://github.com/nextcloud/all-in-one/tree/main/community-containers/smbserver" target="_blank" rel="noopener noreferrer">(Documentation)</a>
+                                    </label>
+            </p>
+                    <p>
+                <input
+                    type="checkbox"
+                    id="stalwart"
+                    value="stalwart"
+                    name="stalwart"
+                                            data-initial-state="false"
+                                                                disabled="disabled"
+                                    >
+                <label for="stalwart">Stalwart 
+                                            <a href="https://github.com/nextcloud/all-in-one/tree/main/community-containers/stalwart" target="_blank" rel="noopener noreferrer">(Documentation)</a>
+                                    </label>
+            </p>
+                    <p>
+                <input
+                    type="checkbox"
+                    id="vaultwarden"
+                    value="vaultwarden"
+                    name="vaultwarden"
+                                            data-initial-state="false"
+                                                                disabled="disabled"
+                                    >
+                <label for="vaultwarden">Vaultwarden 
+                                            <a href="https://github.com/nextcloud/all-in-one/tree/main/community-containers/vaultwarden" target="_blank" rel="noopener noreferrer">(Documentation)</a>
+                                    </label>
+            </p>
+        
+        <input id="community-form-submit" type="submit" value="Save changes" onclick="return confirm('Are you sure that you read the documentation of all community containers that you enabled? If no, please do not continue as this might break your instance!')" />
+    </form>
+</details>
+
+                                                
+                    <script type="text/javascript" src="before-unload.js"></script>
+        
+        <script type="text/javascript" src="base_path.js"></script>
+
+        </main>
+    </div>
+        </div>
+        <div id="overlay">
+            <div class="loader"></div>
+        </div>
+        <button id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme" title="Toggle theme">
+            <span id="theme-icon"></span>
+        </button>
+    </body>
+</html>
+

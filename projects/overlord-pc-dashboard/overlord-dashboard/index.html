@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYSTEM OVERLORD</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬡</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="js/react.production.min.js"></script>
+    <script src="js/react-dom.production.min.js"></script>
+    <script src="js/prop-types.min.js"></script>
+    <script src="js/Recharts.js"></script>
+</head>
+<body>
+    <!-- Restored full dashboard HTML -->
+    <div class="modal-overlay hidden" id="auth-modal">
+        <div class="modal-box">
+            <h2>◈  OVERLORD AUTH  ◈</h2>
+            <p>Enter your API key from <code>config.yaml</code> to access the dashboard.</p>
+            <input class="modal-input" id="modal-key-input" type="password" placeholder="Paste API key…" autocomplete="off">
+            <button class="modal-btn" onclick="submitApiKey()">▶ CONNECT</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay hidden" id="overlord-login-modal">
+        <div class="modal-box">
+            <h2>◈ OVERLORD LOGIN ◈</h2>
+            <input class="modal-input" id="overlord-login-email" type="email" placeholder="Email">
+            <input class="modal-input" id="overlord-login-password" type="password" placeholder="Password">
+            <button class="modal-btn" onclick="submitOverlordLogin()">▶ LOGIN</button>
+            <div id="overlord-login-status" style="margin-top:10px;color:#f44;"></div>
+        </div>
+    </div>
+
+    <div class="background">
+        <div class="bg-grid"></div>
+        <div class="bg-orb bg-orb-a"></div>
+        <div class="bg-orb bg-orb-b"></div>
+    </div>
+
+    <main class="shell">
+        <header class="topbar">
+            <div class="brand">
+                <span class="brand-mark">◈</span>
+                <div>
+                    <div class="brand-title">Overlord Nexus</div>
+                    <div class="brand-sub">Realtime system intelligence + L1T_GRID</div>
+                </div>
+            </div>
+            <div class="status-chip">
+                <span class="status-label">STATUS</span>
+                <span class="status-value" id="connection-status">CONNECTING…</span>
+                <span class="dot" id="status-dot"></span>
+            </div>
+        </header>
+
+        <section class="grid">
+            <section class="card">
+                <div class="card-title">System Identity</div>
+                <div class="info-grid">
+                    <div class="info-row">
+                        <span class="label">HOSTNAME</span>
+                        <span class="value glow-cyan" id="hostname">—</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">PLATFORM</span>
+                        <span class="value glow-cyan" id="platform">—</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">PYTHON</span>
+                        <span class="value glow-cyan" id="python-ver">—</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">SESSION UPTIME</span>
+                        <span class="value glow-cyan" id="uptime">00:00:00</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card">
+                <div class="card-title">Compute Core</div>
+                <div class="info-row">
+                    <span class="label">CPU (<span id="cpu-cores">?</span> CORES, <span id="cpu-freq">—</span>)</span>
+                    <span class="value glow-cyan" id="cpu-val">—</span>
+                </div>
+                <div class="bar-track">
+                    <div class="bar-fill bar-cpu" id="cpu-bar"></div>
+                </div>
+                <div id="cpu-chart-container" class="chart-container"></div>
+
+                <div class="divider"></div>
+
+                <div class="info-row">
+                    <span class="label">MEMORY USED</span>
+                    <span class="value glow-cyan" id="ram-val">—</span>
+                </div>
+                <div class="bar-track">
+                    <div class="bar-fill bar-ram" id="ram-bar"></div>
+                </div>
+                <div id="ram-chart-container" class="chart-container"></div>
+            </section>
+
+            <section class="card">
+                <div class="card-title">Storage Matrix</div>
+                <div class="info-row">
+                    <span class="label">PRIMARY DISK</span>
+                    <span class="value glow-cyan" id="disk-val">—</span>
+                </div>
+                <div class="bar-track">
+                    <div class="bar-fill bar-disk" id="disk-bar"></div>
+                </div>
+                <div class="divider"></div>
+                <div class="section-label">ALL VOLUMES</div>
+                <div id="all-disks-container">
+                    <span class="loading-text">Loading…</span>
+                </div>
+            </section>
+
+            <section id="gpu-section" class="card hidden">
+                <div class="card-title">GPU Core</div>
+                <div class="info-row">
+                    <span class="label">NAME</span>
+                    <span class="value glow-cyan" id="gpu-name">—</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">COMPUTE</span>
+                    <span class="value glow-cyan" id="gpu-util">—</span>
+                </div>
+                <div class="bar-track">
+                    <div class="bar-fill bar-cpu" id="gpu-bar"></div>
+                </div>
+                <div class="info-row mt-6">
+                    <span class="label">VRAM</span>
+                    <span class="value glow-cyan" id="gpu-vram">—</span>
+                </div>
+                <div class="bar-track">
+                    <div class="bar-fill bar-disk" id="gpu-vram-bar"></div>
+                </div>
+                <div class="info-row mt-6">
+                    <span class="label">TEMP</span>
+                    <span class="value glow-cyan" id="gpu-temp">—</span>
+                </div>
+            </section>
+
+            <section id="temp-section" class="card hidden">
+                <div class="card-title">Thermal Grid</div>
+                <div id="temp-container"></div>
+            </section>
+
+            <section class="card">
+                <div class="card-title">Network + Processes</div>
+                <div class="info-grid">
+                    <div class="info-row">
+                        <span class="label">▲ SENT</span>
+                        <span class="value glow-cyan" id="net-sent">—</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">▼ RECEIVED</span>
+                        <span class="value glow-cyan" id="net-recv">—</span>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="section-label">TOP PROCESSES</div>
+                <div id="proc-container">
+                    <span class="loading-text">Loading…</span>
+                </div>
+            </section>
+
+            <section class="card">
+                <div class="card-title">Optimization Advisor</div>
+                <div id="optimization-alerts">
+                    <span class="loading-text">Analyzing system…</span>
+                </div>
+            </section>
+
+            <section class="card">
+                <div class="card-title">L1T_GRID Streaming</div>
+                <div id="stream-status" class="mb-12"></div>
+                <div class="mb-12">
+                    <input type="text" id="magnet-input" placeholder="Paste magnet link..." class="magnet-input-style">
+                    <button onclick="RD_CONTROLLER.addMagnet(document.getElementById('magnet-input').value)" class="magnet-btn-style">⚡ ADD TO STREAM QUEUE</button>
+                </div>
+                <div id="torrents-container" class="torrents-container-style">
+                    <span class="stream-info-text">Initializing streaming module...</span>
+                </div>
+            </section>
+
+            <section class="card">
+                <div class="card-title">Command Center</div>
+                <div class="button-group">
+                    <button class="cmd-btn" onclick="refreshStats(this)">↺ REFRESH</button>
+                    <button class="cmd-btn" onclick="toggleAutoRefresh()" id="auto-btn">⏸ PAUSE</button>
+                    <button class="cmd-btn" onclick="copyStats(this)">⎘ COPY STATS</button>
+                    <button class="cmd-btn" onclick="clearApiKey()" id="key-btn" style="display:none">🔑 RESET KEY</button>
+                </div>
+            </section>
+        </section>
+
+        <footer class="footer">
+            <span class="glow-magenta">◆</span>
+            <span class="glow-cyan">Overlord Grid v4.1 + L1T_GRID</span>
+            <span class="glow-magenta">◆</span>
+            <span class="footer-hint" id="last-update">Last update: —</span>
+        </footer>
+    </main>
+
+    <script src="realdebrid_controller.js"></script>
+    <script>
+    function refreshStats(btn) {
+        if (btn) {
+            btn.classList.add('spinning');
+            setTimeout(() => btn.classList.remove('spinning'), 1000);
+        }
+        fetchData();
+    }
+
+    function fetchData() {
+        // Placeholder for data fetching logic
+        console.log("Fetching data...");
+    }
+
+    // ═══════════════════════════════════════════════════════════
+    // GLOBAL COPY/PASTE/DELETE SUPPORT
+    // ═══════════════════════════════════════════════════════════
+    document.addEventListener('DOMContentLoaded', function() {
+        // Enable context menu for all input fields
+        document.querySelectorAll('input, textarea').forEach(function(el) {
+            el.addEventListener('contextmenu', function(e) {
+                // Let browser show default menu
+            });
+        });
+
+        // Keyboard shortcuts for copy/paste/delete in lists
+        document.addEventListener('keydown', function(e) {
+            // Ctrl+C: Copy selected text or stats
+            if (e.ctrlKey && e.key === 'c') {
+                const active = document.activeElement;
+                if (active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA')) {
+                    // Let browser handle
+                    return;
+                }
+                // If stats are visible, copy them
+                if (typeof copyStats === 'function') {
+                    copyStats(document.querySelector('.cmd-btn[onclick*="copyStats"]'));
+                    e.preventDefault();
+                }
+            }
+            // Ctrl+V: Paste into focused input
+            if (e.ctrlKey && e.key === 'v') {
+                // Let browser handle
+            }
+            // Delete: Remove selected torrent (example)
+            if (e.key === 'Delete') {
+                // Example: Remove selected torrent row
+                const selected = document.querySelector('.torrent-row.selected');
+                if (selected) {
+                    selected.remove();
+                    e.preventDefault();
+                }
+            }
+        });
+    });
+
+    // Example: Make torrent rows selectable and deletable
+    function renderTorrents(torrents) {
+        const container = document.getElementById('torrents-container');
+        container.innerHTML = '';
+        torrents.forEach((t, i) => {
+            const row = document.createElement('div');
+            row.className = 'torrent-row';
+            row.tabIndex = 0;
+            row.textContent = t.name;
+            row.onclick = () => {
+                document.querySelectorAll('.torrent-row').forEach(r => r.classList.remove('selected'));
+                row.classList.add('selected');
+            };
+            // Add delete button
+            const delBtn = document.createElement('button');
+            delBtn.textContent = '🗑️';
+            delBtn.className = 'torrent-del-btn';
+            delBtn.onclick = (e) => {
+                row.remove();
+                e.stopPropagation();
+            };
+            row.appendChild(delBtn);
+            container.appendChild(row);
+        });
+    }
+    // ...existing code...
+    </script>
+</body>
+</html>

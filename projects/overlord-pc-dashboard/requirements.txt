@@ -1,0 +1,22 @@
+flask
+psutil==7.2.1
+PyYAML==6.0.3
+requests==2.32.5
+python-dotenv==1.2.2
+adbutils==1.2.1
+watchdog==4.0.1
+paramiko==4.0.0
+
+# Development & Testing
+pytest
+types-requests
+types-PyYAML
+types-psutil
+
+# Linters & Formatters
+# Use the VS Code extensions for these
+# pip install pylint black ruff mypy
+pylint
+black
+ruff
+mypy

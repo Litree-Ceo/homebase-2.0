@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiTree Labs | Next-Gen AI Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00f0ff;
+            --primary-dark: #00a8b3;
+            --secondary: #ff00e5;
+            --accent: #7b2dff;
+            --bg-dark: #0a0a0f;
+            --bg-card: rgba(20, 20, 30, 0.8);
+            --bg-glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.1);
+            --text: #ffffff;
+            --text-muted: #8b8b9e;
+            --success: #00ff88;
+            --warning: #ffaa00;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(0, 240, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(255, 0, 229, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(123, 45, 255, 0.05) 0%, transparent 70%);
+        }
+
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: perspective(500px) rotateX(60deg) translateY(0); }
+            100% { transform: perspective(500px) rotateX(60deg) translateY(50px); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            -webkit-text-fill-color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 120px 40px 40px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff 0%, var(--primary) 50%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 20px rgba(0, 240, 255, 0.3)); }
+            to { filter: drop-shadow(0 0 40px rgba(255, 0, 229, 0.3)); }
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .status-bar {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background: var(--bg-glass);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; box-shadow: 0 0 10px var(--success); }
+            50% { opacity: 0.5; box-shadow: 0 0 20px var(--success); }
+        }
+
+        /* Apps Grid */
+        .apps-section {
+            margin-top: 60px;
+        }
+
+        .section-title {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 30px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .app-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .app-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .app-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 240, 255, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 240, 255, 0.1);
+        }
+
+        .app-card:hover::before {
+            opacity: 1;
+        }
+
+        .app-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .app-card:nth-child(1) .app-icon {
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.2), rgba(0, 240, 255, 0.05));
+            border: 1px solid rgba(0, 240, 255, 0.3);
+        }
+
+        .app-card:nth-child(2) .app-icon {
+            background: linear-gradient(135deg, rgba(255, 0, 229, 0.2), rgba(255, 0, 229, 0.05));
+            border: 1px solid rgba(255, 0, 229, 0.3);
+        }
+
+        .app-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .app-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .app-meta {
+            display: flex;
+            gap: 15px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .app-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .badge {
+            padding: 4px 10px;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 20px;
+            color: var(--success);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Smart Features Section */
+        .features-section {
+            margin-top: 80px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: var(--bg-glass);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: rgba(0, 240, 255, 0.2);
+            background: rgba(0, 240, 255, 0.03);
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .feature-card h4 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .fab {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0, 240, 255, 0.3);
+            transition: all 0.3s;
+        }
+
+        .fab:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(0, 240, 255, 0.5);
+        }
+
+        /* Terminal Output */
+        .terminal {
+            background: #0d0d12;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            margin-top: 20px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .terminal-line {
+            color: var(--text-muted);
+            margin-bottom: 5px;
+        }
+
+        .terminal-line.success {
+            color: var(--success);
+        }
+
+        .terminal-line.error {
+            color: var(--warning);
+        }
+
+        .terminal-line.info {
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .apps-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+    <div class="grid-overlay"></div>
+
+    <nav>
+        <div class="logo">
+            <div class="logo-icon">🌳</div>
+            LiTree Labs
+        </div>
+        <div class="nav-links">
+            <a href="#studio">Studio</a>
+            <a href="#overlord">Overlord</a>
+            <a href="#agents">Agents</a>
+            <a href="#settings">Settings</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="hero">
+            <h1>Next-Gen AI Studio</h1>
+            <p>Unified command center for LiTree Labs ecosystem. AI-powered metaverse generation and system intelligence.</p>
+            <div class="status-bar">
+                <span class="status-dot"></span>
+                <span>All Systems Operational</span>
+                <span style="color: var(--border);">|</span>
+                <span id="time">--:--:--</span>
+            </div>
+        </section>
+
+        <section class="apps-section">
+            <div class="section-title">Applications</div>
+            <div class="apps-grid">
+                <a href="http://localhost:3000" class="app-card" id="studio-card">
+                    <div class="app-icon">🎨</div>
+                    <h3>LiTree Studio</h3>
+                    <p>AI-powered Metaverse UI generation. Create stunning widgets, dashboards, and immersive interfaces with natural language prompts.</p>
+                    <div class="app-meta">
+                        <span class="badge">Active</span>
+                        <span>⚡ Gemini AI</span>
+                        <span>🌐 Port 3000</span>
+                    </div>
+                </a>
+
+                <a href="http://localhost:8080" class="app-card" id="overlord-card">
+                    <div class="app-icon">👁️</div>
+                    <h3>Overlord Dashboard</h3>
+                    <p>Real-time PC monitoring with cyberpunk aesthetics. System stats, GPU monitoring, and AI assistant integration.</p>
+                    <div class="app-meta">
+                        <span class="badge">Active</span>
+                        <span>📊 Live Stats</span>
+                        <span>🌐 Port 8080</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <div class="section-title">Smart Features</div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔗</div>
+                    <h4>Unified Login</h4>
+                    <p>Single sign-on across all LiTree Labs applications</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h4>AI Agents</h4>
+                    <p>Autonomous agents for code, design, and system tasks</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">☁️</div>
+                    <h4>Cloud Sync</h4>
+                    <p>Projects and settings synchronized across devices</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h4>Secure Vault</h4>
+                    <p>Encrypted storage for API keys and credentials</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="terminal" id="system-log">
+            <div class="terminal-line info">[SYSTEM] LiTree Labs Hub initialized...</div>
+            <div class="terminal-line success">[STUDIO] Connected to localhost:3001</div>
+            <div class="terminal-line success">[OVERLORD] Connected to localhost:8080</div>
+            <div class="terminal-line info">[AI] Gemini API proxy active</div>
+        </div>
+    </div>
+
+    <div class="quick-actions">
+        <button class="fab" onclick="refreshStatus()" title="Refresh Status">⟳</button>
+        <button class="fab" onclick="toggleTheme()" title="Toggle Theme">◐</button>
+        <button class="fab" onclick="openTerminal()" title="Terminal">⌘</button>
+    </div>
+
+    <script>
+        // Clock
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('time').textContent = now.toLocaleTimeString('en-US', { 
+                hour12: false,
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+
+        // Service status checking
+        async function checkService(url, cardId) {
+            try {
+                const response = await fetch(url, { mode: 'no-cors' });
+                const card = document.getElementById(cardId);
+                card.style.borderColor = 'rgba(0, 255, 136, 0.3)';
+                log(`[${cardId.toUpperCase()}] Service online`, 'success');
+            } catch (e) {
+                const card = document.getElementById(cardId);
+                card.style.borderColor = 'rgba(255, 170, 0, 0.3)';
+                log(`[${cardId.toUpperCase()}] Service offline or unreachable`, 'error');
+            }
+        }
+
+        // Logger
+        function log(message, type = 'info') {
+            const terminal = document.getElementById('system-log');
+            const line = document.createElement('div');
+            line.className = `terminal-line ${type}`;
+            line.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            terminal.appendChild(line);
+            terminal.scrollTop = terminal.scrollHeight;
+        }
+
+        // Refresh status
+        function refreshStatus() {
+            log('[SYSTEM] Refreshing service status...', 'info');
+            checkService('http://localhost:3001/api/health', 'studio-card');
+            checkService('http://localhost:8080/api/health', 'overlord-card');
+        }
+
+        // Toggle theme
+        function toggleTheme() {
+            log('[SYSTEM] Theme toggle not implemented yet', 'info');
+        }
+
+        // Open terminal
+        function openTerminal() {
+            log('[SYSTEM] Opening terminal...', 'info');
+            window.open('terminal.html', '_blank');
+        }
+
+        // Initial status check
+        setTimeout(refreshStatus, 1000);
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey || e.metaKey) {
+                switch(e.key) {
+                    case '1':
+                        e.preventDefault();
+                        window.location.href = 'http://localhost:3000';
+                        break;
+                    case '2':
+                        e.preventDefault();
+                        window.location.href = 'http://localhost:8080';
+                        break;
+                    case 'r':
+                        e.preventDefault();
+                        refreshStatus();
+                        break;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+[Unit]
+Description=Overlord Dashboard (Kali Theme) - Port 8080
+After=network.target
+Wants=overlord-social.service
+
+[Service]
+Type=simple
+User=litree
+WorkingDirectory=/mnt/c/Users/litre/Desktop/Overlord-Monolith/modules/dashboard
+Environment="PATH=/mnt/c/Users/litre/Desktop/Overlord-Monolith/modules/dashboard/.venv-wsl/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+Environment="PYTHONUNBUFFERED=1"
+ExecStart=/mnt/c/Users/litre/Desktop/Overlord-Monolith/modules/dashboard/.venv-wsl/bin/python server.py
+Restart=always
+RestartSec=5
+StandardOutput=append:/mnt/c/Users/litre/Desktop/Overlord-Monolith/modules/dashboard/overlord.log
+StandardError=append:/mnt/c/Users/litre/Desktop/Overlord-Monolith/modules/dashboard/overlord.log
+
+[Install]
+WantedBy=multi-user.target

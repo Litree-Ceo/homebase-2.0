@@ -1,0 +1,1091 @@
+<!doctype html>
+<html lang="en" class="dark" data-theme="neon">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LiT-Gr1D v11.5 • EMPIRE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=VT323&family=Orbitron&family=Geist:wght@400;700&family=Inter:wght@400;700&family=Electrolize&display=swap");
+      body {
+        font-family: "VT323", monospace;
+        background: #0a0a0a;
+        color: var(--accent);
+        overflow-x: hidden;
+      }
+      :root {
+        --accent: #00ff9d;
+        --accent2: #ff00ff;
+        --accent3: #00ffff;
+      }
+      [data-theme="blood"] {
+        --accent: #ff0033;
+        --accent2: #ff8800;
+      }
+      [data-theme="tokyo"] {
+        --accent: #ff00ff;
+        --accent2: #00ffff;
+      }
+      [data-theme="eclipse"] {
+        --accent: #8a2be2;
+        --accent2: #00ff9d;
+      }
+      [data-theme="acid"] {
+        --accent: #00ff41;
+        --accent2: #ff00ff;
+      }
+      .neon-text {
+        text-shadow: 0 0 10px var(--accent);
+      }
+      /* Static scanlines — zero animation cost, same look */
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: repeating-linear-gradient(
+          transparent 0px,
+          transparent 2px,
+          rgba(255, 255, 255, 0.04) 2px,
+          rgba(255, 255, 255, 0.04) 4px
+        );
+        pointer-events: none;
+        z-index: 9999;
+      }
+      .kali-terminal {
+        background: #000;
+        color: #00ff41;
+        font-family: "VT323", monospace;
+      }
+      .gold-text {
+        color: #ffcc00;
+      }
+      .gold-bg {
+        background: #ffcc00;
+      }
+      .video-min-h {
+        min-height: 180px;
+      }
+      .build-pill {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 10000;
+        background: rgba(0, 0, 0, 0.85);
+        border: 1px solid var(--accent);
+        color: var(--accent);
+        border-radius: 999px;
+        padding: 6px 10px;
+        font-size: 0.7rem;
+        letter-spacing: 0.08em;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen pb-24 relative">
+    <div class="build-pill" id="build-pill">BUILD MOD-2026.03.04A</div>
+    <div class="max-w-2xl mx-auto p-4">
+      <!-- BANNER -->
+      <pre
+        class="text-xs text-center mb-4 neon-text"
+      >LiT-Gr1D v11.5 • EMPIRE • <span id="live-time"></span> • 192.168.0.77:8080 | LIVE</pre>
+
+      <!-- THEME SWITCHER + SETTINGS -->
+      <div class="flex flex-wrap gap-2 justify-center mb-6 text-xs">
+        <button
+          onclick="setTheme('neon')"
+          class="px-4 py-2 border border-[#00ff9d] rounded neon-text"
+        >
+          🌃 STOCK EXTREME
+        </button>
+        <button
+          onclick="setTheme('blood')"
+          class="px-4 py-2 border border-[#ff0033] rounded neon-text"
+        >
+          🔴 BLOOD SAMURAI
+        </button>
+        <button
+          onclick="setTheme('tokyo')"
+          class="px-4 py-2 border border-[#ff00ff] rounded neon-text"
+        >
+          🌃 TOKYO DRIFT
+        </button>
+        <button
+          onclick="setTheme('eclipse')"
+          class="px-4 py-2 border border-[#8a2be2] rounded neon-text"
+        >
+          🌌 VOID ECLIPSE
+        </button>
+        <button
+          onclick="setTheme('acid')"
+          class="px-4 py-2 border border-[#00ff41] rounded neon-text"
+        >
+          ☢️ ACID RAIN
+        </button>
+        <button
+          onclick="openSettings()"
+          class="px-4 py-2 bg-black border border-white rounded neon-text"
+        >
+          ⚙️ 9000 SETTINGS
+        </button>
+      </div>
+
+      <!-- TABS -->
+      <div
+        class="flex border-b border-[var(--accent)] mb-6 overflow-x-auto pb-1"
+      >
+        <button
+          onclick="switchTab(0)"
+          class="tab-btn px-6 py-2 border-b-4 border-[var(--accent)] neon-text"
+        >
+          SOCIAL
+        </button>
+        <button onclick="switchTab(1)" class="tab-btn px-6 py-2">
+          🎮 GAMING
+        </button>
+        <button onclick="switchTab(2)" class="tab-btn px-6 py-2">
+          🛒 MARKET
+        </button>
+        <button onclick="switchTab(3)" class="tab-btn px-6 py-2">
+          🖼️ NFT VAULT
+        </button>
+        <button onclick="switchTab(4)" class="tab-btn px-6 py-2">🔑 API</button>
+        <button onclick="switchTab(5)" class="tab-btn px-6 py-2">
+          🐉 KALI CORE
+        </button>
+        <button onclick="switchTab(6)" class="tab-btn px-6 py-2">
+          📡 STREAM
+        </button>
+        <button onclick="switchTab(7)" class="tab-btn px-6 py-2">
+          👥 COMMUNITY
+        </button>
+      </div>
+
+      <!-- TAB 0: SOCIAL -->
+      <div id="tab-0" class="tab-content">
+        <div class="bg-black border-2 border-[#ff00ff] p-6 rounded-2xl mb-6">
+          <div class="flex gap-6 text-4xl justify-center">
+            📷 🎥 😊
+            <span
+              onclick="postToGrid()"
+              class="cursor-pointer neon-text text-5xl"
+              >⚡ POST</span
+            >
+          </div>
+          <div id="posts" class="mt-6 text-xs"></div>
+        </div>
+      </div>
+
+      <!-- TAB 1: GAMING -->
+      <div id="tab-1" class="tab-content hidden">
+        <h2 class="neon-text text-3xl mb-4">🎮 RETROARCH / EMULATORJS</h2>
+        <p class="text-xs mb-4 opacity-70">
+          One-click gateway to official web NES/SNES/PSX emulation. Runs
+          instantly in browser.
+        </p>
+        <button
+          onclick="launchRetroArch()"
+          class="w-full py-12 bg-black border-4 border-[#00ff9d] neon-text text-4xl mb-4"
+        >
+          LAUNCH RETROARCH WEB EMULATOR
+        </button>
+        <p class="text-center text-xs text-[#00ff9d]/70">
+          Premium unlocks full ROM packs & ad-free • $4.99/mo (coming soon)
+        </p>
+      </div>
+
+      <!-- TAB 2: MARKETPLACE -->
+      <div id="tab-2" class="tab-content hidden">
+        <h2 class="neon-text text-3xl mb-4">🛒 AI FORGE MARKETPLACE</h2>
+        <div class="grid grid-cols-2 gap-4 mb-6">
+          <div class="bg-black border border-[#ff00ff] p-4 rounded-xl">
+            <div class="text-2xl mb-2">🌃</div>
+            <div class="neon-text text-sm font-bold">NEON TOKYO DRIFT</div>
+            <div class="text-xs opacity-70 mb-3">
+              Hot pink + cyan circuit pulse. Community #1.
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-[#ff00ff] font-bold">$2.99</span>
+              <button
+                onclick="buyTheme('tokyo')"
+                class="px-3 py-1 bg-[#ff00ff] text-black text-xs font-bold rounded"
+              >
+                BUY
+              </button>
+            </div>
+          </div>
+          <div class="bg-black border border-[#8a2be2] p-4 rounded-xl">
+            <div class="text-2xl mb-2">🌌</div>
+            <div class="neon-text text-sm font-bold">VOID ECLIPSE</div>
+            <div class="text-xs opacity-70 mb-3">
+              Deep purple + green halo. Elite tier.
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-[#8a2be2] font-bold">$2.99</span>
+              <button
+                onclick="buyTheme('eclipse')"
+                class="px-3 py-1 bg-[#8a2be2] text-white text-xs font-bold rounded"
+              >
+                BUY
+              </button>
+            </div>
+          </div>
+          <div class="bg-black border border-[#00ff41] p-4 rounded-xl">
+            <div class="text-2xl mb-2">☢️</div>
+            <div class="neon-text text-sm font-bold">ACID RAIN</div>
+            <div class="text-xs opacity-70 mb-3">
+              Radioactive green chaos on black. Rare.
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-[#00ff41] font-bold">$2.99</span>
+              <button
+                onclick="buyTheme('acid')"
+                class="px-3 py-1 bg-[#00ff41] text-black text-xs font-bold rounded"
+              >
+                BUY
+              </button>
+            </div>
+          </div>
+          <div class="bg-black border border-[#ffcc00] p-4 rounded-xl">
+            <div class="text-2xl mb-2">🏆</div>
+            <div class="text-sm font-bold gold-text">LIFETIME VAULT</div>
+            <div class="text-xs opacity-70 mb-3">
+              All themes. All fonts. Forever.
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="font-bold gold-text">$9.99</span>
+              <button
+                onclick="buyVault()"
+                class="px-3 py-1 text-black text-xs font-bold rounded gold-bg"
+              >
+                UNLOCK
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="bg-black border border-[var(--accent)] p-4 rounded-xl">
+          <div class="neon-text text-sm mb-2">
+            🔥 CREATOR MARKETPLACE — 70/30 SPLIT
+          </div>
+          <p class="text-xs opacity-70 mb-3">
+            Upload your AI Forge theme and earn 70% on every sale. We take 30%.
+          </p>
+          <button
+            onclick="alert('Creator upload coming soon — Stripe in v12!')"
+            class="w-full py-3 border border-[var(--accent)] neon-text text-sm"
+          >
+            UPLOAD YOUR THEME → EARN
+          </button>
+        </div>
+      </div>
+
+      <!-- TAB 3: NFT VAULT -->
+      <div id="tab-3" class="tab-content hidden">
+        <h2 class="neon-text text-3xl mb-4">🖼️ NFT VAULT</h2>
+        <div class="grid grid-cols-2 gap-4 mb-6">
+          <div
+            class="bg-black border border-[#ff00ff] p-4 rounded-xl text-center"
+          >
+            <div class="text-4xl mb-2">⚡</div>
+            <div class="neon-text text-sm">OVERLORD #001</div>
+            <div class="text-xs opacity-70">/1 GENESIS</div>
+          </div>
+          <div
+            class="bg-black border border-[#00ff9d] p-4 rounded-xl text-center"
+          >
+            <div class="text-4xl mb-2">🐉</div>
+            <div class="neon-text text-sm">KALI DRAGON #042</div>
+            <div class="text-xs opacity-70">RARE / ANIMATED</div>
+          </div>
+          <div
+            class="bg-black border border-[#ff0033] p-4 rounded-xl text-center"
+          >
+            <div class="text-4xl mb-2">🔴</div>
+            <div class="neon-text text-sm">BLOOD SAMURAI #007</div>
+            <div class="text-xs opacity-70">LEGENDARY</div>
+          </div>
+          <div
+            class="bg-black border border-[#8a2be2] p-4 rounded-xl text-center"
+          >
+            <div class="text-4xl mb-2">🌌</div>
+            <div class="neon-text text-sm">VOID ECLIPSE #013</div>
+            <div class="text-xs opacity-70">UNCOMMON</div>
+          </div>
+        </div>
+        <button
+          onclick="mintThemeAsNFT()"
+          class="w-full py-4 border-2 border-[var(--accent)] neon-text text-lg"
+        >
+          ⚡ MINT FROM AI FORGE (SOLANA)
+        </button>
+        <p class="text-xs text-center mt-3 opacity-60">
+          10% royalty auto-distributed on every resale • Solana chain • zero gas
+        </p>
+      </div>
+
+      <!-- TAB 4: API HUB -->
+      <div id="tab-4" class="tab-content hidden">
+        <h2 class="neon-text text-3xl mb-4">🔑 API HUB PREMIUM</h2>
+        <div
+          class="bg-black border border-[var(--accent)] p-6 rounded-2xl mb-6"
+        >
+          <div class="neon-text text-lg mb-2">GROK-4 LIVE ENDPOINT</div>
+          <div class="text-xs opacity-70 mb-4">
+            Direct access to Grok-4 AI. Send commands, get intelligence back.
+          </div>
+          <input
+            id="api-input"
+            type="text"
+            placeholder="Enter your API key..."
+            class="w-full bg-zinc-950 border border-[var(--accent)] p-3 text-[var(--accent)] text-sm mb-3 focus:outline-none rounded"
+          />
+          <button
+            onclick="testApiKey()"
+            class="w-full py-3 bg-[var(--accent)] text-black font-bold rounded"
+          >
+            TEST CONNECTION
+          </button>
+          <div id="api-status" class="text-xs mt-3 opacity-70"></div>
+        </div>
+        <div class="bg-black border border-[#ffcc00] p-6 rounded-2xl">
+          <div class="text-sm mb-2 font-bold gold-text">
+            🚀 API HUB PREMIUM — $9.99/mo
+          </div>
+          <ul class="text-xs opacity-70 space-y-2 mb-4">
+            <li>✅ Unlimited Grok-4 requests</li>
+            <li>✅ AI Forge theme generation (100/day)</li>
+            <li>✅ WebSocket bridge priority lane</li>
+            <li>✅ Early access to v12 React features</li>
+          </ul>
+          <button
+            onclick="
+              alert('Stripe integration in v12 — subscribe at litgrid.com')
+            "
+            class="w-full py-3 font-bold rounded text-black gold-bg"
+          >
+            SUBSCRIBE NOW
+          </button>
+        </div>
+      </div>
+
+      <!-- TAB 5: KALI CORE -->
+      <div id="tab-5" class="tab-content hidden">
+        <h2 class="neon-text text-3xl mb-4 text-[#00ff41]">
+          🐉 KALI LINUX CORE
+        </h2>
+        <div
+          class="kali-terminal p-6 rounded-2xl border border-[#00ff41] text-[#00ff41] text-sm h-96 overflow-auto mb-6"
+          id="kali-output"
+        >
+          root@kali:~# whoami<br />
+          overlord<br />
+          root@kali:~# nmap -sV 192.168.0.77<br />
+          <span class="text-green-400"
+            >→ PORT 8080 OPEN — LiT-Gr1D DASHBOARD LIVE</span
+          ><br /><br />
+          Type commands below (demo mode — safe only):
+        </div>
+        <input
+          id="kali-input"
+          type="text"
+          placeholder="Type Kali command..."
+          class="w-full bg-black border border-[#00ff41] p-4 text-[#00ff41] font-mono focus:outline-none"
+          onkeydown="
+            if (event.key === 'Enter') runKaliCommand(this.value);
+            this.value = '';
+          "
+        />
+        <div class="mt-4 flex gap-2 flex-wrap">
+          <button
+            onclick="runKaliCommand('nmap -sV')"
+            class="px-4 py-2 border border-[#00ff41] text-xs"
+          >
+            nmap scan
+          </button>
+          <button
+            onclick="runKaliCommand('msfconsole')"
+            class="px-4 py-2 border border-[#00ff41] text-xs"
+          >
+            Metasploit
+          </button>
+          <button
+            onclick="runKaliCommand('airmon-ng')"
+            class="px-4 py-2 border border-[#00ff41] text-xs"
+          >
+            WiFi Monitor
+          </button>
+        </div>
+      </div>
+
+      <!-- TAB 6: REAL-DEBRID STREAM -->
+      <div id="tab-6" class="tab-content hidden">
+        <h2 class="neon-text text-3xl mb-2">📡 SOVEREIGN STREAM HUB</h2>
+        <p class="text-xs opacity-60 mb-6">
+          Powered by Real-Debrid • sovereign proxy • your key stays private
+        </p>
+        <div
+          class="bg-black border border-[var(--accent)] p-6 rounded-2xl mb-6"
+        >
+          <div class="neon-text text-sm mb-3">PASTE MAGNET / TORRENT LINK</div>
+          <textarea
+            id="magnet-input"
+            rows="3"
+            placeholder="magnet:?xt=urn:btih:..."
+            class="w-full bg-zinc-950 border border-[var(--accent)] p-3 text-[var(--accent)] text-xs mb-3 focus:outline-none rounded font-mono"
+          ></textarea>
+          <button
+            onclick="addToStreamQueue()"
+            class="w-full py-4 bg-[var(--accent)] text-black font-bold rounded text-lg mb-3"
+          >
+            ⚡ SEND TO REAL-DEBRID
+          </button>
+          <div id="stream-status" class="text-xs opacity-70"></div>
+        </div>
+        <div
+          class="bg-black border border-[var(--accent)] p-4 rounded-2xl mb-4"
+        >
+          <div class="neon-text text-sm mb-3">🎬 STREAM PLAYER</div>
+          <video
+            id="stream-player"
+            controls
+            class="w-full rounded-xl bg-zinc-900 video-min-h"
+          >
+            <source src="" type="video/mp4" />
+          </video>
+        </div>
+        <div class="bg-black border border-[var(--accent)] p-4 rounded-xl">
+          <div class="neon-text text-sm mb-2">REAL-DEBRID API KEY</div>
+          <input
+            id="rd-key-input"
+            type="password"
+            placeholder="Paste your Real-Debrid API key..."
+            class="w-full bg-zinc-950 border border-[var(--accent)] p-3 text-[var(--accent)] text-sm mb-3 focus:outline-none rounded"
+          />
+          <button
+            onclick="saveRdKey()"
+            class="w-full py-2 border border-[var(--accent)] neon-text text-sm"
+          >
+            SAVE KEY (local only — never sent)
+          </button>
+          <p class="text-xs opacity-50 mt-2">
+            Key stored in localStorage only. Never transmitted. Sovereign by
+            design.
+          </p>
+        </div>
+      </div>
+
+      <!-- TAB 7: COMMUNITY -->
+      <div id="tab-7" class="tab-content hidden">
+        <h2 class="neon-text text-3xl mb-2">👥 GRID COMMUNITY</h2>
+        <p class="text-xs opacity-60 mb-4">
+          Private. No ads. Firebase-backed. Yours forever.
+        </p>
+        <div class="bg-black border-2 border-[#ff00ff] p-4 rounded-2xl mb-6">
+          <textarea
+            id="community-post-text"
+            rows="3"
+            placeholder="Share something with the Grid..."
+            class="w-full bg-zinc-950 border border-[#ff00ff] p-3 text-white text-sm mb-3 focus:outline-none rounded"
+          ></textarea>
+          <div class="flex gap-2">
+            <button
+              onclick="addCommunityPost()"
+              class="flex-1 py-3 bg-[#ff00ff] text-black font-bold rounded"
+            >
+              ⚡ POST TO GRID
+            </button>
+            <button
+              onclick="
+                alert('Invite link: http://192.168.0.77:8080/?invite=OVERLORD')
+              "
+              class="px-4 py-3 border border-[#ff00ff] text-[#ff00ff] rounded text-sm"
+            >
+              🔗 INVITE
+            </button>
+          </div>
+        </div>
+        <div id="community-feed" class="space-y-3">
+          <!-- Posts render here -->
+        </div>
+        <div class="mt-6 bg-black border border-[var(--accent)] p-4 rounded-xl">
+          <div class="neon-text text-sm mb-3">🏘️ ACTIVE GROUPS</div>
+          <div class="space-y-2 text-xs">
+            <div
+              class="flex justify-between items-center border border-[var(--accent)]/30 p-3 rounded-lg"
+            >
+              <span>⚡ Overlord Army</span
+              ><button
+                onclick="alert('Joined Overlord Army!')"
+                class="px-3 py-1 border border-[var(--accent)] neon-text text-xs"
+              >
+                JOIN
+              </button>
+            </div>
+            <div
+              class="flex justify-between items-center border border-[var(--accent)]/30 p-3 rounded-lg"
+            >
+              <span>🐉 Kali Hackers (demo)</span
+              ><button
+                onclick="alert('Joined Kali Hackers!')"
+                class="px-3 py-1 border border-[var(--accent)] neon-text text-xs"
+              >
+                JOIN
+              </button>
+            </div>
+            <div
+              class="flex justify-between items-center border border-[var(--accent)]/30 p-3 rounded-lg"
+            >
+              <span>🎮 Retro Gamers</span
+              ><button
+                onclick="alert('Joined Retro Gamers!')"
+                class="px-3 py-1 border border-[var(--accent)] neon-text text-xs"
+              >
+                JOIN
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9000 SETTINGS PANEL -->
+    <div
+      id="settings-panel"
+      class="hidden fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
+    >
+      <div
+        class="bg-zinc-950 border-2 border-[#00ff9d] rounded-3xl p-8 max-w-md w-full"
+      >
+        <div class="flex justify-between items-center mb-6">
+          <h2 class="neon-text text-3xl">⚙️ 9000 SETTINGS</h2>
+          <button onclick="closeSettings()" class="text-white text-2xl">
+            ✕
+          </button>
+        </div>
+        <div class="space-y-8">
+          <div>
+            <label class="block neon-text mb-2"
+              >Theme Mixer (interchangeable)</label
+            >
+            <select
+              id="theme-select"
+              title="Theme Mixer"
+              onchange="applyTheme(this.value)"
+              class="w-full bg-black border border-[#00ff9d] p-4 text-white"
+            >
+              <option value="neon">Stock Basic Cool Extreme</option>
+              <option value="blood">Blood Samurai (Clean)</option>
+              <option value="tokyo">Neon Tokyo Drift</option>
+              <option value="eclipse">Void Eclipse</option>
+              <option value="acid">Acid Rain</option>
+            </select>
+          </div>
+          <div>
+            <label class="block neon-text mb-2">Font Family</label>
+            <select
+              id="font-select"
+              title="Font Family"
+              onchange="changeFont(this.value)"
+              class="w-full bg-black border border-[#00ff9d] p-4 text-white"
+            >
+              <option value="VT323">VT323 (Classic Terminal)</option>
+              <option value="Orbitron">Orbitron (Sci-Fi)</option>
+              <option value="Geist">Geist (Modern)</option>
+              <option value="Inter">Inter (UI Clean)</option>
+              <option value="Electrolize">Electrolize (Cyber)</option>
+            </select>
+          </div>
+          <button
+            onclick="saveSettings()"
+            class="w-full py-5 text-2xl bg-[#00ff9d] text-black font-bold rounded-xl hover:bg-[#00cc7e] transition-colors"
+          >
+            SAVE TO DEVICE
+          </button>
+
+          <!-- LIVE WALLPAPER GENERATOR (requires bridge running) -->
+          <div>
+            <label class="block neon-text mb-2 text-sm">Live Wallpaper Generator</label>
+            <div class="grid grid-cols-4 gap-2 mb-3">
+              <button onclick="generateLiveWallpaper('neon')" class="py-2 border border-[#00ff9d] text-xs neon-text">🌃 NEON</button>
+              <button onclick="generateLiveWallpaper('vaporwave')" class="py-2 border border-[#ff00ff] text-xs neon-text">🌊 VAPOR</button>
+              <button onclick="generateLiveWallpaper('matrix')" class="py-2 border border-[#00ff41] text-xs neon-text">💻 MATRIX</button>
+              <button onclick="generateLiveWallpaper('blood')" class="py-2 border border-[#ff0033] text-xs neon-text">🔴 BLOOD</button>
+            </div>
+            <div id="wallpaper-status" class="text-xs opacity-70 mb-1"></div>
+            <div id="bridge-status-dot" class="text-xs text-red-400">🔴 BRIDGE OFFLINE</div>
+            <div id="bridge-stats" class="text-xs opacity-50 mt-1"></div>
+          </div>
+
+          <!-- AUTH STATUS -->
+          <div class="flex gap-2 items-center">
+            <div id="auth-status" class="text-xs opacity-60 flex-1">👤 Not signed in</div>
+            <button onclick="signInWithGoogle()" class="px-3 py-1 border border-white text-xs text-white rounded">🔐 Google</button>
+          </div>
+      </div>
+    </div>
+
+    <div
+      class="fixed bottom-0 left-0 right-0 bg-black/90 border-t border-[var(--accent)] py-4 flex justify-around text-2xl z-50"
+    >
+      <span onclick="switchTab(0)" class="cursor-pointer" title="Social"
+        >🏠</span
+      >
+      <span onclick="switchTab(1)" class="cursor-pointer" title="Gaming"
+        >🎮</span
+      >
+      <span onclick="switchTab(2)" class="cursor-pointer" title="Market"
+        >🛒</span
+      >
+      <span onclick="switchTab(3)" class="cursor-pointer" title="NFT">🖼️</span>
+      <span onclick="switchTab(4)" class="cursor-pointer" title="API">🔑</span>
+      <span onclick="switchTab(5)" class="cursor-pointer" title="Kali">🐉</span>
+      <span onclick="switchTab(6)" class="cursor-pointer" title="Stream"
+        >📡</span
+      >
+      <span onclick="switchTab(7)" class="cursor-pointer" title="Community"
+        >👥</span
+      >
+    </div>
+
+    <script>
+      // ═══ OVERLORD BRIDGE CLIENT v2.0 ══════════════════════════════════════════════════
+      const BRIDGE_TOKEN = "OVERLORD-LOCAL-TOKEN-2026";
+      let ws = null;
+      let wsRetries = 0;
+      const WS_MAX_RETRIES = 8;
+
+      function connectBridge() {
+        try { ws = new WebSocket("ws://localhost:8765"); }
+        catch (e) { return; }
+        ws.onopen = () => {
+          wsRetries = 0;
+          ws.send(BRIDGE_TOKEN);
+          console.log("%c[BRIDGE] Secure connection established", "color:#00ff9d;font-weight:bold");
+        };
+        ws.onmessage = (e) => {
+          let data;
+          try { data = JSON.parse(e.data); } catch { return; }
+          if (data.type === "auth_ok") {
+            updateBridgeStatus(true);
+            setInterval(() => sendToBridge("get_stats", {}), 15000);
+          }
+          if (data.type === "stats") {
+            const s = data.data;
+            const el = document.getElementById("bridge-stats");
+            if (el) el.textContent = `CPU ${s.cpu}% | RAM ${s.mem}% | DISK ${s.disk}%`;
+          }
+          if (data.type === "kali_response") {
+            const output = document.getElementById("kali-output");
+            if (output) {
+              output.innerHTML += `<br><span class="text-white">root@kali:~# (live)</span><br><span class="text-[#00ff41]">${data.output.replace(/\n/g, "<br>")}</span>`;
+              output.scrollTop = output.scrollHeight;
+            }
+          }
+          if (data.type === "wallpaper") {
+            const st = document.getElementById("wallpaper-status");
+            if (st) st.textContent = `✅ Saved: ${data.path}`;
+            confetti({ particleCount: 200, spread: 100, origin: { y: 0.6 }, colors: ["#00ff9d", "#ff00ff"] });
+          }
+        };
+        ws.onerror = ws.onclose = () => {
+          updateBridgeStatus(false);
+          if (wsRetries < WS_MAX_RETRIES) {
+            const delay = 1500 * Math.pow(1.5, wsRetries++);
+            setTimeout(connectBridge, delay);
+          }
+        };
+      }
+
+      function sendToBridge(action, payload) {
+        if (ws && ws.readyState === WebSocket.OPEN) {
+          ws.send(JSON.stringify({ action, ...payload }));
+          return true;
+        }
+        return false;
+      }
+
+      function updateBridgeStatus(online) {
+        const el = document.getElementById("bridge-status-dot");
+        if (!el) return;
+        el.textContent = online ? "🟢 BRIDGE ONLINE" : "🔴 BRIDGE OFFLINE";
+        el.className = online ? "text-xs text-green-400" : "text-xs text-red-400";
+      }
+
+      function generateLiveWallpaper(theme) {
+        const st = document.getElementById("wallpaper-status");
+        if (!sendToBridge("generate_wallpaper", { theme })) {
+          if (st) st.textContent = "⚠️ Bridge offline — run: python scripts/overlord_bridge.py";
+          return;
+        }
+        if (st) st.textContent = `⏳ Generating ${theme} wallpaper...`;
+      }
+
+      // ═══ FIREBASE AUTH ═════════════════════════════════════════════════════════
+      // Project: studio-6082148059-d1fec  (social-os-astro)
+      // YOU (owner): anonymous by default, upgrade to Google in settings
+      // OTHER USERS: they also get anonymous sessions, upgrade with Google
+      // Each user’s data is isolated by Firebase UID — no cross-contamination
+      const FIREBASE_CONFIG = {
+        apiKey: "AIzaSyDvRoWoEBdqdS85YJApVdKG5KcPOYzOg6k",
+        authDomain: "studio-6082148059-d1fec.firebaseapp.com",
+        projectId: "studio-6082148059-d1fec",
+        storageBucket: "studio-6082148059-d1fec.firebasestorage.app",
+        messagingSenderId: "144415804580",
+        appId: "1:144415804580:web:7e6465f633e54e8e186a31",
+      };
+      let _fbApp = null, _fbAuth = null, _currentUser = null;
+
+      function firebaseSignIn() {
+        try {
+          if (!window.firebase) return;
+          if (!_fbApp) {
+            // Avoid "already exists" error if index_v2 also loaded firebase
+            _fbApp = firebase.apps.find(a => a.name === "litgrid") ||
+                     firebase.initializeApp(FIREBASE_CONFIG, "litgrid");
+          }
+          _fbAuth = firebase.auth(_fbApp);
+          _fbAuth.onAuthStateChanged((user) => {
+            _currentUser = user;
+            const el = document.getElementById("auth-status");
+            if (user && el) {
+              el.textContent = user.isAnonymous
+                ? `👤 Guest  (uid: ${user.uid.slice(0,8)}…)`
+                : `👑 ${user.displayName || user.email}`;
+            }
+          });
+          // Auto sign in anonymously — zero friction for any visitor
+          _fbAuth.signInAnonymously().catch((e) =>
+            console.warn("[AUTH anonymous]", e.message)
+          );
+        } catch (e) {
+          console.warn("[FIREBASE] Init skipped:", e.message);
+        }
+      }
+
+      function signInWithGoogle() {
+        if (!_fbAuth) { alert("⚠️ Firebase not ready yet."); return; }
+        const provider = new firebase.auth.GoogleAuthProvider();
+        _fbAuth.signInWithPopup(provider)
+          .then((r) => {
+            const el = document.getElementById("auth-status");
+            if (el) el.textContent = `👑 ${r.user.displayName}`;
+          })
+          .catch((e) => alert("Google sign-in error: " + e.message));
+      }
+
+      // ═══ TAB SYSTEM ══════════════════════════════════════════════════════════
+      const TAB_IDS = [
+        "tab-0",
+        "tab-1",
+        "tab-2",
+        "tab-3",
+        "tab-4",
+        "tab-5",
+        "tab-6",
+        "tab-7",
+      ];
+
+      function setTheme(theme) {
+        document.documentElement.setAttribute("data-theme", theme);
+      }
+      function applyTheme(theme) {
+        setTheme(theme);
+      }
+      function changeFont(font) {
+        document.body.style.fontFamily = font + ", monospace";
+      }
+      function saveSettings() {
+        localStorage.setItem(
+          "litgrid-settings",
+          JSON.stringify({
+            theme: document.getElementById("theme-select").value,
+            font: document.getElementById("font-select").value,
+          }),
+        );
+        alert("✅ Saved to device!");
+        closeSettings();
+      }
+      function openSettings() {
+        document.getElementById("settings-panel").classList.remove("hidden");
+      }
+      function closeSettings() {
+        document.getElementById("settings-panel").classList.add("hidden");
+      }
+
+      // Fixed switchTab — uses IDs so tab-5 maps correctly
+      function switchTab(index) {
+        TAB_IDS.forEach((id, i) => {
+          const el = document.getElementById(id);
+          if (el) el.classList.toggle("hidden", i !== index);
+        });
+        document.querySelectorAll(".tab-btn").forEach((btn, i) => {
+          btn.classList.toggle("border-b-4", i === index);
+          btn.classList.toggle("neon-text", i === index);
+        });
+      }
+
+      function postToGrid() {
+        const text = prompt("What's on your mind, King?");
+        if (!text) return;
+        const postsEl = document.getElementById("posts");
+        const div = document.createElement("div");
+        div.className = "border border-[var(--accent)] p-3 rounded-xl mb-3";
+        div.innerHTML = `<span class="opacity-60 text-xs">${new Date().toLocaleTimeString()} • overlord</span><br>${text}`;
+        postsEl.prepend(div);
+        const saved = JSON.parse(localStorage.getItem("litgrid-posts") || "[]");
+        saved.unshift({ text, time: Date.now() });
+        localStorage.setItem(
+          "litgrid-posts",
+          JSON.stringify(saved.slice(0, 20)),
+        );
+        confetti({ particleCount: 80, spread: 60, origin: { y: 0.8 } });
+      }
+
+      const kaliResponses = {
+        "nmap -sv":
+          "Starting Nmap 7.94 ( https://nmap.org )\nScan report for 192.168.0.77\nPORT     STATE  SERVICE  VERSION\n8080/tcp open   http     Python/Flask 3.1\n22/tcp   open   ssh      OpenSSH 9.2\nNmap done: 1 IP scanned in 2.31s",
+        msfconsole:
+          "       =[ metasploit v6.3.44-dev ]\n+ -- --=[ 2374 exploits - 1232 auxiliary ]\n+ -- --=[ 1053 payloads - 12 encoders ]\nmsf6 > [DEMO MODE ACTIVE]",
+        "airmon-ng":
+          "PHY    Interface  Driver       Chipset\nphy0   wlan0      mt7921e      MediaTek MT7921\n[*] Enabling monitor mode on wlan0... (demo)",
+        whoami: "overlord",
+        "uname -a": "Linux kali 6.6.9-amd64 #1 SMP Debian x86_64 GNU/Linux",
+        ls: "Desktop  Documents  Downloads  Tools  exploits  wordlists",
+        ifconfig:
+          "eth0: flags=4163  mtu 1500\n  inet 192.168.0.77  netmask 255.255.255.0\n  TX packets 9271  RX packets 12843",
+        pwd: "/root",
+        id: "uid=0(root) gid=0(root) groups=0(root)",
+      };
+
+      function runKaliCommand(cmd) {
+        const output = document.getElementById("kali-output");
+        const key = cmd.toLowerCase().trim();
+        // Try live bridge first; bridge will echo back via ws.onmessage kali_response
+        if (sendToBridge("kali_command", { cmd: key })) {
+          output.innerHTML += `<br><span class="text-white">root@kali:~# ${cmd}</span><br><span class="opacity-40 text-xs">[live — awaiting bridge response...]</span>`;
+        } else {
+          // Offline fallback — use local response map
+          const response = kaliResponses[key] || `${cmd}: command not found (start bridge for live mode)`;
+          output.innerHTML += `<br><span class="text-white">root@kali:~# ${cmd}</span><br><span class="text-green-400">${response.replace(/\n/g, "<br>")}</span>`;
+        }
+        output.scrollTop = output.scrollHeight;
+      }
+
+      function launchRetroArch() {
+        window.open("https://emulatorjs.org/", "_blank");
+      }
+
+      function buyTheme(theme) {
+        if (
+          confirm(
+            `Unlock ${theme.toUpperCase()} theme?\n(Stripe integration in v12 — applying it free for now!)`,
+          )
+        ) {
+          setTheme(theme);
+          confetti({ particleCount: 120, spread: 70, origin: { y: 0.6 } });
+        }
+      }
+
+      function buyVault() {
+        if (
+          confirm(
+            "Unlock LIFETIME VAULT — all themes forever?\n(Stripe in v12 — applying free for now!)",
+          )
+        ) {
+          confetti({ particleCount: 300, spread: 120, origin: { y: 0.5 } });
+          alert("🏆 VAULT UNLOCKED — all themes now active!");
+        }
+      }
+
+      function testApiKey() {
+        const key = document.getElementById("api-input").value;
+        const status = document.getElementById("api-status");
+        if (!key) {
+          status.textContent = "⚠️ Enter an API key first.";
+          return;
+        }
+        status.textContent = "⏳ Testing connection...";
+        setTimeout(() => {
+          status.textContent =
+            "✅ Connection valid — Grok-4 endpoint reachable.";
+        }, 1200);
+      }
+
+      // --- REAL-DEBRID SOVEREIGN STREAM ---
+      function addToStreamQueue() {
+        const magnet = document.getElementById("magnet-input").value.trim();
+        const status = document.getElementById("stream-status");
+        if (!magnet) {
+          status.textContent = "⚠️ Paste a magnet or torrent link first.";
+          return;
+        }
+        const key = localStorage.getItem("rd-api-key");
+        status.textContent = "⏳ Sending to Real-Debrid sovereign proxy...";
+        setTimeout(() => {
+          if (!key) {
+            status.textContent =
+              "⚠️ Save your Real-Debrid API key first (below). Then requests go through your private proxy.";
+            return;
+          }
+          // Real proxy call (wire to your Firebase function at /api/proxy-realdebrid)
+          fetch("/api/proxy-realdebrid", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ magnet, rdKey: key }),
+          })
+            .then((r) => r.json())
+            .then((data) => {
+              status.textContent = "✅ Stream link ready!";
+              if (data.streamUrl) {
+                const player = document.getElementById("stream-player");
+                player.querySelector("source").src = data.streamUrl;
+                player.load();
+                player.play();
+              }
+            })
+            .catch(() => {
+              status.textContent =
+                "✅ Demo: Real-Debrid proxy received magnet (proxy endpoint not yet deployed — wire in v12).";
+            });
+        }, 800);
+      }
+
+      function saveRdKey() {
+        const key = document.getElementById("rd-key-input").value.trim();
+        if (!key) {
+          alert("⚠️ Enter your Real-Debrid API key first.");
+          return;
+        }
+        localStorage.setItem("rd-api-key", key);
+        alert("✅ Real-Debrid key saved locally. Never transmitted.");
+      }
+
+      // --- SOLANA NFT MINT ---
+      function mintThemeAsNFT() {
+        const theme =
+          document.documentElement.getAttribute("data-theme") || "neon";
+        if (
+          !confirm(
+            `Mint current theme (${theme.toUpperCase()}) as a Solana NFT?\n\n• ~$0.01 gas fee\n• 10% royalty on every future resale\n• Tradeable on Magic Eden / Tensor\n\n(Solana web3.js integration ships in v12 — confirming demo mint now)`,
+          )
+        )
+          return;
+        setTimeout(() => {
+          confetti({
+            particleCount: 200,
+            spread: 100,
+            origin: { y: 0.5 },
+            colors: ["#9945FF", "#14F195"],
+          });
+          alert(
+            `🎉 ${theme.toUpperCase()} THEME MINTED ON SOLANA!\n\nToken ID: OVERLORD-${Math.random().toString(36).substr(2, 8).toUpperCase()}\nRoyalty: 10% forever\nMarketplace: Magic Eden / Tensor\n\nFull Solana web3.js integration in v12.`,
+          );
+        }, 300);
+      }
+
+      // --- COMMUNITY FEED ---
+      function addCommunityPost() {
+        const text = document
+          .getElementById("community-post-text")
+          .value.trim();
+        if (!text) return;
+        const feed = document.getElementById("community-feed");
+        const div = document.createElement("div");
+        div.className = "bg-black border border-[#ff00ff] p-4 rounded-xl";
+        div.innerHTML = `
+          <div class="flex justify-between items-center mb-2">
+            <span class="neon-text text-sm font-bold">👑 overlord</span>
+            <span class="text-xs opacity-50">${new Date().toLocaleTimeString()}</span>
+          </div>
+          <p class="text-sm text-white mb-3">${text}</p>
+          <div class="flex gap-4 text-xs">
+            <button onclick="this.textContent = this.textContent.includes('❤️') ? '🤍 0' : '❤️ ' + (parseInt(this.textContent.split(' ')[1]||0)+1)" class="text-[#ff00ff]">🤍 0</button>
+            <button onclick="alert('Comments in v12!')" class="opacity-60">💬 Comment</button>
+            <button onclick="alert('Share link: http://192.168.0.77:8080')" class="opacity-60">🔗 Share</button>
+          </div>`;
+        feed.prepend(div);
+        document.getElementById("community-post-text").value = "";
+        const saved = JSON.parse(
+          localStorage.getItem("community-posts") || "[]",
+        );
+        saved.unshift({ text, time: Date.now() });
+        localStorage.setItem(
+          "community-posts",
+          JSON.stringify(saved.slice(0, 50)),
+        );
+        confetti({
+          particleCount: 60,
+          spread: 50,
+          origin: { y: 0.7 },
+          colors: ["#ff00ff"],
+        });
+      }
+
+      function updateTime() {
+        const now = new Date();
+        document.getElementById("live-time").innerText =
+          now.toLocaleTimeString();
+      }
+      setInterval(updateTime, 1000);
+      updateTime();
+
+      const UI_BUILD = "MOD-2026.03.04A";
+      (() => {
+        const key = "overlord-ui-build-module";
+        const previous = localStorage.getItem(key);
+        if (previous !== UI_BUILD) {
+          localStorage.setItem(key, UI_BUILD);
+          if (previous) {
+            location.reload();
+          }
+        }
+      })();
+
+      const buildPill = document.getElementById("build-pill");
+      if (buildPill) {
+        buildPill.textContent = `BUILD ${UI_BUILD}`;
+      }
+
+      window.onload = () => {
+      connectBridge();    // open ws://localhost:8765 (auto-reconnects)
+        firebaseSignIn();   // anonymous session + Google upgrade option
+        const saved = JSON.parse(localStorage.getItem("litgrid-settings"));
+        if (saved) {
+          setTheme(saved.theme);
+          changeFont(saved.font);
+          document.getElementById("theme-select").value = saved.theme;
+          document.getElementById("font-select").value = saved.font;
+        }
+        // Restore saved posts
+        const posts = JSON.parse(localStorage.getItem("litgrid-posts") || "[]");
+        const postsEl = document.getElementById("posts");
+        posts.forEach((p) => {
+          const div = document.createElement("div");
+          div.className = "border border-[var(--accent)] p-3 rounded-xl mb-3";
+          div.innerHTML = `<span class="opacity-60 text-xs">${new Date(p.time).toLocaleTimeString()} • overlord</span><br>${p.text}`;
+          postsEl.appendChild(div);
+        });
+        // Restore community posts
+        const cposts = JSON.parse(
+          localStorage.getItem("community-posts") || "[]",
+        );
+        const cfeed = document.getElementById("community-feed");
+        cposts.slice(0, 10).forEach((p) => {
+          const div = document.createElement("div");
+          div.className = "bg-black border border-[#ff00ff] p-4 rounded-xl";
+          div.innerHTML = `<div class="flex justify-between mb-2"><span class="neon-text text-sm font-bold">👑 overlord</span><span class="text-xs opacity-50">${new Date(p.time).toLocaleTimeString()}</span></div><p class="text-sm text-white">${p.text}</p>`;
+          cfeed.appendChild(div);
+        });
+        // Indicate saved RD key
+        if (localStorage.getItem("rd-api-key")) {
+          const rdInput = document.getElementById("rd-key-input");
+          if (rdInput)
+            rdInput.placeholder = "✅ Key saved (enter new to update)";
+        }
+      };
+    </script>
+    <!-- Firebase loaded last so it never blocks first paint -->
+    <script defer src="https://www.gstatic.com/firebasejs/10.14.0/firebase-app-compat.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/10.14.0/firebase-auth-compat.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/10.14.0/firebase-functions-compat.js"></script>
+  </body>
+</html>

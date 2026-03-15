@@ -1,0 +1,17 @@
+{
+  "extends": ["recommended"],
+  "rules": {
+    "comments": "disable",
+    "truthy": ["warning", {
+      "allowed": ["true", "false", "null"],
+      "check-keys": false
+    }],
+    "line-length": {
+      "level": "warning",
+      "max": 120
+    },
+    "indentation": {
+      "spaces": 2
+    }
+  }
+}

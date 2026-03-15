@@ -1,0 +1,313 @@
+@page "/dashboard"
+@using HomeBase11.Services
+@inject SystemStatsService Stats
+@rendermode InteractiveServer
+
+<PageTitle>HomeBase 11 | Dashboard</PageTitle>
+
+<div class="dashboard-container p-5">
+    <div class="d-flex justify-content-between align-items-center mb-5">
+        <div>
+            <h1 class="brand-text">COMMAND <span class="version">CENTER</span></h1>
+            <p class="subtitle text-uppercase">System Overview & Control</p>
+        </div>
+        <div class="system-status px-3 py-2">
+            <span class="status-dot"></span>
+            ALL SYSTEMS OPERATIONAL
+        </div>
+    </div>
+
+    <div class="row g-4 mb-5">
+        <div class="col-md-3">
+            <div class="stat-glass">
+                <div class="stat-label">ACTIVE AGENTS</div>
+                <div class="stat-value">@activeAgents</div>
+                <div class="stat-meta text-success">Running</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-glass">
+                <div class="stat-label">TASKS QUEUED</div>
+                <div class="stat-value">@tasksQueued</div>
+                <div class="stat-meta text-warning">Pending</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-glass">
+                <div class="stat-label">UPTIME</div>
+                <div class="stat-value small-text">@uptime</div>
+                <div class="stat-meta">Since @startTime</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-glass">
+                <div class="stat-label">RESOURCES</div>
+                <div class="stat-value">@memoryUsage%</div>
+                <div class="stat-meta text-info">@Stats.GetProcessorCount() Cores</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4 mb-5">
+        <div class="col-md-6">
+            <div class="content-glass p-4 h-100">
+                <h3 class="section-title">ACTIVE AGENTS</h3>
+                <div class="agent-list mt-4">
+                    @foreach (var agent in agents)
+                    {
+                        <div class="agent-item d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="agent-icon" style="background: @agent.Color">@agent.Icon</div>
+                                <div>
+                                    <div class="agent-name">@agent.Name</div>
+                                    <div class="agent-meta">@agent.Status</div>
+                                </div>
+                            </div>
+                            <span class="badge-custom" style="background: @agent.StatusBg; color: @agent.StatusColor">@agent.Badge</span>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="content-glass p-4 h-100">
+                <h3 class="section-title">SYSTEM HEALTH</h3>
+                <div class="health-grid mt-4">
+                    <div class="health-item">
+                        <div class="health-label">CPU</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 45%; background: #3fb950;"></div>
+                        </div>
+                        <div class="health-value">45%</div>
+                    </div>
+                    <div class="health-item">
+                        <div class="health-label">MEMORY</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: @memoryUsage%; background: #58a6ff;"></div>
+                        </div>
+                        <div class="health-value">@memoryUsage%</div>
+                    </div>
+                    <div class="health-item">
+                        <div class="health-label">DISK</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: @Stats.GetFreeSpacePercentage()%; background: #9d50bb;"></div>
+                        </div>
+                        <div class="health-value">@Stats.GetFreeSpacePercentage()%</div>
+                    </div>
+                    <div class="health-item">
+                        <div class="health-label">NETWORK</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 23%; background: #f0883e;"></div>
+                        </div>
+                        <div class="health-value">23%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-8">
+            <div class="content-glass p-4 h-100">
+                <h3 class="section-title">RECENT ACTIVITY</h3>
+                <div class="activity-list mt-4">
+                    @foreach (var activity in recentActivity)
+                    {
+                        <div class="activity-item d-flex align-items-center gap-3">
+                            <div class="activity-icon" style="background: @activity.Color">@activity.Icon</div>
+                            <div class="flex-grow-1">
+                                <div class="activity-text">@activity.Text</div>
+                                <div class="activity-time">@activity.Time</div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="content-glass p-4 h-100 d-flex flex-column">
+                <h3 class="section-title">QUICK ACTIONS</h3>
+                <div class="d-grid gap-3 mt-4">
+                    <button class="btn-action">LAUNCH AGENT</button>
+                    <button class="btn-action outline">VIEW LOGS</button>
+                    <button class="btn-action outline">SYSTEM CHECK</button>
+                    <button class="btn-action outline text-danger">EMERGENCY STOP</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    :root {
+        --brand-blue: #00d2ff;
+        --brand-purple: #9d50bb;
+        --glass-bg: rgba(22, 27, 34, 0.6);
+        --glass-border: rgba(255, 255, 255, 0.05);
+    }
+
+    .dashboard-container { color: white; }
+    .brand-text { font-weight: 900; letter-spacing: -1px; }
+    .brand-text .version { color: var(--brand-blue); }
+    .subtitle { font-size: 0.75rem; letter-spacing: 4px; color: #8b949e; font-weight: 700; }
+    
+    .system-status {
+        background: rgba(35, 134, 54, 0.1);
+        border: 1px solid rgba(35, 134, 54, 0.3);
+        border-radius: 100px;
+        font-size: 0.7rem;
+        font-weight: 800;
+        color: #3fb950;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .status-dot {
+        width: 8px;
+        height: 8px;
+        background: #3fb950;
+        border-radius: 50%;
+        box-shadow: 0 0 10px #3fb950;
+    }
+
+    .stat-glass {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 16px;
+        padding: 24px;
+        transition: transform 0.3s;
+    }
+
+    .stat-glass:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.03);
+    }
+
+    .stat-label {
+        font-size: 0.65rem;
+        font-weight: 800;
+        color: #8b949e;
+        letter-spacing: 1.5px;
+        margin-bottom: 8px;
+    }
+
+    .stat-value {
+        font-size: 2rem;
+        font-weight: 900;
+        margin-bottom: 4px;
+    }
+
+    .small-text { font-size: 1.4rem; }
+    .stat-meta { font-size: 0.7rem; font-weight: 600; }
+    .text-success { color: #3fb950; }
+    .text-warning { color: #d29922; }
+    .text-info { color: #58a6ff; }
+
+    .content-glass { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 20px; }
+    .section-title { font-size: 0.8rem; font-weight: 800; color: #8b949e; letter-spacing: 2px; }
+
+    .agent-item, .activity-item {
+        padding: 16px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid transparent;
+        transition: all 0.2s;
+        margin-bottom: 12px;
+    }
+
+    .agent-item:hover, .activity-item:hover {
+        background: rgba(255, 255, 255, 0.04);
+        border-color: var(--glass-border);
+        transform: translateX(5px);
+    }
+
+    .agent-icon, .activity-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 900;
+        font-size: 1.2rem;
+        color: white;
+    }
+
+    .agent-name, .activity-text { font-weight: 700; font-size: 0.95rem; }
+    .agent-meta, .activity-time { font-size: 0.75rem; color: #8b949e; }
+    .badge-custom { padding: 4px 10px; border-radius: 6px; font-size: 0.65rem; font-weight: 800; }
+
+    .health-grid { display: grid; gap: 16px; }
+    .health-item { display: flex; align-items: center; gap: 12px; }
+    .health-label { font-size: 0.7rem; font-weight: 700; color: #8b949e; width: 70px; }
+    .health-value { font-size: 0.75rem; font-weight: 700; width: 40px; text-align: right; }
+    .progress-bar {
+        flex: 1;
+        height: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        overflow: hidden;
+    }
+    .progress-fill { height: 100%; border-radius: 4px; transition: width 0.5s; }
+
+    .btn-action {
+        background: var(--brand-blue);
+        border: none;
+        padding: 14px;
+        border-radius: 12px;
+        color: white;
+        font-weight: 800;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+        transition: all 0.2s;
+    }
+
+    .btn-action:hover { filter: brightness(1.2); transform: translateY(-2px); }
+    .btn-action.outline { background: transparent; border: 1px solid var(--glass-border); }
+    .btn-action.outline:hover { background: rgba(255, 255, 255, 0.05); }
+    .text-danger { color: #f85149 !important; }
+</style>
+
+@code {
+    private int activeAgents = 4;
+    private int tasksQueued = 12;
+    private string uptime = "3d 14h";
+    private string startTime = "Jan 15, 2026";
+    private int memoryUsage = 62;
+
+    private List<Agent> agents = new()
+    {
+        new Agent { Name = "Claude Assistant", Icon = "C", Status = "Processing requests", Badge = "ACTIVE", Color = "#9d50bb", StatusBg = "rgba(157, 80, 187, 0.1)", StatusColor = "#9d50bb" },
+        new Agent { Name = "Ollama Model", Icon = "O", Status = "Idle", Badge = "READY", Color = "#3fb950", StatusBg = "rgba(63, 185, 80, 0.1)", StatusColor = "#3fb950" },
+        new Agent { Name = "Data Indexer", Icon = "D", Status = "Indexing 2.4k files", Badge = "RUNNING", Color = "#58a6ff", StatusBg = "rgba(88, 166, 255, 0.1)", StatusColor = "#58a6ff" },
+        new Agent { Name = "Task Scheduler", Icon = "T", Status = "Watching queue", Badge = "MONITORING", Color = "#f0883e", StatusBg = "rgba(240, 136, 62, 0.1)", StatusColor = "#f0883e" }
+    };
+
+    private List<Activity> recentActivity = new()
+    {
+        new Activity { Text = "User 'admin' logged in", Time = "2 minutes ago", Icon = "L", Color = "#3fb950" },
+        new Activity { Text = "Agent 'Claude' completed task #4281", Time = "5 minutes ago", Icon = "C", Color = "#9d50bb" },
+        new Activity { Text = "System backup completed", Time = "15 minutes ago", Icon = "B", Color = "#58a6ff" },
+        new Activity { Text = "New friend request received", Time = "32 minutes ago", Icon = "F", Color = "#f0883e" }
+    };
+
+    private class Agent
+    {
+        public string Name { get; set; } = "";
+        public string Icon { get; set; } = "";
+        public string Status { get; set; } = "";
+        public string Badge { get; set; } = "";
+        public string Color { get; set; } = "";
+        public string StatusBg { get; set; } = "";
+        public string StatusColor { get; set; } = "";
+    }
+
+    private class Activity
+    {
+        public string Text { get; set; } = "";
+        public string Time { get; set; } = "";
+        public string Icon { get; set; } = "";
+        public string Color { get; set; } = "";
+    }
+}

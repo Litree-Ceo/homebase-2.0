@@ -1,0 +1,33 @@
+name: Deploy LiTreeLab Studio
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install frontend dependencies
+        run: cd web && pnpm install
+
+      - name: Run tests
+        run: cd web && pnpm test:unit
+
+      - name: Build Astro site
+        run: cd web && pnpm build
+
+      # Add your deployment steps here, e.g., deploying to Vercel, Netlify, or your own server.
+      - name: Deploy to Production
+        run: echo "Deployment steps would go here."

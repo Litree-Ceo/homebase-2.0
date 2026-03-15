@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Minimal version - just the symbol -->
+  <rect width="512" height="512" rx="96" fill="#0a0a0f"/>
+  
+  <g transform="translate(256, 256)">
+    <!-- Diamond only -->
+    <path d="M0 -100 L86.6 -50 L86.6 50 L0 100 L-86.6 50 L-86.6 -50 Z" 
+          fill="none" stroke="#52f2ff" stroke-width="6"/>
+    
+    <!-- Vertical line -->
+    <rect x="-6" y="-60" width="12" height="120" rx="2" fill="#52f2ff"/>
+    
+    <!-- Center -->
+    <circle cx="0" cy="0" r="10" fill="#ff4ddb"/>
+  </g>
+</svg>

@@ -1,0 +1,206 @@
+@page "/home"
+@using HomeBase11.Services
+@inject SystemStatsService Stats
+@rendermode InteractiveServer
+
+<PageTitle>HomeBase 11 | Command Center</PageTitle>
+
+<div class="dashboard-container p-5">
+    <div class="d-flex justify-content-between align-items-center mb-5">
+        <div>
+            <h1 class="brand-text">DASHBOARD <span class="version">CORE</span></h1>
+            <p class="subtitle text-uppercase">Welcome back, Admin</p>
+        </div>
+        <div class="system-status px-3 py-2">
+            <span class="status-dot"></span>
+            SYSTEM ONLINE
+        </div>
+    </div>
+
+    <div class="row g-4 mb-5">
+        <div class="col-md-3">
+            <div class="stat-glass">
+                <div class="stat-label">PROCESSORS</div>
+                <div class="stat-value">@Stats.GetProcessorCount()</div>
+                <div class="stat-meta text-success">Logical Cores</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-glass">
+                <div class="stat-label">DRIVE FREE</div>
+                <div class="stat-value">@Stats.GetFreeSpacePercentage()%</div>
+                <div class="stat-meta text-info">@Stats.GetFreeDiskSpaceGB() GB / @Stats.GetTotalDiskSpaceGB() GB</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-glass">
+                <div class="stat-label">OPERATING SYSTEM</div>
+                <div class="stat-value small-text">Windows 11</div>
+                <div class="stat-meta">Build: 22631.4600</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-glass">
+                <div class="stat-label">LOCAL AI</div>
+                <div class="stat-value">OLLAMA</div>
+                <div class="stat-meta text-success">v0.5.11 Running</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-8">
+            <div class="content-glass p-4 h-100">
+                <h3 class="section-title">RECENT PROJECTS</h3>
+                <div class="project-list mt-4">
+                    <div class="project-item d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="project-icon bg-success">O</div>
+                            <div>
+                                <div class="project-name">Overlord-Monolith</div>
+                                <div class="project-meta">C:\dev\Overlord-Monolith</div>
+                            </div>
+                        </div>
+                        <span class="badge-custom bg-success-dim">MASTER</span>
+                    </div>
+                    <div class="project-item d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="project-icon bg-info">H</div>
+                            <div>
+                                <div class="project-name">HomeBase-Pro</div>
+                                <div class="project-meta">C:\Users\litre\HomeBase-Pro</div>
+                            </div>
+                        </div>
+                        <span class="badge-custom bg-info-dim">SYNCED</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="content-glass p-4 h-100 d-flex flex-column">
+                <h3 class="section-title">QUICK ACTIONS</h3>
+                <div class="d-grid gap-3 mt-4">
+                    <button class="btn-action">START AI SESSION</button>
+                    <button class="btn-action outline">STUDIO CLEANUP</button>
+                    <button class="btn-action outline text-danger">TERMINATE ALL</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    :root {
+        --brand-blue: #00d2ff;
+        --brand-purple: #9d50bb;
+        --glass-bg: rgba(22, 27, 34, 0.6);
+        --glass-border: rgba(255, 255, 255, 0.05);
+    }
+
+    .dashboard-container { color: white; }
+    .brand-text { font-weight: 900; letter-spacing: -1px; }
+    .brand-text .version { color: var(--brand-blue); }
+    .subtitle { font-size: 0.75rem; letter-spacing: 4px; color: #8b949e; font-weight: 700; }
+    
+    .system-status {
+        background: rgba(35, 134, 54, 0.1);
+        border: 1px solid rgba(35, 134, 54, 0.3);
+        border-radius: 100px;
+        font-size: 0.7rem;
+        font-weight: 800;
+        color: #3fb950;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .status-dot {
+        width: 8px;
+        height: 8px;
+        background: #3fb950;
+        border-radius: 50%;
+        box-shadow: 0 0 10px #3fb950;
+    }
+
+    .stat-glass {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 16px;
+        padding: 24px;
+        transition: transform 0.3s;
+    }
+
+    .stat-glass:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.03);
+    }
+
+    .stat-label {
+        font-size: 0.65rem;
+        font-weight: 800;
+        color: #8b949e;
+        letter-spacing: 1.5px;
+        margin-bottom: 8px;
+    }
+
+    .stat-value {
+        font-size: 2rem;
+        font-weight: 900;
+        margin-bottom: 4px;
+    }
+
+    .small-text { font-size: 1.4rem; }
+
+    .stat-meta { font-size: 0.7rem; font-weight: 600; }
+    .content-glass { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 20px; }
+    .section-title { font-size: 0.8rem; font-weight: 800; color: #8b949e; letter-spacing: 2px; }
+
+    .project-item {
+        padding: 16px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid transparent;
+        transition: all 0.2s;
+        margin-bottom: 12px;
+    }
+
+    .project-item:hover {
+        background: rgba(255, 255, 255, 0.04);
+        border-color: var(--glass-border);
+        transform: translateX(5px);
+    }
+
+    .project-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 900;
+        font-size: 1.2rem;
+        color: white;
+    }
+
+    .project-name { font-weight: 700; font-size: 0.95rem; }
+    .project-meta { font-size: 0.75rem; color: #8b949e; }
+    .badge-custom { padding: 4px 10px; border-radius: 6px; font-size: 0.65rem; font-weight: 800; }
+    .bg-success-dim { background: rgba(63, 185, 80, 0.1); color: #3fb950; }
+    .bg-info-dim { background: rgba(88, 166, 255, 0.1); color: #58a6ff; }
+
+    .btn-action {
+        background: var(--brand-blue);
+        border: none;
+        padding: 14px;
+        border-radius: 12px;
+        color: white;
+        font-weight: 800;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+        transition: all 0.2s;
+    }
+
+    .btn-action:hover { filter: brightness(1.2); transform: translateY(-2px); }
+    .btn-action.outline { background: transparent; border: 1px solid var(--glass-border); }
+    .btn-action.outline:hover { background: rgba(255, 255, 255, 0.05); }
+</style>

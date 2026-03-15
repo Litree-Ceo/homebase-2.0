@@ -1,0 +1,18 @@
+[Unit]
+Description=Overlord Social Hub (Kodi Theme) - Port 3000
+After=network.target
+Wants=overlord-dashboard.service
+
+[Service]
+Type=simple
+User=litree
+WorkingDirectory=/mnt/c/Users/litre/Desktop/Overlord-Monolith/modules/social
+Environment="PYTHONUNBUFFERED=1"
+ExecStart=/usr/bin/python3 -m http.server 3000 --bind 0.0.0.0
+Restart=always
+RestartSec=5
+StandardOutput=append:/mnt/c/Users/litre/Desktop/Overlord-Monolith/modules/social/social.log
+StandardError=append:/mnt/c/Users/litre/Desktop/Overlord-Monolith/modules/social/social.log
+
+[Install]
+WantedBy=multi-user.target

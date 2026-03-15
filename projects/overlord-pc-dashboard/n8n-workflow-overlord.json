@@ -1,0 +1,110 @@
+{
+  "name": "Overlord PC Stats Collector",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 5
+            }
+          ]
+        }
+      },
+      "id": "schedule-trigger",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [260, 300],
+      "notesInFlow": true,
+      "notes": "Runs every 5 minutes to collect PC stats"
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "=https://paradigmatical-estelle-epaxially.ngrok-free.dev/api/stats",
+        "sendQuery": false,
+        "options": {
+          "retry": {
+            "enabled": true,
+            "maxRetries": 3,
+            "waitBetween": 5000
+          },
+          "timeout": 30000
+        }
+      },
+      "id": "http-request",
+      "name": "Fetch PC Stats",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [480, 300],
+      "notesInFlow": true,
+      "notes": "Fetches stats from Overlord Dashboard\nAuto-retries on failure"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Process the stats data\nconst stats = $input.first().json;\n\nreturn [\n  {\n    json: {\n      timestamp: new Date().toISOString(),\n      cpu_percent: stats.cpu?.percent || 0,\n      ram_percent: stats.ram?.percent || 0,\n      ram_used_gb: stats.ram?.used_gb || 0,\n      ram_total_gb: stats.ram?.total_gb || 0,\n      disk_percent: stats.disk?.percent || 0,\n      disk_used_gb: stats.disk?.used_gb || 0,\n      disk_total_gb: stats.disk?.total_gb || 0\n    }\n  }\n];"
+      },
+      "id": "process-data",
+      "name": "Process Stats",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [700, 300]
+    },
+    {
+      "parameters": {
+        "content": "=📊 **PC Stats - {{new Date().toLocaleString()}}**\n\n🖥️ **CPU:** {{$json.cpu_percent}}%\n💾 **RAM:** {{$json.ram_percent}}% ({{$json.ram_used_gb}}GB / {{$json.ram_total_gb}}GB)\n💿 **Disk:** {{$json.disk_percent}}% ({{$json.disk_used_gb}}GB / {{$json.disk_total_gb}}GB)",
+        "options": {}
+      },
+      "id": "format-message",
+      "name": "Format Message",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [920, 300]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": {
+    "tunnelUrl": "YOUR_TUNNEL_URL_HERE"
+  },
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Fetch PC Stats",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch PC Stats": {
+      "main": [
+        [
+          {
+            "node": "Process Stats",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process Stats": {
+      "main": [
+        [
+          {
+            "node": "Format Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

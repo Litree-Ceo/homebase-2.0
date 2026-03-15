@@ -1,0 +1,296 @@
+@page "/marketplace"
+@rendermode InteractiveServer
+
+<PageTitle>HomeBase 11 | Marketplace</PageTitle>
+
+<div class="marketplace-container p-5">
+    <div class="d-flex justify-content-between align-items-center mb-5">
+        <div>
+            <h1 class="brand-text">MARKETPLACE <span class="version">HUB</span></h1>
+            <p class="subtitle text-uppercase">Buy, Sell & Discover</p>
+        </div>
+        <div class="header-actions">
+            <button class="sell-btn">+ SELL ITEM</button>
+        </div>
+    </div>
+
+    <div class="row g-4 mb-5">
+        <div class="col-md-3">
+            <div class="stat-glass text-center">
+                <div class="stat-value">@activeListings</div>
+                <div class="stat-label">ACTIVE LISTINGS</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-glass text-center">
+                <div class="stat-value">@soldItems</div>
+                <div class="stat-label text-success">SOLD</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-glass text-center">
+                <div class="stat-value">$@totalEarnings</div>
+                <div class="stat-label">EARNINGS</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-glass text-center">
+                <div class="stat-value">@savedItems</div>
+                <div class="stat-label">SAVED</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-3">
+            <div class="content-glass p-4">
+                <h3 class="section-title">CATEGORIES</h3>
+                <div class="categories-list mt-4">
+                    @foreach (var cat in categories)
+                    {
+                        <div class="category-item @((selectedCategory == cat.Name) ? "active" : "")" @onclick="() => SelectCategory(cat.Name)">
+                            <span class="category-icon">@cat.Icon</span>
+                            <span class="category-name">@cat.Name</span>
+                            <span class="category-count">@cat.Count</span>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <div class="content-glass p-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="section-title mb-0">FEATURED LISTINGS</h3>
+                    <div class="search-filter">
+                        <input type="text" class="glass-input" placeholder="Search..." />
+                    </div>
+                </div>
+
+                <div class="listings-grid">
+                    @foreach (var item in listings)
+                    {
+                        <div class="listing-card">
+                            <div class="listing-image" style="background: linear-gradient(135deg, @item.ImageColor, @item.ImageColor2)">
+                                <span class="listing-badge">@item.Badge</span>
+                                <button class="save-btn" @onclick="() => ToggleSave(item.Id)">
+                                    @(item.Saved ? "❤️" : "🤍")
+                                </button>
+                            </div>
+                            <div class="listing-content">
+                                <div class="listing-price">$@item.Price</div>
+                                <div class="listing-title">@item.Title</div>
+                                <div class="listing-meta">
+                                    <span>@item.Category</span> • <span>@item.Location</span>
+                                </div>
+                                <div class="listing-footer">
+                                    <span class="listing-time">@item.PostedAgo</span>
+                                    <button class="contact-btn">CONTACT</button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    :root {
+        --brand-blue: #00d2ff;
+        --brand-purple: #9d50bb;
+        --glass-bg: rgba(22, 27, 34, 0.6);
+        --glass-border: rgba(255, 255, 255, 0.05);
+    }
+
+    .marketplace-container { color: white; }
+    .brand-text { font-weight: 900; letter-spacing: -1px; }
+    .brand-text .version { color: var(--brand-blue); }
+    .subtitle { font-size: 0.75rem; letter-spacing: 4px; color: #8b949e; font-weight: 700; }
+
+    .sell-btn {
+        background: linear-gradient(135deg, #3fb950, #2ea043);
+        border: none;
+        border-radius: 12px;
+        padding: 12px 24px;
+        color: white;
+        font-weight: 800;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    .sell-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px -10px #3fb950; }
+
+    .stat-glass {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 16px;
+        padding: 24px;
+    }
+    .stat-value { font-size: 2rem; font-weight: 900; }
+    .stat-label { font-size: 0.65rem; font-weight: 800; color: #8b949e; letter-spacing: 1.5px; margin-top: 8px; }
+    .text-success { color: #3fb950; }
+
+    .content-glass { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 20px; }
+    .section-title { font-size: 0.8rem; font-weight: 800; color: #8b949e; letter-spacing: 2px; }
+
+    .categories-list { display: flex; flex-direction: column; gap: 4px; }
+    .category-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    .category-item:hover { background: rgba(255, 255, 255, 0.05); }
+    .category-item.active { background: rgba(0, 210, 255, 0.1); border: 1px solid rgba(0, 210, 255, 0.2); }
+    .category-icon { font-size: 1.2rem; }
+    .category-name { flex: 1; font-weight: 600; font-size: 0.9rem; }
+    .category-count { font-size: 0.75rem; color: #8b949e; background: rgba(255, 255, 255, 0.05); padding: 4px 8px; border-radius: 6px; }
+
+    .glass-input {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--glass-border);
+        border-radius: 10px;
+        padding: 10px 14px;
+        color: white;
+        width: 200px;
+        font-size: 0.9rem;
+    }
+    .glass-input:focus { outline: none; border-color: var(--brand-blue); }
+
+    .listings-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+    .listing-card {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid var(--glass-border);
+        border-radius: 16px;
+        overflow: hidden;
+        transition: all 0.2s;
+    }
+    .listing-card:hover { transform: translateY(-4px); border-color: var(--brand-blue); }
+
+    .listing-image {
+        height: 140px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+    }
+
+    .listing-badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-size: 0.65rem;
+        font-weight: 700;
+    }
+
+    .save-btn {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: rgba(0, 0, 0, 0.6);
+        border: none;
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        cursor: pointer;
+        font-size: 1.1rem;
+        transition: all 0.2s;
+    }
+    .save-btn:hover { transform: scale(1.1); }
+
+    .listing-content { padding: 16px; }
+    .listing-price { font-size: 1.4rem; font-weight: 900; color: var(--brand-blue); }
+    .listing-title { font-weight: 700; font-size: 1rem; margin: 6px 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .listing-meta { font-size: 0.75rem; color: #8b949e; margin-bottom: 12px; }
+
+    .listing-footer { display: flex; justify-content: space-between; align-items: center; }
+    .listing-time { font-size: 0.7rem; color: #484f58; }
+
+    .contact-btn {
+        background: transparent;
+        border: 1px solid var(--brand-blue);
+        border-radius: 8px;
+        padding: 6px 14px;
+        color: var(--brand-blue);
+        font-size: 0.75rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    .contact-btn:hover { background: var(--brand-blue); color: white; }
+</style>
+
+@code {
+    private int activeListings = 12;
+    private int soldItems = 47;
+    private int totalEarnings = 2840;
+    private int savedItems = 8;
+    private string selectedCategory = "All";
+
+    private List<Category> categories = new()
+    {
+        new Category { Name = "All", Icon = "🏠", Count = 156 },
+        new Category { Name = "Electronics", Icon = "💻", Count = 42 },
+        new Category { Name = "Clothing", Icon = "👕", Count = 38 },
+        new Category { Name = "Furniture", Icon = "🪑", Count = 24 },
+        new Category { Name = "Gaming", Icon = "🎮", Count = 31 },
+        new Category { Name = "Books", Icon = "📚", Count = 18 },
+        new Category { Name = "Sports", Icon = "⚽", Count = 15 }
+    };
+
+    private List<Listing> listings = new()
+    {
+        new Listing { Id = 1, Title = "MacBook Pro M3 16\"", Price = 2400, Category = "Electronics", Location = "San Francisco", PostedAgo = "2 hours ago", Badge = "FEATURED", ImageColor = "#58a6ff", ImageColor2 = "#1a3a5c", Saved = false },
+        new Listing { Id = 2, Title = "Gaming Chair Pro", Price = 350, Category = "Furniture", Location = "Oakland", PostedAgo = "5 hours ago", Badge = "", ImageColor = "#9d50bb", ImageColor2 = "#3d1a5c", Saved = true },
+        new Listing { Id = 3, Title = "PS5 + 3 Games", Price = 480, Category = "Gaming", Location = "San Jose", PostedAgo = "1 day ago", Badge = "HOT", ImageColor = "#f0883e", ImageColor2 = "#5c3d1a", Saved = false },
+        new Listing { Id = 4, Title = "Vintage Leather Jacket", Price = 120, Category = "Clothing", Location = "Berkeley", PostedAgo = "2 days ago", Badge = "", ImageColor = "#f85149", ImageColor2 = "#5c1a1a", Saved = false },
+        new Listing { Id = 5, Title = "Mechanical Keyboard", Price = 180, Category = "Electronics", Location = "Palo Alto", PostedAgo = "3 days ago", Badge = "", ImageColor = "#3fb950", ImageColor2 = "#1a5c2d", Saved = true },
+        new Listing { Id = 6, Title = "Programming Books Bundle", Price = 75, Category = "Books", Location = "Mountain View", PostedAgo = "4 days ago", Badge = "", ImageColor = "#79c0ff", ImageColor2 = "#1a3a5c", Saved = false }
+    };
+
+    private void SelectCategory(string name)
+    {
+        selectedCategory = name;
+    }
+
+    private void ToggleSave(int id)
+    {
+        var item = listings.FirstOrDefault(l => l.Id == id);
+        if (item != null)
+        {
+            item.Saved = !item.Saved;
+            savedItems += item.Saved ? 1 : -1;
+        }
+    }
+
+    private class Category
+    {
+        public string Name { get; set; } = "";
+        public string Icon { get; set; } = "";
+        public int Count { get; set; }
+    }
+
+    private class Listing
+    {
+        public int Id { get; set; }
+        public string Title { get; set; } = "";
+        public int Price { get; set; }
+        public string Category { get; set; } = "";
+        public string Location { get; set; } = "";
+        public string PostedAgo { get; set; } = "";
+        public string Badge { get; set; } = "";
+        public string ImageColor { get; set; } = "";
+        public string ImageColor2 { get; set; } = "";
+        public bool Saved { get; set; }
+    }
+}

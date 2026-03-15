@@ -1,0 +1,303 @@
+@page "/metaverse"
+@rendermode InteractiveServer
+
+<PageTitle>HomeBase 11 | Metaverse</PageTitle>
+
+<div class="metaverse-container p-5">
+    <div class="d-flex justify-content-between align-items-center mb-5">
+        <div>
+            <h1 class="brand-text">METAVERSE <span class="version">ZONE</span></h1>
+            <p class="subtitle text-uppercase">3D Rooms & Virtual Spaces</p>
+        </div>
+        <button class="create-btn">
+            <span>+</span> CREATE ROOM
+        </button>
+    </div>
+
+    <div class="row g-4 mb-5">
+        <div class="col-md-3">
+            <div class="stat-glass text-center">
+                <div class="stat-value">@activeRooms</div>
+                <div class="stat-label">ACTIVE ROOMS</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-glass text-center">
+                <div class="stat-value">@onlineUsers</div>
+                <div class="stat-label text-success">ONLINE NOW</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-glass text-center">
+                <div class="stat-value">@totalVisits</div>
+                <div class="stat-label">TOTAL VISITS</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-glass text-center">
+                <div class="stat-value">@avatars</div>
+                <div class="stat-label">AVATARS</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-8">
+            <div class="content-glass p-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="section-title mb-0">FEATURED ROOMS</h3>
+                    <div class="filter-tabs">
+                        <button class="filter-tab active">POPULAR</button>
+                        <button class="filter-tab">FRIENDS</button>
+                        <button class="filter-tab">MY ROOMS</button>
+                    </div>
+                </div>
+
+                <div class="rooms-grid">
+                    @foreach (var room in rooms)
+                    {
+                        <div class="room-card">
+                            <div class="room-preview" style="background: linear-gradient(135deg, @room.Color, @room.Color2)">
+                                <span class="room-users">👥 @room.UserCount</span>
+                                <span class="room-status @room.Status"></span>
+                            </div>
+                            <div class="room-content">
+                                <div class="room-icon" style="background: @room.Color">@room.Icon</div>
+                                <div class="room-info">
+                                    <div class="room-name">@room.Name</div>
+                                    <div class="room-meta">@room.Type • @room.Description</div>
+                                </div>
+                                <button class="join-btn">JOIN</button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="content-glass p-4 mb-4">
+                <h3 class="section-title">YOUR AVATAR</h3>
+                <div class="avatar-editor mt-4">
+                    <div class="avatar-preview-large" style="background: linear-gradient(135deg, var(--brand-blue), var(--brand-purple))">
+                        <span>AC</span>
+                    </div>
+                    <div class="avatar-name">Admin User</div>
+                    <button class="edit-btn">CUSTOMIZE</button>
+                </div>
+            </div>
+
+            <div class="content-glass p-4">
+                <h3 class="section-title">RECENT VISITS</h3>
+                <div class="recent-list mt-4">
+                    @foreach (var recent in recentVisits)
+                    {
+                        <div class="recent-item">
+                            <div class="recent-icon" style="background: @recent.Color">@recent.Icon</div>
+                            <div class="recent-info">
+                                <div class="recent-name">@recent.Name</div>
+                                <div class="recent-time">@recent.LastVisit</div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    :root {
+        --brand-blue: #00d2ff;
+        --brand-purple: #9d50bb;
+        --glass-bg: rgba(22, 27, 34, 0.6);
+        --glass-border: rgba(255, 255, 255, 0.05);
+    }
+
+    .metaverse-container { color: white; }
+    .brand-text { font-weight: 900; letter-spacing: -1px; }
+    .brand-text .version { color: var(--brand-blue); }
+    .subtitle { font-size: 0.75rem; letter-spacing: 4px; color: #8b949e; font-weight: 700; }
+
+    .create-btn {
+        background: linear-gradient(135deg, #a371f7, #8957e5);
+        border: none;
+        border-radius: 12px;
+        padding: 12px 24px;
+        color: white;
+        font-weight: 800;
+        font-size: 0.85rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .create-btn span { font-size: 1.2rem; }
+
+    .stat-glass {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 16px;
+        padding: 24px;
+    }
+    .stat-value { font-size: 2rem; font-weight: 900; }
+    .stat-label { font-size: 0.65rem; font-weight: 800; color: #8b949e; letter-spacing: 1.5px; margin-top: 8px; }
+    .text-success { color: #3fb950; }
+
+    .content-glass { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 20px; }
+    .section-title { font-size: 0.8rem; font-weight: 800; color: #8b949e; letter-spacing: 2px; }
+
+    .filter-tabs { display: flex; gap: 8px; }
+    .filter-tab {
+        background: transparent;
+        border: 1px solid var(--glass-border);
+        border-radius: 8px;
+        padding: 6px 16px;
+        color: #8b949e;
+        font-size: 0.75rem;
+        font-weight: 700;
+        cursor: pointer;
+    }
+    .filter-tab.active { background: var(--brand-blue); border-color: var(--brand-blue); color: white; }
+
+    .rooms-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .room-card {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid var(--glass-border);
+        border-radius: 16px;
+        overflow: hidden;
+    }
+
+    .room-preview {
+        height: 100px;
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        padding: 12px;
+    }
+    .room-users {
+        background: rgba(0, 0, 0, 0.6);
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-size: 0.75rem;
+    }
+    .room-status {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+    }
+    .room-status.live { background: #3fb950; box-shadow: 0 0 10px #3fb950; }
+
+    .room-content { padding: 16px; display: flex; align-items: center; gap: 12px; }
+    .room-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+    }
+    .room-info { flex: 1; }
+    .room-name { font-weight: 700; font-size: 0.95rem; }
+    .room-meta { font-size: 0.7rem; color: #8b949e; }
+
+    .join-btn {
+        background: var(--brand-blue);
+        border: none;
+        border-radius: 8px;
+        padding: 8px 16px;
+        color: white;
+        font-weight: 700;
+        font-size: 0.75rem;
+        cursor: pointer;
+    }
+
+    .avatar-editor { text-align: center; }
+    .avatar-preview-large {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        font-weight: 900;
+        margin: 0 auto 16px;
+    }
+    .avatar-name { font-weight: 700; margin-bottom: 12px; }
+    .edit-btn {
+        background: transparent;
+        border: 1px solid var(--glass-border);
+        border-radius: 8px;
+        padding: 8px 20px;
+        color: white;
+        font-size: 0.8rem;
+        font-weight: 700;
+        cursor: pointer;
+    }
+
+    .recent-list { display: flex; flex-direction: column; gap: 12px; }
+    .recent-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 10px;
+    }
+    .recent-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+    }
+    .recent-name { font-weight: 600; font-size: 0.85rem; }
+    .recent-time { font-size: 0.7rem; color: #8b949e; }
+</style>
+
+@code {
+    private int activeRooms = 12;
+    private int onlineUsers = 47;
+    private int totalVisits = 2840;
+    private int avatars = 8;
+
+    private List<Room> rooms = new()
+    {
+        new Room { Name = "Gaming Lounge", Icon = "🎮", Type = "Public", Description = "Multiplayer games", UserCount = 12, Status = "live", Color = "#f0883e", Color2 = "#5c3d1a" },
+        new Room { Name = "Work Space", Icon = "💼", Type = "Private", Description = "Virtual office", UserCount = 4, Status = "live", Color = "#58a6ff", Color2 = "#1a3a5c" },
+        new Room { Name = "Music Room", Icon = "🎵", Type = "Public", Description = "Listen together", UserCount = 8, Status = "live", Color = "#f778ba", Color2 = "#5c1a3d" },
+        new Room { Name = "Art Gallery", Icon = "🎨", Type = "Public", Description = "Showcase art", UserCount = 3, Status = "live", Color = "#9d50bb", Color2 = "#3d1a5c" }
+    };
+
+    private List<RecentVisit> recentVisits = new()
+    {
+        new RecentVisit { Name = "Gaming Lounge", Icon = "🎮", Color = "#f0883e", LastVisit = "2 hours ago" },
+        new RecentVisit { Name = "Work Space", Icon = "💼", Color = "#58a6ff", LastVisit = "Yesterday" },
+        new RecentVisit { Name = "Movie Night", Icon = "🎬", Color = "#f85149", LastVisit = "3 days ago" }
+    };
+
+    public class Room
+    {
+        public string Name { get; set; } = "";
+        public string Icon { get; set; } = "";
+        public string Type { get; set; } = "";
+        public string Description { get; set; } = "";
+        public int UserCount { get; set; }
+        public string Status { get; set; } = "";
+        public string Color { get; set; } = "";
+        public string Color2 { get; set; } = "";
+    }
+
+    public class RecentVisit
+    {
+        public string Name { get; set; } = "";
+        public string Icon { get; set; } = "";
+        public string Color { get; set; } = "";
+        public string LastVisit { get; set; } = "";
+    }
+}

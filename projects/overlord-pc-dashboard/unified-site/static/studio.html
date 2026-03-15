@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metaverse Studio | LiTree Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #151520;
+            --bg-card: rgba(20, 20, 35, 0.85);
+            --accent-primary: #00f0ff;
+            --accent-secondary: #ff00e5;
+            --accent-gold: #ffd700;
+            --text-primary: #ffffff;
+            --text-secondary: #8b8b9e;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --font-display: 'Orbitron', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .bg-animation {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(255, 215, 0, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(0, 240, 255, 0.05) 0%, transparent 50%),
+                var(--bg-primary);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0 60px;
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+        }
+
+        .upload-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .upload-card {
+            background: var(--bg-card);
+            border: 2px dashed var(--border-color);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .upload-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.1);
+        }
+
+        .upload-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .upload-title {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .upload-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .upload-formats {
+            margin-top: 15px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-family: monospace;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 50px;
+            padding: 15px 40px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-family: var(--font-display);
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+    
+    <div class="container">
+        <header>
+            <h1>Metaverse Studio</h1>
+            <p class="subtitle">Upload, create, and monetize your digital assets</p>
+        </header>
+
+        <div class="upload-grid">
+            <div class="upload-card">
+                <div class="upload-icon">🎨</div>
+                <div class="upload-title">3D Models</div>
+                <div class="upload-desc">Upload GLB, GLTF, OBJ, and FBX files for the metaverse</div>
+                <div class="upload-formats">.glb .gltf .obj .fbx</div>
+            </div>
+            
+            <div class="upload-card">
+                <div class="upload-icon">🎮</div>
+                <div class="upload-title">Games</div>
+                <div class="upload-desc">Distribute your indie games and interactive experiences</div>
+                <div class="upload-formats">.unity .unreal .html5</div>
+            </div>
+            
+            <div class="upload-card">
+                <div class="upload-icon">🎵</div>
+                <div class="upload-title">Music</div>
+                <div class="upload-desc">Mint your tracks as NFTs and reach global audiences</div>
+                <div class="upload-formats">.mp3 .wav .flac .aac</div>
+            </div>
+            
+            <div class="upload-card">
+                <div class="upload-icon">🎬</div>
+                <div class="upload-title">Video</div>
+                <div class="upload-desc">4K video content with blockchain provenance</div>
+                <div class="upload-formats">.mp4 .mov .webm .mkv</div>
+            </div>
+        </div>
+
+        <center>
+            <a href="/" class="back-btn">← Back to Command Center</a>
+        </center>
+    </div>
+</body>
+</html>

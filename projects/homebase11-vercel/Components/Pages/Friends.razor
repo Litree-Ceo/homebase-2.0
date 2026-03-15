@@ -1,0 +1,360 @@
+@page "/friends"
+@rendermode InteractiveServer
+
+<PageTitle>HomeBase 11 | Friends</PageTitle>
+
+<div class="friends-container p-5">
+    <div class="d-flex justify-content-between align-items-center mb-5">
+        <div>
+            <h1 class="brand-text">NETWORK <span class="version">HUB</span></h1>
+            <p class="subtitle text-uppercase">Connections & Friends</p>
+        </div>
+        <div class="search-box">
+            <input type="text" class="glass-input" placeholder="Search friends..." @bind="searchQuery" />
+            <span class="search-icon">🔍</span>
+        </div>
+    </div>
+
+    <div class="row g-4 mb-5">
+        <div class="col-md-4">
+            <div class="stat-glass text-center">
+                <div class="stat-value">@friends.Count</div>
+                <div class="stat-label">TOTAL FRIENDS</div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="stat-glass text-center">
+                <div class="stat-value">@onlineFriends</div>
+                <div class="stat-label text-success">ONLINE NOW</div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="stat-glass text-center">
+                <div class="stat-value">@pendingRequests</div>
+                <div class="stat-label text-warning">PENDING</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-8">
+            <div class="content-glass p-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="section-title mb-0">YOUR FRIENDS</h3>
+                    <div class="filter-tabs">
+                        <button class="filter-tab active">ALL</button>
+                        <button class="filter-tab">ONLINE</button>
+                        <button class="filter-tab">OFFLINE</button>
+                    </div>
+                </div>
+                
+                <div class="friends-grid">
+                    @foreach (var friend in friends)
+                    {
+                        <div class="friend-card">
+                            <div class="friend-avatar" style="background: @friend.AvatarColor">
+                                @friend.Initials
+                                <span class="status-indicator @friend.Status"></span>
+                            </div>
+                            <div class="friend-info">
+                                <div class="friend-name">@friend.Name</div>
+                                <div class="friend-meta">@friend.StatusText</div>
+                            </div>
+                            <div class="friend-actions">
+                                <button class="action-btn" title="Message">💬</button>
+                                <button class="action-btn" title="More">⋮</button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="content-glass p-4 mb-4">
+                <h3 class="section-title">FRIEND REQUESTS</h3>
+                <div class="requests-list mt-4">
+                    @foreach (var request in friendRequests)
+                    {
+                        <div class="request-item">
+                            <div class="request-avatar" style="background: @request.AvatarColor">@request.Initials</div>
+                            <div class="request-info">
+                                <div class="request-name">@request.Name</div>
+                                <div class="request-meta">@request.Mutual mutual friends</div>
+                            </div>
+                            <div class="request-actions">
+                                <button class="btn-accept" @onclick="() => AcceptRequest(request.Id)">✓</button>
+                                <button class="btn-decline" @onclick="() => DeclineRequest(request.Id)">✕</button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="content-glass p-4">
+                <h3 class="section-title">SUGGESTIONS</h3>
+                <div class="suggestions-list mt-4">
+                    @foreach (var suggestion in suggestions)
+                    {
+                        <div class="suggestion-item">
+                            <div class="suggestion-avatar" style="background: @suggestion.AvatarColor">@suggestion.Initials</div>
+                            <div class="suggestion-info">
+                                <div class="suggestion-name">@suggestion.Name</div>
+                                <div class="suggestion-meta">@suggestion.Mutual mutual friends</div>
+                            </div>
+                            <button class="btn-add" @onclick="() => AddFriend(suggestion.Id)">+</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    :root {
+        --brand-blue: #00d2ff;
+        --brand-purple: #9d50bb;
+        --glass-bg: rgba(22, 27, 34, 0.6);
+        --glass-border: rgba(255, 255, 255, 0.05);
+    }
+
+    .friends-container { color: white; }
+    .brand-text { font-weight: 900; letter-spacing: -1px; }
+    .brand-text .version { color: var(--brand-blue); }
+    .subtitle { font-size: 0.75rem; letter-spacing: 4px; color: #8b949e; font-weight: 700; }
+
+    .search-box { position: relative; }
+    .search-box .glass-input {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 12px;
+        padding: 12px 40px 12px 16px;
+        color: white;
+        width: 250px;
+        font-size: 0.9rem;
+    }
+    .search-box .glass-input:focus {
+        outline: none;
+        border-color: var(--brand-blue);
+    }
+    .search-icon { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); opacity: 0.5; }
+
+    .stat-glass {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 16px;
+        padding: 24px;
+    }
+    .stat-value { font-size: 2rem; font-weight: 900; }
+    .stat-label { font-size: 0.65rem; font-weight: 800; color: #8b949e; letter-spacing: 1.5px; margin-top: 8px; }
+    .text-success { color: #3fb950; }
+    .text-warning { color: #d29922; }
+
+    .content-glass { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 20px; }
+    .section-title { font-size: 0.8rem; font-weight: 800; color: #8b949e; letter-spacing: 2px; }
+
+    .filter-tabs { display: flex; gap: 8px; }
+    .filter-tab {
+        background: transparent;
+        border: 1px solid var(--glass-border);
+        border-radius: 8px;
+        padding: 6px 16px;
+        color: #8b949e;
+        font-size: 0.75rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    .filter-tab.active, .filter-tab:hover {
+        background: var(--brand-blue);
+        border-color: var(--brand-blue);
+        color: white;
+    }
+
+    .friends-grid { display: flex; flex-direction: column; gap: 12px; }
+    .friend-card {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 16px;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid transparent;
+        border-radius: 12px;
+        transition: all 0.2s;
+    }
+    .friend-card:hover {
+        background: rgba(255, 255, 255, 0.04);
+        border-color: var(--glass-border);
+    }
+
+    .friend-avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 900;
+        font-size: 1rem;
+        position: relative;
+    }
+    .status-indicator {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        border: 2px solid #0d1117;
+    }
+    .status-indicator.online { background: #3fb950; }
+    .status-indicator.offline { background: #484f58; }
+    .status-indicator.away { background: #d29922; }
+
+    .friend-info { flex: 1; }
+    .friend-name { font-weight: 700; font-size: 0.95rem; }
+    .friend-meta { font-size: 0.75rem; color: #8b949e; }
+
+    .friend-actions { display: flex; gap: 8px; }
+    .action-btn {
+        background: rgba(255, 255, 255, 0.05);
+        border: none;
+        border-radius: 8px;
+        width: 36px;
+        height: 36px;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    .action-btn:hover { background: var(--brand-blue); }
+
+    .requests-list, .suggestions-list { display: flex; flex-direction: column; gap: 12px; }
+    .request-item, .suggestion-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px;
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 10px;
+    }
+
+    .request-avatar, .suggestion-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 0.85rem;
+    }
+
+    .request-info, .suggestion-info { flex: 1; }
+    .request-name, .suggestion-name { font-weight: 700; font-size: 0.9rem; }
+    .request-meta, .suggestion-meta { font-size: 0.7rem; color: #8b949e; }
+
+    .request-actions { display: flex; gap: 6px; }
+    .btn-accept, .btn-decline, .btn-add {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        font-weight: 800;
+        transition: all 0.2s;
+    }
+    .btn-accept { background: rgba(63, 185, 80, 0.2); color: #3fb950; }
+    .btn-accept:hover { background: #3fb950; color: white; }
+    .btn-decline { background: rgba(248, 81, 73, 0.2); color: #f85149; }
+    .btn-decline:hover { background: #f85149; color: white; }
+    .btn-add { background: var(--brand-blue); color: white; font-size: 1.2rem; }
+    .btn-add:hover { transform: scale(1.1); }
+</style>
+
+@code {
+    private string searchQuery = "";
+    private int onlineFriends = 5;
+    private int pendingRequests = 3;
+
+    private List<Friend> friends = new()
+    {
+        new Friend { Name = "Alex Chen", Initials = "AC", Status = "online", StatusText = "Online now", AvatarColor = "#3fb950" },
+        new Friend { Name = "Sarah Miller", Initials = "SM", Status = "online", StatusText = "In a meeting", AvatarColor = "#58a6ff" },
+        new Friend { Name = "James Wilson", Initials = "JW", Status = "away", StatusText = "Away for 15 min", AvatarColor = "#d29922" },
+        new Friend { Name = "Emma Davis", Initials = "ED", Status = "online", StatusText = "Playing games", AvatarColor = "#9d50bb" },
+        new Friend { Name = "Michael Brown", Initials = "MB", Status = "offline", StatusText = "Last seen 2h ago", AvatarColor = "#f0883e" },
+        new Friend { Name = "Lisa Anderson", Initials = "LA", Status = "online", StatusText = "Online now", AvatarColor = "#00d2ff" },
+        new Friend { Name = "David Lee", Initials = "DL", Status = "offline", StatusText = "Last seen yesterday", AvatarColor = "#f85149" }
+    };
+
+    private List<FriendRequest> friendRequests = new()
+    {
+        new FriendRequest { Id = 1, Name = "Tom Harris", Initials = "TH", Mutual = 4, AvatarColor = "#a371f7" },
+        new FriendRequest { Id = 2, Name = "Jennifer White", Initials = "JW", Mutual = 2, AvatarColor = "#f778ba" },
+        new FriendRequest { Id = 3, Name = "Robert Garcia", Initials = "RG", Mutual = 6, AvatarColor = "#79c0ff" }
+    };
+
+    private List<Suggestion> suggestions = new()
+    {
+        new Suggestion { Id = 1, Name = "Chris Taylor", Initials = "CT", Mutual = 3, AvatarColor = "#7ee787" },
+        new Suggestion { Id = 2, Name = "Amanda Smith", Initials = "AS", Mutual = 5, AvatarColor = "#ffa657" },
+        new Suggestion { Id = 3, Name = "Kevin Martin", Initials = "KM", Mutual = 1, AvatarColor = "#ff7b72" }
+    };
+
+    private void AcceptRequest(int id)
+    {
+        var request = friendRequests.FirstOrDefault(r => r.Id == id);
+        if (request != null)
+        {
+            friends.Add(new Friend { Name = request.Name, Initials = request.Initials, Status = "offline", StatusText = "Just joined", AvatarColor = request.AvatarColor });
+            friendRequests.Remove(request);
+            pendingRequests--;
+        }
+    }
+
+    private void DeclineRequest(int id)
+    {
+        var request = friendRequests.FirstOrDefault(r => r.Id == id);
+        if (request != null)
+        {
+            friendRequests.Remove(request);
+            pendingRequests--;
+        }
+    }
+
+    private void AddFriend(int id)
+    {
+        var suggestion = suggestions.FirstOrDefault(s => s.Id == id);
+        if (suggestion != null)
+        {
+            suggestions.Remove(suggestion);
+        }
+    }
+
+    private class Friend
+    {
+        public string Name { get; set; } = "";
+        public string Initials { get; set; } = "";
+        public string Status { get; set; } = "";
+        public string StatusText { get; set; } = "";
+        public string AvatarColor { get; set; } = "";
+    }
+
+    private class FriendRequest
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = "";
+        public string Initials { get; set; } = "";
+        public int Mutual { get; set; }
+        public string AvatarColor { get; set; } = "";
+    }
+
+    private class Suggestion
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = "";
+        public string Initials { get; set; } = "";
+        public int Mutual { get; set; }
+        public string AvatarColor { get; set; } = "";
+    }
+}

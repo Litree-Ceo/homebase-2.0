@@ -1,0 +1,47 @@
+# Gemini CLI - Ignore patterns
+# Exclude large/generated files from context
+
+# Dependencies
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Build outputs
+dist/
+build/
+*.egg-info/
+.next/
+out/
+
+# Logs
+*.log
+logs/
+
+# Environment
+.env
+.env.local
+*.key
+*.pem
+
+# Archives
+_archive/
+*.zip
+*.tar.gz
+
+# IDE
+.vscode/
+.idea/
+
+# Large repos (include only when needed)
+repos/HomeBase-2.0/node_modules/
+repos/homebase-portfolio/node_modules/
+repos/LiTreeStudio/node_modules/
+
+# Generated services
+generated/
+
+# Tools
+tools/nginx/
+tools/nssm-2.24/

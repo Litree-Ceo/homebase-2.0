@@ -1,0 +1,18 @@
+{
+  "rules": {
+    "overlord": {
+      "status": {
+        ".read": true,
+        ".write": true,
+        ".indexOn": ["timestamp", "overallHealth"]
+      },
+      "alerts": {
+        "$alert": {
+          ".read": true,
+          ".write": true,
+          ".validate": "newData.hasChildren(['timestamp', 'severity', 'message'])"
+        }
+      }
+    }
+  }
+}

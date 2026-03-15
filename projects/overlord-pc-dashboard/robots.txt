@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /
+
+# This is a private system monitoring dashboard
+# All access is blocked from search engines

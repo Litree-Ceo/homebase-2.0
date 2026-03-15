@@ -1,0 +1,12 @@
+{
+  "rules": {
+    "stats": {
+      ".read": "auth != null || auth.token.api_key == 'valid'",
+      ".write": "auth != null"
+    },
+    "config": {
+      ".read": true,
+      ".write": false
+    }
+  }
+}

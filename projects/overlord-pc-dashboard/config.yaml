@@ -1,0 +1,73 @@
+server:
+  host: "0.0.0.0"
+  port: 8080
+  auth_required: true
+
+# Authentication configuration
+# Note: api_key is loaded from OVERLORD_API_KEY env var (recommended)
+# Fallback: set api_key directly here (not recommended for production)
+auth:
+  enabled: true
+  api_key: ""  # Loaded from .env OVERLORD_API_KEY
+
+# Rate limiting configuration
+rate_limit:
+  enabled: true
+  requests_per_second: 10
+  burst: 20
+  block_duration: 60
+
+# Dashboard UI configuration
+dashboard:
+  refresh_interval_ms: 5000
+  max_history_entries: 60
+
+# Firebase configuration
+firebase:
+  enabled: false
+  database_url: ""
+  service_account_key: "firebase-service-account.json"
+
+# Logging configuration
+logging:
+  level: INFO # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: "overlord_dashboard.log"
+  max_size: 10  # MB
+  backup_count: 5
+
+# List of services to monitor
+services:
+  - name: "Docker Desktop"
+    process_name: "Docker.Service"
+  - name: "NVIDIA Container Runtime"
+    process_name: "nvidia-container-runtime.exe"
+
+# ADB (Android Debug Bridge) configuration
+adb:
+  host: "127.0.0.1"
+  port: 5037
+
+# GPU monitoring settings
+gpu_monitor:
+  enabled: true
+  # Add specific GPU settings here if needed
+
+# CORS configuration
+cors:
+  enabled: true
+  allowed_origins:
+    - "http://localhost:4000"
+    - "http://127.0.0.1:4000"
+    - "http://localhost:8080"
+    - "http://localhost:9090"
+    - "http://127.0.0.1:8080"
+    - "http://127.0.0.1:9090"
+  allowed_methods:
+    - "GET"
+    - "POST"
+    - "OPTIONS"
+  allowed_headers:
+    - "Content-Type"
+    - "X-API-Key"
+    - "Authorization"
+

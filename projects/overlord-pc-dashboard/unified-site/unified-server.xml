@@ -1,0 +1,9 @@
+<service>
+  <id>unified-server</id>
+  <name>Overlord Unified Server</name>
+  <description>The primary backend server for the Overlord Unified Dashboard.</description>
+  <executable>python</executable>
+  <arguments>server.py</arguments>
+  <logmode>rotate</logmode>
+  <workingdirectory>C:\Users\litre\Desktop\Overlord-Pc-Dashboard\unified-site</workingdirectory>
+</service>

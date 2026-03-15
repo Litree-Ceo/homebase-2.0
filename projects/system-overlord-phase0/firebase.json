@@ -1,0 +1,28 @@
+{
+  "hosting": {
+    "public": "web/out",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "redirects": [
+      {
+        "source": "/api/**",
+        "destination": "/__/functions/api/:requestPath",
+        "type": 301
+      }
+    ]
+  },
+  "functions": {
+    "source": "functions",
+    "predeploy": [
+      "npm --prefix functions run lint"
+    ],
+    "runtime": "nodejs20"
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  }
+}

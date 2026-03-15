@@ -1,0 +1,412 @@
+@page "/events"
+@rendermode InteractiveServer
+
+<PageTitle>HomeBase 11 | Events</PageTitle>
+
+<div class="events-container p-5">
+    <div class="d-flex justify-content-between align-items-center mb-5">
+        <div>
+            <h1 class="brand-text">CALENDAR <span class="version">HUB</span></h1>
+            <p class="subtitle text-uppercase">Events & Reminders</p>
+        </div>
+        <button class="create-btn">
+            <span>+</span> CREATE EVENT
+        </button>
+    </div>
+
+    <div class="row g-4 mb-5">
+        <div class="col-md-3">
+            <div class="stat-glass text-center">
+                <div class="stat-value">@upcomingEvents</div>
+                <div class="stat-label">UPCOMING</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-glass text-center">
+                <div class="stat-value">@rsvpedEvents</div>
+                <div class="stat-label text-success">RSVPD</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-glass text-center">
+                <div class="stat-value">@hostingEvents</div>
+                <div class="stat-label">HOSTING</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-glass text-center">
+                <div class="stat-value">@pastEvents</div>
+                <div class="stat-label">PAST</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="content-glass p-4">
+                <h3 class="section-title">CALENDAR</h3>
+                <div class="calendar-widget mt-4">
+                    <div class="calendar-header">
+                        <button class="nav-btn">&lt;</button>
+                        <span class="month-year">@currentMonth @currentYear</span>
+                        <button class="nav-btn">></button>
+                    </div>
+                    <div class="calendar-grid">
+                        <div class="day-name">Sun</div>
+                        <div class="day-name">Mon</div>
+                        <div class="day-name">Tue</div>
+                        <div class="day-name">Wed</div>
+                        <div class="day-name">Thu</div>
+                        <div class="day-name">Fri</div>
+                        <div class="day-name">Sat</div>
+                        @foreach (var day in calendarDays)
+                        {
+                            <div class="day-cell @day.Class">@day.Day</div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-glass p-4 mt-4">
+                <h3 class="section-title">QUICK ADD</h3>
+                <div class="quick-add mt-4">
+                    <input type="text" class="glass-input" placeholder="Event title..." />
+                    <input type="datetime-local" class="glass-input" />
+                    <button class="add-btn">ADD EVENT</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="content-glass p-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="section-title mb-0">UPCOMING EVENTS</h3>
+                    <div class="filter-tabs">
+                        <button class="filter-tab active">ALL</button>
+                        <button class="filter-tab">THIS WEEK</button>
+                        <button class="filter-tab">THIS MONTH</button>
+                    </div>
+                </div>
+
+                <div class="events-list">
+                    @foreach (var evt in events)
+                    {
+                        <div class="event-card">
+                            <div class="event-date">
+                                <div class="event-month">@evt.Month</div>
+                                <div class="event-day">@evt.Day</div>
+                            </div>
+                            <div class="event-info">
+                                <div class="event-name">@evt.Name</div>
+                                <div class="event-meta">
+                                    <span>🕒 @evt.Time</span>
+                                    <span>📍 @evt.Location</span>
+                                </div>
+                                <div class="event-desc">@evt.Description</div>
+                            </div>
+                            <div class="event-actions">
+                                <span class="attendees-count">@evt.Attendees attending</span>
+                                <div class="event-buttons">
+                                    @if (evt.RSVPD)
+                                    {
+                                        <button class="btn-rsvpd">✓ GOING</button>
+                                    }
+                                    else
+                                    {
+                                        <button class="btn-rsvp" @onclick="() => RSVP(evt.Id)">RSVP</button>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    :root {
+        --brand-blue: #00d2ff;
+        --brand-purple: #9d50bb;
+        --glass-bg: rgba(22, 27, 34, 0.6);
+        --glass-border: rgba(255, 255, 255, 0.05);
+    }
+
+    .events-container { color: white; }
+    .brand-text { font-weight: 900; letter-spacing: -1px; }
+    .brand-text .version { color: var(--brand-blue); }
+    .subtitle { font-size: 0.75rem; letter-spacing: 4px; color: #8b949e; font-weight: 700; }
+
+    .create-btn {
+        background: linear-gradient(135deg, var(--brand-blue), #3a7bd5);
+        border: none;
+        border-radius: 12px;
+        padding: 12px 24px;
+        color: white;
+        font-weight: 800;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.2s;
+    }
+    .create-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px -10px var(--brand-blue); }
+    .create-btn span { font-size: 1.2rem; }
+
+    .stat-glass {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 16px;
+        padding: 24px;
+    }
+    .stat-value { font-size: 2rem; font-weight: 900; }
+    .stat-label { font-size: 0.65rem; font-weight: 800; color: #8b949e; letter-spacing: 1.5px; margin-top: 8px; }
+    .text-success { color: #3fb950; }
+
+    .content-glass { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 20px; }
+    .section-title { font-size: 0.8rem; font-weight: 800; color: #8b949e; letter-spacing: 2px; }
+
+    .calendar-widget {
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 12px;
+        padding: 16px;
+    }
+
+    .calendar-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+    }
+
+    .nav-btn {
+        background: transparent;
+        border: 1px solid var(--glass-border);
+        border-radius: 8px;
+        width: 32px;
+        height: 32px;
+        color: white;
+        cursor: pointer;
+    }
+    .nav-btn:hover { background: var(--brand-blue); border-color: var(--brand-blue); }
+
+    .month-year { font-weight: 700; font-size: 1rem; }
+
+    .calendar-grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 4px;
+        text-align: center;
+    }
+
+    .day-name {
+        font-size: 0.65rem;
+        font-weight: 700;
+        color: #8b949e;
+        padding: 8px 0;
+    }
+
+    .day-cell {
+        padding: 8px;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    .day-cell:hover { background: rgba(255, 255, 255, 0.1); }
+    .day-cell.today { background: var(--brand-blue); font-weight: 700; }
+    .day-cell.other-month { color: #484f58; }
+    .day-cell.has-event { position: relative; }
+    .day-cell.has-event::after {
+        content: '';
+        position: absolute;
+        bottom: 4px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 4px;
+        height: 4px;
+        background: var(--brand-purple);
+        border-radius: 50%;
+    }
+
+    .quick-add { display: flex; flex-direction: column; gap: 12px; }
+    .glass-input {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--glass-border);
+        border-radius: 10px;
+        padding: 12px 14px;
+        color: white;
+        font-size: 0.9rem;
+    }
+    .glass-input:focus { outline: none; border-color: var(--brand-blue); }
+
+    .add-btn {
+        background: var(--brand-blue);
+        border: none;
+        border-radius: 10px;
+        padding: 12px;
+        color: white;
+        font-weight: 800;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    .add-btn:hover { transform: translateY(-2px); }
+
+    .filter-tabs { display: flex; gap: 8px; }
+    .filter-tab {
+        background: transparent;
+        border: 1px solid var(--glass-border);
+        border-radius: 8px;
+        padding: 6px 16px;
+        color: #8b949e;
+        font-size: 0.75rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    .filter-tab.active, .filter-tab:hover {
+        background: var(--brand-blue);
+        border-color: var(--brand-blue);
+        color: white;
+    }
+
+    .events-list { display: flex; flex-direction: column; gap: 16px; }
+
+    .event-card {
+        display: flex;
+        gap: 20px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid var(--glass-border);
+        border-radius: 16px;
+        transition: all 0.2s;
+    }
+    .event-card:hover { border-color: var(--brand-blue); }
+
+    .event-date {
+        background: linear-gradient(135deg, var(--brand-blue), var(--brand-purple));
+        border-radius: 12px;
+        padding: 12px 16px;
+        text-align: center;
+        min-width: 70px;
+    }
+
+    .event-month {
+        font-size: 0.7rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .event-day {
+        font-size: 1.8rem;
+        font-weight: 900;
+    }
+
+    .event-info { flex: 1; }
+    .event-name { font-weight: 700; font-size: 1.1rem; margin-bottom: 6px; }
+    .event-meta { display: flex; gap: 16px; font-size: 0.8rem; color: #8b949e; margin-bottom: 8px; }
+    .event-desc { font-size: 0.85rem; color: #8b949e; }
+
+    .event-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 12px;
+    }
+
+    .attendees-count { font-size: 0.75rem; color: #8b949e; }
+
+    .btn-rsvp, .btn-rsvpd {
+        border-radius: 10px;
+        padding: 10px 20px;
+        font-weight: 800;
+        font-size: 0.8rem;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    .btn-rsvp {
+        background: transparent;
+        border: 2px solid var(--brand-blue);
+        color: var(--brand-blue);
+    }
+    .btn-rsvp:hover { background: var(--brand-blue); color: white; }
+    .btn-rsvpd {
+        background: #3fb950;
+        border: 2px solid #3fb950;
+        color: white;
+    }
+</style>
+
+@code {
+    private int upcomingEvents = 8;
+    private int rsvpedEvents = 5;
+    private int hostingEvents = 2;
+    private int pastEvents = 23;
+    private string currentMonth = "March";
+    private int currentYear = 2026;
+
+    private List<CalendarDay> calendarDays = new()
+    {
+        new CalendarDay { Day = 22, Class = "other-month" }, new CalendarDay { Day = 23, Class = "other-month" },
+        new CalendarDay { Day = 24, Class = "other-month" }, new CalendarDay { Day = 25, Class = "other-month" },
+        new CalendarDay { Day = 26, Class = "other-month" }, new CalendarDay { Day = 27, Class = "other-month" },
+        new CalendarDay { Day = 28, Class = "other-month" },
+        new CalendarDay { Day = 1, Class = "" }, new CalendarDay { Day = 2, Class = "has-event" }, new CalendarDay { Day = 3, Class = "" },
+        new CalendarDay { Day = 4, Class = "" }, new CalendarDay { Day = 5, Class = "" }, new CalendarDay { Day = 6, Class = "has-event" },
+        new CalendarDay { Day = 7, Class = "" }, new CalendarDay { Day = 8, Class = "" },
+        new CalendarDay { Day = 9, Class = "" }, new CalendarDay { Day = 10, Class = "" }, new CalendarDay { Day = 11, Class = "" },
+        new CalendarDay { Day = 12, Class = "" }, new CalendarDay { Day = 13, Class = "has-event" }, new CalendarDay { Day = 14, Class = "" },
+        new CalendarDay { Day = 15, Class = "" }, new CalendarDay { Day = 16, Class = "" }, new CalendarDay { Day = 17, Class = "" },
+        new CalendarDay { Day = 18, Class = "" }, new CalendarDay { Day = 19, Class = "" }, new CalendarDay { Day = 20, Class = "" },
+        new CalendarDay { Day = 21, Class = "today" }, new CalendarDay { Day = 22, Class = "has-event" }, new CalendarDay { Day = 23, Class = "" },
+        new CalendarDay { Day = 24, Class = "" }, new CalendarDay { Day = 25, Class = "" }, new CalendarDay { Day = 26, Class = "" },
+        new CalendarDay { Day = 27, Class = "" }, new CalendarDay { Day = 28, Class = "" }, new CalendarDay { Day = 29, Class = "has-event" },
+        new CalendarDay { Day = 30, Class = "" }, new CalendarDay { Day = 31, Class = "" },
+        new CalendarDay { Day = 1, Class = "other-month" }, new CalendarDay { Day = 2, Class = "other-month" },
+        new CalendarDay { Day = 3, Class = "other-month" }, new CalendarDay { Day = 4, Class = "other-month" },
+        new CalendarDay { Day = 5, Class = "other-month" }
+    };
+
+    private List<Event> events = new()
+    {
+        new Event { Id = 1, Name = "Team Meeting", Month = "MAR", Day = 15, Time = "10:00 AM", Location = "Conference Room A", Description = "Weekly team sync and project updates", Attendees = 12, RSVPD = true },
+        new Event { Id = 2, Name = "Product Launch", Month = "MAR", Day = 20, Time = "2:00 PM", Location = "Main Auditorium", Description = "Q1 product launch event with live demo", Attendees = 85, RSVPD = true },
+        new Event { Id = 3, Name = "Hackathon 2026", Month = "MAR", Day = 25, Time = "9:00 AM", Location = "Innovation Lab", Description = "48-hour coding marathon", Attendees = 45, RSVPD = false },
+        new Event { Id = 4, Name = "AI Workshop", Month = "MAR", Day = 28, Time = "3:00 PM", Location = "Training Center", Description = "Hands-on AI/ML workshop", Attendees = 30, RSVPD = false },
+        new Event { Id = 5, Name = "Networking Mixer", Month = "APR", Day = 2, Time = "6:00 PM", Location = "Rooftop Lounge", Description = "Industry networking event", Attendees = 60, RSVPD = false }
+    };
+
+    private void RSVP(int id)
+    {
+        var evt = events.FirstOrDefault(e => e.Id == id);
+        if (evt != null)
+        {
+            evt.RSVPD = true;
+            evt.Attendees++;
+            rsvpedEvents++;
+        }
+    }
+
+    private class CalendarDay
+    {
+        public int Day { get; set; }
+        public string Class { get; set; } = "";
+    }
+
+    private class Event
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = "";
+        public string Month { get; set; } = "";
+        public int Day { get; set; }
+        public string Time { get; set; } = "";
+        public string Location { get; set; } = "";
+        public string Description { get; set; } = "";
+        public int Attendees { get; set; }
+        public bool RSVPD { get; set; }
+    }
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>HomeBase11</title>
+    <base href="/" />
+    <link href="css/app.css" rel="stylesheet" />
+    <link href="HomeBase11.Client.styles.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="favicon.png" />
+    
+    <!-- Firebase App (the core Firebase SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
+    
+    <script>
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDl6ZCjOD3_h8IWUrgqspbd14CH1WIOde4",
+            authDomain: "studio-6082148059-d1fec.firebaseapp.com",
+            databaseURL: "https://studio-6082148059-d1fec-default-rtdb.firebaseio.com",
+            projectId: "studio-6082148059-d1fec",
+            storageBucket: "studio-6082148059-d1fec.appspot.com",
+            messagingSenderId: "144415804580",
+            appId: "1:144415804580:web:4ff23cd53c79ce79186a31"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        // Make Firebase available globally
+        window.firebase = firebase;
+        window.firebaseAuth = firebase.auth();
+        window.firebaseDb = firebase.database();
+    </script>
+</head>
+
+<body>
+    <div id="app">Loading...</div>
+
+    <div id="blazor-error-ui">
+        Sorry, there's been an error loading the app.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+
+    <script src="_framework/blazor.webassembly.js"></script>
+    <script src="firebase-auth.js"></script>
+</body>
+
+</html>

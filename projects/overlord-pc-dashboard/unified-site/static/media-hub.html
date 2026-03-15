@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Hub | LiTree Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #050508;
+            --bg-secondary: #0f0f18;
+            --bg-card: rgba(15, 15, 25, 0.95);
+            --accent-purple: #9d4edd;
+            --accent-pink: #c77dff;
+            --accent-blue: #3a86ff;
+            --accent-cyan: #00f5ff;
+            --accent-gold: #ffd700;
+            --accent-red: #ff0040;
+            --accent-green: #00ff88;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --font-display: 'Orbitron', sans-serif;
+            --font-tech: 'Rajdhani', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(ellipse at 0% 100%, rgba(157, 78, 221, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 100% 0%, rgba(0, 245, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(58, 134, 255, 0.05) 0%, transparent 70%),
+                var(--bg-primary);
+        }
+
+        .particles {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--accent-cyan);
+            border-radius: 50%;
+            animation: float 15s infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* Header */
+        header {
+            padding: 25px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(180deg, rgba(5,5,8,0.95), rgba(5,5,8,0.8));
+            border-bottom: 1px solid rgba(157, 78, 221, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            filter: drop-shadow(0 0 15px var(--accent-purple));
+        }
+
+        .logo-text h1 {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+        }
+
+        .logo-text span {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            font-family: var(--font-tech);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-family: var(--font-tech);
+            font-weight: 600;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent-cyan);
+            text-shadow: 0 0 20px var(--accent-cyan);
+        }
+
+        /* Real-Debrid Status Badge */
+        .rd-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid var(--accent-gold);
+            border-radius: 20px;
+            font-family: var(--font-tech);
+            font-size: 0.75rem;
+            color: var(--accent-gold);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .rd-status:hover {
+            background: rgba(255, 215, 0, 0.2);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .rd-status.connected {
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+            background: rgba(0, 255, 136, 0.1);
+        }
+
+        .rd-status.connected:hover {
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+        }
+
+        .rd-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-gold);
+            animation: pulse 2s infinite;
+        }
+
+        .rd-status.connected .rd-dot {
+            background: var(--accent-green);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        /* Hero with Video Player */
+        .hero-section {
+            padding: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* 4K Theater Player */
+        .theater-player {
+            background: var(--bg-card);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid rgba(157, 78, 221, 0.3);
+            box-shadow: 0 0 80px rgba(157, 78, 221, 0.2);
+            margin-bottom: 40px;
+        }
+
+        .player-screen {
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, #0a0a15, #1a0a2e);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .player-screen.playing {
+            background: #000;
+        }
+
+        .video-element {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: none;
+        }
+
+        .video-element.active {
+            display: block;
+        }
+
+        .player-placeholder {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .player-placeholder.hidden {
+            display: none;
+        }
+
+        .player-icon {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 30px var(--accent-purple));
+        }
+
+        .player-title {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .player-subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        .quality-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 25px;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-red));
+            border-radius: 8px;
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--bg-primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Add Content Form */
+        .add-content-panel {
+            padding: 25px;
+            background: rgba(0,0,0,0.3);
+            border-top: 1px solid rgba(157, 78, 221, 0.2);
+        }
+
+        .panel-title {
+            font-family: var(--font-tech);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .input-field {
+            flex: 1;
+            min-width: 300px;
+            padding: 15px 20px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 20px rgba(0, 245, 255, 0.2);
+        }
+
+        .input-field::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .btn-add {
+            padding: 15px 30px;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+            border: none;
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-family: var(--font-display);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-add:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 40px rgba(157, 78, 221, 0.5);
+        }
+
+        .btn-add:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Torrent Status */
+        .torrent-status {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 12px;
+            border-left: 4px solid var(--accent-cyan);
+        }
+
+        .torrent-status.processing {
+            border-left-color: var(--accent-gold);
+        }
+
+        .torrent-status.ready {
+            border-left-color: var(--accent-green);
+        }
+
+        .torrent-status.error {
+            border-left-color: var(--accent-red);
+        }
+
+        .torrent-filename {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .torrent-progress {
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .torrent-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-purple), var(--accent-cyan));
+            border-radius: 3px;
+            transition: width 0.3s;
+        }
+
+        .torrent-meta {
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--font-tech);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .btn-watch {
+            padding: 10px 25px;
+            background: var(--accent-green);
+            border: none;
+            border-radius: 8px;
+            color: var(--bg-primary);
+            font-family: var(--font-display);
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 15px;
+        }
+
+        .btn-watch:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(180deg, var(--accent-purple), var(--accent-cyan));
+            border-radius: 2px;
+        }
+
+        .view-all {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-family: var(--font-tech);
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .view-all:hover {
+            text-shadow: 0 0 10px var(--accent-cyan);
+        }
+
+        /* Media Grid */
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .media-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 1px solid rgba(157, 78, 221, 0.1);
+        }
+
+        .media-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(157, 78, 221, 0.3);
+            border-color: rgba(157, 78, 221, 0.5);
+        }
+
+        .media-cover {
+            aspect-ratio: 2/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .media-cover.movie { background: linear-gradient(135deg, #1a0a2e, #2d1b4e); }
+        .media-cover.show { background: linear-gradient(135deg, #0a1a2e, #1b3a5e); }
+        .media-cover.music { background: linear-gradient(135deg, #2e0a1a, #5e1b3a); }
+
+        .quality-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            background: rgba(255, 215, 0, 0.9);
+            color: var(--bg-primary);
+            font-family: var(--font-tech);
+            font-size: 0.7rem;
+            font-weight: 700;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .play-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s;
+        }
+
+        .play-overlay::after {
+            content: '▶';
+            width: 60px;
+            height: 60px;
+            background: var(--accent-cyan);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--bg-primary);
+            font-size: 1.5rem;
+            box-shadow: 0 0 30px var(--accent-cyan);
+        }
+
+        .media-card:hover .play-overlay {
+            opacity: 1;
+        }
+
+        .media-info {
+            padding: 15px;
+        }
+
+        .media-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 0.95rem;
+        }
+
+        .media-meta {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-family: var(--font-tech);
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 15px;
+        }
+
+        .tab {
+            padding: 12px 25px;
+            background: transparent;
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            font-family: var(--font-tech);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tab:hover {
+            border-color: var(--accent-purple);
+            color: var(--text-primary);
+        }
+
+        .tab.active {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+            border-color: transparent;
+            color: var(--text-primary);
+        }
+
+        /* Stats Bar */
+        .stats-section {
+            background: linear-gradient(90deg, rgba(157, 78, 221, 0.1), rgba(0, 245, 255, 0.1));
+            border-top: 1px solid rgba(157, 78, 221, 0.2);
+            border-bottom: 1px solid rgba(157, 78, 221, 0.2);
+            padding: 30px;
+            margin: 40px 0;
+        }
+
+        .stats-grid {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            font-family: var(--font-tech);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 5px;
+        }
+
+        /* RD Setup Modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--bg-card);
+            border: 2px solid var(--accent-purple);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 0 60px rgba(157, 78, 221, 0.3);
+        }
+
+        .modal h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--accent-gold);
+        }
+
+        .modal p {
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .modal-input {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .modal-input:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-modal {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-family: var(--font-display);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-modal.primary {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+            color: var(--text-primary);
+        }
+
+        .btn-modal.secondary {
+            background: rgba(255,255,255,0.1);
+            color: var(--text-secondary);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .btn-modal:hover {
+            transform: scale(1.02);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .rd-status span { display: none; }
+            .hero-section { padding: 20px; }
+            .input-group { flex-direction: column; }
+            .input-field { min-width: auto; }
+            .media-grid { grid-template-columns: repeat(2, 1fr); }
+            .stats-grid { gap: 30px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+    <div class="particles" id="particles"></div>
+    
+    <header>
+        <a href="/" class="logo">
+            <div class="logo-icon">📺</div>
+            <div class="logo-text">
+                <h1>MEDIA HUB</h1>
+                <span>4K · Stream · Download</span>
+            </div>
+        </a>
+        
+        <nav class="nav-links">
+            <a href="/">Home</a>
+            <a href="/marketplace">Market</a>
+            <a href="/arcade">Arcade</a>
+            <a href="/media-hub" class="active">Media</a>
+            <a href="/connect">Connect</a>
+            <div class="rd-status" id="rdStatus" onclick="toggleRDModal()">
+                <span class="rd-dot"></span>
+                <span>RD: Disconnected</span>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- RD Setup Modal -->
+    <div class="modal-overlay" id="rdModal">
+        <div class="modal">
+            <h3>🔗 Connect Real-Debrid</h3>
+            <p>Enter your Real-Debrid API key to unlock 4K streaming. Get your key from <a href="https://real-debrid.com/apitoken" target="_blank" style="color: var(--accent-cyan);">real-debrid.com/apitoken</a></p>
+            <input type="password" class="modal-input" id="rdApiKey" placeholder="Paste your API key here...">
+            <div class="modal-buttons">
+                <button class="btn-modal secondary" onclick="toggleRDModal()">Cancel</button>
+                <button class="btn-modal primary" onclick="connectRD()">Connect</button>
+            </div>
+        </div>
+    </div>
+    
+    <section class="hero-section">
+        <!-- 4K Theater Player -->
+        <div class="theater-player">
+            <div class="player-screen" id="playerScreen">
+                <video class="video-element" id="videoPlayer" controls></video>
+                <div class="player-placeholder" id="playerPlaceholder">
+                    <div class="player-icon">🎬</div>
+                    <div class="player-title">4K CINEMA EXPERIENCE</div>
+                    <div class="player-subtitle">Paste a magnet link below to start streaming instantly</div>
+                    <div class="quality-badge">⚡ REAL-DEBRID POWERED</div>
+                </div>
+            </div>
+            
+            <div class="add-content-panel">
+                <div class="panel-title">Add Content to Stream</div>
+                <div class="input-group">
+                    <input type="text" class="input-field" id="magnetInput" placeholder="Paste magnet link or torrent URL here...">
+                    <button class="btn-add" id="addBtn" onclick="addTorrent()">
+                        <span>➕</span> Add to Library
+                    </button>
+                </div>
+                <div id="torrentStatus"></div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="stats-section">
+        <div class="stats-grid">
+            <div class="stat">
+                <div class="stat-value" id="rdQuota">50</div>
+                <div class="stat-label">GB Traffic Left</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="activeTorrents">0</div>
+                <div class="stat-label">Active Torrents</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">4K</div>
+                <div class="stat-label">Max Quality</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="rdExpiry">--</div>
+                <div class="stat-label">Days Until Expiry</div>
+            </div>
+        </div>
+    </div>
+    
+    <section class="content-section">
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('movies')">🎬 Movies</button>
+            <button class="tab" onclick="switchTab('shows')">📺 TV Shows</button>
+            <button class="tab" onclick="switchTab('downloads')">⬇️ Downloads</button>
+        </div>
+        
+        <div class="section-header">
+            <h3 class="section-title">Featured 4K Content</h3>
+            <a href="#" class="view-all">Browse All →</a>
+        </div>
+        
+        <div class="media-grid" id="contentGrid">
+            <div class="media-card" onclick="playDemo('Dune: Part Two', '4K HDR')">
+                <div class="media-cover movie">
+                    🏜️
+                    <span class="quality-tag">4K HDR</span>
+                    <div class="play-overlay"></div>
+                </div>
+                <div class="media-info">
+                    <div class="media-title">Dune: Part Two</div>
+                    <div class="media-meta">2024 · Sci-Fi · 167 min</div>
+                </div>
+            </div>
+            
+            <div class="media-card" onclick="playDemo('The Batman', '4K Dolby Vision')">
+                <div class="media-cover movie">
+                    🦇
+                    <span class="quality-tag">4K DV</span>
+                    <div class="play-overlay"></div>
+                </div>
+                <div class="media-info">
+                    <div class="media-title">The Batman</div>
+                    <div class="media-meta">2022 · Action · 176 min</div>
+                </div>
+            </div>
+            
+            <div class="media-card" onclick="playDemo('Oppenheimer', 'IMAX 4K')">
+                <div class="media-cover movie">
+                    💣
+                    <span class="quality-tag">IMAX</span>
+                    <div class="play-overlay"></div>
+                </div>
+                <div class="media-info">
+                    <div class="media-title">Oppenheimer</div>
+                    <div class="media-meta">2023 · Drama · 180 min</div>
+                </div>
+            </div>
+            
+            <div class="media-card" onclick="playDemo('Blade Runner 2049', '4K HDR')">
+                <div class="media-cover movie">
+                    🤖
+                    <span class="quality-tag">4K HDR</span>
+                    <div class="play-overlay"></div>
+                </div>
+                <div class="media-info">
+                    <div class="media-title">Blade Runner 2049</div>
+                    <div class="media-meta">2017 · Sci-Fi · 164 min</div>
+                </div>
+            </div>
+            
+            <div class="media-card" onclick="playDemo('The Mandalorian', '4K Dolby Vision')">
+                <div class="media-cover show">
+                    ⭐
+                    <span class="quality-tag">4K DV</span>
+                    <div class="play-overlay"></div>
+                </div>
+                <div class="media-info">
+                    <div class="media-title">The Mandalorian</div>
+                    <div class="media-meta">S1-3 · Sci-Fi · 24 eps</div>
+                </div>
+            </div>
+            
+            <div class="media-card" onclick="playDemo('House of the Dragon', '4K HDR')">
+                <div class="media-cover show">
+                    🐉
+                    <span class="quality-tag">4K HDR</span>
+                    <div class="play-overlay"></div>
+                </div>
+                <div class="media-info">
+                    <div class="media-title">House of the Dragon</div>
+                    <div class="media-meta">S1-2 · Fantasy · 18 eps</div>
+                </div>
+            </div>
+            
+            <div class="media-card" onclick="playDemo('The Last of Us', '4K HDR')">
+                <div class="media-cover show">
+                    🧟
+                    <span class="quality-tag">4K HDR</span>
+                    <div class="play-overlay"></div>
+                </div>
+                <div class="media-info">
+                    <div class="media-title">The Last of Us</div>
+                    <div class="media-meta">S1 · Drama · 9 eps</div>
+                </div>
+            </div>
+            
+            <div class="media-card" onclick="playDemo('Severance', '4K Dolby Vision')">
+                <div class="media-cover show">
+                    🧠
+                    <span class="quality-tag">4K DV</span>
+                    <div class="play-overlay"></div>
+                </div>
+                <div class="media-info">
+                    <div class="media-title">Severance</div>
+                    <div class="media-meta">S1-2 · Thriller · 19 eps</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="footer-links" style="display: flex; justify-content: center; gap: 30px; padding: 40px; border-top: 1px solid rgba(255,255,255,0.1);">
+        <a href="/" style="color: var(--text-secondary); text-decoration: none; font-family: var(--font-tech); transition: all 0.3s;">Home</a>
+        <a href="/marketplace" style="color: var(--text-secondary); text-decoration: none; font-family: var(--font-tech); transition: all 0.3s;">Marketplace</a>
+        <a href="/arcade" style="color: var(--text-secondary); text-decoration: none; font-family: var(--font-tech); transition: all 0.3s;">Arcade</a>
+        <a href="/connect" style="color: var(--text-secondary); text-decoration: none; font-family: var(--font-tech); transition: all 0.3s;">Connect</a>
+    </div>
+    
+    <script>
+        // Generate particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Real-Debrid State
+        let rdConnected = false;
+        let rdApiKey = localStorage.getItem('rd_api_key');
+        let torrents = JSON.parse(localStorage.getItem('rd_torrents') || '[]');
+
+        // Check if RD is already connected
+        if (rdApiKey) {
+            checkRDConnection();
+        }
+
+        function toggleRDModal() {
+            document.getElementById('rdModal').classList.toggle('active');
+        }
+
+        async function connectRD() {
+            const key = document.getElementById('rdApiKey').value.trim();
+            if (!key) return;
+
+            rdApiKey = key;
+            localStorage.setItem('rd_api_key', key);
+            
+            await checkRDConnection();
+            toggleRDModal();
+        }
+
+        async function checkRDConnection() {
+            try {
+                // In production, this would hit your backend
+                // For demo, simulate connection
+                rdConnected = true;
+                updateRDStatus();
+                updateStats();
+            } catch (err) {
+                console.error('RD connection failed:', err);
+                rdConnected = false;
+                updateRDStatus();
+            }
+        }
+
+        function updateRDStatus() {
+            const statusEl = document.getElementById('rdStatus');
+            if (rdConnected) {
+                statusEl.classList.add('connected');
+                statusEl.innerHTML = '<span class="rd-dot"></span><span>RD: Connected</span>';
+            } else {
+                statusEl.classList.remove('connected');
+                statusEl.innerHTML = '<span class="rd-dot"></span><span>RD: Disconnected</span>';
+            }
+        }
+
+        function updateStats() {
+            // Simulated stats - in production fetch from RD API
+            document.getElementById('rdQuota').textContent = '49.2';
+            document.getElementById('activeTorrents').textContent = torrents.filter(t => t.status === 'downloading').length;
+            document.getElementById('rdExpiry').textContent = '27';
+        }
+
+        async function addTorrent() {
+            const input = document.getElementById('magnetInput');
+            const magnet = input.value.trim();
+            
+            if (!magnet) return;
+            if (!rdConnected) {
+                alert('Please connect Real-Debrid first!');
+                toggleRDModal();
+                return;
+            }
+
+            const btn = document.getElementById('addBtn');
+            btn.disabled = true;
+            btn.innerHTML = '<span>⏳</span> Processing...';
+
+            // Simulate adding torrent
+            const torrentId = Date.now();
+            const newTorrent = {
+                id: torrentId,
+                name: magnet.split('&dn=')[1]?.replace(/\+/g, ' ') || 'Unknown Content',
+                magnet: magnet,
+                status: 'processing',
+                progress: 0,
+                added: new Date().toISOString()
+            };
+
+            torrents.unshift(newTorrent);
+            localStorage.setItem('rd_torrents', JSON.stringify(torrents));
+
+            showTorrentStatus(newTorrent);
+
+            // Simulate progress
+            simulateProgress(newTorrent);
+
+            input.value = '';
+            btn.disabled = false;
+            btn.innerHTML = '<span>➕</span> Add to Library';
+        }
+
+        function showTorrentStatus(torrent) {
+            const statusEl = document.getElementById('torrentStatus');
+            statusEl.innerHTML = `
+                <div class="torrent-status ${torrent.status}" id="torrent-${torrent.id}">
+                    <div class="torrent-filename">${torrent.name}</div>
+                    <div class="torrent-progress">
+                        <div class="torrent-progress-bar" style="width: ${torrent.progress}%"></div>
+                    </div>
+                    <div class="torrent-meta">
+                        <span id="status-${torrent.id}">${torrent.status === 'processing' ? 'Processing magnet link...' : torrent.status === 'ready' ? 'Ready to stream!' : 'Downloading...'}</span>
+                        <span id="progress-${torrent.id}">${torrent.progress}%</span>
+                    </div>
+                    ${torrent.status === 'ready' ? `<button class="btn-watch" onclick="playTorrent(${torrent.id})">▶ Watch Now</button>` : ''}
+                </div>
+            `;
+        }
+
+        function simulateProgress(torrent) {
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += Math.random() * 15;
+                if (progress >= 100) {
+                    progress = 100;
+                    clearInterval(interval);
+                    
+                    // Update to ready state
+                    torrent.status = 'ready';
+                    torrent.progress = 100;
+                    torrent.streamUrl = 'https://example.com/stream/' + torrent.id; // Simulated
+                    localStorage.setItem('rd_torrents', JSON.stringify(torrents));
+                    
+                    showTorrentStatus(torrent);
+                    updateStats();
+                } else {
+                    torrent.progress = Math.floor(progress);
+                    const bar = document.querySelector(`#torrent-${torrent.id} .torrent-progress-bar`);
+                    const progressText = document.getElementById(`progress-${torrent.id}`);
+                    if (bar) bar.style.width = progress + '%';
+                    if (progressText) progressText.textContent = Math.floor(progress) + '%';
+                }
+            }, 500);
+        }
+
+        function playTorrent(id) {
+            const torrent = torrents.find(t => t.id === id);
+            if (!torrent || !torrent.streamUrl) return;
+
+            const video = document.getElementById('videoPlayer');
+            const placeholder = document.getElementById('playerPlaceholder');
+            const screen = document.getElementById('playerScreen');
+
+            video.src = torrent.streamUrl;
+            video.classList.add('active');
+            placeholder.classList.add('hidden');
+            screen.classList.add('playing');
+            video.play();
+        }
+
+        function playDemo(title, quality) {
+            if (!rdConnected) {
+                alert('Connect Real-Debrid to stream ' + title + ' (' + quality + ')');
+                toggleRDModal();
+                return;
+            }
+            
+            // Show demo player
+            const video = document.getElementById('videoPlayer');
+            const placeholder = document.getElementById('playerPlaceholder');
+            const screen = document.getElementById('playerScreen');
+
+            placeholder.innerHTML = `
+                <div class="player-icon">▶️</div>
+                <div class="player-title">${title}</div>
+                <div class="player-subtitle">${quality} · Real-Debrid Stream</div>
+                <div class="quality-badge">🎬 STARTING PLAYBACK...</div>
+            `;
+            
+            // In production, this would fetch the actual stream URL from RD
+            setTimeout(() => {
+                alert('Demo: Would start playing ' + title + ' from Real-Debrid');
+            }, 500);
+        }
+
+        function switchTab(tab) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // In production, this would load different content
+            console.log('Switched to tab:', tab);
+        }
+    </script>
+</body>
+</html>

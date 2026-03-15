@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0914"/>
+      <stop offset="100%" stop-color="#07060f"/>
+    </linearGradient>
+    
+    <filter id="cyanBlur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="magentaBlur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="512" height="512" rx="96" fill="url(#bgGrad)"/>
+  
+  <!-- Pulsing outer ring -->
+  <circle cx="256" cy="256" r="160" fill="none" stroke="#ff4ddb" stroke-width="2" opacity="0.4" filter="url(#magentaBlur)">
+    <animate attributeName="r" values="150;170;150" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.4;0.2;0.4" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Rotating hex grid -->
+  <g opacity="0.1" stroke="#52f2ff" stroke-width="1" fill="none" transform="translate(256, 256)">
+    <g>
+      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="60s" repeatCount="indefinite"/>
+      <path d="M0 -120 L104 -60 L104 60 L0 120 L-104 60 L-104 -60 Z"/>
+      <path d="M0 -80 L69.3 -40 L69.3 40 L0 80 L-69.3 40 L-69.3 -40 Z"/>
+      <path d="M0 -40 L34.6 -20 L34.6 20 L0 40 L-34.6 20 L-34.6 -20 Z"/>
+    </g>
+  </g>
+  
+  <!-- Main Diamond Symbol -->
+  <g transform="translate(256, 256)">
+    <!-- Outer Diamond with pulse -->
+    <path d="M0 -100 L86.6 -50 L86.6 50 L0 100 L-86.6 50 L-86.6 -50 Z" 
+          fill="none" stroke="#ff4ddb" stroke-width="3" opacity="0.6" filter="url(#magentaBlur)">
+      <animate attributeName="stroke-width" values="3;5;3" dur="2s" repeatCount="indefinite"/>
+    </path>
+    
+    <!-- Middle Diamond -->
+    <path d="M0 -80 L69.3 -40 L69.3 40 L0 80 L-69.3 40 L-69.3 -40 Z" 
+          fill="rgba(82, 242, 255, 0.1)" stroke="#52f2ff" stroke-width="3" filter="url(#cyanBlur)"/>
+    
+    <!-- Inner Diamond -->
+    <path d="M0 -50 L43.3 -25 L43.3 25 L0 50 L-43.3 25 L-43.3 -25 Z" 
+          fill="rgba(255, 77, 219, 0.2)" stroke="#ff4ddb" stroke-width="2"/>
+    
+    <!-- Center Line with scan effect -->
+    <rect x="-4" y="-45" width="8" height="90" rx="2" fill="#52f2ff" filter="url(#cyanBlur)"/>
+    
+    <!-- Scan line animation -->
+    <rect x="-20" y="-45" width="40" height="4" fill="#ffffff" opacity="0.8">
+      <animate attributeName="y" values="-45;45;-45" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    
+    <!-- Pulsing center dot -->
+    <circle cx="0" cy="0" r="12" fill="#52f2ff" filter="url(#cyanBlur)">
+      <animate attributeName="r" values="10;14;10" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="0" cy="0" r="6" fill="#ffffff"/>
+  </g>
+  
+  <!-- Data stream particles -->
+  <g opacity="0.6">
+    <circle cx="140" cy="256" r="3" fill="#52f2ff">
+      <animate attributeName="cx" values="100;140;100" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="372" cy="256" r="3" fill="#52f2ff">
+      <animate attributeName="cx" values="412;372;412" dur="2.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;1;0" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Status indicator -->
+  <circle cx="420" cy="420" r="6" fill="#50f0a6">
+    <animate attributeName="opacity" values="1;0.3;1" dur="1s" repeatCount="indefinite"/>
+  </circle>
+</svg>

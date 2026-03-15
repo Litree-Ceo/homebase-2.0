@@ -1,0 +1,19 @@
+{
+  "name": "litree-labs-hub",
+  "version": "2.0.0",
+  "description": "LiTree Labs Smart Integration Hub",
+  "main": "smart-bridge.js",
+  "scripts": {
+    "start": "node smart-bridge.js",
+    "dev": "nodemon smart-bridge.js",
+    "hub": "concurrently \"npm run start\" \"npx serve -s . -p 7778\""
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}

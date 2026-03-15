@@ -1,0 +1,47 @@
+# Overlord Dashboard - Consolidated Dependencies
+# This file is auto-generated. Pin versions for reproducible builds.
+
+# Core & Web
+fastapi==0.115.0
+uvicorn[standard]==0.32.0
+websockets==13.1
+python-multipart==0.0.17
+requests==2.32.3
+
+# Database
+sqlalchemy[asyncio]==2.0.30
+alembic==1.14.0
+aiosqlite==0.20.0
+
+# Configuration & Validation
+pydantic[email]==2.12.0
+pydantic-settings==2.13.1
+python-dotenv==1.0.1
+pyyaml==6.0.1
+
+# Security
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+
+# System & Hardware
+psutil==6.0.0
+nvidia-ml-py==12.535.133
+
+# AI & Integrations
+paramiko==3.4.0
+google-generativeai==0.8.6
+
+# Firebase (Optional)
+# firebase-admin==6.5.0
+
+# Testing & Code Quality
+pytest==8.3.3
+pytest-asyncio==0.24.0
+black==24.10.0
+isort==5.13.2
+mypy==1.13.0
+ruff==0.7.3
+
+# Type Stubs
+types-requests==2.32.0.20240622
+types-pyyaml==6.0.12.20240311

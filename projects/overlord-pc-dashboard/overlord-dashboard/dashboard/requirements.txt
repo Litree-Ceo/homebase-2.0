@@ -1,0 +1,29 @@
+# Overlord PC Dashboard — Python Dependencies
+# Install with: pip install -r requirements.txt
+
+# System monitoring (CPU, RAM, Disk, Network, process list, temperatures)
+psutil>=5.9.0
+
+# Configuration file support (config.yaml)
+pyyaml>=6.0
+
+# HTTP requests for Real-Debrid API (L1T_GRID streaming integration)
+requests>=2.31.0
+
+# Firebase integration (real-time sync, hosting backend)
+firebase-admin>=6.5.0
+
+# Local engine bridge + websocket events
+flask>=3.0.0
+flask-socketio>=5.3.0
+
+# Telegram pocket remote
+python-telegram-bot>=22.0
+
+# Testing (run: python -m pytest tests/)
+pytest>=9.0
+
+# ── Optional (auto-detected, not required to run) ──────────────────────────
+# GPU monitoring via NVIDIA: install nvidia driver + nvidia-smi (external CLI)
+# GPU monitoring via AMD:    install ROCm and rocm-smi (external CLI)
+# Both are invoked via subprocess — no Python package needed.

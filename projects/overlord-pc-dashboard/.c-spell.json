@@ -1,0 +1,27 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "DEBRID",
+    "Debrid",
+    "lastrowid",
+    "cdrom",
+    "mountpoint",
+    "fstype",
+    "rocm",
+    "noheader",
+    "nounits",
+    "procs",
+    "secsleft",
+    "mbps",
+    "Gbps",
+    "Kbps",
+    "compresslevel",
+    "retroarch",
+    "unrestricting",
+    "DGRAM",
+    "signum",
+    "dotenv"
+  ],
+  "ignorePaths": []
+}

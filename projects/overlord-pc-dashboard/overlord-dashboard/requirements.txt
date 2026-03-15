@@ -1,0 +1,14 @@
+# Overlord PC Dashboard - Python Dependencies
+# Install with: pip install -r requirements.txt
+
+# Core dependencies
+psutil==6.0.0
+pyyaml==6.0.2
+python-dotenv==1.0.1
+paramiko==3.4.0
+pure-python-adb==0.3.0.dev0
+
+requests==2.32.5
+
+# Optional dependencies for enhanced functionality
+firebase-admin>=6.5.0  # Uncomment for Firebase cloud sync
