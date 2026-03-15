@@ -1,0 +1,11 @@
+node_modules
+app_builder/web/dist
+__pycache__
+*.pyc
+*.pyo
+*.egg-info
+.env
+.DS_Store
+Thumbs.db
+.vscode
+*.log

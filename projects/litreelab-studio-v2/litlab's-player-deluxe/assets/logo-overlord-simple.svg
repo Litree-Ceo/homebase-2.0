@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bgGradSimple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0914"/>
+      <stop offset="100%" stop-color="#07060f"/>
+    </linearGradient>
+    
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="512" height="512" rx="96" fill="url(#bgGradSimple)"/>
+  
+  <!-- Simplified Diamond -->
+  <g transform="translate(256, 256)">
+    <!-- Outer Glow -->
+    <path d="M0 -110 L95.3 -55 L95.3 55 L0 110 L-95.3 55 L-95.3 -55 Z" 
+          fill="none" stroke="#ff4ddb" stroke-width="3" opacity="0.5" filter="url(#glow)"/>
+    
+    <!-- Main Diamond -->
+    <path d="M0 -90 L77.9 -45 L77.9 45 L0 90 L-77.9 45 L-77.9 -45 Z" 
+          fill="none" stroke="#52f2ff" stroke-width="4" filter="url(#glow)"/>
+    
+    <!-- Center Line -->
+    <rect x="-5" y="-55" width="10" height="110" rx="3" fill="#52f2ff" filter="url(#glow)"/>
+    
+    <!-- Center Core -->
+    <circle cx="0" cy="0" r="15" fill="#52f2ff" filter="url(#glow)"/>
+    <circle cx="0" cy="0" r="8" fill="#ffffff"/>
+  </g>
+</svg>

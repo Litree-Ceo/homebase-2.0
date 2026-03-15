@@ -1,0 +1,5 @@
+{
+  "name": "LitLab'S Player Deluxe",
+  "description": "An AI-powered audiophile music player featuring smart organization, real-time frequency visualizers, and a 10-band precision equalizer.",
+  "requestFramePermissions": ["microphone"]
+}

@@ -1,0 +1,111 @@
+@page "/explain"
+@rendermode InteractiveServer
+@inject HttpClient Http
+@inject IConfiguration Configuration
+@using System.Text.Json
+
+<PageTitle>AI Explain – LiTLab Console</PageTitle>
+
+<h3>🧠 AI Explain</h3>
+<p class="text-muted">Paste code, logs, or error messages and get an AI-powered explanation.</p>
+
+<div class="form-group mb-3">
+    <label for="content" class="form-label">Content to analyze:</label>
+    <textarea id="content" class="form-control font-monospace" rows="10" 
+              @bind="ContentToExplain" placeholder="Paste your code or logs here..."></textarea>
+</div>
+
+<button class="btn btn-primary" @onclick="ExplainContent" disabled="@IsLoading">
+    @if (IsLoading)
+    {
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        <span>Analyzing...</span>
+    }
+    else
+    {
+        <span>🚀 Explain</span>
+    }
+</button>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="mt-4 alert alert-danger">
+        <strong>Error:</strong> @ErrorMessage
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(Explanation))
+{
+    <div class="mt-4 p-3 border rounded bg-light">
+        <h5>💡 AI Explanation:</h5>
+        <div class="font-monospace" style="white-space: pre-wrap;">@Explanation</div>
+    </div>
+}
+
+@code {
+    private string ContentToExplain = "";
+    private string Explanation = "";
+    private string ErrorMessage = "";
+    private bool IsLoading = false;
+
+    // Secret for API authentication - should match OVERLORD_SECRET in Flask backend
+    private string AuthSecret = "NoheBm8QZ139yxMzXKdLsTSE07jbFpW6";
+
+    private async Task ExplainContent()
+    {
+        if (string.IsNullOrWhiteSpace(ContentToExplain))
+        {
+            ErrorMessage = "Please enter some content to analyze.";
+            return;
+        }
+
+        IsLoading = true;
+        Explanation = "";
+        ErrorMessage = "";
+
+        try
+        {
+            var request = new { content = ContentToExplain };
+            var requestMessage = new HttpRequestMessage(HttpMethod.Post, "ai/explain")
+            {
+                Content = JsonContent.Create(request)
+            };
+            requestMessage.Headers.Add("X-Auth-Token", AuthSecret);
+
+            var response = await Http.SendAsync(requestMessage);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                var result = JsonDocument.Parse(json);
+                
+                if (result.RootElement.TryGetProperty("choices", out var choices) && choices.GetArrayLength() > 0)
+                {
+                    var message = choices[0].GetProperty("message");
+                    Explanation = message.GetProperty("content").GetString() ?? "No explanation returned.";
+                }
+                else if (result.RootElement.TryGetProperty("error", out var error))
+                {
+                    ErrorMessage = error.GetProperty("message").GetString() ?? "Unknown error from AI service.";
+                }
+                else
+                {
+                    Explanation = json;
+                }
+            }
+            else
+            {
+                var errorContent = await response.Content.ReadAsStringAsync();
+                ErrorMessage = $"API Error ({(int)response.StatusCode}): {response.ReasonPhrase}. {errorContent}";
+            }
+        }
+        catch (Exception ex)
+        {
+            ErrorMessage = $"Exception: {ex.Message}";
+        }
+        finally
+        {
+            IsLoading = false;
+        }
+    }
+}

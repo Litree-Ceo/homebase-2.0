@@ -1,0 +1,32 @@
+# Override compose file for local development
+# This is NOT committed to git; it's for local customization
+# Copy/customize as needed for your local environment
+
+# To use: docker-compose -f docker-compose.yml -f docker-compose.override.yml up
+
+version: "3.9"
+
+services:
+  overlord:
+    # Customize ports or volumes locally
+    ports:
+      - "8080:8080"
+    environment:
+      - LOG_LEVEL=DEBUG
+    # Mount your local code for hot-reload
+    volumes:
+      - ./server.py:/app/server.py:ro
+      - ./mock_ai_assistant.py:/app/mock_ai_assistant.py:ro
+      - ./.env:/app/.env:ro
+
+  # Example: Add PostgreSQL for development
+  # postgres:
+  #   environment:
+  #     - POSTGRES_PASSWORD=dev-local-password
+  #   ports:
+  #     - "5432:5432"
+
+  # Example: Add Redis for caching
+  # redis:
+  #   ports:
+  #     - "6379:6379"

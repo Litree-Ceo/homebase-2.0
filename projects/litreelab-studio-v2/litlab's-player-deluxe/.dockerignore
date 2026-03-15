@@ -1,0 +1,56 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+env/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Testing
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Documentation
+docs/
+*.md
+!README.md
+
+# Archives
+archive/
+*.zip
+*.tar.gz
+
+# Logs
+logs/
+*.log
+
+# Local data (mount as volumes instead)
+data/*.db
+
+# Node (if any)
+node_modules/
+npm-debug.log
+
+# Large files
+*.exe
+*.zip
+*.mp4
+*.mov

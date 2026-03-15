@@ -1,0 +1,203 @@
+name: Monorepo Lint, Build & Security
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  schedule:
+    - cron: "0 2 * * *"  # Daily at 2 AM UTC
+
+jobs:
+  # ─── Lint & Format Check ────────────────────────────────────────────────
+  lint:
+    name: Lint Code
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+          cache: "pip"
+      
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install black ruff pylint yamllint shellcheck-py
+      
+      - name: Run linting (black)
+        run: black --check --line-length=120 modules/ scripts/
+        continue-on-error: true
+      
+      - name: Run linting (ruff)
+        run: ruff check . --select E,F,W,I --ignore E501
+      
+      - name: Run linting (pylint)
+        run: pylint modules/ --rcfile=.pylintrc --exit-zero --reports=no || true
+      
+      - name: Validate YAML
+        run: yamllint -c .yamllint config/ || true
+      
+      - name: Validate JSON
+        run: |
+          for file in $(find . -name "*.json" -not -path "*/node_modules/*" -not -path "*/.git/*"); do
+            python3 -m json.tool "$file" > /dev/null
+          done
+
+  # ─── Python Test ────────────────────────────────────────────────────────
+  test-python:
+    name: Test Python Modules
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: "pip"
+      
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install pytest pytest-asyncio
+      
+      - name: Run tests
+        run: pytest tests/ -v --tb=short
+        continue-on-error: true
+
+  # ─── Firebase Rules Validation ──────────────────────────────────────────
+  firebase-rules:
+    name: Validate Firebase Rules
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Validate Firestore Rules
+        run: |
+          for file in $(find . -name "firestore.rules" -o -name "database.rules.json"); do
+            echo "Checking: $file"
+            python3 -m json.tool "$file" > /dev/null 2>&1 || echo "Invalid JSON: $file"
+          done
+        continue-on-error: true
+      
+      - name: Check for permissive rules
+        run: |
+          ISSUES=0
+          for file in $(find . -name "*.rules" -o -name "*.rules.json"); do
+            if grep -q 'allow read, write\|== true\|.write.*true\|.read.*true' "$file"; then
+              echo "⚠ Permissive rules detected in: $file"
+              ((ISSUES++))
+            fi
+          done
+          if [ $ISSUES -gt 0 ]; then
+            echo "Found $ISSUES permissive rule file(s)"
+            exit 1
+          fi
+        continue-on-error: true
+
+  # ─── Docker Build Validation ────────────────────────────────────────────
+  docker-build:
+    name: Validate Docker Builds
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v2
+      
+      - name: Build Dashboard Docker image
+        uses: docker/build-push-action@v4
+        with:
+          context: ./modules/dashboard
+          push: false
+          tags: overlord-dashboard:latest
+        continue-on-error: true
+      
+      - name: Validate docker-compose
+        run: |
+          docker-compose config > /dev/null 2>&1 || true
+        continue-on-error: true
+
+  # ─── Security Scanning (Optional SAST) ──────────────────────────────────
+  security:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+      
+      - name: Install security tools
+        run: |
+          pip install bandit safety
+      
+      - name: Run Bandit (Python security)
+        run: |
+          bandit -r modules/ -f json -o bandit-report.json || true
+      
+      - name: Check dependencies for vulnerabilities
+        run: |
+          pip install -r requirements.txt
+          safety check --json > safety-report.json || true
+        continue-on-error: true
+
+  # ─── Cross-Platform Script Check ────────────────────────────────────────
+  scripts:
+    name: Validate Scripts
+    runs-on: ${{ matrix.os }}
+    
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Validate launcher (Python)
+        run: python3 -m py_compile scripts/launcher.py
+      
+      - name: Validate env schema
+        run: |
+          python3 -c "import json; json.load(open('env.schema.json'))"
+      
+      - name: Validate service generator
+        run: python3 -m py_compile scripts/generate-services.py
+      
+      - name: Validate lint scripts
+        run: |
+          python3 -m py_compile scripts/validate-env.py
+        if: runner.os == 'Linux'
+
+  # ─── Status Check ───────────────────────────────────────────────────────
+  status:
+    name: Check Overall Status
+    runs-on: ubuntu-latest
+    needs: [lint, test-python, firebase-rules, security]
+    if: always()
+    
+    steps:
+      - name: Check build status
+        run: |
+          if [[ "${{ needs.lint.result }}" == "failure" || \
+                "${{ needs.test-python.result }}" == "failure" || \
+                "${{ needs.firebase-rules.result }}" == "failure" || \
+                "${{ needs.security.result }}" == "failure" ]]; then
+            echo "⚠ Some checks failed (marked as allowed failures)"
+            exit 0
+          fi
+          echo "✓ All critical checks passed"

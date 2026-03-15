@@ -1,0 +1,43 @@
+type User @table {
+  username: String!
+  walletAddress: String!
+  createdAt: Timestamp!
+  avatarUrl: String
+  bio: String
+}
+
+type Post @table {
+  content: String!
+  createdAt: Timestamp!
+  author: User
+  mediaUrl: String
+  assetLink: DigitalAsset
+}
+
+type MediaItem @table {
+  title: String!
+  mediaUrl: String!
+  mediaType: String!
+  createdAt: Timestamp!
+  owner: User
+  description: String
+}
+
+type DigitalAsset @table {
+  assetId: String!
+  contractAddress: String!
+  assetType: String!
+  createdAt: Timestamp!
+  owner: User
+  metadataUrl: String
+  thumbnailUrl: String
+}
+
+type MetaverseSpace @table {
+  name: String!
+  coordinates: String!
+  createdAt: Timestamp!
+  owner: User
+  description: String
+  externalLink: String
+}

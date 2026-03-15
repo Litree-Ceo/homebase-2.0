@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "x/r1of22Lo8=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\litre\\source\\repos\\HomeBase3\\Projects\\LiTreeLabStudio\\LiTLabConsole\\LiTLabConsole.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\litre\\.nuget\\packages\\microsoft.aspnetcore.app.internal.assets\\11.0.0-preview.2.26159.112\\microsoft.aspnetcore.app.internal.assets.11.0.0-preview.2.26159.112.nupkg.sha512"
+  ],
+  "logs": []
+}

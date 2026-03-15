@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  # Main App Builder Service - LiTreeLab Studio Foundation
+  app_builder:
+    build:
+      context: ./app_builder
+      dockerfile: Dockerfile
+    container_name: litreelab-studio
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PYTHONDONTWRITEBYTECODE=1
+    volumes:
+      # Mount for development hot-reload (optional)
+      - ./app_builder:/app
+      # Persist generated projects
+      - projects_data:/app/generated_projects
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/app-builder/projects"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    networks:
+      - litreelab-network
+
+  # Future services can be added here:
+  # - Database (PostgreSQL, MongoDB)
+  # - Redis for caching
+  # - Message queue (RabbitMQ, Redis)
+  # - AI/ML inference service
+  # - File storage service
+
+volumes:
+  projects_data:
+    driver: local
+
+networks:
+  litreelab-network:
+    driver: bridge

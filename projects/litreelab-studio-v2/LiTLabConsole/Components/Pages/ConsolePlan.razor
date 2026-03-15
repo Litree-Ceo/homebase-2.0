@@ -1,0 +1,198 @@
+@page "/plan"
+@rendermode InteractiveServer
+@inject HttpClient Http
+@inject IConfiguration Configuration
+@using System.Text.Json
+
+<PageTitle>Plan & Execute – LiTLab Console</PageTitle>
+
+<h3>🎯 Plan & Execute Commands</h3>
+<p class="text-muted">Describe what you want to accomplish, and AI will plan the shell commands.</p>
+
+<div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Objective (e.g., 'List all large files in C:\\temp')" 
+           @bind="Objective" @bind:event="oninput" />
+    <button class="btn btn-success" @onclick="GeneratePlan" disabled="@IsLoading">
+        @if (IsLoading)
+        {
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            <span>Planning...</span>
+        }
+        else
+        {
+            <span>📝 Plan Commands</span>
+        }
+    </button>
+</div>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger">
+        <strong>Error:</strong> @ErrorMessage
+    </div>
+}
+
+@if (PlannedCommands.Any())
+{
+    <div class="mb-3">
+        <h5>📋 Planned Commands:</h5>
+        <div class="list-group">
+            @foreach (var cmd in PlannedCommands)
+            {
+                <div class="list-group-item d-flex justify-content-between align-items-center">
+                    <code class="flex-grow-1">@cmd</code>
+                    <button class="btn btn-sm btn-outline-danger ms-2" @onclick="() => ExecuteCommand(cmd)" 
+                            disabled="@IsExecuting">
+                        ▶ Run
+                    </button>
+                </div>
+            }
+        </div>
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(CommandOutput))
+{
+    <div class="mt-4">
+        <h5>📤 Command Output:</h5>
+        <div class="card">
+            <div class="card-body">
+                <pre class="mb-0" style="max-height: 400px; overflow-y: auto;"><code>@CommandOutput</code></pre>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    private string Objective = "";
+    private List<string> PlannedCommands = new();
+    private string CommandOutput = "";
+    private string ErrorMessage = "";
+    private bool IsLoading = false;
+    private bool IsExecuting = false;
+
+    // Secret for API authentication - should match OVERLORD_SECRET in Flask backend
+    private string AuthSecret = "NoheBm8QZ139yxMzXKdLsTSE07jbFpW6";
+
+    private async Task GeneratePlan()
+    {
+        if (string.IsNullOrWhiteSpace(Objective))
+        {
+            ErrorMessage = "Please enter an objective.";
+            return;
+        }
+
+        IsLoading = true;
+        ErrorMessage = "";
+        PlannedCommands.Clear();
+        CommandOutput = "";
+
+        try
+        {
+            var request = new { objective = Objective };
+            var requestMessage = new HttpRequestMessage(HttpMethod.Post, "ai/plan-commands")
+            {
+                Content = JsonContent.Create(request)
+            };
+            requestMessage.Headers.Add("X-Auth-Token", AuthSecret);
+
+            var response = await Http.SendAsync(requestMessage);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                var result = JsonDocument.Parse(json);
+                
+                if (result.RootElement.TryGetProperty("choices", out var choices) && choices.GetArrayLength() > 0)
+                {
+                    var message = choices[0].GetProperty("message");
+                    var content = message.GetProperty("content").GetString() ?? "[]";
+                    
+                    // Try to parse the content as JSON array of commands
+                    try
+                    {
+                        var commands = JsonSerializer.Deserialize<List<string>>(content);
+                        if (commands != null)
+                        {
+                            PlannedCommands = commands;
+                        }
+                    }
+                    catch
+                    {
+                        // If it's not valid JSON, treat the whole content as a single explanation
+                        PlannedCommands = new List<string> { content };
+                    }
+                }
+                else
+                {
+                    ErrorMessage = "Unexpected response format from AI service.";
+                }
+            }
+            else
+            {
+                var errorContent = await response.Content.ReadAsStringAsync();
+                ErrorMessage = $"API Error ({(int)response.StatusCode}): {response.ReasonPhrase}. {errorContent}";
+            }
+        }
+        catch (Exception ex)
+        {
+            ErrorMessage = $"Exception: {ex.Message}";
+        }
+        finally
+        {
+            IsLoading = false;
+        }
+    }
+
+    private async Task ExecuteCommand(string cmd)
+    {
+        IsExecuting = true;
+        ErrorMessage = "";
+        CommandOutput = $"> {cmd}\n\n";
+
+        try
+        {
+            var request = new { command = cmd };
+            var requestMessage = new HttpRequestMessage(HttpMethod.Post, "api/pc/exec")
+            {
+                Content = JsonContent.Create(request)
+            };
+            requestMessage.Headers.Add("X-Auth-Token", AuthSecret);
+
+            var response = await Http.SendAsync(requestMessage);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                var result = JsonDocument.Parse(json);
+                
+                var stdout = result.RootElement.GetProperty("stdout").GetString() ?? "";
+                var stderr = result.RootElement.GetProperty("stderr").GetString() ?? "";
+                var code = result.RootElement.GetProperty("code").GetInt32();
+
+                if (!string.IsNullOrEmpty(stdout))
+                {
+                    CommandOutput += stdout + "\n";
+                }
+                if (!string.IsNullOrEmpty(stderr))
+                {
+                    CommandOutput += $"[stderr]: {stderr}\n";
+                }
+                CommandOutput += $"\n[Exit code: {code}]";
+            }
+            else
+            {
+                var errorContent = await response.Content.ReadAsStringAsync();
+                CommandOutput += $"Error: {response.ReasonPhrase}\n{errorContent}";
+            }
+        }
+        catch (Exception ex)
+        {
+            CommandOutput += $"Exception: {ex.Message}";
+        }
+        finally
+        {
+            IsExecuting = false;
+        }
+    }
+}

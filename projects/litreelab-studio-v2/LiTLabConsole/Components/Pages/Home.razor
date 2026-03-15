@@ -1,0 +1,43 @@
+@page "/"
+
+<PageTitle>LiTLab Console</PageTitle>
+
+<div class="text-center py-5">
+    <h1 class="display-4">🔷 LiTLab Console</h1>
+    <p class="lead text-muted">Your AI-powered command center for remote PC control</p>
+</div>
+
+<div class="row g-4 py-4">
+    <div class="col-md-6">
+        <div class="card h-100 border-primary">
+            <div class="card-body">
+                <h5 class="card-title">🧠 AI Explain</h5>
+                <p class="card-text">Paste code snippets, error logs, or any technical content and get AI-powered explanations instantly.</p>
+                <a href="explain" class="btn btn-primary">Go to AI Explain</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card h-100 border-success">
+            <div class="card-body">
+                <h5 class="card-title">🎯 Plan & Execute</h5>
+                <p class="card-text">Describe your objective and let AI plan shell commands. Review and execute them remotely on your PC.</p>
+                <a href="plan" class="btn btn-success">Go to Plan & Execute</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="alert alert-info mt-4">
+    <h5>⚙️ Setup Instructions</h5>
+    <ol class="mb-0">
+        <li>Ensure the Flask agent is running on your PC: <code>python app.py</code> in the backend folder</li>
+        <li>Update your <code>OPENROUTER_API_KEY</code> in the <code>.env</code> file</li>
+        <li>Configure the Agent API URL in <code>appsettings.json</code> (default: <code>http://localhost:5000/</code>)</li>
+        <li>Access this console from any device on your network</li>
+    </ol>
+</div>
+
+<div class="text-center text-muted mt-4">
+    <small>LiTLab Console v1.0 | Powered by LitreelabStudio</small>
+</div>

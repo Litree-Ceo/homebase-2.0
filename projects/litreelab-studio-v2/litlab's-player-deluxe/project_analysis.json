@@ -1,0 +1,32 @@
+{
+  "overlord-dashboard": {
+    "path": "Documents\\Projects\\litlab's-player-deluxe\\overlord-dashboard",
+    "server_mtime": 1772901938.6138768,
+    "server_date": "2026-03-07 11:45",
+    "type": "Custom HTTP Server",
+    "features": [
+      "Authentication"
+    ],
+    "version": "VERSION = \"4.2.1\""
+  },
+  "overlord-modern": {
+    "path": "Documents\\Projects\\litlab's-player-deluxe\\overlord-modern",
+    "server_mtime": 1772901939.4853377,
+    "server_date": "2026-03-07 11:45",
+    "type": "FastAPI + React",
+    "features": [
+      "FastAPI",
+      "Modular routers",
+      "CORS support"
+    ]
+  },
+  "src-organized": {
+    "path": "Documents\\Projects\\litlab's-player-deluxe\\src",
+    "server_mtime": 1772904311.1988072,
+    "server_date": "2026-03-07 12:25",
+    "type": "Organized Source",
+    "features": [
+      "Recently organized"
+    ]
+  }
+}

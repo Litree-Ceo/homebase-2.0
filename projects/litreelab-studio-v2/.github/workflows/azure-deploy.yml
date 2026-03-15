@@ -1,0 +1,137 @@
+name: Deploy to Azure
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  AZURE_RESOURCE_GROUP: litreelab-studio-rg
+  AZURE_APP_NAME: litreelabstudio
+  AZURE_LOCATION: eastus
+  ACR_NAME: litreelabacr
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: app_builder/web/package-lock.json
+
+      - name: Build React frontend
+        run: |
+          cd app_builder/web
+          npm ci
+          npm run build
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Create Resource Group (if not exists)
+        run: |
+          az group create \
+            --name ${{ env.AZURE_RESOURCE_GROUP }} \
+            --location ${{ env.AZURE_LOCATION }} \
+            --output none || true
+
+      - name: Deploy Bicep Infrastructure
+        id: deploy-infra
+        run: |
+          outputs=$(az deployment group create \
+            --resource-group ${{ env.AZURE_RESOURCE_GROUP }} \
+            --template-file azure.bicep \
+            --parameters appName=${{ env.AZURE_APP_NAME }} \
+            --query 'properties.outputs' \
+            --output json)
+          
+          echo "ACR_LOGIN_SERVER=$(echo $outputs | jq -r '.containerRegistryLoginServer.value')" >> $GITHUB_ENV
+          echo "APP_SERVICE_URL=$(echo $outputs | jq -r '.appServiceUrl.value')" >> $GITHUB_ENV
+
+      - name: Get ACR Credentials
+        id: acr-creds
+        run: |
+          credentials=$(az acr credential show \
+            --name ${{ env.ACR_NAME }} \
+            --resource-group ${{ env.AZURE_RESOURCE_GROUP }} \
+            --query '{username:username, password:passwords[0].value}' \
+            --output json)
+          
+          echo "ACR_USERNAME=$(echo $credentials | jq -r '.username')" >> $GITHUB_ENV
+          echo "ACR_PASSWORD=$(echo $credentials | jq -r '.password')" >> $GITHUB_ENV
+
+      - name: Login to ACR
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.ACR_LOGIN_SERVER }}
+          username: ${{ env.ACR_USERNAME }}
+          password: ${{ env.ACR_PASSWORD }}
+
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./app_builder
+          file: ./app_builder/Dockerfile
+          push: true
+          tags: |
+            ${{ env.ACR_LOGIN_SERVER }}/${{ env.AZURE_APP_NAME }}:latest
+            ${{ env.ACR_LOGIN_SERVER }}/${{ env.AZURE_APP_NAME }}:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Deploy to Azure App Service
+        run: |
+          az webapp config container set \
+            --name ${{ env.AZURE_APP_NAME }} \
+            --resource-group ${{ env.AZURE_RESOURCE_GROUP }} \
+            --docker-custom-image-name '${{ env.ACR_LOGIN_SERVER }}/${{ env.AZURE_APP_NAME }}:latest' \
+            --docker-registry-server-url 'https://${{ env.ACR_LOGIN_SERVER }}' \
+            --docker-registry-server-user '${{ env.ACR_USERNAME }}' \
+            --docker-registry-server-password '${{ env.ACR_PASSWORD }}'
+
+      - name: Restart App Service
+        run: |
+          az webapp restart \
+            --name ${{ env.AZURE_APP_NAME }} \
+            --resource-group ${{ env.AZURE_RESOURCE_GROUP }}
+
+      - name: Verify Deployment
+        run: |
+          echo "Waiting for deployment to be ready..."
+          sleep 30
+          
+          # Check health endpoint
+          status=$(curl -s -o /dev/null -w "%{http_code}" ${{ env.APP_SERVICE_URL }} || echo "000")
+          
+          if [ "$status" = "200" ] || [ "$status" = "307" ]; then
+            echo "✅ Deployment successful!"
+            echo "🔗 App URL: ${{ env.APP_SERVICE_URL }}"
+          else
+            echo "⚠️ Deployment may still be starting (status: $status)"
+            echo "🔗 Check the app at: ${{ env.APP_SERVICE_URL }}"
+          fi
+
+      - name: Output Deployment Info
+        run: |
+          echo "## 🚀 Deployment Complete!" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Resource | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "|----------|-------|" >> $GITHUB_STEP_SUMMARY
+          echo "| App Service | ${{ env.AZURE_APP_NAME }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Container Registry | ${{ env.ACR_LOGIN_SERVER }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| App URL | ${{ env.APP_SERVICE_URL }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Image | ${{ env.ACR_LOGIN_SERVER }}/${{ env.AZURE_APP_NAME }}:${{ github.sha }} |" >> $GITHUB_STEP_SUMMARY

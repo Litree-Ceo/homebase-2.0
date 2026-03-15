@@ -1,0 +1,17 @@
+# Keep Docker image small — exclude dev-only files
+.git/
+.gitignore
+__pycache__/
+*.py[cod]
+*.pyc
+.pytest_cache/
+tests/
+test_server.py
+*.md
+*.log
+.venv/
+venv/
+.qodo/
+sync.ps1
+sync.sh
+pyproject.toml

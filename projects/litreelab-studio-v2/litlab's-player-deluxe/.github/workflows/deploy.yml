@@ -1,0 +1,53 @@
+name: Deploy Pipeline
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'modules/**'
+      - 'config/**'
+      - '.github/workflows/deploy.yml'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy to Staging & Production
+    runs-on: ubuntu-latest
+    
+    environment:
+      name: production
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+      
+      - name: Validate environment
+        run: python3 scripts/validate-env.py --strict
+      
+      - name: Validate Firebase rules
+        run: bash scripts/validate-firebase-rules.sh
+      
+      - name: Run tests
+        run: |
+          pip install -r requirements.txt
+          pytest tests/ -v
+      
+      - name: Build Docker images
+        run: |
+          docker-compose build
+      
+      - name: Notify deployment
+        if: always()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '✓ Deployment pipeline executed'
+            })

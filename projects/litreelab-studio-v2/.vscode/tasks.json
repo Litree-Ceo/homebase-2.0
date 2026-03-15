@@ -1,0 +1,72 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Start litlab-os-pad (Astro)",
+      "type": "shell",
+      "command": "pnpm dev",
+      "options": {
+        "cwd": "litlab's-player-deluxe/litrelab/litreelab-studio"
+      },
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Start app_builder frontend",
+      "type": "shell",
+      "command": "pnpm dev",
+      "options": {
+        "cwd": "app_builder/web"
+      },
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Start app_builder backend",
+      "type": "shell",
+      "command": "python main.py",
+      "options": {
+        "cwd": "app_builder"
+      },
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "type": "func",
+      "label": "func: host start",
+      "command": "host start",
+      "problemMatcher": "$func-node-watch",
+      "isBackground": true,
+      "dependsOn": "npm install (functions)",
+      "options": {
+        "cwd": "${workspaceFolder}/02-Projects-Archive\\HomeBase2\\api"
+      }
+    },
+    {
+      "type": "shell",
+      "label": "npm install (functions)",
+      "command": "npm install",
+      "options": {
+        "cwd": "${workspaceFolder}/02-Projects-Archive\\HomeBase2\\api"
+      }
+    },
+    {
+      "type": "shell",
+      "label": "npm prune (functions)",
+      "command": "npm prune --production",
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${workspaceFolder}/02-Projects-Archive\\HomeBase2\\api"
+      }
+    }
+  ]
+}

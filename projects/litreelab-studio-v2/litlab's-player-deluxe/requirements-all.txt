@@ -1,0 +1,87 @@
+# Auto-generated consolidated requirements
+# Original files found in:
+#   - requirements.txt
+#   - archive\homebase-versions\homebase-2.0.worktrees\copilot\fix-everything\requirements.txt
+#   - archive\homebase-versions\homebase-2.0.worktrees\copilot\fix-everything\docs\Labs-Ai\python-agents\cooking-agent\requirements.txt
+#   - overlord-dashboard\requirements.txt
+#   - overlord-dashboard\dashboard\requirements.txt
+#   - overlord-modern\backend\requirements.txt
+#   - packages\backend\requirements.txt
+#   - tools\app_builder\requirements.txt
+#   - _Archive\System-Overlord-Phase0\bots\requirements.txt
+
+Flask==3.1.3
+Jinja2==3.1.6
+MarkupSafe==3.0.3
+Werkzeug==3.1.6
+agent-framework-azure-ai --pre
+agent-framework-azure-ai>=0.1.0
+aiohttp>=3.9.0
+aiosqlite==0.20.0
+alembic==1.14.0
+azure-cosmos>=4.0.0,<5.0.0
+azure-identity>=1.15.0,<2.0.0
+beautifulsoup4==4.12.2
+black
+black==24.10.0
+blinker==1.9.0
+click==8.3.1
+fastapi==0.115.0
+fastapi>=0.104.0
+firebase-admin==6.5.0
+firebase-admin>=6.0.0,<7.0.0
+firebase-admin>=6.5.0
+firebase-admin>=6.5.0  # Uncomment for Firebase cloud sync
+flask-cors==6.0.2
+flask-socketio>=5.3.0
+flask>=3.0.0
+httpx==0.27.2
+isort==5.13.2
+itsdangerous==2.2.0
+jinja2>=3.1.0
+mypy
+mypy==1.13.0
+nvidia-ml-py==12.535.133
+paramiko==3.4.0
+paramiko>=2.12.0
+passlib[bcrypt]==1.7.4
+prometheus-client==0.21.0
+psutil==6.0.0
+psutil==6.1.0
+psutil>=5.9.0
+pure-python-adb
+pure-python-adb==0.3.0.dev0
+pydantic-settings==2.13.1
+pydantic==2.5.0
+pydantic>=2.0.0
+pydantic>=2.5.0
+pydantic[email]==2.12.0
+pylint
+pytest
+pytest-asyncio==0.24.0
+pytest-cov==6.0.0
+pytest==8.3.3
+pytest>=8.0.0
+pytest>=9.0
+python-dotenv==1.0.0
+python-dotenv==1.0.1
+python-dotenv>=1.0.0
+python-dotenv>=1.0.0,<2.0.0
+python-jose[cryptography]==3.3.0
+python-multipart==0.0.17
+python-multipart>=0.0.6
+python-telegram-bot>=22.0
+pyyaml==6.0.2
+pyyaml>=6.0
+requests==2.31.0
+requests==2.32.5
+requests>=2.31.0
+ruff
+ruff==0.7.3
+sqlalchemy[asyncio]==2.0.30
+structlog==25.5.0
+types-PyYAML
+types-psutil
+types-requests
+uvicorn[standard]==0.32.0
+websockets==13.1

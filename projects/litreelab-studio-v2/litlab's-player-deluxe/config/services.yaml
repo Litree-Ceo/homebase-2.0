@@ -1,0 +1,82 @@
+# Service file template generator configuration
+# This YAML file is the source of truth for all systemd and Windows services
+# Generated services are tracked but NOT committed to git
+# Run: python scripts/generate-services.py to create service files
+
+version: "1.0"
+
+# Global service defaults
+global:
+  after: network-online.target
+  wants: network-online.target
+  restart_policy: on-failure
+  restart_sec: 10
+
+services:
+  dashboard:
+    description: "Overlord Dashboard - System Monitor & Web Interface"
+    executable: "${PYTHON_BIN:-python3}"
+    working_directory: "${ROOT_DIR}/modules/dashboard"
+    arguments:
+      - "server.py"
+    environment:
+      - "NODE_ENV=${NODE_ENV:-development}"
+      - "LOG_LEVEL=${LOG_LEVEL:-INFO}"
+      - "DASHBOARD_PORT=${DASHBOARD_PORT:-5000}"
+    user: "${SERVICE_USER:-overlord}"
+    group: "${SERVICE_GROUP:-overlord}"
+    restart_policy: on-failure
+    restart_sec: 5
+    type: simple
+    systemd_after:
+      - network-online.target
+      - syslog.service
+    health_check:
+      method: "http"
+      url: "http://localhost:5000/api/health"
+      interval: 30
+      timeout: 5
+      retries: 3
+
+  social:
+    description: "Overlord Social Module - Community & Collaboration"
+    executable: "${NODE_BIN:-node}"
+    working_directory: "${ROOT_DIR}/modules/social"
+    arguments:
+      - "app.js"
+    environment:
+      - "NODE_ENV=${NODE_ENV:-development}"
+      - "LOG_LEVEL=${LOG_LEVEL:-INFO}"
+      - "SOCIAL_PORT=${SOCIAL_PORT:-5001}"
+      - "FIREBASE_PROJECT_ID=${FIREBASE_PROJECT_ID}"
+    user: "${SERVICE_USER:-overlord}"
+    group: "${SERVICE_GROUP:-overlord}"
+    restart_policy: on-failure
+    type: simple
+    health_check:
+      method: "http"
+      url: "http://localhost:5001/api/health"
+      interval: 30
+      timeout: 5
+      retries: 3
+
+  grid:
+    description: "Overlord Grid Module - Data Grid & Analytics"
+    executable: "${PYTHON_BIN:-python3}"
+    working_directory: "${ROOT_DIR}/modules/grid"
+    arguments:
+      - "server.py"
+    environment:
+      - "NODE_ENV=${NODE_ENV:-development}"
+      - "LOG_LEVEL=${LOG_LEVEL:-INFO}"
+      - "GRID_PORT=${GRID_PORT:-5002}"
+    user: "${SERVICE_USER:-overlord}"
+    group: "${SERVICE_GROUP:-overlord}"
+    restart_policy: on-failure
+    type: simple
+    health_check:
+      method: "http"
+      url: "http://localhost:5002/api/health"
+      interval: 30
+      timeout: 5
+      retries: 3

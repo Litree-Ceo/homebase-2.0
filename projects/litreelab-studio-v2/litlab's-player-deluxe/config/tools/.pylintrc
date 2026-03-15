@@ -1,0 +1,31 @@
+[MASTER]
+# Disable pylint plugin loading (not needed)
+load-plugins=
+
+[MESSAGES CONTROL]
+# Disable specific warnings if needed
+disable=
+    missing-module-docstring,
+    missing-class-docstring,
+    missing-function-docstring,
+    line-too-long,
+    too-many-arguments,
+    too-many-locals,
+    W0212,
+    R0914,
+
+[FORMAT]
+max-line-length=120
+indent-string='    '
+
+[VARIABLES]
+additional-builtins=
+
+[DESIGN]
+max-attributes=7
+max-branches=12
+max-locals=15
+max-statements=50
+
+[LOGGING]
+logging-format-style=new

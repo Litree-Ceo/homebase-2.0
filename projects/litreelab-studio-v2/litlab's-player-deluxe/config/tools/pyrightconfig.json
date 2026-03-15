@@ -1,0 +1,18 @@
+{
+  "pythonVersion": "3.12",
+  "pythonPlatform": "Windows",
+  "typeCheckingMode": "basic",
+  "reportArgumentType": "none",
+  "reportAttributeAccessIssue": "warning",
+  "reportMissingModuleSource": "none",
+  "reportMissingImports": true,
+  "exclude": [
+    "**/node_modules",
+    "**/__pycache__",
+    "**/.venv",
+    "**/repos",
+    "**/_archive",
+    "**/wallpapers",
+    "**/.pytest_cache"
+  ]
+}

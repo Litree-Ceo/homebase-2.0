@@ -1,0 +1,43 @@
+# Azure Developer CLI (azd) configuration
+# Docs: https://learn.microsoft.com/azure/developer/azure-developer-cli
+
+name: litreelab-studio
+metadata:
+  template: azd-init@1.0.0
+
+services:
+  app_builder:
+    project: ./app_builder
+    language: python
+    host: containerapp
+    docker:
+      path: Dockerfile
+      context: ./app_builder
+
+infra:
+  provider: bicep
+  path: ./infra
+  module: main
+
+pipeline:
+  provider: github
+
+# Hooks for custom deployment steps
+hooks:
+  predeploy:
+    windows:
+      shell: pwsh
+      run: |
+        Write-Host "Building React frontend..."
+        cd app_builder/web
+        npm ci
+        npm run build
+        Write-Host "Frontend build complete!"
+    posix:
+      shell: sh
+      run: |
+        echo "Building React frontend..."
+        cd app_builder/web
+        npm ci
+        npm run build
+        echo "Frontend build complete!"

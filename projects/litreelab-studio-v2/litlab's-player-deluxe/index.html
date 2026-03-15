@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SYSTEM OVERLORD</title>
+    <!-- SECURITY: No SEO tags - This is a private system monitoring dashboard -->
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="googlebot" content="noindex, nofollow">
+    <link rel="icon" type="image/svg+xml" href="assets/logo-overlord-simple.svg">
+    <link rel="icon" type="image/svg+xml" href="assets/logo-overlord-minimal.svg">
+    <!-- PWA features disabled by Overlord -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.min.css">
+    <!-- Load Recharts directly (Smart/Clever) -->
+    <script src="js/react.production.min.js" defer></script>
+    <script src="js/react-dom.production.min.js" defer></script>
+    <script src="js/prop-types.min.js" defer></script>
+    <script src="js/Recharts.js" defer></script>
+  </head>
+  <body>
+    <div class="build-pill" id="build-pill">BUILD v4.3.0</div>
+
+    <!-- ── API Key Modal ── -->
+    <div class="modal-overlay hidden" id="auth-modal">
+      <div class="modal-box">
+        <div class="modal-icon">◈</div>
+        <h2>OVERLORD AUTH</h2>
+        <p>Enter your API key from <code>config.yaml</code> to access the dashboard.</p>
+        <input class="modal-input" id="modal-key-input" type="password" placeholder="Paste API key…" autocomplete="off" />
+        <button class="modal-btn" onclick="submitApiKey()">CONNECT</button>
+      </div>
+    </div>
+
+    <!-- ── Background Effects ── -->
+    <div class="background">
+      <div class="bg-grid"></div>
+      <div class="bg-orb bg-orb-a"></div>
+      <div class="bg-orb bg-orb-b"></div>
+      <div class="bg-scanlines"></div>
+    </div>
+
+    <!-- ── Main Shell ── -->
+    <main class="shell">
+      <!-- Header -->
+      <header class="topbar">
+        <a href="/home.html" class="brand" style="text-decoration: none; color: inherit;">
+          <span class="brand-mark">
+            <img src="assets/logo-overlord-simple.svg" alt="Overlord" width="32" height="32" style="filter: drop-shadow(0 0 8px rgba(82, 242, 255, 0.5));">
+          </span>
+          <div>
+        <div class="brand-title"><h1>SYSTEM OVERLORD</h1></div>
+            <div class="brand-sub">Real-time monitoring + L1T_GRID Stream Engine</div>
+          </div>
+        </a>
+        <nav class="topbar-nav">
+          <a href="#" class="nav-item active">Dashboard</a>
+          <a href="#" class="nav-item">Termux</a>
+          <a href="#" class="nav-item">ADB</a>
+        </nav>
+        <div class="topbar-right">
+          <!-- System Status Widget (New Component) -->
+          <div class="system-widget" id="system-widget">
+            <div class="system-widget__header" onclick="toggleSystemWidget()" tabindex="0" role="button" aria-expanded="false" aria-label="System status widget. Click to expand">
+              <div class="system-widget__status-group">
+                <span class="system-widget__indicator" id="widget-indicator"></span>
+                <span class="system-widget__label" id="widget-label">CONNECTING</span>
+              </div>
+              <button class="system-widget__refresh" onclick="event.stopPropagation(); refreshWidget()" aria-label="Refresh stats" title="Refresh">
+                <span id="widget-refresh-icon">↻</span>
+              </button>
+              <span class="system-widget__expand-icon" aria-hidden="true">▶</span>
+            </div>
+            <div class="system-widget__metrics">
+              <div class="system-widget__metric" role="group" aria-label="CPU usage">
+                <span class="system-widget__metric-icon">🧠</span>
+                <span class="system-widget__metric-label">CPU</span>
+                <span class="system-widget__metric-value" id="widget-cpu">--%</span>
+                <svg class="system-widget__chart" id="cpu-mini-chart" viewBox="0 0 100 20" preserveAspectRatio="none" aria-hidden="true"></svg>
+              </div>
+              <div class="system-widget__metric" role="group" aria-label="RAM usage">
+                <span class="system-widget__metric-icon">💾</span>
+                <span class="system-widget__metric-label">RAM</span>
+                <span class="system-widget__metric-value" id="widget-ram">--%</span>
+                <svg class="system-widget__chart" id="ram-mini-chart" viewBox="0 0 100 20" preserveAspectRatio="none" aria-hidden="true"></svg>
+              </div>
+              <div class="system-widget__metric" role="group" aria-label="Network speed">
+                <span class="system-widget__metric-icon">🌐</span>
+                <span class="system-widget__metric-label">NET</span>
+                <span class="system-widget__metric-value" id="widget-net">--</span>
+              </div>
+            </div>
+            <div class="system-widget__details hidden" id="widget-details">
+              <div class="system-widget__detail-grid">
+                <div class="system-widget__detail-item">
+                  <span class="system-widget__detail-label">Hostname</span>
+                  <span class="system-widget__detail-value" id="widget-hostname">—</span>
+                </div>
+                <div class="system-widget__detail-item">
+                  <span class="system-widget__detail-label">Platform</span>
+                  <span class="system-widget__detail-value" id="widget-platform">—</span>
+                </div>
+                <div class="system-widget__detail-item">
+                  <span class="system-widget__detail-label">Cores</span>
+                  <span class="system-widget__detail-value" id="widget-cores">—</span>
+                </div>
+                <div class="system-widget__detail-item">
+                  <span class="system-widget__detail-label">Updated</span>
+                  <span class="system-widget__detail-value" id="widget-updated">—</span>
+                </div>
+              </div>
+            </div>
+            <div class="system-widget__footer">
+              <span class="system-widget__update-time" id="widget-update-time">—</span>
+            </div>
+          </div>
+
+          <div class="live-clock" id="live-clock">--:--:--</div>
+          <div class="status-chip">
+            <span class="status-label">STATUS</span>
+            <span class="status-value" id="connection-status">CONNECTING…</span>
+            <span class="dot" id="status-dot"></span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Dashboard Grid -->
+      <section class="dashboard-grid">
+        <!-- Left Column -->
+        <div class="col-left">
+          <!-- System Identity Card -->
+          <section class="card card-identity">
+            <div class="card-header">
+              <span class="card-icon">⚡</span>
+              <div class="card-title">System Identity</div>
+            </div>
+            <div class="info-grid">
+              <div class="info-row">
+                <span class="label">Hostname</span>
+                <span class="value glow-cyan" id="hostname">—</span>
+              </div>
+              <div class="info-row">
+                <span class="label">Platform</span>
+                <span class="value glow-cyan" id="platform">—</span>
+              </div>
+              <div class="info-row">
+                <span class="label">Python</span>
+                <span class="value glow-cyan" id="python-ver">—</span>
+              </div>
+              <div class="info-row">
+                <span class="label">Session Uptime</span>
+                <span class="value glow-gold" id="uptime">00:00:00</span>
+              </div>
+              <div class="info-row hidden" id="battery-row">
+                <span class="label">🔋 Battery</span>
+                <span class="value glow-cyan" id="battery-val">—</span>
+              </div>
+            </div>
+          </section>
+
+    <!-- ADB Section -->
+    <section id="adb-section" class="hidden">
+      <div class="shell">
+        <h2>ADB Control</h2>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">ADB Terminal</div>
+            <button id="adb-refresh-btn" class="btn btn-sm" title="Refresh devices">🔄</button>
+            <button id="adb-info-btn" class="btn btn-sm" title="Get device info">ℹ️</button>
+          </div>
+          <select id="adb-device-select">
+            <option>Connect a device...</option>
+          </select>
+          <div id="adb-terminal"></div>
+          <input id="adb-terminal-input" placeholder="Enter ADB shell command... (e.g., ls -la /sdcard)">
+        </div>
+      </div>
+    </section>
+
+          <!-- CPU Card -->
+          <section class="card card-compute">
+            <div class="card-header">
+              <span class="card-icon">🧠</span>
+              <div class="card-title">Compute Core</div>
+              <div class="metric-badge" id="cpu-badge">0%</div>
+            </div>
+            <div class="metric-row">
+              <span class="metric-label">CPU (<span id="cpu-cores">?</span> cores @ <span id="cpu-freq">—</span>)</span>
+              <span class="metric-value glow-cyan" id="cpu-val">—</span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill bar-cpu" id="cpu-bar"></div>
+            </div>
+            <div id="cpu-chart-container" class="chart-container"></div>
+          </section>
+
+          <!-- RAM Card -->
+          <section class="card card-memory">
+            <div class="card-header">
+              <span class="card-icon">💾</span>
+              <div class="card-title">Memory</div>
+              <div class="metric-badge" id="ram-badge">0%</div>
+            </div>
+            <div class="metric-row">
+              <span class="metric-label">RAM Used</span>
+              <span class="metric-value glow-gold" id="ram-val">—</span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill bar-ram" id="ram-bar"></div>
+            </div>
+            <div id="ram-chart-container" class="chart-container"></div>
+          </section>
+
+          <!-- Storage Card -->
+          <section class="card card-storage">
+            <div class="card-header">
+              <span class="card-icon">💿</span>
+              <div class="card-title">Storage Matrix</div>
+            </div>
+            <div class="metric-row">
+              <span class="metric-label">Primary Disk</span>
+              <span class="metric-value glow-magenta" id="disk-val">—</span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill bar-disk" id="disk-bar"></div>
+            </div>
+            <div class="section-label">All Volumes</div>
+            <div id="all-disks-container" class="disk-list">
+              <span class="loading-text">Scanning drives…</span>
+            </div>
+          </section>
+
+          <!-- GPU Card (hidden until detected) -->
+          <section id="gpu-section" class="card card-gpu hidden">
+            <div class="card-header">
+              <span class="card-icon">🎮</span>
+              <div class="card-title">GPU Core</div>
+              <div class="metric-badge" id="gpu-badge">0%</div>
+            </div>
+            <div class="info-row">
+              <span class="label">Name</span>
+              <span class="value glow-cyan" id="gpu-name">—</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-label">Compute</span>
+              <span class="metric-value glow-cyan" id="gpu-util">—</span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill bar-cpu" id="gpu-bar"></div>
+            </div>
+            <div class="metric-row mt-12">
+              <span class="metric-label">VRAM</span>
+              <span class="metric-value glow-magenta" id="gpu-vram">—</span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill bar-disk" id="gpu-vram-bar"></div>
+            </div>
+            <div class="metric-row mt-12">
+              <span class="metric-label">Temperature</span>
+              <span class="metric-value glow-gold" id="gpu-temp">—</span>
+            </div>
+          </section>
+
+          <!-- Temperatures Card (hidden until available) -->
+          <section id="temp-section" class="card card-thermal hidden">
+            <div class="card-header">
+              <span class="card-icon">🌡️</span>
+              <div class="card-title">Thermal Grid</div>
+            </div>
+            <div id="temp-container" class="temp-grid"></div>
+          </section>
+
+          <!-- Network Card -->
+          <section class="card card-network">
+            <div class="card-header">
+              <span class="card-icon">🌐</span>
+              <div class="card-title">Network I/O</div>
+            </div>
+            <div class="net-stats">
+              <div class="net-stat">
+                <span class="net-arrow">▲</span>
+                <div>
+                  <div class="net-label">Sent</div>
+                  <div class="net-value glow-cyan" id="net-sent">—</div>
+                </div>
+              </div>
+              <div class="net-stat">
+                <span class="net-arrow">▼</span>
+                <div>
+                  <div class="net-label">Received</div>
+                  <div class="net-value glow-cyan" id="net-recv">—</div>
+                </div>
+              </div>
+            </div>
+            <div class="net-speed-row">
+              <span class="label">Current Speed</span>
+              <span class="value glow-green" id="net-speed">—</span>
+            </div>
+          </section>
+
+          <!-- Processes Card -->
+          <section class="card card-processes">
+            <div class="card-header">
+              <span class="card-icon">📊</span>
+              <div class="card-title">Top Processes</div>
+            </div>
+            <div id="proc-container">
+              <span class="loading-text">Analyzing processes…</span>
+            </div>
+          </section>
+        </div>
+
+        <!-- Right Column -->
+        <div class="col-right">
+
+          <!-- Optimization Advisor Card -->
+          <section class="card card-optimization">
+            <div class="card-header">
+              <span class="card-icon">⚡</span>
+              <div class="card-title">Optimization Advisor</div>
+            </div>
+            <div id="optimization-alerts">
+              <span class="loading-text">Analyzing system…</span>
+            </div>
+          </section>
+
+          <!-- L1T_GRID Streaming Card -->
+          <section class="card card-streaming" id="streaming">
+            <div class="card-header">
+              <span class="card-icon">🎬</span>
+              <div class="card-title">L1T_GRID Streaming</div>
+              <div class="stream-status-indicator" id="stream-indicator">●</div>
+            </div>
+            <div id="stream-status" class="stream-status-text"></div>
+            <div class="stream-input-group">
+              <input type="text" id="magnet-input" placeholder="Paste magnet link…" class="magnet-input-style" />
+              <button onclick="RD_CONTROLLER.addMagnet(document.getElementById('magnet-input').value)" class="magnet-btn-style">
+                <span class="btn-icon">⚡</span>
+                <span>Add to Queue</span>
+              </button>
+            </div>
+            <div id="torrents-container" class="torrents-container-style">
+              <span class="stream-info-text">Initializing streaming module…</span>
+            </div>
+          </section>
+
+          <!-- Service Health Card -->
+          <section class="card card-health">
+            <div class="card-header">
+              <span class="card-icon">🩺</span>
+              <div class="card-title">Service Health</div>
+            </div>
+            <div id="service-health-grid" class="health-grid">
+              <div class="svc-tile" id="svc-overlord">
+                <span class="svc-dot" id="dot-overlord">●</span>
+                <span class="svc-name">Overlord :8080</span>
+              </div>
+              <div class="svc-tile" id="svc-grid">
+                <span class="svc-dot" id="dot-grid">●</span>
+                <span class="svc-name">THE GRID :3000</span>
+              </div>
+              <div class="svc-tile" id="svc-n8n">
+                <span class="svc-dot" id="dot-n8n">●</span>
+                <span class="svc-name">N8N :5678</span>
+              </div>
+              <div class="svc-tile" id="svc-nextcloud">
+                <span class="svc-dot" id="dot-nextcloud">●</span>
+                <span class="svc-name">Nextcloud :9080</span>
+              </div>
+            </div>
+            <div class="health-footer">
+              Auto-ping every 15s · <span id="health-last-check">—</span>
+            </div>
+          </section>
+
+          <!-- Docker Card -->
+          <section class="card card-docker">
+            <div class="card-header">
+              <span class="card-icon">🐳</span>
+              <div class="card-title">Docker Containers</div>
+            </div>
+            <div id="docker-container-list" class="docker-list">
+              <span class="loading-text">Docker status will appear when available</span>
+            </div>
+          </section>
+
+          <!-- Quick Links Card -->
+          <section class="card card-links">
+            <div class="card-header">
+              <span class="card-icon">🔗</span>
+              <div class="card-title">Quick Links</div>
+            </div>
+            <div class="button-group">
+              <a href="MASTER_DETAIL_BLUEPRINT.html" target="_blank" class="cmd-btn">
+                <span class="btn-icon">📋</span>
+                <span>Blueprint</span>
+              </a>
+              <a href="http://localhost:3000" target="_blank" class="cmd-btn">
+                <span class="btn-icon">⚡</span>
+                <span>THE GRID</span>
+              </a>
+              <a href="http://localhost:5678" target="_blank" class="cmd-btn">
+                <span class="btn-icon">🔗</span>
+                <span>N8N</span>
+              </a>
+              <a href="http://localhost:9080" target="_blank" class="cmd-btn">
+                <span class="btn-icon">☁</span>
+                <span>Nextcloud</span>
+              </a>
+            </div>
+          </section>
+
+          <!-- Command Center Card -->
+          <section class="card card-commands">
+            <div class="card-header">
+              <span class="card-icon">🎮</span>
+              <div class="card-title">Command Center</div>
+            </div>
+            <div class="button-group">
+              <button class="cmd-btn" onclick="refreshStats()">
+                <span class="btn-icon">↺</span>
+                <span>Refresh</span>
+              </button>
+              <button class="cmd-btn" onclick="toggleAutoRefresh()" id="auto-btn">
+                <span class="btn-icon">⏸</span>
+                <span>Pause</span>
+              </button>
+              <button class="cmd-btn" onclick="copyStats(this)">
+                <span class="btn-icon">⎘</span>
+                <span>Copy Stats</span>
+              </button>
+              <button class="cmd-btn hidden" onclick="clearApiKey()" id="key-btn">
+                <span class="btn-icon">🔑</span>
+                <span>Reset Key</span>
+              </button>
+            </div>
+            <div class="hotkeys-hint">
+              Hotkeys: <kbd>R</kbd> Refresh · <kbd>P</kbd> Pause · <kbd>C</kbd> Copy · <kbd>H</kbd> Health
+            </div>
+          </section>
+
+          <!-- Termux Sync Hub Card -->
+          <section class="card card-sync">
+            <div class="card-header">
+              <span class="card-icon">📱</span>
+              <div class="card-title">Termux Sync Hub</div>
+              <span class="sync-secure-badge" id="sync-hub-secure">SECURE</span>
+            </div>
+            <div class="sync-section">
+              <div class="sync-label">RetroArch ROMs</div>
+              <div id="roms-list" class="sync-list">
+                <span class="loading-text">ROMs will appear when server detects them</span>
+              </div>
+            </div>
+            <div class="sync-section">
+              <div class="sync-label">AI Images</div>
+              <div id="ai-images-list" class="sync-list">
+                <span class="loading-text">AI images will appear when available</span>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer-brand">
+          <span class="glow-magenta">◆</span>
+          <span class="glow-cyan">Overlord Grid v4.3.0 + L1T_GRID</span>
+          <span class="glow-magenta">◆</span>
+        </div>
+        <div class="footer-hint" id="last-update">Last update: —</div>
+      </footer>
+    </main>
+
+    <!-- Termux Section -->
+    <section id="termux-section" class="hidden">
+      <div class="shell">
+        <h2>Termux Control</h2>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Terminal</div>
+          </div>
+          <div id="terminal"></div>
+          <input id="terminal-input" placeholder="Enter command...">
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Floating Chat Button ── -->
+    <a href="/ai-chat.html" class="chat-fab" title="Open Overlord AI Assistant">
+      <span class="chat-fab-icon">🤖</span>
+    </a>
+
+    <script src="realdebrid_controller.js"></script>
+        <script type="module" src="/app.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const dashboardTab = document.querySelector(".nav-item[href='#']");
+        const termuxTab = document.querySelectorAll(".nav-item[href='#']")[1];
+        const adbTab = document.querySelectorAll(".nav-item[href='#']")[2];
+        const dashboardSection = document.querySelector(".dashboard-grid");
+        const termuxSection = document.getElementById("termux-section");
+        const adbSection = document.getElementById("adb-section");
+
+        dashboardTab.addEventListener("click", (e) => {
+          e.preventDefault();
+          dashboardSection.classList.remove("hidden");
+          termuxSection.classList.add("hidden");
+          adbSection.classList.add("hidden");
+          dashboardTab.classList.add("active");
+          termuxTab.classList.remove("active");
+          adbTab.classList.remove("active");
+        });
+
+        termuxTab.addEventListener("click", (e) => {
+          e.preventDefault();
+          dashboardSection.classList.add("hidden");
+          termuxSection.classList.remove("hidden");
+          adbSection.classList.add("hidden");
+          dashboardTab.classList.remove("active");
+          termuxTab.classList.add("active");
+          adbTab.classList.remove("active");
+          // Connect to termux when tab is clicked
+          fetch("/api/termux/connect", { method: "POST" });
+        });
+
+        const adbTerminalInput = document.getElementById("adb-terminal-input");
+        const adbTerminal = document.getElementById("adb-terminal");
+        const adbDeviceSelect = document.getElementById("adb-device-select");
+
+        // Function to refresh device list
+        function refreshAdbDevices() {
+          fetch("/api/adb/devices")
+            .then((res) => res.json())
+            .then((data) => {
+              adbDeviceSelect.innerHTML = "";
+              if (data.devices && data.devices.length > 0) {
+                data.devices.forEach((device) => {
+                  const option = document.createElement("option");
+                  option.value = device;
+                  option.textContent = device;
+                  adbDeviceSelect.appendChild(option);
+                });
+                adbTerminal.innerHTML += `Found ${data.devices.length} device(s)\n`;
+              } else {
+                const option = document.createElement("option");
+                option.textContent = "No devices found";
+                adbDeviceSelect.appendChild(option);
+                adbTerminal.innerHTML += `No devices connected\n`;
+              }
+            })
+            .catch(err => {
+              adbTerminal.innerHTML += `Error refreshing devices: ${err}\n`;
+            });
+        }
+
+        // Refresh button
+        document.getElementById("adb-refresh-btn")?.addEventListener("click", refreshAdbDevices);
+
+        // Device info button
+        document.getElementById("adb-info-btn")?.addEventListener("click", () => {
+          const device = adbDeviceSelect.value;
+          if (!device || device === "No devices found") {
+            adbTerminal.innerHTML += `Error: No device selected.\n`;
+            return;
+          }
+          
+          fetch(`/api/adb/device-info?device=${encodeURIComponent(device)}`)
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.error) {
+                adbTerminal.innerHTML += `Error: ${data.error}\n`;
+              } else {
+                adbTerminal.innerHTML += `\n=== Device Info ===\n`;
+                adbTerminal.innerHTML += `Model: ${data.model || 'Unknown'}\n`;
+                adbTerminal.innerHTML += `Android: ${data.android_version || 'Unknown'}\n`;
+                adbTerminal.innerHTML += `SDK: ${data.sdk || 'Unknown'}\n`;
+                if (data.battery) {
+                  adbTerminal.innerHTML += `Battery: ${data.battery.level}% (${data.battery.status})\n`;
+                }
+                adbTerminal.innerHTML += `==================\n\n`;
+              }
+            })
+            .catch(err => {
+              adbTerminal.innerHTML += `Error getting device info: ${err}\n`;
+            });
+        });
+
+        // ADB Tab click handler
+        adbTab.addEventListener("click", (e) => {
+          e.preventDefault();
+          dashboardSection.classList.add("hidden");
+          termuxSection.classList.add("hidden");
+          adbSection.classList.remove("hidden");
+          dashboardTab.classList.remove("active");
+          termuxTab.classList.remove("active");
+          adbTab.classList.add("active");
+          // Populate devices when tab is clicked
+          refreshAdbDevices();
+        });
+
+        adbTerminalInput.addEventListener("keydown", (e) => {
+          if (e.key === "Enter") {
+            const command = adbTerminalInput.value;
+            const serial = adbDeviceSelect.value;
+
+            if (!serial || serial === "No devices found") {
+              adbTerminal.innerHTML += `Error: No device selected.\n`;
+              return;
+            }
+
+            adbTerminalInput.value = "";
+            adbTerminal.innerHTML += `> [${serial}] ${command}\n`;
+            fetch("/api/adb/shell", {
+              method: "POST",
+              body: JSON.stringify({ command, serial }),
+              headers: { "Content-Type": "application/json" },
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                adbTerminal.innerHTML += `${data.output || data.error || 'Unknown error'}\n`;
+                adbTerminal.scrollTop = adbTerminal.scrollHeight;
+              })
+              .catch(err => {
+                adbTerminal.innerHTML += `Fetch error: ${err}\n`;
+              });
+          }
+        });
+      });
+    </script>
+
+
+
+  </body>
+</html>
