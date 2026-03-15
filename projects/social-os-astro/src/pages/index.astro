@@ -1,0 +1,78 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from 'astro-icon';
+---
+
+<Layout>
+  <div class="relative z-10">
+    <!-- Hero Section -->
+    <section class="text-center py-20 px-4 sm:px-6 lg:px-8" data-animate>
+        <div class="inline-block bg-cyan-500/20 text-cyan-300 text-sm font-medium rounded-full px-4 py-1 mb-6">
+            v4.0 ChronoMesh is now live
+        </div>
+      <h1 class="text-4xl md:text-6xl font-extrabold tracking-tighter text-white mb-4 font-display">
+        Temporal Sync for <span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">Infinite Scale.</span>
+      </h1>
+      <p class="max-w-3xl mx-auto text-lg md:text-xl text-gray-300 mb-8">
+        ChronoSync provides the foundational layer for high-frequency trading, real-time simulations, and global temporal infrastructure.
+      </p>
+      <div>
+        <a href="/studio" class="inline-block bg-cyan-500 hover:bg-cyan-600 text-white font-semibold rounded-lg px-6 py-3 transition-colors duration-300 mx-2">
+          Launch Studio &rarr;
+        </a>
+        <a href="/network" class="inline-block bg-gray-700 hover:bg-gray-600 text-white font-semibold rounded-lg px-6 py-3 transition-colors duration-300 mx-2">
+          Monitor Network
+        </a>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Feature Card 1 -->
+        <div class="bg-gray-800/60 backdrop-blur-xl border border-gray-700/50 rounded-xl p-6 shadow-2xl transition-all duration-300 hover:border-blue-500 hover:shadow-blue-500/20 group" data-animate>
+          <div class="flex items-center justify-center h-12 w-12 rounded-full bg-cyan-600/50 mb-4 transition-transform duration-300 group-hover:scale-110">
+            <Icon name="mdi:flash" class="w-6 h-6 text-cyan-300" />
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Nanosecond Precision</h3>
+          <p class="text-gray-400 text-sm">
+            Synchronize global infrastructure with atomic-clock accuracy across regions.
+          </p>
+        </div>
+
+        <!-- Feature Card 2 -->
+        <div class="bg-gray-800/60 backdrop-blur-xl border border-gray-700/50 rounded-xl p-6 shadow-2xl transition-all duration-300 hover:border-blue-500 hover:shadow-blue-500/20 group" data-animate style="animation-delay: 100ms;">
+          <div class="flex items-center justify-center h-12 w-12 rounded-full bg-blue-600/50 mb-4 transition-transform duration-300 group-hover:scale-110">
+            <Icon name="mdi:shield-check-outline" class="w-6 h-6 text-blue-300" />
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Quantum Guard</h3>
+          <p class="text-gray-400 text-sm">
+            Protect your temporal packets with post-quantum encryption standards.
+          </p>
+        </div>
+
+        <!-- Feature Card 3 -->
+        <div class="bg-gray-800/60 backdrop-blur-xl border border-gray-700/50 rounded-xl p-6 shadow-2xl transition-all duration-300 hover:border-blue-500 hover:shadow-blue-500/20 group" data-animate style="animation-delay: 200ms;">
+          <div class="flex items-center justify-center h-12 w-12 rounded-full bg-teal-600/50 mb-4 transition-transform duration-300 group-hover:scale-110">
+            <Icon name="mdi:earth" class="w-6 h-6 text-teal-300" />
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Global Mesh</h3>
+          <p class="text-gray-400 text-sm">
+            Seamlessly connect edge deployments across 50+ sovereign regions.
+          </p>
+        </div>
+
+        <!-- Feature Card 4 -->
+        <div class="bg-gray-800/60 backdrop-blur-xl border border-gray-700/50 rounded-xl p-6 shadow-2xl transition-all duration-300 hover:border-blue-500 hover:shadow-blue-500/20 group" data-animate style="animation-delay: 300ms;">
+          <div class="flex items-center justify-center h-12 w-12 rounded-full bg-indigo-600/50 mb-4 transition-transform duration-300 group-hover:scale-110">
+            <Icon name="mdi:lock-check-outline" class="w-6 h-6 text-indigo-300" />
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Zero Trust Sync</h3>
+          <p class="text-gray-400 text-sm">
+            Authentication baked into every synchronization heartbeat.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>

@@ -1,0 +1,42 @@
+{
+  "name": "compass",
+  "main": "src/index.ts",
+  "engines": {
+    "node": "20 || 22 || 24"
+  },
+  "private": true,
+  "scripts": {
+    "start": "npm run dev",
+    "build": "next build",
+    "build:clean": "rm -rf ./next",
+    "dev": "genkit start --non-interactive -- npx nodemon --ext prompt --watch prompts --exec next dev",
+    "dev:next": "next dev",
+    "dev:genkit": "genkit start -- npx nodemon --ext prompt --watch prompts --exec \"tsx --watch src/index.ts\"",
+    "lint": "echo 'Lint skipped'"
+  },
+  "dependencies": {
+    "@genkit-ai/firebase": "^1.12.0",
+    "@genkit-ai/flow": "^0.5.17",
+    "@genkit-ai/vertexai": "^1.12.0",
+    "clsx": "^2.1.1",
+    "firebase-admin": "^13.6.0",
+    "genkit": "^1.12.0",
+    "next": "^15.3.3",
+    "react": "^18",
+    "react-dom": "^18",
+    "sass": "^1.77.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.3",
+    "genkit-cli": "^1.12.0",
+    "postcss": "^8",
+    "prettier": "^3.3.3",
+    "tailwindcss": "^3.4.6",
+    "typescript": "^5.5.3"
+  }
+}

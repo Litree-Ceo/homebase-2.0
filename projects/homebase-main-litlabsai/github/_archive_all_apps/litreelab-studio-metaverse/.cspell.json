@@ -1,0 +1,19 @@
+{
+  "version": "0.2",
+  "ignorePaths": ["node_modules", "dist", ".next", "out"],
+  "dictionaryDefinitions": [],
+  "dictionaries": [],
+  "words": [
+    "Metaverse",
+    "Drei",
+    "Turbopack",
+    "Firestore",
+    "Toggleable",
+    "Zustand",
+    "Tailwind",
+    "lucide",
+    "clsx",
+    "litreelab",
+    "homebase"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "hostname": "your-sandbox.demandware.net",
+  "username": "your-username",
+  "password": "your-password",
+  "code-version": "your_code_version",
+  "cartridgesPath": "cartridges"
+}

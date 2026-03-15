@@ -1,0 +1,19 @@
+services:
+  agent-zero-enhanced:
+    build: 
+      context: .
+      dockerfile: Dockerfile.enhanced
+    container_name: agent-zero-enhanced
+    environment:
+      - AGENT_ZERO_INTERACTIVE=true
+      - PROJECT_ROOT=/workspace
+    volumes:
+      - ./logs:/app/logs
+      - ./data:/app/data
+      - ../..:/workspace  # Mount the entire workspace
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    working_dir: /workspace
+    command: ["python", "/app/main_enhanced.py"]

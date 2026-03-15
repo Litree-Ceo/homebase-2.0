@@ -1,0 +1,12 @@
+
+
+#Ignore vscode AI rules
+.github\instructions\codacy.instructions.md
+
+# Salesforce Commerce Cloud credentials
+dw.json
+
+# Environment variables and API keys
+.env
+.env.local
+.env*.local

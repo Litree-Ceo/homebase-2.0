@@ -1,0 +1,186 @@
+# System files
+System Volume Information/
+$RECYCLE.BIN/
+Thumbs.db
+ehthumbs.db
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log
+yarn-error.log
+selenium-debug.log
+scripts/model_status.log
+scripts/nohup.out
+
+# Dependencies
+node_modules/
+.pnp.*
+
+# Build outputs
+.next/
+out/
+build/
+dist/
+coverage/
+test/unit/coverage
+test/e2e/reports
+*.tsbuildinfo
+*.eslintcache
+
+# Cache directories
+.turbo/
+.cache/
+.parcel-cache/
+.pytest_cache/
+.mypy_cache/
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+*.bak
+*.old
+*.orig
+# *.lock - Removed to ensure pnpm-lock.yaml is tracked
+tmp/
+temp/
+.tmp/
+.temp/
+
+# Environment variables - CRITICAL: Never commit secrets!
+.env
+.env.local
+.env.*.local
+.env.production
+*.env
+.secrets.env
+!.env.example
+!.env.*.example
+
+# GCP/Cloud Credentials - NEVER COMMIT
+gcp-github-key.json
+gcp-key-base64.txt
+gcp-key.b64
+gcp-secret.txt
+setup_gcp.py
+setup-gcp.bat
+google-cloud-key.json
+*-gcp-*.json
+*-gcp-*.txt
+
+# SFCC/Prophet configuration (contains credentials)
+dw.json
+
+# Azure
+local.settings.json
+__blobstorage__/
+__queuestorage__/
+__azurite_db*.json
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+*.eggs/
+*.tox/
+*.coverage
+*.cover
+*.py,cover
+
+# IDE
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.code-workspace
+*.sublime-workspace
+*.sublime-project
+*.iml
+*.ipr
+*.iws
+.history/
+
+# Package managers
+yarn.lock
+package-lock.json
+.npmrc
+.yarnrc
+
+# Deployment
+.vercel/
+.firebase/
+.output/
+.expo/
+.expo-shared/
+
+# Database
+*.sqlite
+*.sqlite3
+*.db
+*.db3
+
+# Compiled files
+*.class
+*.jar
+*.war
+*.ear
+
+# Misc
+*.pid
+*.seed
+*.mo
+*.pot
+*.po
+*.csv
+*.xls
+*.xlsx
+logs/
+clicks/
+client/output/
+sock/
+pids/
+basic.zip
+phrase.zip
+data/
+*bak*
+compile/
+output/
+templates_c/
+*~
+
+# Large assets (Git LFS) - Commented out to ensure UI assets are tracked
+# *.psd
+# *.zip
+# *.mp4
+# *.mov
+# *.png
+# *.jpg
+# *.jpeg
+# *.gif
+# *.webp
+# *.wav
+# *.mp3
+# *.ogg
+# *.flac
+# *.ico
+# *.pdf
+# *.ai
+# *.sketch
+# *.fig
+# *.xcf
+# *.blend
+# *.fbx
+# *.glb
+# *.gltf
+# *.ttf
+# *.otf
+# *.woff
+# *.woff2
+# *.eot

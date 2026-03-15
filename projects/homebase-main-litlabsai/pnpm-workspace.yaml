@@ -1,0 +1,6 @@
+packages:
+  - 'github'
+  - 'github/apps/website-project/frontend-new'
+  - 'github/api'
+  - 'github/apps/*'
+  - 'github/packages/*'

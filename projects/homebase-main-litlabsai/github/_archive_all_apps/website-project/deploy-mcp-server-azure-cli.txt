@@ -1,0 +1,10 @@
+// AI Platform Baseline Bicep deployment
+// See: https://github.com/Azure/bicep-registry-modules/tree/avm/ptn/ai-platform/baseline/0.7.1/avm/ptn/ai-platform/baseline
+
+az deployment group create \
+  --resource-group litreelabstudio-rg \
+  --template-uri "https://bicepregistry.azurecr.io/bicep/avm/ptn/ai-platform/baseline:0.7.1" \
+  --parameters @ai-platform-baseline.parameters.json
+
+// Replace <YOUR-USER-OBJECT-ID> in the parameters file with your Azure AD user object ID.
+// You can get your object ID with: az ad signed-in-user show --query objectId -o tsv

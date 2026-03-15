@@ -1,0 +1,44 @@
+---
+const { user } = Astro.props;
+---
+
+<div>
+  {user ? (
+    <button id="sign-out-btn" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl">
+      Sign Out
+    </button>
+  ) : (
+    <button id="sign-in-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl">
+      Sign in with Google
+    </button>
+  )}
+</div>
+
+<script>
+  import { GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
+  import { auth } from "../firebase";
+
+  const handleSignIn = () => {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider).then(() => {
+      window.location.reload(); // Reload to update user state
+    });
+  };
+
+  const handleSignOut = () => {
+    signOut(auth).then(() => {
+      window.location.reload(); // Reload to update user state
+    });
+  };
+
+  const signInBtn = document.getElementById('sign-in-btn');
+  const signOutBtn = document.getElementById('sign-out-btn');
+
+  if (signInBtn) {
+    signInBtn.addEventListener('click', handleSignIn);
+  }
+
+  if (signOutBtn) {
+    signOutBtn.addEventListener('click', handleSignOut);
+  }
+</script>

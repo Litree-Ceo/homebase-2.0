@@ -1,0 +1,11 @@
+openai
+anthropic
+python-dotenv
+requests
+termcolor
+google-generativeai
+fastapi
+uvicorn[standard]
+python-multipart
+pydantic
+websockets

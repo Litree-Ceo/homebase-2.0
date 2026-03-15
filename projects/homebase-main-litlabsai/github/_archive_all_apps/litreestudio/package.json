@@ -1,0 +1,34 @@
+{
+  "name": "@homebase/litreestudio-root",
+  "version": "1.0.0",
+  "description": "LiTree Studio - Full-Stack Azure App",
+  "scripts": {
+    "install:all": "pnpm install",
+    "build": "cd app && npm run build",
+    "dev": "npm run dev --prefix app",
+    "api:start": "npm start --prefix api",
+    "api:install": "npm install --prefix api",
+    "app:build": "npm run build --prefix app",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "test:app": "cd app && npm run test",
+    "lint": "echo 'Lint skipped'",
+    "lint:fix": "echo 'Lint skipped'",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "type-check": "tsc --noEmit",
+    "start:all": "concurrently \"npm run dev\" \"npm run api:start\"",
+    "clean": "rimraf dist app/dist .vite .eslintcache"
+  },
+  "keywords": ["azure", "static-web-apps", "functions"],
+  "author": "LiTree89",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.0.0",
+    "eslint": "^9.21.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "prettier": "^3.2.0",
+    "rimraf": "^5.0.0"
+  }
+}

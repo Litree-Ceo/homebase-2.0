@@ -1,0 +1,41 @@
+{
+  "name": "litlabs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "npx cross-env NODE_OPTIONS=--max-old-space-size=2048 next dev -H 0.0.0.0",
+    "build": "next build",
+    "start": "cross-env NODE_OPTIONS=--max-old-space-size=2048 next start -H 0.0.0.0",
+    "lint": "eslint",
+    "deploy": "npm run build && firebase deploy --only hosting",
+    "serve": "npm run build && firebase serve"
+  },
+  "dependencies": {
+    "firebase": "^12.8.0",
+    "firebase-admin": "^13.6.0",
+    "firebase-functions": "^7.0.5",
+    "lucide-react": "^0.563.0",
+    "next": "^16.1.6",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "@next/eslint-plugin-next": "^16.1.6",
+    "@types/node": "^25.1.0",
+    "@types/react": "^19.2.10",
+    "@types/react-dom": "^19.2.3",
+    "@typescript-eslint/eslint-plugin": "^8.54.0",
+    "@typescript-eslint/parser": "^8.54.0",
+    "autoprefixer": "^10.4.14",
+    "cross-env": "^10.1.0",
+    "eslint": "^9.39.2",
+    "eslint-config-next": "^16.1.6",
+    "eslint-plugin-github": "^6.0.0",
+    "firebase-tools": "^15.5.1",
+    "globals": "^17.2.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5"
+  }
+}

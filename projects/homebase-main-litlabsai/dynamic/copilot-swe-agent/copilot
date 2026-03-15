@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          lfs: true
+
+      - name: Install Git LFS
+        run: git lfs install
+
+      - name: Clean workspace
+        run: rm -rf /home/runner/work/homebase-main/homebase-main
+
+      # Add your manual git clone steps here, ensuring there are no redundant clones

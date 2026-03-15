@@ -1,0 +1,51 @@
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "excludedTypes": "Request"
+      },
+      "enableLiveMetricsFilters": true
+    },
+    "logLevel": {
+      "default": "Information",
+      "Host.Results": "Error",
+      "Function": "Information",
+      "Host.Aggregator": "Trace"
+    }
+  },
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[4.*, 5.0.0)"
+  },
+  "extensions": {
+    "http": {
+      "routePrefix": "api",
+      "maxOutstandingRequests": 200,
+      "maxConcurrentRequests": 100,
+      "dynamicThrottlesEnabled": true
+    },
+    "cosmosDB": {
+      "connectionMode": "Direct"
+    }
+  },
+  "functionTimeout": "00:05:00",
+  "fileWatchingEnabled": false,
+  "watchDirectories": ["src"],
+  "watchFiles": ["host.json", "local.settings.json"],
+  "watchDirectoriesExcluded": [
+    "node_modules",
+    "dist",
+    "build",
+    ".venv",
+    "__pycache__",
+    "test",
+    "tests",
+    ".git",
+    ".next",
+    "coverage",
+    "out"
+  ],
+  "fileWatcherIgnorePatterns": ["**/node_modules/**", "**/.next/**", "**/dist/**", "**/.git/**"]
+}

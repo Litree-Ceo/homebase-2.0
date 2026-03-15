@@ -1,0 +1,46 @@
+:root {
+  --terminal-bg: #1a1b26;
+  --terminal-fg: #a9b1d6;
+  --terminal-cursor: #ff9e64;
+  --terminal-selection: #414868;
+  --terminal-black: #24283b;
+  --terminal-red: #f7768e;
+  --terminal-green: #9ece6a;
+  --terminal-yellow: #e0af68;
+  --terminal-blue: #7aa2f7;
+  --terminal-magenta: #bb9af7;
+  --terminal-cyan: #7dcfff;
+  --terminal-white: #c0caf5;
+}
+
+.terminal-container {
+  background-color: var(--terminal-bg);
+  color: var(--terminal-fg);
+  font-family: 'Fira Code', monospace;
+}
+
+.terminal-cursor {
+  background-color: var(--terminal-cursor);
+}
+
+.terminal-selection {
+  background-color: var(--terminal-selection);
+}
+
+.xterm-viewport {
+  scrollbar-color: var(--terminal-blue) var(--terminal-bg);
+}
+
+.xterm-viewport::-webkit-scrollbar {
+  width: 10px;
+}
+
+.xterm-viewport::-webkit-scrollbar-track {
+  background: var(--terminal-bg);
+}
+
+.xterm-viewport::-webkit-scrollbar-thumb {
+  background-color: var(--terminal-blue);
+  border-radius: 20px;
+  border: 3px solid var(--terminal-bg);
+}

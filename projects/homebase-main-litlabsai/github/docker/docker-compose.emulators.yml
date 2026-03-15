@@ -1,0 +1,130 @@
+# Docker Compose for LITLABS Local Development Emulators
+# Run: docker-compose -f docker/docker-compose.emulators.yml up -d
+
+version: '3.8'
+
+services:
+  # ==============================================================================
+  # Azure Cosmos DB Emulator
+  # ==============================================================================
+  cosmos-emulator:
+    image: mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest
+    container_name: litlabs-cosmos-emulator
+    hostname: cosmos-emulator
+    ports:
+      - "8081:8081"
+      - "10251:10251"
+      - "10252:10252"
+      - "10253:10253"
+      - "10254:10254"
+    environment:
+      - AZURE_COSMOS_EMULATOR_PARTITION_COUNT=10
+      - AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE=true
+      - AZURE_COSMOS_EMULATOR_IP_ADDRESS_OVERRIDE=127.0.0.1
+    volumes:
+      - cosmos-data:/tmp/cosmos
+    healthcheck:
+      test: ["CMD", "curl", "-f", "-k", "https://localhost:8081/_explorer/emulator.pem"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    networks:
+      - litlabs-net
+
+  # ==============================================================================
+  # Azurite (Storage Emulator)
+  # ==============================================================================
+  azurite:
+    image: mcr.microsoft.com/azure-storage/azurite:latest
+    container_name: litlabs-azurite
+    hostname: azurite
+    ports:
+      - "10000:10000"  # Blob
+      - "10001:10001"  # Queue
+      - "10002:10002"  # Table
+    command: "azurite --blobHost 0.0.0.0 --queueHost 0.0.0.0 --tableHost 0.0.0.0 --loose --skipApiVersionCheck"
+    volumes:
+      - azurite-data:/data
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "10000"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    networks:
+      - litlabs-net
+
+  # ==============================================================================
+  # Redis (for caching/sessions)
+  # ==============================================================================
+  redis:
+    image: redis:7-alpine
+    container_name: litlabs-redis
+    hostname: redis
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    networks:
+      - litlabs-net
+
+  # ==============================================================================
+  # MySQL 8.4 (works with MySQL/MariaDB/TiDB wire protocol)
+  # ==============================================================================
+  mysql:
+    image: mysql:8.4
+    container_name: litlabs-mysql
+    hostname: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: localdevroot
+      MYSQL_DATABASE: homebase
+      MYSQL_USER: homebase_app
+      MYSQL_PASSWORD: homebase_app_pw
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    command: >
+      mysqld
+      --default-authentication-plugin=mysql_native_password
+      --max-connections=100
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-plocaldevroot"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - litlabs-net
+
+  # ==============================================================================
+  # MailHog (Email testing)
+  # ==============================================================================
+  mailhog:
+    image: mailhog/mailhog:latest
+    container_name: litlabs-mailhog
+    hostname: mailhog
+    ports:
+      - "1025:1025"  # SMTP
+      - "8025:8025"  # Web UI
+    networks:
+      - litlabs-net
+
+volumes:
+  cosmos-data:
+    driver: local
+  azurite-data:
+    driver: local
+  redis-data:
+    driver: local
+  mysql-data:
+    driver: local
+
+networks:
+  litlabs-net:
+    driver: bridge
+    name: litlabs-network

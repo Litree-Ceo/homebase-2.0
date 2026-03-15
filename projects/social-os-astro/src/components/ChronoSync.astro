@@ -1,0 +1,25 @@
+---
+const timestamp = "January 31, 2026 - 2:10AM";
+---
+
+<div class="chrono-sync text-center text-lg md:text-xl font-mono tracking-widest py-2 px-4 fixed top-4 right-4 z-50">
+  <span class="text-cyan-400 glow">{timestamp}</span>
+</div>
+
+<style>
+  .chrono-sync {
+    background-color: rgba(10, 11, 30, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 0.5rem;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+  }
+
+  @keyframes glow {
+    0%, 100% { text-shadow: 0 0 5px rgba(0, 255, 255, 0.7), 0 0 10px rgba(0, 255, 255, 0.5); }
+    50% { text-shadow: 0 0 10px rgba(0, 255, 255, 1), 0 0 20px rgba(0, 255, 255, 0.7); }
+  }
+
+  .glow {
+    animation: glow 3s ease-in-out infinite;
+  }
+</style>

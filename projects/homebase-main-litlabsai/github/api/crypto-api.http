@@ -1,0 +1,183 @@
+### HomeBase Crypto Bot API - REST Client Tests
+### Use VS Code REST Client extension (humao.rest-client)
+### Ctrl+Alt+R to run request | Ctrl+Alt+E to switch environment
+
+@baseUrl = http://localhost:7071/api
+@coingeckoUrl = https://api.coingecko.com/api/v3
+
+# ─────────────────────────────────────────────────────────────────
+# Health Check
+# ─────────────────────────────────────────────────────────────────
+
+### Health endpoint
+GET {{baseUrl}}/health HTTP/1.1
+
+# ─────────────────────────────────────────────────────────────────
+# Crypto Price API (Local Azure Function)
+# ─────────────────────────────────────────────────────────────────
+
+### Get default prices (BTC, ETH, SOL)
+GET {{baseUrl}}/crypto HTTP/1.1
+
+### Get specific coins
+GET {{baseUrl}}/crypto?ids=bitcoin,ethereum,cardano,solana,dogecoin HTTP/1.1
+
+### Get prices in multiple currencies
+GET {{baseUrl}}/crypto?ids=bitcoin&vs_currencies=usd,eur,gbp HTTP/1.1
+
+### Get minimal response (no market cap/24h change)
+GET {{baseUrl}}/crypto?ids=bitcoin,ethereum&include_market_cap=false&include_24hr_change=false HTTP/1.1
+
+# ─────────────────────────────────────────────────────────────────
+# Direct CoinGecko API (for comparison/reference)
+# ─────────────────────────────────────────────────────────────────
+
+### CoinGecko Ping (test API availability)
+GET {{coingeckoUrl}}/ping HTTP/1.1
+
+### CoinGecko - Simple Price
+GET {{coingeckoUrl}}/simple/price?ids=bitcoin,ethereum&vs_currencies=usd HTTP/1.1
+
+### CoinGecko - Trending coins (great for discovery)
+GET {{coingeckoUrl}}/search/trending HTTP/1.1
+
+### CoinGecko - Top 10 by market cap
+GET {{coingeckoUrl}}/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1 HTTP/1.1
+
+### CoinGecko - Bitcoin detailed info
+GET {{coingeckoUrl}}/coins/bitcoin HTTP/1.1
+Accept: application/json
+
+### CoinGecko - Historical chart data (7 days)
+GET {{coingeckoUrl}}/coins/bitcoin/market_chart?vs_currency=usd&days=7 HTTP/1.1
+
+### CoinGecko - OHLC candle data (1 day)
+GET {{coingeckoUrl}}/coins/bitcoin/ohlc?vs_currency=usd&days=1 HTTP/1.1
+
+# ─────────────────────────────────────────────────────────────────
+# Staking & DeFi Research Endpoints
+# ─────────────────────────────────────────────────────────────────
+
+### CoinGecko - Global DeFi data
+GET {{coingeckoUrl}}/global/decentralized_finance_defi HTTP/1.1
+
+### CoinGecko - Exchange rates for staking calc
+GET {{coingeckoUrl}}/exchange_rates HTTP/1.1
+
+# ─────────────────────────────────────────────────────────────────
+# Meme Coins & High-Volatility Tracking
+# ─────────────────────────────────────────────────────────────────
+
+### Popular meme coins
+GET {{coingeckoUrl}}/simple/price?ids=dogecoin,shiba-inu,pepe,floki,bonk&vs_currencies=usd&include_24hr_change=true HTTP/1.1
+
+### Coins with highest 24h gains (requires Pro API)
+# GET {{coingeckoUrl}}/coins/markets?vs_currency=usd&order=percent_change_24h_desc&per_page=10 HTTP/1.1
+
+# ─────────────────────────────────────────────────────────────────
+# Testing Rate Limits & Error Handling
+# ─────────────────────────────────────────────────────────────────
+
+### Invalid coin ID (should return empty object)
+GET {{coingeckoUrl}}/simple/price?ids=fake-coin-xyz&vs_currencies=usd HTTP/1.1
+
+### Test caching - Run twice quickly (second should be cached)
+GET {{baseUrl}}/crypto?ids=bitcoin HTTP/1.1
+
+# ─────────────────────────────────────────────────────────────────
+# 🤖 AUTONOMOUS BOT SYSTEM API
+# ─────────────────────────────────────────────────────────────────
+
+### List all bots and their status
+GET {{baseUrl}}/bots HTTP/1.1
+
+### Get market overview (majors, gainers, losers, trending)
+GET {{baseUrl}}/bots/market HTTP/1.1
+
+### Get recent signals from bot runs
+GET {{baseUrl}}/bots/signals HTTP/1.1
+
+### Get signals filtered by coin
+GET {{baseUrl}}/bots/signals?coin=bitcoin&limit=10 HTTP/1.1
+
+### Get technical analysis for Bitcoin
+GET {{baseUrl}}/bots/analysis/bitcoin HTTP/1.1
+
+### Get technical analysis for Ethereum
+GET {{baseUrl}}/bots/analysis/ethereum HTTP/1.1
+
+### Get technical analysis for Solana
+GET {{baseUrl}}/bots/analysis/solana HTTP/1.1
+
+# ─────────────────────────────────────────────────────────────────
+# 🚀 Manual Bot Triggers (Run strategies on-demand)
+# ─────────────────────────────────────────────────────────────────
+
+### Run Price Alert strategy
+POST {{baseUrl}}/bots/run/price-alert HTTP/1.1
+Content-Type: application/json
+
+{
+  "coins": ["bitcoin", "ethereum", "solana", "cardano", "dogecoin"]
+}
+
+### Run Opportunity Detector
+POST {{baseUrl}}/bots/run/opportunity HTTP/1.1
+Content-Type: application/json
+
+{
+  "coins": ["bitcoin", "ethereum", "solana", "avalanche-2", "polkadot"]
+}
+
+### Run SMA Crossover analysis
+POST {{baseUrl}}/bots/run/sma HTTP/1.1
+Content-Type: application/json
+
+{
+  "coins": ["bitcoin", "ethereum", "solana"]
+}
+
+### Run Arbitrage Scanner for Bitcoin
+POST {{baseUrl}}/bots/run/arbitrage HTTP/1.1
+Content-Type: application/json
+
+{
+  "coins": ["bitcoin"]
+}
+
+### Run Arbitrage Scanner for Ethereum
+POST {{baseUrl}}/bots/run/arbitrage HTTP/1.1
+Content-Type: application/json
+
+{
+  "coins": ["ethereum"]
+}
+
+# ─────────────────────────────────────────────────────────────────
+# 📊 Full Analysis Workflow
+# ─────────────────────────────────────────────────────────────────
+
+### Step 1: Get market overview
+GET {{baseUrl}}/bots/market HTTP/1.1
+
+### Step 2: Run opportunity detector on top coins
+POST {{baseUrl}}/bots/run/opportunity HTTP/1.1
+Content-Type: application/json
+
+{
+  "coins": ["bitcoin", "ethereum", "solana", "cardano", "avalanche-2"]
+}
+
+### Step 3: Get detailed analysis on promising coin
+GET {{baseUrl}}/bots/analysis/bitcoin HTTP/1.1
+
+### Step 4: Check for arbitrage opportunity
+POST {{baseUrl}}/bots/run/arbitrage HTTP/1.1
+Content-Type: application/json
+
+{
+  "coins": ["bitcoin"]
+}
+
+### Step 5: Review all signals
+GET {{baseUrl}}/bots/signals HTTP/1.1

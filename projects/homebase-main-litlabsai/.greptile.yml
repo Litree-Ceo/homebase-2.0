@@ -1,0 +1,67 @@
+# Greptile Configuration for HomeBase 2.0
+name: homebase-2.0
+description: Production-grade development platform with AI integration
+
+# Repository settings
+repository:
+  type: monorepo
+  workspaces:
+    - github/
+    - litlabs/
+    - website-project/
+
+# Review configuration
+review:
+  enabled: true
+  auto_review: true
+  severity_threshold: medium
+  
+  # What to review
+  include:
+    - "**/*.ts"
+    - "**/*.tsx" 
+    - "**/*.js"
+    - "**/*.jsx"
+    - "**/*.py"
+    - "**/*.ps1"
+    - "**/*.json"
+    - "**/*.yml"
+    - "**/*.yaml"
+  
+  exclude:
+    - "**/node_modules/**"
+    - "**/dist/**"
+    - "**/.next/**"
+    - "**/build/**"
+    - "**/.turbo/**"
+    - "**/coverage/**"
+
+# PR Summary settings
+pr_summary:
+  enabled: true
+  include_diagrams: true
+  confidence_scores: true
+
+# Triggers
+triggers:
+  branches:
+    - main
+    - develop
+    - feature/*
+  
+  labels:
+    include:
+      - needs-review
+      - ready-for-review
+  
+  exclude_authors:
+    - dependabot[bot]
+    - renovate[bot]
+
+# Comment behavior
+comments:
+  logic_issues: true
+  syntax_issues: true
+  style_issues: false
+  security_issues: true
+  performance_issues: true

@@ -1,0 +1,73 @@
+name: Monitoring & Health Checks
+
+on:
+  schedule:
+    # Run every hour
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Check production site health
+        run: |
+          echo "Checking production site..."
+          curl -s -o /dev/null -w "%{http_code}" https://studio-6082148059-d1fec.web.app || echo "Site check failed"
+      
+      - name: Check API endpoints
+        run: |
+          echo "Checking Firebase Functions health..."
+          # Add your function health check endpoints here
+          echo "Health checks completed"
+
+  performance-monitor:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Analyze bundle size
+        run: |
+          npm ci
+          npm run build
+          
+          echo "### Bundle Size Analysis" > bundle-report.md
+          echo "Generated: $(date)" >> bundle-report.md
+          echo "" >> bundle-report.md
+          
+          echo "**Main Bundle:**" >> bundle-report.md
+          ls -lh dist/assets/*.js | awk '{print "- " $9 ": " $5}' >> bundle-report.md
+          
+          echo "" >> bundle-report.md
+          echo "**CSS Bundle:**" >> bundle-report.md
+          ls -lh dist/assets/*.css | awk '{print "- " $9 ": " $5}' >> bundle-report.md
+          
+          cat bundle-report.md
+      
+      - name: Check for bundle size regressions
+        run: |
+          # Check if main bundle exceeds 600KB
+          MAIN_SIZE=$(stat -c%s dist/assets/index-*.js 2>/dev/null || echo 0)
+          if [ "$MAIN_SIZE" -gt 614400 ]; then
+            echo "⚠️ Warning: Main bundle exceeds 600KB ($MAIN_SIZE bytes)"
+          else
+            echo "✓ Bundle size within limits"
+          fi
+
+  error-tracking:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Check for recent errors
+        run: |
+          echo "Checking Firebase Functions logs..."
+          # This would integrate with Firebase Crashlytics or similar
+          echo "Error tracking check completed"

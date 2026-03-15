@@ -1,0 +1,18 @@
+name: Greptile Code Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [main, develop]
+
+jobs:
+  greptile-review:
+    runs-on: ubuntu-latest
+    if: github.actor != 'dependabot[bot]'
+    
+    steps:
+      - name: Trigger Greptile Review
+        uses: greptileai/greptile-action@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          greptile-token: ${{ secrets.GREPTILE_TOKEN }}

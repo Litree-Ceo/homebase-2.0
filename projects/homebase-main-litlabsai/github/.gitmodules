@@ -1,0 +1,6 @@
+[submodule "EverythingHomebase"]
+	path = EverythingHomebase
+	url = https://github.com/LiTree89/EverythingHomebase.git
+[submodule "workspace"]
+	path = workspace
+	url = https://github.com/LiTree89/EverythingHomebase.git

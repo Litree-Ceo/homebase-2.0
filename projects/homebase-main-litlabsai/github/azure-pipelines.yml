@@ -1,0 +1,118 @@
+trigger:
+  branches:
+    include:
+      - main
+
+pr: none
+
+variables:
+  - group: homebase-secrets
+  - name: AZURE_SERVICE_CONNECTION
+    value: 'homebase-azure-connection'
+  - name: ACR_NAME
+    value: 'homebasecontainers'
+  - name: ACR_LOGIN_SERVER
+    value: '$(ACR_NAME).azurecr.io'
+  - name: RESOURCE_GROUP
+    value: 'homebase-rg'
+  - name: CONTAINERAPPS_ENV
+    value: 'homebase-env'
+  - name: LOCATION
+    value: 'eastus'
+  - name: IMAGE_PREFIX
+    value: 'homebase'
+  - name: WEB_APP_NAME
+    value: 'homebase-web'
+  - name: API_APP_NAME
+    value: 'homebase-api'
+  - name: WEB_PORT
+    value: '3000'
+  - name: API_PORT
+    value: '5001'
+  - name: API_URL
+    value: 'https://homebase-api.xyz.azurecontainerapps.io'
+
+stages:
+  - stage: Deploy
+    displayName: Build and Deploy
+    jobs:
+      - job: BuildAndDeploy
+        displayName: Build and deploy Container Apps
+        pool:
+          vmImage: 'ubuntu-latest'
+        steps:
+          - checkout: self
+
+          - task: AzureCLI@2
+            displayName: Build images and deploy to Container Apps
+            inputs:
+              azureSubscription: '$(AZURE_SERVICE_CONNECTION)'
+              scriptType: bash
+              scriptLocation: inlineScript
+              inlineScript: |
+                set -euo pipefail
+
+                az config set extension.use_dynamic_install=yes_without_prompt
+
+                az acr build \
+                  --registry $(ACR_NAME) \
+                  --image $(IMAGE_PREFIX)-web:latest \
+                  --image $(IMAGE_PREFIX)-web:$(Build.SourceVersion) \
+                  --file apps/web/Dockerfile \
+                  .
+
+                az acr build \
+                  --registry $(ACR_NAME) \
+                  --image $(IMAGE_PREFIX)-api:latest \
+                  --image $(IMAGE_PREFIX)-api:$(Build.SourceVersion) \
+                  --file api/Dockerfile \
+                  .
+
+                if az containerapp show --name $(WEB_APP_NAME) --resource-group $(RESOURCE_GROUP) >/dev/null 2>&1; then
+                  az containerapp update \
+                    --name $(WEB_APP_NAME) \
+                    --resource-group $(RESOURCE_GROUP) \
+                    --image $(ACR_LOGIN_SERVER)/$(IMAGE_PREFIX)-web:latest
+                else
+                  az containerapp create \
+                    --name $(WEB_APP_NAME) \
+                    --resource-group $(RESOURCE_GROUP) \
+                    --environment $(CONTAINERAPPS_ENV) \
+                    --image $(ACR_LOGIN_SERVER)/$(IMAGE_PREFIX)-web:latest \
+                    --target-port $(WEB_PORT) \
+                    --ingress external \
+                    --cpu 0.5 \
+                    --memory 1Gi \
+                    --registry-server $(ACR_LOGIN_SERVER) \
+                    --registry-username $(REGISTRY_USERNAME) \
+                    --registry-password $(REGISTRY_PASSWORD) \
+                    --env-vars API_URL=$(API_URL)
+                fi
+
+                if az containerapp show --name $(API_APP_NAME) --resource-group $(RESOURCE_GROUP) >/dev/null 2>&1; then
+                  az containerapp update \
+                    --name $(API_APP_NAME) \
+                    --resource-group $(RESOURCE_GROUP) \
+                    --image $(ACR_LOGIN_SERVER)/$(IMAGE_PREFIX)-api:latest
+                else
+                  az containerapp create \
+                    --name $(API_APP_NAME) \
+                    --resource-group $(RESOURCE_GROUP) \
+                    --environment $(CONTAINERAPPS_ENV) \
+                    --image $(ACR_LOGIN_SERVER)/$(IMAGE_PREFIX)-api:latest \
+                    --target-port $(API_PORT) \
+                    --ingress internal \
+                    --cpu 0.5 \
+                    --memory 1Gi \
+                    --registry-server $(ACR_LOGIN_SERVER) \
+                    --registry-username $(REGISTRY_USERNAME) \
+                    --registry-password $(REGISTRY_PASSWORD) \
+                    --env-vars NODE_ENV=production PORT=$(API_PORT)
+                fi
+
+                WEB_URL=$(az containerapp show \
+                  --name $(WEB_APP_NAME) \
+                  --resource-group $(RESOURCE_GROUP) \
+                  --query properties.configuration.ingress.fqdn \
+                  -o tsv)
+                echo "Web URL: https://$WEB_URL"

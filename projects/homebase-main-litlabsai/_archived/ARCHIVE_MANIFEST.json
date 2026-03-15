@@ -1,0 +1,19 @@
+﻿{
+    "projects":  [
+                     {
+                         "archived_path":  "_archived/website-project",
+                         "name":  "website-project",
+                         "description":  "LitLabStudio Frontend (experimental)",
+                         "type":  "Vite React App",
+                         "original_path":  "website-project"
+                     }
+                 ],
+    "archived_date":  "2026-02-03 19:25:50",
+    "duplicates_removed":  [
+                               {
+                                   "path":  "github/apps/litlabs-web",
+                                   "name":  "litlabs-web",
+                                   "reason":  "Duplicate of root litlabs/"
+                               }
+                           ]
+}

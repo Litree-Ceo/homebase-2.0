@@ -1,0 +1,32 @@
+{
+    "name": "homebase-2.0-root",
+    "version": "1.0.0",
+    "private": true,
+    "packageManager": "pnpm@9.15.4",
+    "engines": {
+        "node": ">=20.0.0",
+        "pnpm": ">=9.0.0"
+    },
+    "scripts": {
+        "build": "pnpm build:web",
+        "build:web": "pnpm --filter @homebase/web build",
+        "start": "pnpm --filter @homebase/web start",
+        "lint": "pnpm exec turbo run lint",
+        "dev": "pnpm exec turbo run dev --concurrency=20",
+        "clean:locks": "pnpm -r exec rimraf pnpm-lock.yaml && pnpm install",
+        "clean": "pnpm -r exec npx rimraf dist .next node_modules"
+    },
+    "devDependencies": {
+        "@types/node": "^22.13.1",
+        "rimraf": "^6.0.1",
+        "source-map-js": "^1.2.1",
+        "turbo": "^2.8.1",
+        "typescript": "^5.9.3"
+    },
+    "pnpm": {
+        "overrides": {
+            "react": "18.3.1",
+            "react-dom": "18.3.1"
+        }
+    }
+}

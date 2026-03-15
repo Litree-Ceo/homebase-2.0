@@ -1,0 +1,74 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from 'astro-icon';
+import DeployLog from '../components/DeployLog.jsx';
+---
+
+<Layout>
+  <div class="relative z-10">
+    <!-- Hero Section -->
+    <section class="text-center py-20 px-4 sm:px-6 lg:px-8">
+      <div class="absolute inset-0 -z-10 overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-600/30 rounded-full blur-3xl opacity-50"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/4 -translate-y-1/4 w-72 h-72 bg-indigo-600/30 rounded-full blur-3xl opacity-40"></div>
+      </div>
+      <h1 class="text-4xl md:text-6xl font-extrabold tracking-tighter text-white mb-4 font-display">
+        LitLabs <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-500">Studio</span>
+      </h1>
+      <p class="max-w-2xl mx-auto text-lg md:text-xl text-gray-300">
+        The creative core of the OS. Develop, test, and deploy decentralized applications and AI models with a powerful suite of tools.
+      </p>
+      <button id="deploy-button" class="mt-8 px-6 py-2 bg-blue-600 text-white rounded-lg">Deploy</button>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div id="log-container" class="hidden">
+        <DeployLog client:load />
+      </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Tool Card 1 -->
+        <div class="bg-gray-800/60 backdrop-blur-xl border border-gray-700/50 rounded-xl p-6 shadow-2xl transition-all duration-300 hover:border-blue-500/80">
+          <div class="flex items-center justify-center h-12 w-12 rounded-full bg-blue-600/50 mb-4">
+            <Icon name="mdi:code-braces" class="w-6 h-6 text-blue-300" />
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">dApp IDE</h3>
+          <p class="text-gray-400 text-sm">
+            A web-based IDE for building and debugging decentralized applications. Includes syntax highlighting, and version control.
+          </p>
+        </div>
+
+        <!-- Tool Card 2 -->
+        <div class="bg-gray-800/60 backdrop-blur-xl border border-gray-700/50 rounded-xl p-6 shadow-2xl transition-all duration-300 hover:border-indigo-500/80">
+          <div class="flex items-center justify-center h-12 w-12 rounded-full bg-indigo-600/50 mb-4">
+            <Icon name="mdi:robot" class="w-6 h-6 text-indigo-300" />
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">AI Model Trainer</h3>
+          <p class="text-gray-400 text-sm">
+            Train and fine-tune your own AI models. Use our pre-built models or upload your own and train them on your data.
+          </p>
+        </div>
+
+        <!-- Tool Card 3 -->
+        <div class="bg-gray-800/60 backdrop-blur-xl border border-gray-700/50 rounded-xl p-6 shadow-2xl transition-all duration-300 hover:border-teal-500/80">
+          <div class="flex items-center justify-center h-12 w-12 rounded-full bg-teal-600/50 mb-4">
+            <Icon name="mdi:rocket-launch-outline" class="w-6 h-6 text-teal-300" />
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Deployment Pipeline</h3>
+          <p class="text-gray-400 text-sm">
+            A continuous integration and deployment pipeline for your dApps and AI models. Deploy to the LitLabs network with a single click.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+    document.getElementById('deploy-button').addEventListener('click', () => {
+      const logContainer = document.getElementById('log-container');
+      logContainer.classList.toggle('hidden');
+    });
+  </script>
+</Layout>

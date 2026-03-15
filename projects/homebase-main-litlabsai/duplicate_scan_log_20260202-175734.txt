@@ -1,0 +1,1649 @@
+[2026-02-02 17:57:34] Starting Comprehensive Double Scan in: C:\Users\litre\homebase-2.0
+[2026-02-02 17:57:34] Phase 1: Gathering files...
+[2026-02-02 17:59:12] Found 3463 files to analyze.
+[2026-02-02 17:59:12] Phase 2: First Scan (SHA256)...
+[2026-02-02 17:59:20] Error reading file: C:\Users\litre\homebase-2.0\github\apps\litree-unified\app\builder\[...page]\page.jsx
+[2026-02-02 17:59:21] Error reading file: C:\Users\litre\homebase-2.0\github\apps\litreelabsfirebase\app\api\referrals\[referralCode]\route.ts
+[2026-02-02 17:59:21] Error reading file: C:\Users\litre\homebase-2.0\github\apps\litreelabsfirebase\app\api\social\posts\[postId]\comments\route.ts
+[2026-02-02 17:59:21] Error reading file: C:\Users\litre\homebase-2.0\github\apps\litreelabsfirebase\app\station\[userId]\page.tsx
+[2026-02-02 17:59:22] Error reading file: C:\Users\litre\homebase-2.0\github\apps\web\src\app\api\media\[id]\route.ts
+[2026-02-02 17:59:22] Error reading file: C:\Users\litre\homebase-2.0\github\apps\web\src\app\api\posts\[id]\route.ts
+[2026-02-02 17:59:22] Error reading file: C:\Users\litre\homebase-2.0\github\apps\web\src\app\api\users\[id]\route.ts
+[2026-02-02 17:59:22] Error reading file: C:\Users\litre\homebase-2.0\github\apps\web\src\app\api\users\[id]\settings\route.ts
+[2026-02-02 17:59:22] Error reading file: C:\Users\litre\homebase-2.0\github\apps\web\src\app\api\watch-parties\[id]\route.ts
+[2026-02-02 17:59:22] Error reading file: C:\Users\litre\homebase-2.0\github\apps\web\src\app\profile\[username]\page.tsx
+[2026-02-02 17:59:25] Error reading file: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\app\api\referrals\[referralCode]\route.ts
+[2026-02-02 17:59:25] Error reading file: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\app\station\[userId]\page.tsx
+[2026-02-02 17:59:36] Phase 3: Second Scan (MD5 Cross-Verification)...
+[2026-02-02 17:59:42] Found 300 groups of duplicates.
+[2026-02-02 17:59:42] Potential space reclaimable: 424.41 MB
+[2026-02-02 17:59:42] Duplicate Group (SHA256: 661B398CF19EE542ED0FF85F21725D351B460870E025DD23A59A10CE4F72F384):
+[2026-02-02 17:59:42]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\.codacy.yaml
+[2026-02-02 17:59:42]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\.codacy.yaml
+[2026-02-02 17:59:42]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\.codacy.yaml
+[2026-02-02 17:59:42] Duplicate Group (SHA256: 979F368A030B6A0E8D95A66BC0E849748933DC39B94FF36FE3BBF03171E99A94):
+[2026-02-02 17:59:42]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\LabHireMe.tsx
+[2026-02-02 17:59:42]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\LabHireMe.tsx
+[2026-02-02 17:59:42] Duplicate Group (SHA256: C0A13A293D011B9E7C169BE16AFA81C6F6148E1CCD2B2EC47E0A6E594765C7EF):
+[2026-02-02 17:59:42]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\CONFIG_ADMIN.md
+[2026-02-02 17:59:42]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\CONFIG_ADMIN.md
+[2026-02-02 17:59:42]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\CONFIG_ADMIN.md
+[2026-02-02 17:59:42] Duplicate Group (SHA256: 5025106BE6170D062DF71514BA292E418B6471A257F35C94AA05B1055027890E):
+[2026-02-02 17:59:42]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\package.json
+[2026-02-02 17:59:42]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\package.json
+[2026-02-02 17:59:42] Duplicate Group (SHA256: C7A647A5717D1BA1839879150FC15EDEAA86FBDE2940100DC6C1B2C4362048BA):
+[2026-02-02 17:59:42]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\INDEX.md
+[2026-02-02 17:59:42]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\INDEX.md
+[2026-02-02 17:59:42]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\INDEX.md
+[2026-02-02 17:59:42]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\INDEX.md
+[2026-02-02 17:59:42]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\INDEX.md
+[2026-02-02 17:59:42]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\INDEX.md
+[2026-02-02 17:59:42]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\INDEX.md
+[2026-02-02 17:59:42]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\INDEX.md
+[2026-02-02 17:59:42]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\INDEX.md
+[2026-02-02 17:59:42] Duplicate Group (SHA256: F0D35DF8D5D22731F5BB401A336F563C66B31CA237DF29A6C311817B444316A9):
+[2026-02-02 17:59:42]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\PAYMENT_TESTING_CHECKLIST.md
+[2026-02-02 17:59:43]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\PAYMENT_TESTING_CHECKLIST.md
+[2026-02-02 17:59:43]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\PAYMENT_TESTING_CHECKLIST.md
+[2026-02-02 17:59:43]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\PAYMENT_TESTING_CHECKLIST.md
+[2026-02-02 17:59:43]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\PAYMENT_TESTING_CHECKLIST.md
+[2026-02-02 17:59:43]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\PAYMENT_TESTING_CHECKLIST.md
+[2026-02-02 17:59:43]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\PAYMENT_TESTING_CHECKLIST.md
+[2026-02-02 17:59:43]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\PAYMENT_TESTING_CHECKLIST.md
+[2026-02-02 17:59:43]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\PAYMENT_TESTING_CHECKLIST.md
+[2026-02-02 17:59:43] Duplicate Group (SHA256: 2858E38B31883592124F2B8BED756440AE331BA97FF52FB9EF2D80E4EA1D36D4):
+[2026-02-02 17:59:43]   KEEP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\package-lock.json
+[2026-02-02 17:59:43]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\package-lock.json
+[2026-02-02 17:59:43] Duplicate Group (SHA256: 74E8FE9D0D680C442ED6ADB13E7D119D6C210C19AE6C114313B2A72552BE0883):
+[2026-02-02 17:59:43]   KEEP: C:\Users\litre\homebase-2.0\github\apps\web\src\lib\utils.ts
+[2026-02-02 17:59:43]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litree-unified\lib\utils.ts
+[2026-02-02 17:59:43] Duplicate Group (SHA256: 4CAE941BE9BC3BEE9A6905E47EA7A51AEE216D587D34A8CC4AE48F78FD6D8159):
+[2026-02-02 17:59:43]   KEEP: C:\Users\litre\homebase-2.0\github\apps\web\postcss.config.mjs
+[2026-02-02 17:59:43]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litree-unified\postcss.config.mjs
+[2026-02-02 17:59:43] Duplicate Group (SHA256: 4BE530B635BD46B9F306FBE97B3B76048916F69B316E4B5E29D2EA31058A1FEB):
+[2026-02-02 17:59:43]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\MCP-BOTS-SETUP-GUIDE.md
+[2026-02-02 17:59:43]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\MCP-BOTS-SETUP-GUIDE.md
+[2026-02-02 17:59:43]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\MCP-BOTS-SETUP-GUIDE.md
+[2026-02-02 17:59:43] Duplicate Group (SHA256: F081337B2FEE635B455B63275406A3E7F39D6A014E25AD90DAB5A67E62A12AC4):
+[2026-02-02 17:59:43]   KEEP: C:\Users\litre\homebase-2.0\litlabs\out\vercel.svg
+[2026-02-02 17:59:43]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litreelabsfirebase\public\vercel.svg
+[2026-02-02 17:59:43]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\public\vercel.svg
+[2026-02-02 17:59:43]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\public\vercel.svg
+[2026-02-02 17:59:43] Duplicate Group (SHA256: 6221BAE0BB4675570A2888EABEC9828BDBB3C1189271482847CC6A2BA79CA37C):
+[2026-02-02 17:59:43]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\DOCUMENTATION_INDEX.md
+[2026-02-02 17:59:43]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\DOCUMENTATION_INDEX.md
+[2026-02-02 17:59:43]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\DOCUMENTATION_INDEX.md
+[2026-02-02 17:59:43]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\DOCUMENTATION_INDEX.md
+[2026-02-02 17:59:43]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\DOCUMENTATION_INDEX.md
+[2026-02-02 17:59:43]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\DOCUMENTATION_INDEX.md
+[2026-02-02 17:59:43]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\DOCUMENTATION_INDEX.md
+[2026-02-02 17:59:44]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\DOCUMENTATION_INDEX.md
+[2026-02-02 17:59:44]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\DOCUMENTATION_INDEX.md
+[2026-02-02 17:59:44] Duplicate Group (SHA256: BF3FA212C2A22B27A51AFFBF8C3D9B6A55052D75B0190EA4230D36FC95038C40):
+[2026-02-02 17:59:44]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\lib\google-cloud-integration.js
+[2026-02-02 17:59:44]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\lib\google-cloud-integration.js
+[2026-02-02 17:59:44] Duplicate Group (SHA256: C86B2D43E2DFE511A2DE8836B8F50FD49CE5DE65314CAF8778013B64BC956815):
+[2026-02-02 17:59:44]   KEEP: C:\Users\litre\homebase-2.0\website-project\.vercel\README.txt
+[2026-02-02 17:59:44]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litreelabsfirebase\.vercel\README.txt
+[2026-02-02 17:59:44] Duplicate Group (SHA256: C95EED9A67AD58F3F0598CC09C07938941570D5FB329F04A8D61CBF8F5F79988):
+[2026-02-02 17:59:44]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\.github\agents\security-reviewer.agent.md
+[2026-02-02 17:59:44]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\.github\agents\security-reviewer.agent.md
+[2026-02-02 17:59:44] Duplicate Group (SHA256: AEF4B28310D55BD6746498E168F8BE16467B0DBC89977CD44F0764293E597A6B):
+[2026-02-02 17:59:44]   KEEP: C:\Users\litre\homebase-2.0\github\docs\PROJECT_SETUP.md
+[2026-02-02 17:59:44]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\merged\EverythingHomebase\docs\PROJECT_SETUP.md
+[2026-02-02 17:59:44] Duplicate Group (SHA256: 3CFD42A801B6A99F78988103A83A83682189DB034A878294A22D09CA772C728C):
+[2026-02-02 17:59:44]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\LabFeatureGrid.tsx
+[2026-02-02 17:59:44]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\LabFeatureGrid.tsx
+[2026-02-02 17:59:44] Duplicate Group (SHA256: FD8168B09E0252C9FB81357E4F23A39E728DA3539A6509625B2CB251506FE13A):
+[2026-02-02 17:59:44]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\dashboard\ChatBot.tsx
+[2026-02-02 17:59:44]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\dashboard\ChatBot.tsx
+[2026-02-02 17:59:44] Duplicate Group (SHA256: 2B67812C325C199A02536CDBEEA0C593A72F707D323B72EE3E08DBAB06753BD4):
+[2026-02-02 17:59:44]   KEEP: C:\Users\litre\homebase-2.0\litlabs\out\file.svg
+[2026-02-02 17:59:44]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litreelabsfirebase\public\file.svg
+[2026-02-02 17:59:44]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\web\public\file.svg
+[2026-02-02 17:59:44]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\public\file.svg
+[2026-02-02 17:59:44]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\public\file.svg
+[2026-02-02 17:59:44] Duplicate Group (SHA256: 12B97912A8724A8B28DB62E64CDAEB4159D7DBA3CAC47192CFE61AB8B687311E):
+[2026-02-02 17:59:44]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\SECURITY.md
+[2026-02-02 17:59:44]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\SECURITY.md
+[2026-02-02 17:59:44]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\SECURITY.md
+[2026-02-02 17:59:44]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\SECURITY.md
+[2026-02-02 17:59:44] Duplicate Group (SHA256: 09B22A8A28E3521ED0BB709FBAC1CB7AC289AD2327654190453B99280016A9F8):
+[2026-02-02 17:59:44]   KEEP: C:\Users\litre\homebase-2.0\github\docs\LiTreeU.ova
+[2026-02-02 17:59:45]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\merged\EverythingHomebase\docs\LiTreeU.ova
+[2026-02-02 17:59:45] Duplicate Group (SHA256: 31209E806BB407887815F44799C231FB9FE6265B7E4995C6FC8ED4614DA88B2E):
+[2026-02-02 17:59:45]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\.env.production.template
+[2026-02-02 17:59:45]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\.env.production.template
+[2026-02-02 17:59:45]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\.env.production.template
+[2026-02-02 17:59:45] Duplicate Group (SHA256: 6128EF1D19528C445310129EC80A568E1F7CA2ECFDC1FE96723B6ED14E0A2011):
+[2026-02-02 17:59:45]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\PROJECT_SETUP_COMPLETE.md
+[2026-02-02 17:59:45]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\PROJECT_SETUP_COMPLETE.md
+[2026-02-02 17:59:45]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\PROJECT_SETUP_COMPLETE.md
+[2026-02-02 17:59:45]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\PROJECT_SETUP_COMPLETE.md
+[2026-02-02 17:59:45]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\PROJECT_SETUP_COMPLETE.md
+[2026-02-02 17:59:45]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\PROJECT_SETUP_COMPLETE.md
+[2026-02-02 17:59:45]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\PROJECT_SETUP_COMPLETE.md
+[2026-02-02 17:59:45]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\PROJECT_SETUP_COMPLETE.md
+[2026-02-02 17:59:45]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\PROJECT_SETUP_COMPLETE.md
+[2026-02-02 17:59:45] Duplicate Group (SHA256: 8C9C8513157C9121A1228761CA6A27C4F1752F782734CE9D5D540A0EDA61B57F):
+[2026-02-02 17:59:45]   KEEP: C:\Users\litre\homebase-2.0\litlabs\out\files.txt
+[2026-02-02 17:59:45]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\files\__next._full.txt
+[2026-02-02 17:59:45] Duplicate Group (SHA256: F81E655AFF535ECA51032F849FFAA7307E0E32577D7D15018C2D53A0A541BB7F):
+[2026-02-02 17:59:45]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\CODE_OF_CONDUCT.md
+[2026-02-02 17:59:45]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\CODE_OF_CONDUCT.md
+[2026-02-02 17:59:45]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\CODE_OF_CONDUCT.md
+[2026-02-02 17:59:45]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\CODE_OF_CONDUCT.md
+[2026-02-02 17:59:45] Duplicate Group (SHA256: 36A9E7F1C95B82FFB99743E0C5C4CE95D83C9A430AAC59F84EF3CBFAB6145068):
+[2026-02-02 17:59:45]   KEEP: C:\Users\litre\homebase-2.0\github\apps\web\eslint.metaverse.js
+[2026-02-02 17:59:45]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\web\.eslintrc.metaverse.js
+[2026-02-02 17:59:46] Duplicate Group (SHA256: C91C7F518D8931FF4CFD3109366B8EBF0EFCBCE1DAAF59BBDF752BDF50CF1B2D):
+[2026-02-02 17:59:46]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\MASTER_SETUP.ps1
+[2026-02-02 17:59:46]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\MASTER_SETUP.ps1
+[2026-02-02 17:59:46]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litreelabsfirebase\MASTER_SETUP.ps1
+[2026-02-02 17:59:46]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\MASTER_SETUP.ps1
+[2026-02-02 17:59:46] Duplicate Group (SHA256: 09BA6BCFAC957473AE52E2B2C417A6CE178623F39C8F4D961E0389A62DAE9D89):
+[2026-02-02 17:59:46]   KEEP: C:\Users\litre\homebase-2.0\litlabs\out\login.txt
+[2026-02-02 17:59:46]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\login\__next._full.txt
+[2026-02-02 17:59:46] Duplicate Group (SHA256: 30C925193B5517EC58A991FA28AE37A98A338E929741DBCB5FB9FD7AB040CF53):
+[2026-02-02 17:59:46]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\dashboard\DailyChallengeCard.tsx
+[2026-02-02 17:59:46]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\dashboard\DailyChallengeCard.tsx
+[2026-02-02 17:59:46] Duplicate Group (SHA256: 3E6ABE4288B36AFB0B6E9377D2B075364AC6C71E63F85C60A2C67D2D0BA4FC9A):
+[2026-02-02 17:59:46]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\.prettierignore
+[2026-02-02 17:59:46]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\.prettierignore
+[2026-02-02 17:59:46]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\.prettierignore
+[2026-02-02 17:59:46]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\.prettierignore
+[2026-02-02 17:59:46]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\.prettierignore
+[2026-02-02 17:59:46]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\.prettierignore
+[2026-02-02 17:59:46]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\.prettierignore
+[2026-02-02 17:59:46] Duplicate Group (SHA256: BED8DCA718BCEFD568C6E702861BA7A91BEFE25B9C0D2273DA971613384BDBA7):
+[2026-02-02 17:59:46]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\DESIGN_SYSTEM_SHOWCASE.md
+[2026-02-02 17:59:46]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\DESIGN_SYSTEM_SHOWCASE.md
+[2026-02-02 17:59:46]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\DESIGN_SYSTEM_SHOWCASE.md
+[2026-02-02 17:59:46] Duplicate Group (SHA256: E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855):
+[2026-02-02 17:59:46]   KEEP: C:\Users\litre\homebase-2.0\.env.local
+[2026-02-02 17:59:46]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\.venv\.lock
+[2026-02-02 17:59:46]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\.venv\Lib\site-packages\certifi\py.typed
+[2026-02-02 17:59:46]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\.venv\Lib\site-packages\certifi-2026.1.4.dist-info\REQUESTED
+[2026-02-02 17:59:46]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\.venv\Lib\site-packages\charset_normalizer\py.typed
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\.venv\Lib\site-packages\charset_normalizer-3.4.4.dist-info\REQUESTED
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\.venv\Lib\site-packages\idna\py.typed
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\.venv\Lib\site-packages\idna-3.11.dist-info\REQUESTED
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\.venv\Lib\site-packages\requests-2.32.5.dist-info\REQUESTED
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\.venv\Lib\site-packages\urllib3\contrib\__init__.py
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\.venv\Lib\site-packages\urllib3-2.6.3.dist-info\REQUESTED
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.turbo\cookies\1.cookie
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.turbo\cookies\2.cookie
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\.nvmrc
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\.nvmrc
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\=1.0.0
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\=2.0.0
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\=3.9.0
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\testfile
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\merged\EverythingHomebase\docs\GitHub\Litreelab
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\merged\EverythingHomebase\master\Code\Litreelab
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\.nvmrc
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litmaster1\LICENSE
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litmaster1\.github\workflows\deploy.yml
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litmaster1\frontend\src\components\YouTubeWidget.tsx
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litreestudio\IMPLEMENTATION_ROADMAP.md
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\Litreelab
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\.nvmrc
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\.devcontainer\devcontainer.json
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\=1.0.0
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\=2.0.0
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\=3.9.0
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\testfile
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\merged\EverythingHomebase\docs\GitHub\Litreelab
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\merged\EverythingHomebase\master\Code\Litreelab
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Labs-Ai\=1.0.0
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Labs-Ai\=2.0.0
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Labs-Ai\=3.9.0
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Labs-Ai\testfile
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Labs-Ai\merged\EverythingHomebase\docs\GitHub\Litreelab
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Labs-Ai\merged\EverythingHomebase\master\Code\Litreelab
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\Litreelab
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\.nvmrc
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\Litreelab
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\.nvmrc
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\src\.gitkeep
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\.nvmrc
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\firebase.json
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\apps\honey-comb-home\.nvmrc
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\apps\honey-comb-home\firebase.json
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\src\components\ChatBot.tsx
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\website-project\.github\workflows\swa-deploy.yml
+[2026-02-02 17:59:47]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\website-project\.parcel-cache\6cacb9476f782e8f
+[2026-02-02 17:59:48]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\website-project\.parcel-cache\ca55cd11f9469b65
+[2026-02-02 17:59:48] Duplicate Group (SHA256: 58EAB296BDECD90A81AC0B50B7F0A0E68312B8D69F1889E7C74AC2589494C4D7):
+[2026-02-02 17:59:48]   KEEP: C:\Users\litre\homebase-2.0\github\assets\IMG_20251107_215806400.jpg
+[2026-02-02 17:59:48]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\merged\EverythingHomebase\assets\IMG_20251107_215806400.jpg
+[2026-02-02 17:59:48]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Media\IMG_20251107_215806400.jpg
+[2026-02-02 17:59:48]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\packages\shared\assets\IMG_20251107_215806400.jpg
+[2026-02-02 17:59:48] Duplicate Group (SHA256: C966E18B6D05B093CA6E38B7CB86AC16E088408C6F1F0E7FF6EB59A34171E088):
+[2026-02-02 17:59:48]   KEEP: C:\Users\litre\homebase-2.0\github\assets\IMG_20251107_215631049.jpg
+[2026-02-02 17:59:48]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\merged\EverythingHomebase\assets\IMG_20251107_215631049.jpg
+[2026-02-02 17:59:48]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Media\IMG_20251107_215631049.jpg
+[2026-02-02 17:59:48]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\packages\shared\assets\IMG_20251107_215631049.jpg
+[2026-02-02 17:59:48] Duplicate Group (SHA256: 01BBA38428E2C8300B0C6FDAB37B55338C10973FBFC27AAB312310D94DFAC056):
+[2026-02-02 17:59:48]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\FINAL_DELIVERY_SUMMARY.md
+[2026-02-02 17:59:48]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\FINAL_DELIVERY_SUMMARY.md
+[2026-02-02 17:59:48]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\FINAL_DELIVERY_SUMMARY.md
+[2026-02-02 17:59:48]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\FINAL_DELIVERY_SUMMARY.md
+[2026-02-02 17:59:48]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\FINAL_DELIVERY_SUMMARY.md
+[2026-02-02 17:59:48]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\FINAL_DELIVERY_SUMMARY.md
+[2026-02-02 17:59:48]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\FINAL_DELIVERY_SUMMARY.md
+[2026-02-02 17:59:48]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\FINAL_DELIVERY_SUMMARY.md
+[2026-02-02 17:59:48]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\FINAL_DELIVERY_SUMMARY.md
+[2026-02-02 17:59:48] Duplicate Group (SHA256: AFE1B3647F7D6AE1175E96C1300044A6949A68CFB2D2701354469169BA1E651E):
+[2026-02-02 17:59:48]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\vitest.config.ts
+[2026-02-02 17:59:48]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\vitest.config.ts
+[2026-02-02 17:59:48]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\vitest.config.ts
+[2026-02-02 17:59:48]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\vitest.config.ts
+[2026-02-02 17:59:48]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\vitest.config.ts
+[2026-02-02 17:59:48]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\vitest.config.ts
+[2026-02-02 17:59:48]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\vitest.config.ts
+[2026-02-02 17:59:48]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\vitest.config.ts
+[2026-02-02 17:59:48]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\vitest.config.ts
+[2026-02-02 17:59:48] Duplicate Group (SHA256: 350F8ABD9A8B34BC27B67A60532F0D550E8C9F9D3EB3388E197AA02738FE553B):
+[2026-02-02 17:59:48]   KEEP: C:\Users\litre\homebase-2.0\github\Organized\Docs\LICENSE
+[2026-02-02 17:59:48]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\merged\EverythingHomebase\LICENSE
+[2026-02-02 17:59:48]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\merged\EverythingHomebase\LICENSE
+[2026-02-02 17:59:48]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Labs-Ai\merged\EverythingHomebase\LICENSE
+[2026-02-02 17:59:48] Duplicate Group (SHA256: 2E10DB2E71542CAB4B096BBD0A85A2F327DFFEFF3E1247D6A41D81DDAF7B1430):
+[2026-02-02 17:59:48]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\LabRoadmap.tsx
+[2026-02-02 17:59:48]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\LabRoadmap.tsx
+[2026-02-02 17:59:48] Duplicate Group (SHA256: F973C7F4DD4A8870FEBCF8B4EA812AFBBEDA99C53451F670D67E323ADCBE9554):
+[2026-02-02 17:59:48]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\api\helloWorld\index.js
+[2026-02-02 17:59:48]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\api\helloWorld\index.js
+[2026-02-02 17:59:48]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\api\helloWorld\index.js
+[2026-02-02 17:59:48]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\api\helloWorld\index.js
+[2026-02-02 17:59:48] Duplicate Group (SHA256: B670682FFF16E88AD42185A7589318FCB9C71D45C1A3731DBDB5ECBD049A6D5D):
+[2026-02-02 17:59:49]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\DEPLOY_NOW.md
+[2026-02-02 17:59:49]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\DEPLOY_NOW.md
+[2026-02-02 17:59:49]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\DEPLOY_NOW.md
+[2026-02-02 17:59:49] Duplicate Group (SHA256: 0EDB623EAD3F06EF6E374F778CAF5912BD05743ECC3D66508E91E2AA710F66CE):
+[2026-02-02 17:59:49]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\public\index.html
+[2026-02-02 17:59:49]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\public\index.html
+[2026-02-02 17:59:49]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\public\index.html
+[2026-02-02 17:59:49] Duplicate Group (SHA256: E7C073FBEC1A51A73F678B266A1CB207AA6468E3EA1504D24F43591F31D2B7C5):
+[2026-02-02 17:59:49]   KEEP: C:\Users\litre\homebase-2.0\github\apps\litreelabsfirebase\android-app\app\src\main\res\mipmap-anydpi\ic_launcher.xml
+[2026-02-02 17:59:49]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litreelabsfirebase\android-app\app\src\main\res\mipmap-anydpi\ic_launcher_round.xml
+[2026-02-02 17:59:49] Duplicate Group (SHA256: BB0105F23AC4BCE5C311246F61DD4A3369EE917D10A5BE7FA6B80D34EB885D60):
+[2026-02-02 17:59:49]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\SETUP.ps1
+[2026-02-02 17:59:49]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\SETUP.ps1
+[2026-02-02 17:59:49]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litreelabsfirebase\SETUP.ps1
+[2026-02-02 17:59:49]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\SETUP.ps1
+[2026-02-02 17:59:49] Duplicate Group (SHA256: 6D2E1F32262EBD73C87B106F1D682534591EE0E63E273DDBE88BE6F8B3A52351):
+[2026-02-02 17:59:49]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\lib\functionsClient.ts
+[2026-02-02 17:59:49]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\lib\functionsClient.ts
+[2026-02-02 17:59:49] Duplicate Group (SHA256: 1705A7C4B35051D0B841D39549D8B4D3AA21630D57A304216BCC71AB9C98E7A9):
+[2026-02-02 17:59:49]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\DEPLOY_CHECKLIST.sh
+[2026-02-02 17:59:49]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\DEPLOY_CHECKLIST.sh
+[2026-02-02 17:59:49]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\DEPLOY_CHECKLIST.sh
+[2026-02-02 17:59:49]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\DEPLOY_CHECKLIST.sh
+[2026-02-02 17:59:49]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\DEPLOY_CHECKLIST.sh
+[2026-02-02 17:59:49]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\DEPLOY_CHECKLIST.sh
+[2026-02-02 17:59:49]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\DEPLOY_CHECKLIST.sh
+[2026-02-02 17:59:49] Duplicate Group (SHA256: F583407C1F6D25B0C1BD7E782EF33686D694AE36AC817ACBE3AC59A60D99F39F):
+[2026-02-02 17:59:49]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\README.md
+[2026-02-02 17:59:49]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\README.md
+[2026-02-02 17:59:49]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\README.md
+[2026-02-02 17:59:49] Duplicate Group (SHA256: DEEFE18E0CCC4C5F09A55AE9BE6B388C536CD183789F29C4407E02033CDA2FB5):
+[2026-02-02 17:59:49]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\public\litlabs\hero-loop.mp4
+[2026-02-02 17:59:49]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litreelabsfirebase\public\litlabs\background-particles.mp4
+[2026-02-02 17:59:49]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litreelabsfirebase\public\litlabs\hero-loop.mp4
+[2026-02-02 17:59:49]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\public\litlabs\background-particles.mp4
+[2026-02-02 17:59:49] Duplicate Group (SHA256: 8413240B803F86EFE82A724DD9EEA647FC78166D9508C8B20A9DFF1F2FE6B838):
+[2026-02-02 17:59:49]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\LabParticles.tsx
+[2026-02-02 17:59:49]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\LabParticles.tsx
+[2026-02-02 17:59:49] Duplicate Group (SHA256: 98FB9A51ED9D336217DDFCAFA05DDA447BC5EE8423B8786FD0AA95C68C530ECB):
+[2026-02-02 17:59:49]   KEEP: C:\Users\litre\homebase-2.0\github\assets\IMG_20251107_215748860.jpg
+[2026-02-02 17:59:49]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\merged\EverythingHomebase\assets\IMG_20251107_215748860.jpg
+[2026-02-02 17:59:50]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Media\IMG_20251107_215748860.jpg
+[2026-02-02 17:59:50]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\packages\shared\assets\IMG_20251107_215748860.jpg
+[2026-02-02 17:59:50] Duplicate Group (SHA256: 33CD93DDE6E1D30BEF255773598E32B435CEB14E7AE1060B7A9A646D0340BF33):
+[2026-02-02 17:59:50]   KEEP: C:\Users\litre\homebase-2.0\litlabs\out\notes.txt
+[2026-02-02 17:59:50]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\notes\__next._full.txt
+[2026-02-02 17:59:50] Duplicate Group (SHA256: 4CB000D2DD4C4FBB2CFBB5A764C476940DDF1EB3653CE94EC2E62AD33DAA2A33):
+[2026-02-02 17:59:50]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\LitLabs-FullBackup.zip
+[2026-02-02 17:59:50]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\LitLabs-FullBackup.zip
+[2026-02-02 17:59:50]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\LitLabs-FullBackup.zip
+[2026-02-02 17:59:50] Duplicate Group (SHA256: 4683D05C881AF70D8931CD1D644240CFA54CD1BFF51BFE78A51D6A71BE2269B3):
+[2026-02-02 17:59:50]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\proxy.ts
+[2026-02-02 17:59:50]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\proxy.ts
+[2026-02-02 17:59:50]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\proxy.ts
+[2026-02-02 17:59:50] Duplicate Group (SHA256: F07C565234824797321DEC0817D3485586B41F7B5E1C4A8142964E603EA6C2BB):
+[2026-02-02 17:59:50]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\.github\workflows\azure-static-web-apps.yml
+[2026-02-02 17:59:50]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\.github\workflows\azure-static-web-apps.yml
+[2026-02-02 17:59:50]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\.github\workflows\azure-static-web-apps.yml
+[2026-02-02 17:59:50]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\.github\workflows\azure-static-web-apps.yml
+[2026-02-02 17:59:50] Duplicate Group (SHA256: B06E8634F80753427BEFD75F106124C74D1438EC9300E0B60B7814DEB10BA309):
+[2026-02-02 17:59:50]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\00_START_HERE_FIRST.md
+[2026-02-02 17:59:50]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\00_START_HERE_FIRST.md
+[2026-02-02 17:59:50]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\00_START_HERE_FIRST.md
+[2026-02-02 17:59:50] Duplicate Group (SHA256: 5E13511313CF67D40187FDC1AF5E79A85E9109403D49ABEFCA6DA8952D5166B4):
+[2026-02-02 17:59:50]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\BUILD_CLEAN_VERIFIED.md
+[2026-02-02 17:59:50]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\BUILD_CLEAN_VERIFIED.md
+[2026-02-02 17:59:50]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\BUILD_CLEAN_VERIFIED.md
+[2026-02-02 17:59:50]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\BUILD_CLEAN_VERIFIED.md
+[2026-02-02 17:59:50]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\BUILD_CLEAN_VERIFIED.md
+[2026-02-02 17:59:50]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\BUILD_CLEAN_VERIFIED.md
+[2026-02-02 17:59:50]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\BUILD_CLEAN_VERIFIED.md
+[2026-02-02 17:59:50] Duplicate Group (SHA256: 9E68886482D3B00BC4A28F19718EA646D9092A8E20898B462C16EFE20584F7E6):
+[2026-02-02 17:59:50]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\START_HERE.md
+[2026-02-02 17:59:50]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\START_HERE.md
+[2026-02-02 17:59:50]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\START_HERE.md
+[2026-02-02 17:59:50]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\START_HERE.md
+[2026-02-02 17:59:50]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\START_HERE.md
+[2026-02-02 17:59:50]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\START_HERE.md
+[2026-02-02 17:59:50]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\START_HERE.md
+[2026-02-02 17:59:50]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\START_HERE.md
+[2026-02-02 17:59:50]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\START_HERE.md
+[2026-02-02 17:59:50] Duplicate Group (SHA256: FF1CE9278971A4706CD30252A431A1A2B52C0BCBD0192AD9A2139FB5277C910B):
+[2026-02-02 17:59:50]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\.dockerignore
+[2026-02-02 17:59:50]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\.dockerignore
+[2026-02-02 17:59:50]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\.dockerignore
+[2026-02-02 17:59:50]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\.dockerignore
+[2026-02-02 17:59:50]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\.dockerignore
+[2026-02-02 17:59:50]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\.dockerignore
+[2026-02-02 17:59:50]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\.dockerignore
+[2026-02-02 17:59:51] Duplicate Group (SHA256: 70166300A7ACACFF089C5171B9DC0FA42DDEBAC5C9CC23FF2994BCDC17885633):
+[2026-02-02 17:59:51]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\FINAL_CLEANUP_CHECKLIST.md
+[2026-02-02 17:59:51]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\FINAL_CLEANUP_CHECKLIST.md
+[2026-02-02 17:59:51]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\FINAL_CLEANUP_CHECKLIST.md
+[2026-02-02 17:59:51]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\FINAL_CLEANUP_CHECKLIST.md
+[2026-02-02 17:59:51]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\FINAL_CLEANUP_CHECKLIST.md
+[2026-02-02 17:59:51]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\FINAL_CLEANUP_CHECKLIST.md
+[2026-02-02 17:59:51]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\FINAL_CLEANUP_CHECKLIST.md
+[2026-02-02 17:59:51]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\FINAL_CLEANUP_CHECKLIST.md
+[2026-02-02 17:59:51]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\FINAL_CLEANUP_CHECKLIST.md
+[2026-02-02 17:59:51] Duplicate Group (SHA256: 7D4F5DA80BF334181B62EA44A9075BF09B0E21D042E929433F245E03B0C1E0A5):
+[2026-02-02 17:59:51]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\SMOKE_TEST_GUIDE.md
+[2026-02-02 17:59:51]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\SMOKE_TEST_GUIDE.md
+[2026-02-02 17:59:51]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\SMOKE_TEST_GUIDE.md
+[2026-02-02 17:59:51]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\SMOKE_TEST_GUIDE.md
+[2026-02-02 17:59:51]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\SMOKE_TEST_GUIDE.md
+[2026-02-02 17:59:51]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\SMOKE_TEST_GUIDE.md
+[2026-02-02 17:59:51]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\SMOKE_TEST_GUIDE.md
+[2026-02-02 17:59:51]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\SMOKE_TEST_GUIDE.md
+[2026-02-02 17:59:51]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\SMOKE_TEST_GUIDE.md
+[2026-02-02 17:59:51] Duplicate Group (SHA256: 659F4354F8A0D0D7706215C74B86CF6D73336DBB22122AA21E3E885366084169):
+[2026-02-02 17:59:51]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\START_HERE.md
+[2026-02-02 17:59:51]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\START_HERE.md
+[2026-02-02 17:59:51]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\START_HERE.md
+[2026-02-02 17:59:51] Duplicate Group (SHA256: 37AA3200C33A1CAF583A8C03031AB9D90BFCB4CCDF8E4E4D1697B7E67CBA731C):
+[2026-02-02 17:59:51]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\Dockerfile
+[2026-02-02 17:59:51]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\Dockerfile
+[2026-02-02 17:59:51]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\Dockerfile
+[2026-02-02 17:59:51]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\Dockerfile
+[2026-02-02 17:59:51]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\Dockerfile
+[2026-02-02 17:59:51]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\Dockerfile
+[2026-02-02 17:59:51]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\Dockerfile
+[2026-02-02 17:59:51] Duplicate Group (SHA256: 1BB82234E74E5385AE6A6E93CB61CBC3356FDFFDEB36F907686B88679C0CD82C):
+[2026-02-02 17:59:51]   KEEP: C:\Users\litre\homebase-2.0\github\.codacy\cli.sh
+[2026-02-02 17:59:51]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\legacy-packages-api-express\.codacy\cli.sh
+[2026-02-02 17:59:51]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\api\.codacy\cli.sh
+[2026-02-02 17:59:51]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\.codacy\cli.sh
+[2026-02-02 17:59:51]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\.codacy\cli.sh
+[2026-02-02 17:59:51]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\.codacy\cli.sh
+[2026-02-02 17:59:51]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litreelabsfirebase\.codacy\cli.sh
+[2026-02-02 17:59:51]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\web\.codacy\cli.sh
+[2026-02-02 17:59:51]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\.codacy\cli.sh
+[2026-02-02 17:59:51]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\.codacy\cli.sh
+[2026-02-02 17:59:51]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\.codacy\cli.sh
+[2026-02-02 17:59:51]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\.codacy\cli.sh
+[2026-02-02 17:59:51] Duplicate Group (SHA256: D38E18E37A343F4D41A1EAEC6C4F6BD871E350EC4D4BEF5DEA61F46E220BB04A):
+[2026-02-02 17:59:51]   KEEP: C:\Users\litre\homebase-2.0\github\src\website-project\src\scripts\main.js
+[2026-02-02 17:59:52]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\website-project\src\scripts\main.js
+[2026-02-02 17:59:52]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Labs-Ai\website-project\src\scripts\main.js
+[2026-02-02 17:59:52]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\Apps\Apps\LiTlab'Studio 3.0\website-project\src\scripts\main.js
+[2026-02-02 17:59:52]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\Apps\Apps\LiTlab'Studio 3.0\website-project-1\src\scripts\main.js
+[2026-02-02 17:59:52]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\Apps\LiTlab'Studio 3.0\website-project\src\scripts\main.js
+[2026-02-02 17:59:52]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\Apps\LiTlab'Studio 3.0\website-project-1\src\scripts\main.js
+[2026-02-02 17:59:52]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\LiTlab'Studio 3.0 (VSCode)\website-project\src\scripts\main.js
+[2026-02-02 17:59:52]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\LiTlab'Studio 3.0 (VSCode)\website-project-1\src\scripts\main.js
+[2026-02-02 17:59:52]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Projects\website-project\src\scripts\main.js
+[2026-02-02 17:59:52]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Projects\website-project-1\src\scripts\main.js
+[2026-02-02 17:59:52]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\src\website-project-1\src\scripts\main.js
+[2026-02-02 17:59:52] Duplicate Group (SHA256: 3205357C398D1E778DA2984FA405C31692DE31F30119D74AADCD5A84C727FC3C):
+[2026-02-02 17:59:52]   KEEP: C:\Users\litre\homebase-2.0\github\assets\README.md
+[2026-02-02 17:59:52]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\merged\EverythingHomebase\assets\README.md
+[2026-02-02 17:59:52]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\packages\shared\assets\README.md
+[2026-02-02 17:59:52] Duplicate Group (SHA256: C1C9874E325BB41B4250215A826A454277EC18F7693D0944D51ECA16B4A12F95):
+[2026-02-02 17:59:52]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\merged\EverythingHomebase\README.md
+[2026-02-02 17:59:52]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\merged\EverythingHomebase\README.md
+[2026-02-02 17:59:52]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\merged\EverythingHomebase\README.md
+[2026-02-02 17:59:52] Duplicate Group (SHA256: 9324173BEB70B786E17C841C7AFDCAF706DAE858F04E9CD39E015D398D08885E):
+[2026-02-02 17:59:52]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\.env.example
+[2026-02-02 17:59:52]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\.env.example
+[2026-02-02 17:59:52]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\.env.example
+[2026-02-02 17:59:52] Duplicate Group (SHA256: 531EBED51165F88F5B06304956290E78F73623484C6EBB28CE8B609E68F5B828):
+[2026-02-02 17:59:52]   KEEP: C:\Users\litre\homebase-2.0\github\src\website-project\package-lock.json
+[2026-02-02 17:59:52]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\merged\EverythingHomebase\master\Code\Apps\LiTlab'Studio 3.0\website-project\package-lock.json
+[2026-02-02 17:59:52]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\website-project\package-lock.json
+[2026-02-02 17:59:52]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Apps\LiTlab'Studio 3.0\website-project\package-lock.json
+[2026-02-02 17:59:52]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Labs-Ai\merged\EverythingHomebase\master\Code\Apps\LiTlab'Studio 3.0\website-project\package-lock.json
+[2026-02-02 17:59:52]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Labs-Ai\website-project\package-lock.json
+[2026-02-02 17:59:52]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\Apps\Apps\LiTlab'Studio 3.0\website-project\package-lock.json
+[2026-02-02 17:59:52]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\Apps\LiTlab'Studio 3.0\website-project\package-lock.json
+[2026-02-02 17:59:52]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\LiTlab'Studio 3.0\website-project\package-lock.json
+[2026-02-02 17:59:52]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\LiTlab'Studio 3.0 (VSCode)\website-project\package-lock.json
+[2026-02-02 17:59:52] Duplicate Group (SHA256: A1366D643DA3A491641BC8FEB7BA5B1E6A649B9362E9F0E68C74674116958428):
+[2026-02-02 17:59:52]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\public\icon-192.png
+[2026-02-02 17:59:52]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litreelabsfirebase\public\icon-192.png
+[2026-02-02 17:59:52] Duplicate Group (SHA256: DC586299070593BCA2D2820654A847F108FBEB1798988F2611CE14F5F7652900):
+[2026-02-02 17:59:52]   KEEP: C:\Users\litre\homebase-2.0\github\src\website-project\src\styles\main.css
+[2026-02-02 17:59:52]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\website-project\src\styles\main.css
+[2026-02-02 17:59:52]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Labs-Ai\website-project\src\styles\main.css
+[2026-02-02 17:59:52]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\Apps\Apps\LiTlab'Studio 3.0\website-project\src\styles\main.css
+[2026-02-02 17:59:53]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\Apps\Apps\LiTlab'Studio 3.0\website-project-1\src\styles\main.css
+[2026-02-02 17:59:53]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\Apps\LiTlab'Studio 3.0\website-project\src\styles\main.css
+[2026-02-02 17:59:53]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\Apps\LiTlab'Studio 3.0\website-project-1\src\styles\main.css
+[2026-02-02 17:59:53]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\LiTlab'Studio 3.0 (VSCode)\website-project\src\styles\main.css
+[2026-02-02 17:59:53]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\LiTlab'Studio 3.0 (VSCode)\website-project-1\src\styles\main.css
+[2026-02-02 17:59:53]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Projects\website-project\src\styles\main.css
+[2026-02-02 17:59:53]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Projects\website-project-1\src\styles\main.css
+[2026-02-02 17:59:53]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\src\website-project-1\src\styles\main.css
+[2026-02-02 17:59:53] Duplicate Group (SHA256: F40B2281CB1984B8EC646EB51D624EC2653C8EFED7DE4BC61F28814B04DE462E):
+[2026-02-02 17:59:53]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\SupportChat.tsx
+[2026-02-02 17:59:53]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\SupportChat.tsx
+[2026-02-02 17:59:53] Duplicate Group (SHA256: A2C39A9ACD9BFFBB8CC5574A811B3310A83A2A4610FFDE1A1AA3614912F802F8):
+[2026-02-02 17:59:53]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\LabArchitecture.tsx
+[2026-02-02 17:59:53]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\LabArchitecture.tsx
+[2026-02-02 17:59:53] Duplicate Group (SHA256: 2B8AD2D33455A8F736FC3A8EBF8F0BDEA8848AD4C0DB48A2833BD0F9CD775932):
+[2026-02-02 17:59:53]   KEEP: C:\Users\litre\homebase-2.0\litlabs\out\favicon.ico
+[2026-02-02 17:59:53]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litreelabsfirebase\app\favicon.ico
+[2026-02-02 17:59:53]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\app\favicon.ico
+[2026-02-02 17:59:53]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\_next\static\media\favicon.0b3bf435.ico
+[2026-02-02 17:59:53]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\src\app\favicon.ico
+[2026-02-02 17:59:53] Duplicate Group (SHA256: DF520A2984BB47E36E4941C8572F939EAC9FC72020408F789AAC2CEF5826336D):
+[2026-02-02 17:59:53]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\.github\copilot-instructions.md
+[2026-02-02 17:59:53]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\.github\copilot-instructions.md
+[2026-02-02 17:59:53]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\.github\copilot-instructions.md
+[2026-02-02 17:59:53] Duplicate Group (SHA256: 14FCDB9BA46C9EF0F1DE8607E3FD0E3481635B73C9B8C4F596956326C8B8D9D6):
+[2026-02-02 17:59:53]   KEEP: C:\Users\litre\homebase-2.0\litlabs\out\studio.txt
+[2026-02-02 17:59:53]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\studio\__next._full.txt
+[2026-02-02 17:59:53] Duplicate Group (SHA256: ECD268EC036FB49AE0A47E958695504E24ADEFB67B4CA456CBEB81DB4949C8B3):
+[2026-02-02 17:59:53]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\JUMP_IN_GUIDE.md
+[2026-02-02 17:59:53]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\JUMP_IN_GUIDE.md
+[2026-02-02 17:59:53]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\JUMP_IN_GUIDE.md
+[2026-02-02 17:59:53]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\JUMP_IN_GUIDE.md
+[2026-02-02 17:59:53]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\JUMP_IN_GUIDE.md
+[2026-02-02 17:59:53]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\JUMP_IN_GUIDE.md
+[2026-02-02 17:59:53]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\JUMP_IN_GUIDE.md
+[2026-02-02 17:59:53]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\JUMP_IN_GUIDE.md
+[2026-02-02 17:59:53]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\JUMP_IN_GUIDE.md
+[2026-02-02 17:59:53] Duplicate Group (SHA256: 275845F09CE10B535C11037BB984555DD70CDDEC55EF73963279537CF4E98C34):
+[2026-02-02 17:59:53]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\=8.0.0
+[2026-02-02 17:59:53]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\=8.0.0
+[2026-02-02 17:59:54]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\=8.0.0
+[2026-02-02 17:59:54] Duplicate Group (SHA256: 080E70827F9A3B53E75D9C93C1F278C2A9D10A664407D3C40EFAB8D468F2B755):
+[2026-02-02 17:59:54]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\docker-compose.yaml
+[2026-02-02 17:59:54]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\docker-compose.yaml
+[2026-02-02 17:59:54]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\docker-compose.yaml
+[2026-02-02 17:59:54]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\docker-compose.yaml
+[2026-02-02 17:59:54]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\docker-compose.yaml
+[2026-02-02 17:59:54]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\docker-compose.yaml
+[2026-02-02 17:59:54]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\docker-compose.yaml
+[2026-02-02 17:59:54] Duplicate Group (SHA256: FFB647F45BED443DF926550033A89D86078A36A1026CDC82224371CEA4865D55):
+[2026-02-02 17:59:54]   KEEP: C:\Users\litre\homebase-2.0\github\AUTO-SYNC-DEPS.ps1
+[2026-02-02 17:59:54]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\scripts\auto-sync-deps.ps1
+[2026-02-02 17:59:54] Duplicate Group (SHA256: 190A8595CA881F9937FF192E9BD346AC65AF3EDD9C079291885318FD71057FDF):
+[2026-02-02 17:59:54]   KEEP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\README.md
+[2026-02-02 17:59:54]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\README.md
+[2026-02-02 17:59:54]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\README.md
+[2026-02-02 17:59:54]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\README.md
+[2026-02-02 17:59:54]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\README.md
+[2026-02-02 17:59:54] Duplicate Group (SHA256: 1460EC2B8AA67525A3ABBD8C13D9CD5C328117B493583EBAB73218DAC9C1A0C0):
+[2026-02-02 17:59:54]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\LabAdminSecurity.tsx
+[2026-02-02 17:59:54]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\LabAdminSecurity.tsx
+[2026-02-02 17:59:54] Duplicate Group (SHA256: B95A9FEDBBD31DDD88E037D124064D7846BC88DFB84D0861F19C14E8C9BCAF0F):
+[2026-02-02 17:59:54]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\MICROSOFT_365_SETUP.md
+[2026-02-02 17:59:54]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\MICROSOFT_365_SETUP.md
+[2026-02-02 17:59:54]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\MICROSOFT_365_SETUP.md
+[2026-02-02 17:59:54]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\MICROSOFT_365_SETUP.md
+[2026-02-02 17:59:54] Duplicate Group (SHA256: C4BF2B8A4DC3A1F21F2AEBD9F63423EF5C64A18A3D1CCA225F04CBD80084BCEA):
+[2026-02-02 17:59:54]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\ENHANCEMENT_RESOURCES_INDEX.md
+[2026-02-02 17:59:54]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\ENHANCEMENT_RESOURCES_INDEX.md
+[2026-02-02 17:59:54]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\ENHANCEMENT_RESOURCES_INDEX.md
+[2026-02-02 17:59:54] Duplicate Group (SHA256: 7AFE96C5187BC65CD8919B635180634B3BF40397507C0C082F71FAFD21EB9303):
+[2026-02-02 17:59:54]   KEEP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\package.json
+[2026-02-02 17:59:54]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\package.json
+[2026-02-02 17:59:54] Duplicate Group (SHA256: 009CFD34618144181E585265663F0454DE090C8F77D361EDB29569DA512A305A):
+[2026-02-02 17:59:54]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\PAYMENT_SYSTEM_COMPLETE.md
+[2026-02-02 17:59:54]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\PAYMENT_SYSTEM_COMPLETE.md
+[2026-02-02 17:59:54]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\PAYMENT_SYSTEM_COMPLETE.md
+[2026-02-02 17:59:54]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\PAYMENT_SYSTEM_COMPLETE.md
+[2026-02-02 17:59:54]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\PAYMENT_SYSTEM_COMPLETE.md
+[2026-02-02 17:59:54]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\PAYMENT_SYSTEM_COMPLETE.md
+[2026-02-02 17:59:54]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\PAYMENT_SYSTEM_COMPLETE.md
+[2026-02-02 17:59:54]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\PAYMENT_SYSTEM_COMPLETE.md
+[2026-02-02 17:59:54]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\PAYMENT_SYSTEM_COMPLETE.md
+[2026-02-02 17:59:54] Duplicate Group (SHA256: 8F6A5681844F4FBAC3596BDC8961AE6BCCF29BD9B3FA64B83BB92A2D80647397):
+[2026-02-02 17:59:54]   KEEP: C:\Users\litre\homebase-2.0\github\assets\VID_20251107_215514193.mp4
+[2026-02-02 17:59:55]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\merged\EverythingHomebase\assets\VID_20251107_215514193.mp4
+[2026-02-02 17:59:55]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Media\VID_20251107_215514193.mp4
+[2026-02-02 17:59:55]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\packages\shared\assets\VID_20251107_215514193.mp4
+[2026-02-02 17:59:55] Duplicate Group (SHA256: 8C9F197C27DF493D6F22B5BB54A6DD23AB2A10CC24A62747A45CE7B777CF2651):
+[2026-02-02 17:59:55]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\dashboard\XPCard.tsx
+[2026-02-02 17:59:55]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\dashboard\XPCard.tsx
+[2026-02-02 17:59:55] Duplicate Group (SHA256: DC47FA05826B914AE5050F38D8CCD478E93A80167BA31D60D1DB755597105722):
+[2026-02-02 17:59:55]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\LiveDemo.tsx
+[2026-02-02 17:59:55]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\LiveDemo.tsx
+[2026-02-02 17:59:55] Duplicate Group (SHA256: B0E5E13AC01BF8BF28AF01D275F8AC80FAD1AF4AB0AE674E49990238B08CDCB1):
+[2026-02-02 17:59:55]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\setup-deployment.ps1
+[2026-02-02 17:59:55]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\setup-deployment.ps1
+[2026-02-02 17:59:55]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\setup-deployment.ps1
+[2026-02-02 17:59:55] Duplicate Group (SHA256: 51BD3DCFC2ED0AEC5FEC30B5DCC15EDD5120837528E53404B517338A0F392D24):
+[2026-02-02 17:59:55]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\setup-mcp-env.ps1
+[2026-02-02 17:59:55]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\setup-mcp-env.ps1
+[2026-02-02 17:59:55]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\setup-mcp-env.ps1
+[2026-02-02 17:59:55] Duplicate Group (SHA256: 7BDE17753D5B482C528A87F516E4320E95D3D91C605D21437F4F4D42545B13EE):
+[2026-02-02 17:59:55]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\VERIFY_BUILD.ps1
+[2026-02-02 17:59:55]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\VERIFY_BUILD.ps1
+[2026-02-02 17:59:55]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\VERIFY_BUILD.ps1
+[2026-02-02 17:59:55]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\VERIFY_BUILD.ps1
+[2026-02-02 17:59:55]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\VERIFY_BUILD.ps1
+[2026-02-02 17:59:55]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\VERIFY_BUILD.ps1
+[2026-02-02 17:59:55]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\VERIFY_BUILD.ps1
+[2026-02-02 17:59:55]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\VERIFY_BUILD.ps1
+[2026-02-02 17:59:55]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\VERIFY_BUILD.ps1
+[2026-02-02 17:59:55]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\apps\honey-comb-home\VERIFY_BUILD.ps1
+[2026-02-02 17:59:55] Duplicate Group (SHA256: EA66334DF5A7086F24DEC75258F99EE4635A166308B76AAFA44AE3409FE649F9):
+[2026-02-02 17:59:55]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\.gitattributes
+[2026-02-02 17:59:55]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\.gitattributes
+[2026-02-02 17:59:55]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\.gitattributes
+[2026-02-02 17:59:55]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\.gitattributes
+[2026-02-02 17:59:55]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\.gitattributes
+[2026-02-02 17:59:55]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\.gitattributes
+[2026-02-02 17:59:55]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\.gitattributes
+[2026-02-02 17:59:55] Duplicate Group (SHA256: B2AAF8979C647806FE579532643F7344C3CB30EB9A249529D6CB5B21BC489DCB):
+[2026-02-02 17:59:55]   KEEP: C:\Users\litre\homebase-2.0\github\assets\b8b3fe39-7002-4559-b76f-e464fd1606b0.mp4
+[2026-02-02 17:59:55]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\merged\EverythingHomebase\assets\b8b3fe39-7002-4559-b76f-e464fd1606b0.mp4
+[2026-02-02 17:59:55]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Media\b8b3fe39-7002-4559-b76f-e464fd1606b0.mp4
+[2026-02-02 17:59:55]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\packages\shared\assets\b8b3fe39-7002-4559-b76f-e464fd1606b0.mp4
+[2026-02-02 17:59:55] Duplicate Group (SHA256: 42926CBE448E8548DF0DBA2255C2FB7B75D0DE5BFAD3F69FA0C54DE5F9150174):
+[2026-02-02 17:59:55]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\README_DEPLOY.md
+[2026-02-02 17:59:55]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\README_DEPLOY.md
+[2026-02-02 17:59:55]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\README_DEPLOY.md
+[2026-02-02 17:59:55]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\README_DEPLOY.md
+[2026-02-02 17:59:55] Duplicate Group (SHA256: 637D2775DB0CC6A448B84892B4B4E894EEDE47EB203EDFE72CA93C9DE061677E):
+[2026-02-02 17:59:56]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\BackToTop.tsx
+[2026-02-02 17:59:56]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\BackToTop.tsx
+[2026-02-02 17:59:56] Duplicate Group (SHA256: DB7F44A4A0EB969D38DEF5418AD0424A68202E20E77364439C5EB3E473F4C76E):
+[2026-02-02 17:59:56]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\LabEmulationHub.tsx
+[2026-02-02 17:59:56]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\LabEmulationHub.tsx
+[2026-02-02 17:59:56] Duplicate Group (SHA256: 6957554C0B0517F0D4363562E2DA441067A1E9FC26717566953545748A996A0E):
+[2026-02-02 17:59:56]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\.gitignore
+[2026-02-02 17:59:56]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\.gitignore
+[2026-02-02 17:59:56]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\.gitignore
+[2026-02-02 17:59:56] Duplicate Group (SHA256: 768F49A0B95458D5249BF57B27AA45F537D70B4E1D957CC114AFC0D0C7EAF915):
+[2026-02-02 17:59:56]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\MASTER_PROMPT_v7.md
+[2026-02-02 17:59:56]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\MASTER_PROMPT_v7.md
+[2026-02-02 17:59:56]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\MASTER_PROMPT_v7.md
+[2026-02-02 17:59:56] Duplicate Group (SHA256: D9BC20A73EBBA83092E868EB88B500216DEBC58A2EEEE2CCCA488CCD8D826779):
+[2026-02-02 17:59:56]   KEEP: C:\Users\litre\homebase-2.0\github\assets\VID_20251107_215817292.mp4
+[2026-02-02 17:59:56]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\merged\EverythingHomebase\assets\VID_20251107_215817292.mp4
+[2026-02-02 17:59:56]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Media\VID_20251107_215817292.mp4
+[2026-02-02 17:59:56]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\packages\shared\assets\VID_20251107_215817292.mp4
+[2026-02-02 17:59:56] Duplicate Group (SHA256: BA4EC05C09C1BF9AECD8CFEE498D54E6C6BE30062AA92F3AC42FC2B3BAB84A36):
+[2026-02-02 17:59:56]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\GETTING_STARTED.md
+[2026-02-02 17:59:56]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\GETTING_STARTED.md
+[2026-02-02 17:59:56]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\GETTING_STARTED.md
+[2026-02-02 17:59:56] Duplicate Group (SHA256: C072C75D26B11026C2A1A0C7CDBBF3D8A2428A7306B1E912296701D4EFB9E13C):
+[2026-02-02 17:59:56]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\tailwind.config.premium.ts
+[2026-02-02 17:59:56]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\tailwind.config.premium.ts
+[2026-02-02 17:59:56]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\tailwind.config.premium.ts
+[2026-02-02 17:59:56] Duplicate Group (SHA256: FC5F19015B3C8E57BB26B62D82A1B01E58CC39593F48DF64CB61693080550C58):
+[2026-02-02 17:59:56]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\api\helloWorld\function.json
+[2026-02-02 17:59:56]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\api\helloWorld\function.json
+[2026-02-02 17:59:56]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\api\helloWorld\function.json
+[2026-02-02 17:59:56]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\api\helloWorld\function.json
+[2026-02-02 17:59:56] Duplicate Group (SHA256: 9301E0A81EEDFED38AA88B3D7C9B65F0E95F2CC2E60FB85E4721D3DFD8643DBE):
+[2026-02-02 17:59:56]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\START_HERE_PAYMENTS.md
+[2026-02-02 17:59:56]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\START_HERE_PAYMENTS.md
+[2026-02-02 17:59:56]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\START_HERE_PAYMENTS.md
+[2026-02-02 17:59:56]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\START_HERE_PAYMENTS.md
+[2026-02-02 17:59:56]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\START_HERE_PAYMENTS.md
+[2026-02-02 17:59:56]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\START_HERE_PAYMENTS.md
+[2026-02-02 17:59:56]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\START_HERE_PAYMENTS.md
+[2026-02-02 17:59:56]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\START_HERE_PAYMENTS.md
+[2026-02-02 17:59:56] Duplicate Group (SHA256: 5AA9E95E23B961B2EDDF06318BFC633BB389AF786B1E5859CDA6CA2E38CAD9A5):
+[2026-02-02 17:59:56]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\app\api\ai-chat\route.ts
+[2026-02-02 17:59:56]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\app\api\ai-chat\route.ts
+[2026-02-02 17:59:57]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\app\api\ai-chat\route.ts
+[2026-02-02 17:59:57] Duplicate Group (SHA256: ADC5D028A323A12EBC296A5CBF3FBE5DB10E5B113BB991F326442C846A0CE263):
+[2026-02-02 17:59:57]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\dashboard\MoneyTodayCard.tsx
+[2026-02-02 17:59:57]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\dashboard\MoneyTodayCard.tsx
+[2026-02-02 17:59:57] Duplicate Group (SHA256: FA40CD04A7A4DC27C2109C7BC8098ED54F521566253C3DCC5298EE59ACF9DEA1):
+[2026-02-02 17:59:57]   KEEP: C:\Users\litre\homebase-2.0\litlabs\out\drops.txt
+[2026-02-02 17:59:57]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\drops\__next._full.txt
+[2026-02-02 17:59:57] Duplicate Group (SHA256: 12D434B10657E895312ECD72DE4350427EFE0479B451F2FEA022074B46B82366):
+[2026-02-02 17:59:57]   KEEP: C:\Users\litre\homebase-2.0\litlabs\out\index.txt
+[2026-02-02 17:59:57]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\__next._full.txt
+[2026-02-02 17:59:57] Duplicate Group (SHA256: 635F1EEBAF0E0CD8CF1F2C06A55BC4DAEC611F3DBA6B6A942F70B326F9C3D7D9):
+[2026-02-02 17:59:57]   KEEP: C:\Users\litre\homebase-2.0\github\assets\IMG_20251107_215804996.jpg
+[2026-02-02 17:59:57]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\merged\EverythingHomebase\assets\IMG_20251107_215804996.jpg
+[2026-02-02 17:59:57]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Media\IMG_20251107_215804996.jpg
+[2026-02-02 17:59:57]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\packages\shared\assets\IMG_20251107_215804996.jpg
+[2026-02-02 17:59:57] Duplicate Group (SHA256: 66A1D1CC036B986615A9C9DA11CB4F5FC88DCC78B5B1BB931627F4A7D51E81F7):
+[2026-02-02 17:59:57]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\.env.local.gcp.example
+[2026-02-02 17:59:57]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\.env.local.gcp.example
+[2026-02-02 17:59:57]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\.env.local.gcp.example
+[2026-02-02 17:59:57] Duplicate Group (SHA256: 60B55FF7DF79AF72590F9524208E46642BC32BDC175CDAD41349681C0E2F958F):
+[2026-02-02 17:59:57]   KEEP: C:\Users\litre\homebase-2.0\litlabs\README.md
+[2026-02-02 17:59:57]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\web\README.md
+[2026-02-02 17:59:57] Duplicate Group (SHA256: E73168F3CE21822B79F3BC73647CEB766758E6AED2C0329D6F0718C46D463AB6):
+[2026-02-02 17:59:57]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\FINAL_DEPLOYMENT_STATUS.md
+[2026-02-02 17:59:57]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\FINAL_DEPLOYMENT_STATUS.md
+[2026-02-02 17:59:57]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\FINAL_DEPLOYMENT_STATUS.md
+[2026-02-02 17:59:57]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\FINAL_DEPLOYMENT_STATUS.md
+[2026-02-02 17:59:57]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\FINAL_DEPLOYMENT_STATUS.md
+[2026-02-02 17:59:57]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\FINAL_DEPLOYMENT_STATUS.md
+[2026-02-02 17:59:57]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\FINAL_DEPLOYMENT_STATUS.md
+[2026-02-02 17:59:57]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\FINAL_DEPLOYMENT_STATUS.md
+[2026-02-02 17:59:57]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\FINAL_DEPLOYMENT_STATUS.md
+[2026-02-02 17:59:57] Duplicate Group (SHA256: D6CDAFA1885F41019FFB20F6F736EFFE0F228599445AFAE95097F3391583CC7C):
+[2026-02-02 17:59:57]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\DESIGN_SYSTEM_INTEGRATION.md
+[2026-02-02 17:59:57]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\DESIGN_SYSTEM_INTEGRATION.md
+[2026-02-02 17:59:57]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\DESIGN_SYSTEM_INTEGRATION.md
+[2026-02-02 17:59:57] Duplicate Group (SHA256: EA30623963B6952C1FD89C50FC277237C2DA96AFBB91F794FA16A0BA0AB9D602):
+[2026-02-02 17:59:57]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\GCPAnalyticsDashboard.tsx
+[2026-02-02 17:59:58]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\GCPAnalyticsDashboard.tsx
+[2026-02-02 17:59:58] Duplicate Group (SHA256: 119333628EA36C9AE44A2FF23CA06EDB3B633836A431064636204A4251506724):
+[2026-02-02 17:59:58]   KEEP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\.env.example
+[2026-02-02 17:59:58]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\.env.example
+[2026-02-02 17:59:58]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\.env.example
+[2026-02-02 17:59:58] Duplicate Group (SHA256: 6289BCA38D4E8E56ACAD5F8E739BD7560DD01C49DDEDE23B74748B5EB011E389):
+[2026-02-02 17:59:58]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\QUICK_DEPLOY.md
+[2026-02-02 17:59:58]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\QUICK_DEPLOY.md
+[2026-02-02 17:59:58]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\QUICK_DEPLOY.md
+[2026-02-02 17:59:58]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\QUICK_DEPLOY.md
+[2026-02-02 17:59:58] Duplicate Group (SHA256: CBD2F50AAEC4D7907D7B8D87A2DD29ABCA874A7D0342B2DDAFFEC44C0AB4606B):
+[2026-02-02 17:59:58]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\FINAL_VERIFICATION.md
+[2026-02-02 17:59:58]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\FINAL_VERIFICATION.md
+[2026-02-02 17:59:58]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\FINAL_VERIFICATION.md
+[2026-02-02 17:59:58]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\FINAL_VERIFICATION.md
+[2026-02-02 17:59:58]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\FINAL_VERIFICATION.md
+[2026-02-02 17:59:58]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\FINAL_VERIFICATION.md
+[2026-02-02 17:59:58]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\FINAL_VERIFICATION.md
+[2026-02-02 17:59:58]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\FINAL_VERIFICATION.md
+[2026-02-02 17:59:58]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\FINAL_VERIFICATION.md
+[2026-02-02 17:59:58] Duplicate Group (SHA256: 2EC7AEBD189D9364515F3774A1364F5D3DE8A09C36A22E39A68238063EDBC775):
+[2026-02-02 17:59:58]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\.github\agents\code-quality.agent.md
+[2026-02-02 17:59:58]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\.github\agents\code-quality.agent.md
+[2026-02-02 17:59:58] Duplicate Group (SHA256: 0BF33241AA57B2CCDCD407869197EB328E24622F82B98F38D5A6BE5B9D68EA8B):
+[2026-02-02 17:59:58]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\READY_TO_LAUNCH.md
+[2026-02-02 17:59:58]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\READY_TO_LAUNCH.md
+[2026-02-02 17:59:58]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\READY_TO_LAUNCH.md
+[2026-02-02 17:59:58] Duplicate Group (SHA256: 4143FABAD9165A165D72D2CA3B7319FF5DF24AAECD389B11C0E4D41057F36828):
+[2026-02-02 17:59:58]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\.codacy\codacy.yaml
+[2026-02-02 17:59:58]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\.codacy\codacy.yaml
+[2026-02-02 17:59:58]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\.codacy\codacy.yaml
+[2026-02-02 17:59:58]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\.codacy\codacy.yaml
+[2026-02-02 17:59:58]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\.codacy\codacy.yaml
+[2026-02-02 17:59:58]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\.codacy\codacy.yaml
+[2026-02-02 17:59:58]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\.codacy\codacy.yaml
+[2026-02-02 17:59:58] Duplicate Group (SHA256: F9C71E5CF0B306BFCCA1DBA682DA1A0AA6E0DEEFC53A2611A707FB775C6105E2):
+[2026-02-02 17:59:58]   KEEP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\tsconfig.json
+[2026-02-02 17:59:58]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\tsconfig.json
+[2026-02-02 17:59:59]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\tsconfig.json
+[2026-02-02 17:59:59]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\tsconfig.json
+[2026-02-02 17:59:59] Duplicate Group (SHA256: 5FE4C0BAAFA34314A0E04B07952A150D1A27D51074E4F0A1CEF58C64527B4483):
+[2026-02-02 17:59:59]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\.env.production.example
+[2026-02-02 17:59:59]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\.env.production.example
+[2026-02-02 17:59:59]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\.env.production.example
+[2026-02-02 17:59:59] Duplicate Group (SHA256: 464F5926B5B1BBBC926233C56A419DDBEFAA1C864658A8127421086436EC494B):
+[2026-02-02 17:59:59]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\PRODUCTION_DEPLOYMENT_READY.md
+[2026-02-02 17:59:59]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\PRODUCTION_DEPLOYMENT_READY.md
+[2026-02-02 17:59:59]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\PRODUCTION_DEPLOYMENT_READY.md
+[2026-02-02 17:59:59]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\PRODUCTION_DEPLOYMENT_READY.md
+[2026-02-02 17:59:59] Duplicate Group (SHA256: 7AB93305FAA08C4C045EE10A019782A56F87C99CBB241415494E104A5CBCCF0F):
+[2026-02-02 17:59:59]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\MONETIZATION_SYSTEM.md
+[2026-02-02 17:59:59]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\MONETIZATION_SYSTEM.md
+[2026-02-02 17:59:59]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\MONETIZATION_SYSTEM.md
+[2026-02-02 17:59:59] Duplicate Group (SHA256: 977CE8E2C0F44D3A8C061B05C94C0D6ED1897C6D15552D1257232777BEC61B8C):
+[2026-02-02 17:59:59]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\FINAL_STATUS.md
+[2026-02-02 17:59:59]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\FINAL_STATUS.md
+[2026-02-02 17:59:59]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\FINAL_STATUS.md
+[2026-02-02 17:59:59]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\FINAL_STATUS.md
+[2026-02-02 17:59:59]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\FINAL_STATUS.md
+[2026-02-02 17:59:59]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\FINAL_STATUS.md
+[2026-02-02 17:59:59]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\FINAL_STATUS.md
+[2026-02-02 17:59:59]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\FINAL_STATUS.md
+[2026-02-02 17:59:59]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\FINAL_STATUS.md
+[2026-02-02 17:59:59] Duplicate Group (SHA256: 3F63F770B77B62D0B1027FC58483F017A0ADE882CBC3087410EB3343BE6978E8):
+[2026-02-02 17:59:59]   KEEP: C:\Users\litre\homebase-2.0\github\src\website-project\package.json
+[2026-02-02 17:59:59]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\merged\EverythingHomebase\master\Code\Apps\LiTlab'Studio 3.0\website-project\package.json
+[2026-02-02 17:59:59]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\website-project\package.json
+[2026-02-02 17:59:59]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Apps\LiTlab'Studio 3.0\website-project\package.json
+[2026-02-02 17:59:59]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Labs-Ai\merged\EverythingHomebase\master\Code\Apps\LiTlab'Studio 3.0\website-project\package.json
+[2026-02-02 17:59:59]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Labs-Ai\website-project\package.json
+[2026-02-02 17:59:59]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\Apps\Apps\LiTlab'Studio 3.0\website-project\package.json
+[2026-02-02 17:59:59]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\Apps\Apps\LiTlab'Studio 3.0\website-project-1\package.json
+[2026-02-02 17:59:59]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\Apps\LiTlab'Studio 3.0\website-project\package.json
+[2026-02-02 17:59:59]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\Apps\LiTlab'Studio 3.0\website-project-1\package.json
+[2026-02-02 17:59:59]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\LiTlab'Studio 3.0\website-project\package.json
+[2026-02-02 17:59:59]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\LiTlab'Studio 3.0 (VSCode)\website-project\package.json
+[2026-02-02 17:59:59]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\LiTlab'Studio 3.0 (VSCode)\website-project-1\package.json
+[2026-02-02 17:59:59]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Projects\website-project-1\package.json
+[2026-02-02 17:59:59]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\src\website-project-1\package.json
+[2026-02-02 17:59:59] Duplicate Group (SHA256: 0F279AD5E2209F0653531A556D133EE6F21361A890A020569F2427E24073CAB5):
+[2026-02-02 17:59:59]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\PROJECT_FINAL_STATUS.md
+[2026-02-02 17:59:59]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\PROJECT_FINAL_STATUS.md
+[2026-02-02 17:59:59]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\PROJECT_FINAL_STATUS.md
+[2026-02-02 17:59:59] Duplicate Group (SHA256: B9BE164058636847B49DBB6D3BF86E288EBED7BF29B2AAC03A99D2312B3A0858):
+[2026-02-02 17:59:59]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\LabPricing.tsx
+[2026-02-02 18:00:00]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\LabPricing.tsx
+[2026-02-02 18:00:00] Duplicate Group (SHA256: BE1946D8831638A3B2CA13F101E7572DAC4457BFA04D61B64838A9826A603856):
+[2026-02-02 18:00:00]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\components\theme\ThemeSwitcher.tsx
+[2026-02-02 18:00:00]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\components\theme\ThemeSwitcher.tsx
+[2026-02-02 18:00:00]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\components\theme\ThemeSwitcher.tsx
+[2026-02-02 18:00:00] Duplicate Group (SHA256: 753C25206970D17C383CFACA44107854C48B9B5D1AED414A88C292CE3058FF98):
+[2026-02-02 18:00:00]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\DESIGN_SYSTEM_MASTER_INDEX.md
+[2026-02-02 18:00:00]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\DESIGN_SYSTEM_MASTER_INDEX.md
+[2026-02-02 18:00:00]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\DESIGN_SYSTEM_MASTER_INDEX.md
+[2026-02-02 18:00:00] Duplicate Group (SHA256: 587D80C2D1D29157F4044204F6D1378417D3A44DB21F2C42AF05BDE4B209C585):
+[2026-02-02 18:00:00]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\GodModePanel.tsx
+[2026-02-02 18:00:00]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\GodModePanel.tsx
+[2026-02-02 18:00:00] Duplicate Group (SHA256: 6EC691C1E5A218ECACDC2043D6839EC31081596253A2A6A5E5D6E07D8151B241):
+[2026-02-02 18:00:00]   KEEP: C:\Users\litre\homebase-2.0\github\assets\file_0000000091407230b9dadf941942142b.png
+[2026-02-02 18:00:00]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\assets\file_0000000091407230b9dadf941942142b (1).png
+[2026-02-02 18:00:00]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\merged\EverythingHomebase\assets\file_0000000091407230b9dadf941942142b (1).png
+[2026-02-02 18:00:00]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\merged\EverythingHomebase\assets\file_0000000091407230b9dadf941942142b.png
+[2026-02-02 18:00:00]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Media\file_0000000091407230b9dadf941942142b (1).png
+[2026-02-02 18:00:00]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Media\file_0000000091407230b9dadf941942142b.png
+[2026-02-02 18:00:00]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\packages\shared\assets\file_0000000091407230b9dadf941942142b (1).png
+[2026-02-02 18:00:00]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\packages\shared\assets\file_0000000091407230b9dadf941942142b.png
+[2026-02-02 18:00:00] Duplicate Group (SHA256: 49091FBC7E3EF9FBF09CCBE297C18849B176864A1733A9744C9F5760FE0A6437):
+[2026-02-02 18:00:00]   KEEP: C:\Users\litre\homebase-2.0\github\src\website-project\src\components\header.js
+[2026-02-02 18:00:00]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\website-project\src\components\header.js
+[2026-02-02 18:00:00]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Labs-Ai\website-project\src\components\header.js
+[2026-02-02 18:00:00]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\Apps\Apps\LiTlab'Studio 3.0\website-project\src\components\header.js
+[2026-02-02 18:00:00]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\Apps\Apps\LiTlab'Studio 3.0\website-project-1\src\components\header.js
+[2026-02-02 18:00:00]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\Apps\LiTlab'Studio 3.0\website-project\src\components\header.js
+[2026-02-02 18:00:00]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\Apps\LiTlab'Studio 3.0\website-project-1\src\components\header.js
+[2026-02-02 18:00:00]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\LiTlab'Studio 3.0 (VSCode)\website-project\src\components\header.js
+[2026-02-02 18:00:00]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\LiTlab'Studio 3.0 (VSCode)\website-project-1\src\components\header.js
+[2026-02-02 18:00:00]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Projects\website-project\src\components\header.js
+[2026-02-02 18:00:00]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Projects\website-project-1\src\components\header.js
+[2026-02-02 18:00:00]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\src\website-project-1\src\components\header.js
+[2026-02-02 18:00:00] Duplicate Group (SHA256: 86318A8FB7AB6C43F3B591A704DB714EA780599CD69D1F56C7F322386D1C475E):
+[2026-02-02 18:00:00]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\DEPLOYMENT_ROADMAP.md
+[2026-02-02 18:00:00]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\DEPLOYMENT_ROADMAP.md
+[2026-02-02 18:00:00]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\DEPLOYMENT_ROADMAP.md
+[2026-02-02 18:00:00] Duplicate Group (SHA256: B5F62137472D4EF0BA2742E4505A8D9A7EF759A311C7E80E09C27BBE7527B2C1):
+[2026-02-02 18:00:00]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\cooking_tools.py
+[2026-02-02 18:00:00]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\cooking_tools.py
+[2026-02-02 18:00:00]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\cooking_tools.py
+[2026-02-02 18:00:00] Duplicate Group (SHA256: 1A79F6AAA9CDFB7C513D7D6D8EACEC8679FC5861F933EF4CB65E360FC902EEC9):
+[2026-02-02 18:00:00]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\ui\Card.tsx
+[2026-02-02 18:00:00]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\ui\Card.tsx
+[2026-02-02 18:00:00] Duplicate Group (SHA256: 7A404B39878E012CFDB6CE6E9D2C5193BD455128A647A64EEA632ABCC646F2A8):
+[2026-02-02 18:00:00]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\.env.metaverse.example
+[2026-02-02 18:00:00]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\.env.metaverse.example
+[2026-02-02 18:00:00]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\.env.metaverse.example
+[2026-02-02 18:00:00]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\.env.metaverse.example
+[2026-02-02 18:00:00]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\.env.metaverse.example
+[2026-02-02 18:00:00] Duplicate Group (SHA256: 0E98032B31BD0DCC5B6650960B7D1E25A121B8AC6FB4E005ED1EA3E6A4BB9396):
+[2026-02-02 18:00:00]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\LabPaymentDemo.tsx
+[2026-02-02 18:00:01]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\LabPaymentDemo.tsx
+[2026-02-02 18:00:01] Duplicate Group (SHA256: 8DA6CCD29EF206516C03218F1F2F10A7616891692EDA5473AB8B620B49E24EDF):
+[2026-02-02 18:00:01]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\eslint.config.ts
+[2026-02-02 18:00:01]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\eslint.config.ts
+[2026-02-02 18:00:01]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\eslint.config.ts
+[2026-02-02 18:00:01]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\eslint.config.ts
+[2026-02-02 18:00:01]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\eslint.config.ts
+[2026-02-02 18:00:01]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\eslint.config.ts
+[2026-02-02 18:00:01]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\eslint.config.ts
+[2026-02-02 18:00:01]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\eslint.config.ts
+[2026-02-02 18:00:01]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\eslint.config.ts
+[2026-02-02 18:00:01] Duplicate Group (SHA256: 2BC66D731153D74F59FAF28C6D5DE95F9641DF953891E4211A4FC94A2A0F854B):
+[2026-02-02 18:00:01]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\config\themes.ts
+[2026-02-02 18:00:01]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\config\themes.ts
+[2026-02-02 18:00:01]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\config\themes.ts
+[2026-02-02 18:00:01] Duplicate Group (SHA256: ACA884016D83FEE766993A527543C913731FD9DAAAFB391D4BF35FF358A37457):
+[2026-02-02 18:00:01]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\COMPLETION_MANIFEST.md
+[2026-02-02 18:00:01]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\COMPLETION_MANIFEST.md
+[2026-02-02 18:00:01]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\COMPLETION_MANIFEST.md
+[2026-02-02 18:00:01]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\COMPLETION_MANIFEST.md
+[2026-02-02 18:00:01] Duplicate Group (SHA256: C90ACADFF812F2E4B6CBE69F402E02CCCEC8485A0BE005292EC0ED0EF21A9D1C):
+[2026-02-02 18:00:01]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\MICROSOFT_365_DEPLOYMENT.md
+[2026-02-02 18:00:01]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\MICROSOFT_365_DEPLOYMENT.md
+[2026-02-02 18:00:01]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\MICROSOFT_365_DEPLOYMENT.md
+[2026-02-02 18:00:01]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\MICROSOFT_365_DEPLOYMENT.md
+[2026-02-02 18:00:01] Duplicate Group (SHA256: 534CDCAA175ACA73B3529928C28415B82C9E0F5DAA5DD8AC0A677EDF3BF13AEB):
+[2026-02-02 18:00:01]   KEEP: C:\Users\litre\homebase-2.0\github\assets\VID_20251107_215540677.mp4
+[2026-02-02 18:00:01]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\merged\EverythingHomebase\assets\VID_20251107_215540677.mp4
+[2026-02-02 18:00:01]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Media\VID_20251107_215540677.mp4
+[2026-02-02 18:00:01]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\packages\shared\assets\VID_20251107_215540677.mp4
+[2026-02-02 18:00:01] Duplicate Group (SHA256: 59063E17439443DE8C3B802B8B1C6857AB5E8B9D4034DF71EBA9A8F08907B3E8):
+[2026-02-02 18:00:01]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\LabAIAssistantUI.tsx
+[2026-02-02 18:00:01]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\LabAIAssistantUI.tsx
+[2026-02-02 18:00:01] Duplicate Group (SHA256: 41AB25FFA6E50964F66BA1A1A0442579240ACA5CCB8428E3DEF0A533EF1A7657):
+[2026-02-02 18:00:01]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\LabCommunity.tsx
+[2026-02-02 18:00:01]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\LabCommunity.tsx
+[2026-02-02 18:00:01] Duplicate Group (SHA256: 3484DA557832BBDB12F103333619C152A815105EBC93C494512E38A6E4AB7593):
+[2026-02-02 18:00:01]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\.firebaserc
+[2026-02-02 18:00:01]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\.firebaserc
+[2026-02-02 18:00:01]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\.firebaserc
+[2026-02-02 18:00:01] Duplicate Group (SHA256: 93942904D281085AA7CCCAC460823A6B7D1BE133EA6BCB2C54FD7EA9ED1E2434):
+[2026-02-02 18:00:01]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\LabAdminGuard.tsx
+[2026-02-02 18:00:01]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\LabAdminGuard.tsx
+[2026-02-02 18:00:01] Duplicate Group (SHA256: 8109389C3B9B614429C36EF1F7D5078C12815E3D677D654B96423D1213EF6D39):
+[2026-02-02 18:00:01]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\activate-all-bots.ps1
+[2026-02-02 18:00:01]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\activate-all-bots.ps1
+[2026-02-02 18:00:01]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\activate-all-bots.ps1
+[2026-02-02 18:00:01] Duplicate Group (SHA256: 5147A6DD07EDEDE97B495FE8BC5CB91CE3358615403023641C1C413B75A06958):
+[2026-02-02 18:00:01]   KEEP: C:\Users\litre\homebase-2.0\github\apps\litreelabsfirebase\.env.local
+[2026-02-02 18:00:01]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\.env.local
+[2026-02-02 18:00:01] Duplicate Group (SHA256: 7D242489DD3AC876B67AE4BD571F284249DECC027EFFEBD0AAC77265AF0A280B):
+[2026-02-02 18:00:02]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\.github\COPILOT_INSTRUCTIONS.md
+[2026-02-02 18:00:02]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\.github\COPILOT_INSTRUCTIONS.md
+[2026-02-02 18:00:02] Duplicate Group (SHA256: 58F4060B2BECC1C77EEC28804676CBF855D7E63380FF768DD60269AA6B5BA0F8):
+[2026-02-02 18:00:02]   KEEP: C:\Users\litre\homebase-2.0\litlabs\out\calendar.txt
+[2026-02-02 18:00:02]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\calendar\__next._full.txt
+[2026-02-02 18:00:02] Duplicate Group (SHA256: AD7EABEFBB75F37DC01F837496CD0CBC6A2DD49020A6B7881735762BEE9F93C0):
+[2026-02-02 18:00:02]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\functions\package.json
+[2026-02-02 18:00:02]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\functions\package.json
+[2026-02-02 18:00:02]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\functions\package.json
+[2026-02-02 18:00:02]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\functions\package.json
+[2026-02-02 18:00:02] Duplicate Group (SHA256: 7D868B43263A13E5B4D58705542E196B968AB946F58D2630333BD68316B6C4A9):
+[2026-02-02 18:00:02]   KEEP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\.devcontainer\devcontainer.json
+[2026-02-02 18:00:02]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\.devcontainer\devcontainer.json
+[2026-02-02 18:00:02] Duplicate Group (SHA256: 1673C554D95B891E9D9CDC2C8200A7DB100E6CA882F3C9AF1D1567E887E48F9B):
+[2026-02-02 18:00:02]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\.coverage
+[2026-02-02 18:00:02]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\.coverage
+[2026-02-02 18:00:02]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\.coverage
+[2026-02-02 18:00:02] Duplicate Group (SHA256: CE4CD7B09D8F62CD807426FAFAF066CE959DE6260B6F3FE330FE59E09E003C7F):
+[2026-02-02 18:00:02]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\next.config.ts
+[2026-02-02 18:00:02]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\next.config.ts
+[2026-02-02 18:00:02]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\next.config.ts
+[2026-02-02 18:00:02]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\next.config.ts
+[2026-02-02 18:00:02]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\next.config.ts
+[2026-02-02 18:00:02]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\next.config.ts
+[2026-02-02 18:00:02]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\next.config.ts
+[2026-02-02 18:00:02]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\next.config.ts
+[2026-02-02 18:00:02] Duplicate Group (SHA256: 44CC1E84A102CAA9BCD415FF3F9C7FDE0E05DED4C687EFE5F53EC4F3B471C2B3):
+[2026-02-02 18:00:02]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\DELIVERABLES_CHECKLIST.md
+[2026-02-02 18:00:02]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\DELIVERABLES_CHECKLIST.md
+[2026-02-02 18:00:02]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\DELIVERABLES_CHECKLIST.md
+[2026-02-02 18:00:02]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\DELIVERABLES_CHECKLIST.md
+[2026-02-02 18:00:02]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\DELIVERABLES_CHECKLIST.md
+[2026-02-02 18:00:02]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\DELIVERABLES_CHECKLIST.md
+[2026-02-02 18:00:02]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\DELIVERABLES_CHECKLIST.md
+[2026-02-02 18:00:02] Duplicate Group (SHA256: C3C128AC2A80FAA2EA00FFED372881617BA8708B11FBC25DBB78B81C33988CCF):
+[2026-02-02 18:00:02]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\IMPLEMENTATION_CHECKLIST.md
+[2026-02-02 18:00:02]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\IMPLEMENTATION_CHECKLIST.md
+[2026-02-02 18:00:02]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\IMPLEMENTATION_CHECKLIST.md
+[2026-02-02 18:00:02]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\IMPLEMENTATION_CHECKLIST.md
+[2026-02-02 18:00:02]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\IMPLEMENTATION_CHECKLIST.md
+[2026-02-02 18:00:02]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\IMPLEMENTATION_CHECKLIST.md
+[2026-02-02 18:00:02]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\IMPLEMENTATION_CHECKLIST.md
+[2026-02-02 18:00:02]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\IMPLEMENTATION_CHECKLIST.md
+[2026-02-02 18:00:02]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\IMPLEMENTATION_CHECKLIST.md
+[2026-02-02 18:00:02] Duplicate Group (SHA256: 92E0A024052367EA1EA0E86469AA28854EA029B46CAF0F2BD1C29C1FD040924D):
+[2026-02-02 18:00:02]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\LitLabsAssistant.tsx
+[2026-02-02 18:00:02]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\LitLabsAssistant.tsx
+[2026-02-02 18:00:02] Duplicate Group (SHA256: 956E22F14E7FE8052107A16847EA376D233E803762C2F16062E01902F666DF45):
+[2026-02-02 18:00:02]   KEEP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\package-lock.json
+[2026-02-02 18:00:02]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\package-lock.json
+[2026-02-02 18:00:03] Duplicate Group (SHA256: 9B7AE41E738B4CF0AB9B30F64F13AAF217A02E57F9855BF5B6409360987B7352):
+[2026-02-02 18:00:03]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\CODE_QUALITY_ASSESSMENT.md
+[2026-02-02 18:00:03]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\CODE_QUALITY_ASSESSMENT.md
+[2026-02-02 18:00:03]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\CODE_QUALITY_ASSESSMENT.md
+[2026-02-02 18:00:03]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\CODE_QUALITY_ASSESSMENT.md
+[2026-02-02 18:00:03] Duplicate Group (SHA256: 878D57B85B4E3C99EF1E75E2373695968E7890266D8E2395F83CE67ED60C819A):
+[2026-02-02 18:00:03]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\ARCHITECTURE_TYPESCRIPT_NEXTJS.md
+[2026-02-02 18:00:03]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\ARCHITECTURE_TYPESCRIPT_NEXTJS.md
+[2026-02-02 18:00:03]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\ARCHITECTURE_TYPESCRIPT_NEXTJS.md
+[2026-02-02 18:00:03]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\ARCHITECTURE_TYPESCRIPT_NEXTJS.md
+[2026-02-02 18:00:03]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\ARCHITECTURE_TYPESCRIPT_NEXTJS.md
+[2026-02-02 18:00:03]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\ARCHITECTURE_TYPESCRIPT_NEXTJS.md
+[2026-02-02 18:00:03] Duplicate Group (SHA256: 9BA661E5172C1606782375C027F8179A7513E066A8B95E6895A2910A2FB4F4B9):
+[2026-02-02 18:00:03]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\SECURITY_FIX_ACTION_PLAN.md
+[2026-02-02 18:00:03]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\SECURITY_FIX_ACTION_PLAN.md
+[2026-02-02 18:00:03]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\SECURITY_FIX_ACTION_PLAN.md
+[2026-02-02 18:00:03]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\SECURITY_FIX_ACTION_PLAN.md
+[2026-02-02 18:00:03] Duplicate Group (SHA256: 7410FCE298B716BCBDDFA9E5AD3D32882FBFF4006515F847F0EBB622FC6010C9):
+[2026-02-02 18:00:03]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\STATUS_COMPLETE.md
+[2026-02-02 18:00:03]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\STATUS_COMPLETE.md
+[2026-02-02 18:00:03]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\STATUS_COMPLETE.md
+[2026-02-02 18:00:03]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\STATUS_COMPLETE.md
+[2026-02-02 18:00:03]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\STATUS_COMPLETE.md
+[2026-02-02 18:00:03]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\STATUS_COMPLETE.md
+[2026-02-02 18:00:03]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\STATUS_COMPLETE.md
+[2026-02-02 18:00:03]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\STATUS_COMPLETE.md
+[2026-02-02 18:00:03]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\STATUS_COMPLETE.md
+[2026-02-02 18:00:03] Duplicate Group (SHA256: E019F8183AECBFBE22A5E17981188807C4ADF1F8CEB6629206F8E8909DFE32D9):
+[2026-02-02 18:00:03]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\LabMarketplace.tsx
+[2026-02-02 18:00:03]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\LabMarketplace.tsx
+[2026-02-02 18:00:03] Duplicate Group (SHA256: 0D412BE65FD9C74CEC9FC5270B9AB8698AB041C84DB0D482EBF4A8449CD15B94):
+[2026-02-02 18:00:03]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\CHANGELOG.md
+[2026-02-02 18:00:03]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\CHANGELOG.md
+[2026-02-02 18:00:03]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\CHANGELOG.md
+[2026-02-02 18:00:03]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\CHANGELOG.md
+[2026-02-02 18:00:03]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\CHANGELOG.md
+[2026-02-02 18:00:03]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\CHANGELOG.md
+[2026-02-02 18:00:03]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\CHANGELOG.md
+[2026-02-02 18:00:03] Duplicate Group (SHA256: 19588450B308A33571972129DDC48BEABE04715D52E95564F5F8C1BE380E48F2):
+[2026-02-02 18:00:03]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\lib\god-mode.ts
+[2026-02-02 18:00:03]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\lib\god-mode.ts
+[2026-02-02 18:00:03] Duplicate Group (SHA256: 765543E40B6D097300E60C50667C8BAEE1FFFBED14B44313663D990E60CE7CC8):
+[2026-02-02 18:00:03]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\PricingTable.tsx
+[2026-02-02 18:00:03]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\PricingTable.tsx
+[2026-02-02 18:00:03] Duplicate Group (SHA256: C51EF4D4BE37B530B7EEEC0D09D5DFF6AB1CF1199DAB746522B85331D4E4CE82):
+[2026-02-02 18:00:03]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\setup.sh
+[2026-02-02 18:00:03]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\setup.sh
+[2026-02-02 18:00:03]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litreelabsfirebase\setup.sh
+[2026-02-02 18:00:03]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\setup.sh
+[2026-02-02 18:00:03] Duplicate Group (SHA256: 863640F1FBE43CA6356CBCB0B03591FFA0341DC57D510BD5CC40F767E21F52F1):
+[2026-02-02 18:00:03]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\COMPLETION_CERTIFICATE.md
+[2026-02-02 18:00:03]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\COMPLETION_CERTIFICATE.md
+[2026-02-02 18:00:04]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\COMPLETION_CERTIFICATE.md
+[2026-02-02 18:00:04] Duplicate Group (SHA256: 6742255415C36DAF631B52F233039190AF819205CC41FA58D07DD7D9E180C2B9):
+[2026-02-02 18:00:04]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\firestore.indexes.json
+[2026-02-02 18:00:04]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\firestore.indexes.json
+[2026-02-02 18:00:04]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\firestore.indexes.json
+[2026-02-02 18:00:04] Duplicate Group (SHA256: B069A381A54CE72EAB87C049F169957720A23D75BD6AABC03664FAEFEA3E086B):
+[2026-02-02 18:00:04]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\lib\subscriptionStore.ts
+[2026-02-02 18:00:04]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litree-unified\lib\subscriptionStore.ts
+[2026-02-02 18:00:04] Duplicate Group (SHA256: E945A26CAAB45F271A676CD0BBFDB886D0690EF637BD40DB84016205479E21C5):
+[2026-02-02 18:00:04]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\MASTER_INDEX.md
+[2026-02-02 18:00:04]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\MASTER_INDEX.md
+[2026-02-02 18:00:04]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\MASTER_INDEX.md
+[2026-02-02 18:00:04] Duplicate Group (SHA256: FC854C2950334514B3A3AD435737476EAB35CB044274F5240811C2E45D81CD56):
+[2026-02-02 18:00:04]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\lib\marketplace.ts
+[2026-02-02 18:00:04]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\lib\marketplace.ts
+[2026-02-02 18:00:04] Duplicate Group (SHA256: FEBBA02814D3BAE39966320FE57C7BECD95B178C4BD9BA63286D298A95E1B4AB):
+[2026-02-02 18:00:04]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\.gitignore
+[2026-02-02 18:00:04]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\.gitignore
+[2026-02-02 18:00:04]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\.gitignore
+[2026-02-02 18:00:04]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\.gitignore
+[2026-02-02 18:00:04]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\.gitignore
+[2026-02-02 18:00:04]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\.gitignore
+[2026-02-02 18:00:04]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\.gitignore
+[2026-02-02 18:00:04] Duplicate Group (SHA256: 7D0453A164147289E6C6610B6A69C863F4EDCD07FC2788410FF5709E327D4FB0):
+[2026-02-02 18:00:04]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\.env.local.example
+[2026-02-02 18:00:04]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\.env.local.example
+[2026-02-02 18:00:04]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\.env.local.example
+[2026-02-02 18:00:04] Duplicate Group (SHA256: 480E024C854298D93BE56D747A0655FC8F61BDF026F580A0A95B4B71060E6187):
+[2026-02-02 18:00:04]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\resolve_conflict.py
+[2026-02-02 18:00:04]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\resolve_conflict.py
+[2026-02-02 18:00:04]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\resolve_conflict.py
+[2026-02-02 18:00:04] Duplicate Group (SHA256: 98772675E5F9852B2D99397BB0AE941004E83A85445FCB63F5A27E492EF6C494):
+[2026-02-02 18:00:04]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\SETUP_FINAL.ps1
+[2026-02-02 18:00:04]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\SETUP_FINAL.ps1
+[2026-02-02 18:00:04]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litreelabsfirebase\SETUP_FINAL.ps1
+[2026-02-02 18:00:04]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\SETUP_FINAL.ps1
+[2026-02-02 18:00:04] Duplicate Group (SHA256: D5BF1F9501469CB05A484D3A8308C9D1D2BA3D2A4073033F4E5CEB2028424B4D):
+[2026-02-02 18:00:04]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\lib\guardian-bot.ts
+[2026-02-02 18:00:04]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\lib\guardian-bot.ts
+[2026-02-02 18:00:04] Duplicate Group (SHA256: 55995DFAD6ECB4945A1E856DDCA03C5E16AA5BF13FD21B4DF6A74AE79357BCFC):
+[2026-02-02 18:00:04]   KEEP: C:\Users\litre\homebase-2.0\litlabs\out\next.svg
+[2026-02-02 18:00:04]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litreelabsfirebase\public\next.svg
+[2026-02-02 18:00:05]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\web\public\next.svg
+[2026-02-02 18:00:05]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\public\next.svg
+[2026-02-02 18:00:05]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\public\next.svg
+[2026-02-02 18:00:05] Duplicate Group (SHA256: 9819B8B09E017D97FB6C765DD7599C3938E1BE61829A0C1EFA80D1EF739C546B):
+[2026-02-02 18:00:05]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\LitLabs-Backup.zip
+[2026-02-02 18:00:05]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\LitLabs-Backup.zip
+[2026-02-02 18:00:05]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\LitLabs-Backup.zip
+[2026-02-02 18:00:05] Duplicate Group (SHA256: 11BC0E77A1E8432C9387BE8E6192D7FF1731FA2CF6EEF7CB180BC7166257EBC6):
+[2026-02-02 18:00:05]   KEEP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\firebase.json
+[2026-02-02 18:00:05]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\firebase.json
+[2026-02-02 18:00:05]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\firebase.json
+[2026-02-02 18:00:05]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\firebase.json
+[2026-02-02 18:00:05]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\firebase.json
+[2026-02-02 18:00:05] Duplicate Group (SHA256: A9229CAA637837D10751AD324B8BFA41BD580CAB12520298BE2C63C2EC9F8B29):
+[2026-02-02 18:00:05]   KEEP: C:\Users\litre\homebase-2.0\litlabs\out\_not-found.txt
+[2026-02-02 18:00:05]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\_not-found\__next._full.txt
+[2026-02-02 18:00:05] Duplicate Group (SHA256: 808AB095B9D03B2B7EE27F1C8F21DDE9EE89D8CE8FABC7FC84784ADDA90268D2):
+[2026-02-02 18:00:05]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\useAdminGuard.ts
+[2026-02-02 18:00:05]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\useAdminGuard.ts
+[2026-02-02 18:00:05] Duplicate Group (SHA256: 42ECD5EB2D27140062FB4B66E50F8F4A64ABABF73204AE18D2D8A23F442755F3):
+[2026-02-02 18:00:05]   KEEP: C:\Users\litre\homebase-2.0\litlabs\out\__next._index.txt
+[2026-02-02 18:00:06]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\calendar\__next._index.txt
+[2026-02-02 18:00:06]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\drops\__next._index.txt
+[2026-02-02 18:00:06]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\files\__next._index.txt
+[2026-02-02 18:00:06]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\lab\__next._index.txt
+[2026-02-02 18:00:06]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\login\__next._index.txt
+[2026-02-02 18:00:06]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\notes\__next._index.txt
+[2026-02-02 18:00:06]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\studio\__next._index.txt
+[2026-02-02 18:00:06]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\tasks\__next._index.txt
+[2026-02-02 18:00:06]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\_not-found\__next._index.txt
+[2026-02-02 18:00:06] Duplicate Group (SHA256: 094A78AB6E38378EA41753EAFF2EE6A2981581C32F01FAB6709B25C6BA038D24):
+[2026-02-02 18:00:06]   KEEP: C:\Users\litre\homebase-2.0\litlabs\out\lab\__next.lab.txt
+[2026-02-02 18:00:06]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\calendar\__next.calendar.txt
+[2026-02-02 18:00:06]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\drops\__next.drops.txt
+[2026-02-02 18:00:06]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\files\__next.files.txt
+[2026-02-02 18:00:06]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\login\__next.login.txt
+[2026-02-02 18:00:06]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\notes\__next.notes.txt
+[2026-02-02 18:00:06]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\studio\__next.studio.txt
+[2026-02-02 18:00:06]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\tasks\__next.tasks.txt
+[2026-02-02 18:00:06]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\_not-found\__next._not-found.txt
+[2026-02-02 18:00:06] Duplicate Group (SHA256: A2A3866022E75BF29B26ACA54FF5C045A9ED1311393C38E3986846D51495B6EB):
+[2026-02-02 18:00:06]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\ScrollProgress.tsx
+[2026-02-02 18:00:06]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\ScrollProgress.tsx
+[2026-02-02 18:00:06] Duplicate Group (SHA256: D3E5B88BC95BA0C42302ABF1379B7DE45FC7D2610D9EEBCEA0AC19EEB6B1D4B4):
+[2026-02-02 18:00:06]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\LabHero.tsx
+[2026-02-02 18:00:06]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\LabHero.tsx
+[2026-02-02 18:00:06] Duplicate Group (SHA256: 10273031650911A982A058C1C674C929A2DA30E213A953C55F846CFB14F8C43A):
+[2026-02-02 18:00:06]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\coverage.xml
+[2026-02-02 18:00:06]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\coverage.xml
+[2026-02-02 18:00:06]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\coverage.xml
+[2026-02-02 18:00:06] Duplicate Group (SHA256: 255C23AAEF066630C9FC61D07034E97E14AE768F42F6B55FE42319274CE9514A):
+[2026-02-02 18:00:06]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\README_REBUILD.md
+[2026-02-02 18:00:06]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\README_REBUILD.md
+[2026-02-02 18:00:07]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\README_REBUILD.md
+[2026-02-02 18:00:07]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\README_REBUILD.md
+[2026-02-02 18:00:07]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\README_REBUILD.md
+[2026-02-02 18:00:07]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\README_REBUILD.md
+[2026-02-02 18:00:07]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\README_REBUILD.md
+[2026-02-02 18:00:07]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\README_REBUILD.md
+[2026-02-02 18:00:07]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\README_REBUILD.md
+[2026-02-02 18:00:07] Duplicate Group (SHA256: 07EDD2171C6F4E5FF66BA2BF8E7F20B159D255E2DBE9EA16360A062A0EE0ED9E):
+[2026-02-02 18:00:07]   KEEP: C:\Users\litre\homebase-2.0\github\assets\IMG_20251107_215604501.jpg
+[2026-02-02 18:00:07]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\merged\EverythingHomebase\assets\IMG_20251107_215604501.jpg
+[2026-02-02 18:00:07]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Media\IMG_20251107_215604501.jpg
+[2026-02-02 18:00:07]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\packages\shared\assets\IMG_20251107_215604501.jpg
+[2026-02-02 18:00:07] Duplicate Group (SHA256: 4CFBDDC20597BC6E52FC602014545AA81ECE0D4805737AE04C8BFBA5FA389F67):
+[2026-02-02 18:00:07]   KEEP: C:\Users\litre\homebase-2.0\github\api\src\shared\epipe.ts
+[2026-02-02 18:00:07]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\legacy-packages-api-functions\src\shared\epipe.ts
+[2026-02-02 18:00:07] Duplicate Group (SHA256: F7A9FF04BCA5A7CD0906EEFA045B6487B32441E1CBE1A73568FD279E63662C45):
+[2026-02-02 18:00:07]   KEEP: C:\Users\litre\homebase-2.0\github\assets\file_000000001b68722fbe36022fea7c8a57.png
+[2026-02-02 18:00:07]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\assets\file_000000001b68722fbe36022fea7c8a57 (1).png
+[2026-02-02 18:00:07]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\merged\EverythingHomebase\assets\file_000000001b68722fbe36022fea7c8a57 (1).png
+[2026-02-02 18:00:07]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\merged\EverythingHomebase\assets\file_000000001b68722fbe36022fea7c8a57.png
+[2026-02-02 18:00:07]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Media\file_000000001b68722fbe36022fea7c8a57 (1).png
+[2026-02-02 18:00:07]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Media\file_000000001b68722fbe36022fea7c8a57.png
+[2026-02-02 18:00:07]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\packages\shared\assets\file_000000001b68722fbe36022fea7c8a57 (1).png
+[2026-02-02 18:00:07]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\packages\shared\assets\file_000000001b68722fbe36022fea7c8a57.png
+[2026-02-02 18:00:07] Duplicate Group (SHA256: D9A5447804B52AD6E8F0A6E6525364FC8946F75F2AACF7F80451AD3457A17C65):
+[2026-02-02 18:00:07]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\SESSION_COMPLETION_SUMMARY.md
+[2026-02-02 18:00:07]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\SESSION_COMPLETION_SUMMARY.md
+[2026-02-02 18:00:07]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\SESSION_COMPLETION_SUMMARY.md
+[2026-02-02 18:00:07]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\SESSION_COMPLETION_SUMMARY.md
+[2026-02-02 18:00:07]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\SESSION_COMPLETION_SUMMARY.md
+[2026-02-02 18:00:07]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\SESSION_COMPLETION_SUMMARY.md
+[2026-02-02 18:00:07]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\SESSION_COMPLETION_SUMMARY.md
+[2026-02-02 18:00:07]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\SESSION_COMPLETION_SUMMARY.md
+[2026-02-02 18:00:07]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\SESSION_COMPLETION_SUMMARY.md
+[2026-02-02 18:00:07] Duplicate Group (SHA256: A689BE35310127F1F4AC357360790BD665F8BDE0644E21BBA8FB1199C99293D7):
+[2026-02-02 18:00:07]   KEEP: C:\Users\litre\homebase-2.0\github\apps\litreestudio\.codacy\cli.sh
+[2026-02-02 18:00:07]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\apps\honey-comb-home\.codacy\cli.sh
+[2026-02-02 18:00:07] Duplicate Group (SHA256: C373CBAEB58AC671C68ABAC11AD82090BA8ED20C3A1714453D94FC1D14C711F6):
+[2026-02-02 18:00:07]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\SiteHeader.tsx
+[2026-02-02 18:00:07]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\SiteHeader.tsx
+[2026-02-02 18:00:07] Duplicate Group (SHA256: BA0D8CB920E725E616BA3BABA418549BDC973579B66710DCCDFCDCA8AA42722B):
+[2026-02-02 18:00:07]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\start-dev.ps1
+[2026-02-02 18:00:07]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\start-dev.ps1
+[2026-02-02 18:00:07]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\start-dev.ps1
+[2026-02-02 18:00:07] Duplicate Group (SHA256: 6672DF2C31048E5380A377FB6806546D72E2F4225B9FD559B7A75168E4CB1319):
+[2026-02-02 18:00:07]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\tsconfig.json
+[2026-02-02 18:00:07]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\tsconfig.json
+[2026-02-02 18:00:07]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\tsconfig.json
+[2026-02-02 18:00:07] Duplicate Group (SHA256: 4DC2F9D12386B88F004F73B8685F2D316F9B92746087EF5C6EBBD569A9FC4CC9):
+[2026-02-02 18:00:07]   KEEP: C:\Users\litre\homebase-2.0\github\api\.codacy\codacy.yaml
+[2026-02-02 18:00:07]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\legacy-packages-api-express\.codacy\codacy.yaml
+[2026-02-02 18:00:07]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\web\.codacy\codacy.yaml
+[2026-02-02 18:00:08] Duplicate Group (SHA256: D830983F0C8C4487E115DAD578789936801813B815DA438D377AFF2B7F7FA995):
+[2026-02-02 18:00:08]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\LITLABS_OS_QUICK_START.md
+[2026-02-02 18:00:08]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\LITLABS_OS_QUICK_START.md
+[2026-02-02 18:00:08]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\LITLABS_OS_QUICK_START.md
+[2026-02-02 18:00:08] Duplicate Group (SHA256: 5A441333951717842036956DC325493B217266605AE7B3E9F87F7D800A350AE8):
+[2026-02-02 18:00:08]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\PricingSection.tsx
+[2026-02-02 18:00:08]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\PricingSection.tsx
+[2026-02-02 18:00:08] Duplicate Group (SHA256: 71A6F65BE79C1D3A7E0E5A4C353DA6168D8D0225285506C9DD8D55261BD9E89B):
+[2026-02-02 18:00:08]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\lib\bot-builder.ts
+[2026-02-02 18:00:08]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\lib\bot-builder.ts
+[2026-02-02 18:00:08] Duplicate Group (SHA256: 6BDAF8A09DC02692A8541E0F3AD6E47C620416CDDE444A12139332CA4E25740E):
+[2026-02-02 18:00:08]   KEEP: C:\Users\litre\homebase-2.0\litlabs\out\tasks.txt
+[2026-02-02 18:00:08]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\tasks\__next._full.txt
+[2026-02-02 18:00:08] Duplicate Group (SHA256: 7D163BB3808CE5AFFB6D66F6C1DD8C91F11FABFD8FF15CD347A1C878F43CB3DA):
+[2026-02-02 18:00:08]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\DESIGN_SYSTEM_QUICK_REFERENCE.md
+[2026-02-02 18:00:08]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\DESIGN_SYSTEM_QUICK_REFERENCE.md
+[2026-02-02 18:00:08]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\DESIGN_SYSTEM_QUICK_REFERENCE.md
+[2026-02-02 18:00:08] Duplicate Group (SHA256: 0004D9317AFCA9EF82E25594EA0B5101BBC5D30C07C3F840DD842E038C41E3C9):
+[2026-02-02 18:00:08]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\.env.docker
+[2026-02-02 18:00:08]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\.env.docker
+[2026-02-02 18:00:08] Duplicate Group (SHA256: BE1F87A4880EF25747CF2A40CE2FB48E08BF90B44529C06AECE1BB9757BD2139):
+[2026-02-02 18:00:08]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\lib\auth-helper.ts
+[2026-02-02 18:00:08]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\lib\auth-helper.ts
+[2026-02-02 18:00:08] Duplicate Group (SHA256: 62ACD43C01491812CD02A949423462E897CADACCD48F4FB6C2435EFDD0DB450F):
+[2026-02-02 18:00:08]   KEEP: C:\Users\litre\homebase-2.0\github\apps\litmaster1\api\auth\index.js
+[2026-02-02 18:00:08]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litmaster1\api\media\index.js
+[2026-02-02 18:00:08]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litmaster1\api\posts\index.js
+[2026-02-02 18:00:08]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litmaster1\api\stripe-webhook\index.js
+[2026-02-02 18:00:08]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litmaster1\api\websocket\index.js
+[2026-02-02 18:00:08] Duplicate Group (SHA256: 34A596F86D31D379E9F4F9A58C0E5DA8E751FC2EE75F249C5AF28C290FB6A026):
+[2026-02-02 18:00:08]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\LICENSE
+[2026-02-02 18:00:08]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\LICENSE
+[2026-02-02 18:00:08]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\LICENSE
+[2026-02-02 18:00:08] Duplicate Group (SHA256: 68B8495CFF6D608D8FA9AC2054D44DF60CB7593D43E0A3DE7C9A6275AAB229AD):
+[2026-02-02 18:00:08]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\.firebase\hosting.cHVibGlj - Copy.cache
+[2026-02-02 18:00:08]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\.firebase\hosting.cHVibGlj - Copy.cache
+[2026-02-02 18:00:08]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\.firebase\hosting.cHVibGlj - Copy.cache
+[2026-02-02 18:00:08] Duplicate Group (SHA256: 066242BD7E075B4BF11A2086AC16668CE22ED42C3DE90ECF873F7AFCBFD7427C):
+[2026-02-02 18:00:08]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\QUICK_REFERENCE.md
+[2026-02-02 18:00:08]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\QUICK_REFERENCE.md
+[2026-02-02 18:00:08]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\QUICK_REFERENCE.md
+[2026-02-02 18:00:08] Duplicate Group (SHA256: 3567A360711851476622D6B4A174E353C931FB3E554C29ED944CCBEED1C7087F):
+[2026-02-02 18:00:08]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\FINAL_BUILD_COMPLETE.md
+[2026-02-02 18:00:08]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\FINAL_BUILD_COMPLETE.md
+[2026-02-02 18:00:08]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\FINAL_BUILD_COMPLETE.md
+[2026-02-02 18:00:08]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\FINAL_BUILD_COMPLETE.md
+[2026-02-02 18:00:08]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\FINAL_BUILD_COMPLETE.md
+[2026-02-02 18:00:08]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\FINAL_BUILD_COMPLETE.md
+[2026-02-02 18:00:08]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\FINAL_BUILD_COMPLETE.md
+[2026-02-02 18:00:09]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\FINAL_BUILD_COMPLETE.md
+[2026-02-02 18:00:09]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\FINAL_BUILD_COMPLETE.md
+[2026-02-02 18:00:09] Duplicate Group (SHA256: 20C159CE4FF1F1A4FA0BF492DA87C22F02B33994A54C0A5EBFB18A55E97475F8):
+[2026-02-02 18:00:09]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\.github\workflows\ci-gitleaks.yml
+[2026-02-02 18:00:09]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\.github\workflows\ci-gitleaks.yml
+[2026-02-02 18:00:09] Duplicate Group (SHA256: 7E93754F31A1F1D77A66FE99701CC11EDF03FEE9A273796F3EE9FF0B80C8F745):
+[2026-02-02 18:00:09]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\merged\EverythingHomebase\.gitignore
+[2026-02-02 18:00:09]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\merged\EverythingHomebase\.gitignore
+[2026-02-02 18:00:09]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\merged\EverythingHomebase\.gitignore
+[2026-02-02 18:00:09] Duplicate Group (SHA256: DB2E26AB903736DDD9891F572B844077954B79A45F64955ADBE814C892CDBF70):
+[2026-02-02 18:00:09]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\VISUAL_SUMMARY.md
+[2026-02-02 18:00:09]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\VISUAL_SUMMARY.md
+[2026-02-02 18:00:09]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\VISUAL_SUMMARY.md
+[2026-02-02 18:00:09]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\VISUAL_SUMMARY.md
+[2026-02-02 18:00:09]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\VISUAL_SUMMARY.md
+[2026-02-02 18:00:09]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\VISUAL_SUMMARY.md
+[2026-02-02 18:00:09]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\VISUAL_SUMMARY.md
+[2026-02-02 18:00:09]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\VISUAL_SUMMARY.md
+[2026-02-02 18:00:09]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\VISUAL_SUMMARY.md
+[2026-02-02 18:00:09] Duplicate Group (SHA256: 6E15F2567655734307F895301962440039112584B60F979B0504E8FE7B3D7B54):
+[2026-02-02 18:00:09]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\QUICKSTART.ps1
+[2026-02-02 18:00:09]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\QUICKSTART.ps1
+[2026-02-02 18:00:09]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\QUICKSTART.ps1
+[2026-02-02 18:00:09]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\QUICKSTART.ps1
+[2026-02-02 18:00:09]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\QUICKSTART.ps1
+[2026-02-02 18:00:09]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\QUICKSTART.ps1
+[2026-02-02 18:00:09]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\QUICKSTART.ps1
+[2026-02-02 18:00:09]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\QUICKSTART.ps1
+[2026-02-02 18:00:09]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\QUICKSTART.ps1
+[2026-02-02 18:00:09]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\apps\honey-comb-home\QUICKSTART.ps1
+[2026-02-02 18:00:09] Duplicate Group (SHA256: 7B5C86D336C4C2129EA5EE24EC6EA134BBC707A3321BAFFBB16584EF8C7E3D37):
+[2026-02-02 18:00:09]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\.markdownlintignore
+[2026-02-02 18:00:09]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\.markdownlintignore
+[2026-02-02 18:00:09]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\.markdownlintignore
+[2026-02-02 18:00:09] Duplicate Group (SHA256: F84E45CB0D8BA181372B6FFF3F9504900D34C2668146A0DCA510A3A8DCD776DB):
+[2026-02-02 18:00:09]   KEEP: C:\Users\litre\homebase-2.0\github\assets\file_0000000097c871f5abe0f1200ef79bf1.png
+[2026-02-02 18:00:09]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\assets\file_0000000097c871f5abe0f1200ef79bf1 (1).png
+[2026-02-02 18:00:09]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\merged\EverythingHomebase\assets\file_0000000097c871f5abe0f1200ef79bf1 (1).png
+[2026-02-02 18:00:09]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\merged\EverythingHomebase\assets\file_0000000097c871f5abe0f1200ef79bf1.png
+[2026-02-02 18:00:10]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Media\file_0000000097c871f5abe0f1200ef79bf1 (1).png
+[2026-02-02 18:00:10]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Media\file_0000000097c871f5abe0f1200ef79bf1.png
+[2026-02-02 18:00:10]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\packages\shared\assets\file_0000000097c871f5abe0f1200ef79bf1 (1).png
+[2026-02-02 18:00:10]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\packages\shared\assets\file_0000000097c871f5abe0f1200ef79bf1.png
+[2026-02-02 18:00:10] Duplicate Group (SHA256: CF2B7E72C899167885F68DCFF367DCBF1AE3BC6AEEB69F7F273B6F25E7A58B9C):
+[2026-02-02 18:00:10]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\PROJECT_COMPLETION_SUMMARY.md
+[2026-02-02 18:00:10]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\PROJECT_COMPLETION_SUMMARY.md
+[2026-02-02 18:00:10]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\PROJECT_COMPLETION_SUMMARY.md
+[2026-02-02 18:00:10]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\PROJECT_COMPLETION_SUMMARY.md
+[2026-02-02 18:00:10]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\PROJECT_COMPLETION_SUMMARY.md
+[2026-02-02 18:00:10]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\PROJECT_COMPLETION_SUMMARY.md
+[2026-02-02 18:00:10]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\PROJECT_COMPLETION_SUMMARY.md
+[2026-02-02 18:00:10]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\PROJECT_COMPLETION_SUMMARY.md
+[2026-02-02 18:00:10]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\PROJECT_COMPLETION_SUMMARY.md
+[2026-02-02 18:00:10] Duplicate Group (SHA256: 4DAEE2DFC184C35FDBE9399A963732E124A97A8235B235E19E3CFA45B02CD71B):
+[2026-02-02 18:00:10]   KEEP: C:\Users\litre\homebase-2.0\github\assets\84b46932-8e0a-447e-a20b-65a3760da3f1.mp4
+[2026-02-02 18:00:10]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\merged\EverythingHomebase\assets\84b46932-8e0a-447e-a20b-65a3760da3f1.mp4
+[2026-02-02 18:00:10]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Media\84b46932-8e0a-447e-a20b-65a3760da3f1.mp4
+[2026-02-02 18:00:10]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\packages\shared\assets\84b46932-8e0a-447e-a20b-65a3760da3f1.mp4
+[2026-02-02 18:00:10] Duplicate Group (SHA256: 880938F53E60362A629390298D4219A32C79884897272DBC9C813BCD2DBE87A7):
+[2026-02-02 18:00:10]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\OFFICIAL_PROJECT_COMPLETION.md
+[2026-02-02 18:00:10]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\OFFICIAL_PROJECT_COMPLETION.md
+[2026-02-02 18:00:10]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\OFFICIAL_PROJECT_COMPLETION.md
+[2026-02-02 18:00:10]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\OFFICIAL_PROJECT_COMPLETION.md
+[2026-02-02 18:00:10]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\OFFICIAL_PROJECT_COMPLETION.md
+[2026-02-02 18:00:10]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\OFFICIAL_PROJECT_COMPLETION.md
+[2026-02-02 18:00:10]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\OFFICIAL_PROJECT_COMPLETION.md
+[2026-02-02 18:00:10]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\OFFICIAL_PROJECT_COMPLETION.md
+[2026-02-02 18:00:10]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\OFFICIAL_PROJECT_COMPLETION.md
+[2026-02-02 18:00:10] Duplicate Group (SHA256: 38C8C1508499DB3ECE3A04BF30CDF05CF3502E3B186AEC89EEC35C538A7FAD5C):
+[2026-02-02 18:00:10]   KEEP: C:\Users\litre\homebase-2.0\github\assets\IMG_20251223_110903894.jpg
+[2026-02-02 18:00:10]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\merged\EverythingHomebase\assets\IMG_20251223_110903894.jpg
+[2026-02-02 18:00:10]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Media\IMG_20251223_110903894.jpg
+[2026-02-02 18:00:10]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\packages\shared\assets\IMG_20251223_110903894.jpg
+[2026-02-02 18:00:10] Duplicate Group (SHA256: D57841915F4D16CF2E72F241BCCEBB817D94392363306771CE20C152CF967DAB):
+[2026-02-02 18:00:10]   KEEP: C:\Users\litre\homebase-2.0\github\assets\Came up from the gutter, now we lit like (Remix).mp3
+[2026-02-02 18:00:10]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\merged\EverythingHomebase\assets\Came up from the gutter, now we lit like (Remix).mp3
+[2026-02-02 18:00:10]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Media\Came up from the gutter, now we lit like (Remix).mp3
+[2026-02-02 18:00:10]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\packages\shared\assets\Came up from the gutter, now we lit like (Remix).mp3
+[2026-02-02 18:00:10] Duplicate Group (SHA256: D544402C2D651D408EB5645A7B9E5BC5F29E5ADE14C7A54C095BE497A2C959BE):
+[2026-02-02 18:00:11]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\LabAppPreview.tsx
+[2026-02-02 18:00:11]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\LabAppPreview.tsx
+[2026-02-02 18:00:11] Duplicate Group (SHA256: 0EF097E8A4CD8BE7602D2E4961172935204F8BF227989C6E7563A0768385BCFC):
+[2026-02-02 18:00:11]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\.firebaserc
+[2026-02-02 18:00:11]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\.firebaserc
+[2026-02-02 18:00:11]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\.firebaserc
+[2026-02-02 18:00:11]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\.firebaserc
+[2026-02-02 18:00:11]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\.firebaserc
+[2026-02-02 18:00:11]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\.firebaserc
+[2026-02-02 18:00:11]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\.firebaserc
+[2026-02-02 18:00:11] Duplicate Group (SHA256: DFBB6F3C1834CD4EA22D4746DACF02C9ACF4F0F5C62EF07EAE1165C61891978C):
+[2026-02-02 18:00:11]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\README.md
+[2026-02-02 18:00:11]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\README.md
+[2026-02-02 18:00:11]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\README.md
+[2026-02-02 18:00:11] Duplicate Group (SHA256: 9CBB467EC9F72F2800255215657847E951217C2A7ABEAF6F7889D4F727AB153F):
+[2026-02-02 18:00:11]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\SECURITY_FIXES_APPLIED.md
+[2026-02-02 18:00:11]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\SECURITY_FIXES_APPLIED.md
+[2026-02-02 18:00:11]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\SECURITY_FIXES_APPLIED.md
+[2026-02-02 18:00:11]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\SECURITY_FIXES_APPLIED.md
+[2026-02-02 18:00:11] Duplicate Group (SHA256: 36CEFFFB7515CE2B15F73E2A680DB2013F02B2FD48568495B4F4D560F0C0393B):
+[2026-02-02 18:00:11]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\components\theme\ThemeSwitcher.module.css
+[2026-02-02 18:00:11]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\components\theme\ThemeSwitcher.module.css
+[2026-02-02 18:00:11]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\components\theme\ThemeSwitcher.module.css
+[2026-02-02 18:00:11] Duplicate Group (SHA256: F689EB8125F5A8C12834038BBD9F97E196D07AC5E285459E53B5246538CB640E):
+[2026-02-02 18:00:11]   KEEP: C:\Users\litre\homebase-2.0\github\assets\IMG_20251107_215617086.jpg
+[2026-02-02 18:00:11]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\merged\EverythingHomebase\assets\IMG_20251107_215617086.jpg
+[2026-02-02 18:00:11]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Media\IMG_20251107_215617086.jpg
+[2026-02-02 18:00:11]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\packages\shared\assets\IMG_20251107_215617086.jpg
+[2026-02-02 18:00:11] Duplicate Group (SHA256: 9A9BDB2ACC1272420FB9431F8A834B5852EAC2D904A53B886AECE2E54EDC753E):
+[2026-02-02 18:00:11]   KEEP: C:\Users\litre\homebase-2.0\github\assets\IMG_20251107_215625933.jpg
+[2026-02-02 18:00:11]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\merged\EverythingHomebase\assets\IMG_20251107_215625933.jpg
+[2026-02-02 18:00:11]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Media\IMG_20251107_215625933.jpg
+[2026-02-02 18:00:11]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\packages\shared\assets\IMG_20251107_215625933.jpg
+[2026-02-02 18:00:11] Duplicate Group (SHA256: 7BB19B5422FF8796963A5CCF5A3783C0B74AC54E9F31F2D999D73FE474515025):
+[2026-02-02 18:00:11]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\.firebase\hosting.cHVibGlj.cache
+[2026-02-02 18:00:11]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\.firebase\hosting.cHVibGlj.cache
+[2026-02-02 18:00:11]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\.firebase\hosting.cHVibGlj.cache
+[2026-02-02 18:00:11]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\.firebase\hosting.cHVibGlj.cache
+[2026-02-02 18:00:11] Duplicate Group (SHA256: 25CD899E25ED390058EF4A70A5FB32357D337EED8AF9D2718E9AFBFE86A4A55C):
+[2026-02-02 18:00:11]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\LabMarketing.tsx
+[2026-02-02 18:00:11]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\LabMarketing.tsx
+[2026-02-02 18:00:11] Duplicate Group (SHA256: 3112476B3558AF8AC835FFBBD3370C27912EE7440C933583DEBF061786529BAA):
+[2026-02-02 18:00:11]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\SECURITY_AUDIT_FINAL.md
+[2026-02-02 18:00:11]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\SECURITY_AUDIT_FINAL.md
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\SECURITY_AUDIT_FINAL.md
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\SECURITY_AUDIT_FINAL.md
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\SECURITY_AUDIT_FINAL.md
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\SECURITY_AUDIT_FINAL.md
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\SECURITY_AUDIT_FINAL.md
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\SECURITY_AUDIT_FINAL.md
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\SECURITY_AUDIT_FINAL.md
+[2026-02-02 18:00:12] Duplicate Group (SHA256: 62EDC60BCD8243B1D15E7BFD2477A795363DD6569C3337A3F203A24353065555):
+[2026-02-02 18:00:12]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\PreferenceProvider.tsx
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\PreferenceProvider.tsx
+[2026-02-02 18:00:12] Duplicate Group (SHA256: 858986482550E9C02826C7DF81B70FCCFF5FEC952CAF2687C08E7BAAA7BC920D):
+[2026-02-02 18:00:12]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\test-payment-system.sh
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\test-payment-system.sh
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\test-payment-system.sh
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\test-payment-system.sh
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\test-payment-system.sh
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\test-payment-system.sh
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\test-payment-system.sh
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\test-payment-system.sh
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\test-payment-system.sh
+[2026-02-02 18:00:12] Duplicate Group (SHA256: 0D55F66925944159F5B198728AAE07FE5A3CF87AA95142B7875CB6874A0912BB):
+[2026-02-02 18:00:12]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\next.config.ts
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\next.config.ts
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\next.config.ts
+[2026-02-02 18:00:12] Duplicate Group (SHA256: 8B4187B0C992762AC89B7238BCB9592FA823D986724797C98DBD8665C7D954A5):
+[2026-02-02 18:00:12]   KEEP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\.firebase\hosting.cHVibGlj - Copy.cache
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\.firebase\hosting.cHVibGlj - Copy.cache
+[2026-02-02 18:00:12] Duplicate Group (SHA256: 7C9BB0C8FB12C38DF9EE06F5F8B1D1955640D18E8D7A1E2D5A0D266073E70218):
+[2026-02-02 18:00:12]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\QUICK_START.md
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\QUICK_START.md
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\QUICK_START.md
+[2026-02-02 18:00:12] Duplicate Group (SHA256: 4F8C58244D73A44E1D790E343D623510A3633F02FD2FAEDF4022F6BE13365394):
+[2026-02-02 18:00:12]   KEEP: C:\Users\litre\homebase-2.0\github\apps\litreelabsfirebase\.github\instructions\codacy.instructions.md
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litreelabsfirebase\.vs\LitreeLabsFirebase\.github\instructions\codacy.instructions.md
+[2026-02-02 18:00:12] Duplicate Group (SHA256: 0DD373953D5FEB3E6B55A56C78150A38A5E8026E33F82BE4486AB785797A55EA):
+[2026-02-02 18:00:12]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\LICENSE-CODE
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\LICENSE-CODE
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\LICENSE-CODE
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\LICENSE-CODE
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\LICENSE-CODE
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\LICENSE-CODE
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\LICENSE-CODE
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\LICENSE-CODE
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\LICENSE-CODE
+[2026-02-02 18:00:12] Duplicate Group (SHA256: DBA44F9C67B4242AB0BF097A6F45A65FDB16961121013DD8BDB21F01716DC8E2):
+[2026-02-02 18:00:12]   KEEP: C:\Users\litre\homebase-2.0\github\assets\il_fullxfull.5275160809_tbow.jpg
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\assets\il_fullxfull (1).5275160809_tbow.jpg
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\merged\EverythingHomebase\assets\il_fullxfull (1).5275160809_tbow.jpg
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\merged\EverythingHomebase\assets\il_fullxfull.5275160809_tbow.jpg
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Media\il_fullxfull (1).5275160809_tbow.jpg
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Media\il_fullxfull.5275160809_tbow.jpg
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\packages\shared\assets\il_fullxfull (1).5275160809_tbow.jpg
+[2026-02-02 18:00:12]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\packages\shared\assets\il_fullxfull.5275160809_tbow.jpg
+[2026-02-02 18:00:13] Duplicate Group (SHA256: 61489A0897F100AA2B2569B5386514CEDC19458FBB1EB10E77B0A474E7CBD15C):
+[2026-02-02 18:00:13]   KEEP: C:\Users\litre\homebase-2.0\github\src\website-project\public\index.html
+[2026-02-02 18:00:13]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\website-project\public\index.html
+[2026-02-02 18:00:13]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Labs-Ai\website-project\public\index.html
+[2026-02-02 18:00:13]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\Apps\Apps\LiTlab'Studio 3.0\website-project\public\index.html
+[2026-02-02 18:00:13]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\Apps\Apps\LiTlab'Studio 3.0\website-project-1\public\index.html
+[2026-02-02 18:00:13]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\Apps\LiTlab'Studio 3.0\website-project\public\index.html
+[2026-02-02 18:00:13]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\Apps\LiTlab'Studio 3.0\website-project-1\public\index.html
+[2026-02-02 18:00:13]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\LiTlab'Studio 3.0 (VSCode)\website-project\public\index.html
+[2026-02-02 18:00:13]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\LiTlab'Studio 3.0 (VSCode)\website-project-1\public\index.html
+[2026-02-02 18:00:13]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Projects\website-project\public\index.html
+[2026-02-02 18:00:13]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Projects\website-project-1\public\index.html
+[2026-02-02 18:00:13]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\src\website-project-1\public\index.html
+[2026-02-02 18:00:13] Duplicate Group (SHA256: 94537434FEA346C8516A1227705FBD17DB0DC1266E5071C222306AA18F6DA563):
+[2026-02-02 18:00:13]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\CONTRIBUTING.md
+[2026-02-02 18:00:13]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\CONTRIBUTING.md
+[2026-02-02 18:00:13]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\CONTRIBUTING.md
+[2026-02-02 18:00:13]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\CONTRIBUTING.md
+[2026-02-02 18:00:13] Duplicate Group (SHA256: 48AB3CA6840B4D0DF335EA8B57273CBA6C045F85EBFDFA58CD409247895D6DC5):
+[2026-02-02 18:00:13]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\lib\email.ts
+[2026-02-02 18:00:13]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\lib\email.ts
+[2026-02-02 18:00:13] Duplicate Group (SHA256: AC087E09B5F1D147967BDD3752E2CE3561DF1F815589C1678B9A5B72DAD1270D):
+[2026-02-02 18:00:13]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\functions\index.js
+[2026-02-02 18:00:13]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\functions\index.js
+[2026-02-02 18:00:13]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\functions\index.js
+[2026-02-02 18:00:13]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\functions\index.js
+[2026-02-02 18:00:13] Duplicate Group (SHA256: EFB4E5B3EDAB8A7C7BDC17E0A10FB282777400C05B6B2DE587595E2986BD3B15):
+[2026-02-02 18:00:13]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\LabCommunityCTA.tsx
+[2026-02-02 18:00:13]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\LabCommunityCTA.tsx
+[2026-02-02 18:00:13] Duplicate Group (SHA256: DDC6B2F1E07BB2B24EC25B18CCD2801EBF2AEFB6A98287859F87F0FBCCC11114):
+[2026-02-02 18:00:13]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\.npmrc
+[2026-02-02 18:00:13]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\.npmrc
+[2026-02-02 18:00:13]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\.npmrc
+[2026-02-02 18:00:13]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\.npmrc
+[2026-02-02 18:00:13]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\.npmrc
+[2026-02-02 18:00:13] Duplicate Group (SHA256: A13A21D0C0AE10933958D8FEF99AEF438BD4C85B035F25C97CBCFCA5D63F4353):
+[2026-02-02 18:00:13]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\lib\ai.ts
+[2026-02-02 18:00:13]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\lib\ai.ts
+[2026-02-02 18:00:13] Duplicate Group (SHA256: D44F0BD7F4CFC1B3888FB826F69EF662055F2F56628BC82C944382A4C78B9F77):
+[2026-02-02 18:00:13]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\PAYMENT_QUICK_START.md
+[2026-02-02 18:00:13]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\PAYMENT_QUICK_START.md
+[2026-02-02 18:00:13]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\PAYMENT_QUICK_START.md
+[2026-02-02 18:00:13]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\PAYMENT_QUICK_START.md
+[2026-02-02 18:00:13]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\PAYMENT_QUICK_START.md
+[2026-02-02 18:00:13]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\PAYMENT_QUICK_START.md
+[2026-02-02 18:00:13]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\PAYMENT_QUICK_START.md
+[2026-02-02 18:00:13]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\PAYMENT_QUICK_START.md
+[2026-02-02 18:00:13]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\PAYMENT_QUICK_START.md
+[2026-02-02 18:00:13] Duplicate Group (SHA256: 983F5F59EE8337B8D305BFF30014E26A7672C7C35DE4C463E8ADCC2A7D235AFD):
+[2026-02-02 18:00:13]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\.env.local.backup-20251203-034941
+[2026-02-02 18:00:13]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\.env.local.backup-20251203-034941
+[2026-02-02 18:00:13]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\.env.local.backup-20251203-034941
+[2026-02-02 18:00:13] Duplicate Group (SHA256: 644768C4AAEB4767BCE293344EEB0C125FB804A94D801440424072202D85E3A1):
+[2026-02-02 18:00:14]   KEEP: C:\Users\litre\homebase-2.0\litlabs\out\window.svg
+[2026-02-02 18:00:14]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litreelabsfirebase\public\window.svg
+[2026-02-02 18:00:14]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\web\public\window.svg
+[2026-02-02 18:00:14]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\public\window.svg
+[2026-02-02 18:00:14]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\public\window.svg
+[2026-02-02 18:00:14] Duplicate Group (SHA256: DDB23122B4100F6FE253A134DA2D9A4631951C7457A020648437C285312F3742):
+[2026-02-02 18:00:14]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\fix_test_workflows.py
+[2026-02-02 18:00:14]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\fix_test_workflows.py
+[2026-02-02 18:00:14]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\fix_test_workflows.py
+[2026-02-02 18:00:14] Duplicate Group (SHA256: 19CF51F4B39DC84ACE34DA38ECF7E7A8E86CE9416CC7C68AC6B4B1C034CDF770):
+[2026-02-02 18:00:14]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\AZURE_AD_SETUP.md
+[2026-02-02 18:00:14]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\AZURE_AD_SETUP.md
+[2026-02-02 18:00:14]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\AZURE_AD_SETUP.md
+[2026-02-02 18:00:14]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\AZURE_AD_SETUP.md
+[2026-02-02 18:00:14] Duplicate Group (SHA256: 251498FC1ED6D72E6FD732F5939B5E2411A56832FAC34753B9314EDCC33EEA22):
+[2026-02-02 18:00:14]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\public\litlabs\xp-badge.png
+[2026-02-02 18:00:14]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litreelabsfirebase\public\litlabs\fun-arcade.png
+[2026-02-02 18:00:14]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litreelabsfirebase\public\litlabs\hero-beauty-grid.png
+[2026-02-02 18:00:14]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litreelabsfirebase\public\litlabs\hero-dashboard.png
+[2026-02-02 18:00:14]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litreelabsfirebase\public\litlabs\hero-mobile.png
+[2026-02-02 18:00:14]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litreelabsfirebase\public\litlabs\playbooks-grid.png
+[2026-02-02 18:00:14]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litreelabsfirebase\public\litlabs\streak-flame.png
+[2026-02-02 18:00:14]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litreelabsfirebase\public\litlabs\xp-badge.png
+[2026-02-02 18:00:14]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\public\litlabs\fun-arcade.png
+[2026-02-02 18:00:14]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\public\litlabs\hero-beauty-grid.png
+[2026-02-02 18:00:14]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\public\litlabs\hero-dashboard.png
+[2026-02-02 18:00:14]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\public\litlabs\hero-mobile.png
+[2026-02-02 18:00:14]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\public\litlabs\playbooks-grid.png
+[2026-02-02 18:00:14]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\public\litlabs\streak-flame.png
+[2026-02-02 18:00:14] Duplicate Group (SHA256: 4A910DBC4EA8BA790EEAE23EC8CBAB4CA59787825027A7B2CB2CAFFE5AFC2CA4):
+[2026-02-02 18:00:14]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\eslint-report.json
+[2026-02-02 18:00:14]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\eslint-report.json
+[2026-02-02 18:00:14]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\eslint-report.json
+[2026-02-02 18:00:14] Duplicate Group (SHA256: 7AD303E40D4FDDF44F156129E397511953A71481C5CFD86B1862649AAAF240CC):
+[2026-02-02 18:00:14]   KEEP: C:\Users\litre\homebase-2.0\litlabs\next-env.d.ts
+[2026-02-02 18:00:14]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\next-env.d.ts
+[2026-02-02 18:00:14]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Labs-Ai\next-env.d.ts
+[2026-02-02 18:00:14] Duplicate Group (SHA256: 649CCABB4052693FF463235A2931F225A063FA6477F78D31F1194D843250B9E0):
+[2026-02-02 18:00:14]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\.eslintignore
+[2026-02-02 18:00:14]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\.eslintignore
+[2026-02-02 18:00:14]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\.eslintignore
+[2026-02-02 18:00:14] Duplicate Group (SHA256: 6EFB7D0070DA612F66986A8BE25AE0F0BED5084F442466416BDB62DC12996D29):
+[2026-02-02 18:00:14]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\.devcontainer\devcontainer.json
+[2026-02-02 18:00:14]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\.devcontainer\devcontainer.json
+[2026-02-02 18:00:14]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\.devcontainer\devcontainer.json
+[2026-02-02 18:00:14]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\.devcontainer\devcontainer.json
+[2026-02-02 18:00:14] Duplicate Group (SHA256: 1310CD4AE59C6F363D9E679ABBED1BED35A115D4C698565505E85C6DDC00EF04):
+[2026-02-02 18:00:14]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\lib\firebase-server.ts
+[2026-02-02 18:00:14]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\lib\firebase-server.ts
+[2026-02-02 18:00:14] Duplicate Group (SHA256: C1C6C1C8E51157B5044A351CAAB11133CF1599462F3C0FACF6FE6BCB0582279C):
+[2026-02-02 18:00:14]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\lib\firebase-admin.ts
+[2026-02-02 18:00:14]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\lib\firebase-admin.ts
+[2026-02-02 18:00:14] Duplicate Group (SHA256: 49A7E1155BE4548026CE1E540CC2B7F63AD8F58ADA4C2083FF10A698347E3B13):
+[2026-02-02 18:00:14]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\.editorconfig
+[2026-02-02 18:00:14]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\.editorconfig
+[2026-02-02 18:00:14]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\.editorconfig
+[2026-02-02 18:00:15]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\.editorconfig
+[2026-02-02 18:00:15]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\.editorconfig
+[2026-02-02 18:00:15]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\.editorconfig
+[2026-02-02 18:00:15]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\.editorconfig
+[2026-02-02 18:00:15] Duplicate Group (SHA256: F861DB2B5C9AA70B29E5ACAF45FA05A8DEE9CD4B2BED921339D20E646B4465AC):
+[2026-02-02 18:00:15]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\BACKUP_README.txt
+[2026-02-02 18:00:15]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\BACKUP_README.txt
+[2026-02-02 18:00:15]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\BACKUP_README.txt
+[2026-02-02 18:00:15] Duplicate Group (SHA256: BAC848ECD4FBF0F3843011B07CE3DA90EB2D64A1F0A8D981F02030D89FAFA90C):
+[2026-02-02 18:00:15]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\LabMonetization.tsx
+[2026-02-02 18:00:15]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\LabMonetization.tsx
+[2026-02-02 18:00:15] Duplicate Group (SHA256: 3F41BB6A5DB46D928F652F3762F1613559995FB65E7B74724308D85E6E635684):
+[2026-02-02 18:00:15]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\README - Copy.md
+[2026-02-02 18:00:15]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\README - Copy.md
+[2026-02-02 18:00:15]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\README - Copy.md
+[2026-02-02 18:00:15]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\README - Copy.md
+[2026-02-02 18:00:15]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\README - Copy.md
+[2026-02-02 18:00:15]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\README - Copy.md
+[2026-02-02 18:00:15]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\README - Copy.md
+[2026-02-02 18:00:15]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\README - Copy.md
+[2026-02-02 18:00:15]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\README - Copy.md
+[2026-02-02 18:00:15] Duplicate Group (SHA256: 8E481E2D4552AC4AF2A548D0024EE56B3DFC0E59569515D242523C9CDE27EE0D):
+[2026-02-02 18:00:15]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\LabMobileConcept.tsx
+[2026-02-02 18:00:15]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\LabMobileConcept.tsx
+[2026-02-02 18:00:15] Duplicate Group (SHA256: 1D64BB07B93BC21EB7AFD24DEB9D0BFF6C6FB8B36ED51FD00475786C428A6480):
+[2026-02-02 18:00:15]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\PROJECT_COMPLETE_SUMMARY.md
+[2026-02-02 18:00:15]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\PROJECT_COMPLETE_SUMMARY.md
+[2026-02-02 18:00:15]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\PROJECT_COMPLETE_SUMMARY.md
+[2026-02-02 18:00:15]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\PROJECT_COMPLETE_SUMMARY.md
+[2026-02-02 18:00:15]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\PROJECT_COMPLETE_SUMMARY.md
+[2026-02-02 18:00:15]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\PROJECT_COMPLETE_SUMMARY.md
+[2026-02-02 18:00:15]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\PROJECT_COMPLETE_SUMMARY.md
+[2026-02-02 18:00:15]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\PROJECT_COMPLETE_SUMMARY.md
+[2026-02-02 18:00:15]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\PROJECT_COMPLETE_SUMMARY.md
+[2026-02-02 18:00:15] Duplicate Group (SHA256: B614B9BF183925957661AC851498FE1D8029FD43A62FBFED86F9E2624A57E7CF):
+[2026-02-02 18:00:15]   KEEP: C:\Users\litre\homebase-2.0\litlabs\out\globe.svg
+[2026-02-02 18:00:15]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litreelabsfirebase\public\globe.svg
+[2026-02-02 18:00:15]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\web\public\globe.svg
+[2026-02-02 18:00:15]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\public\globe.svg
+[2026-02-02 18:00:15]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\public\globe.svg
+[2026-02-02 18:00:15] Duplicate Group (SHA256: 41833B9FC1578412E35B90A6C67DA9021659B11B43E5151F1EE714649A9F3E4E):
+[2026-02-02 18:00:15]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\vercel.json
+[2026-02-02 18:00:15]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\vercel.json
+[2026-02-02 18:00:15]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\vercel.json
+[2026-02-02 18:00:15] Duplicate Group (SHA256: E747C5D8439D4686F73E94734E88ABAA26737CB4D06CEE6DC8CC8E602BB91719):
+[2026-02-02 18:00:15]   KEEP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\pages\index.module.css
+[2026-02-02 18:00:15]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\pages\index.module.css
+[2026-02-02 18:00:15] Duplicate Group (SHA256: 4D7E8DA51583C2CFDC33A2FD9E077A2A1A147C1D6D36E5BB745AF6CEB1F114B7):
+[2026-02-02 18:00:15]   KEEP: C:\Users\litre\homebase-2.0\github\src\website-project\README.md
+[2026-02-02 18:00:15]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\merged\EverythingHomebase\master\Code\Apps\LiTlab'Studio 3.0\website-project\README.md
+[2026-02-02 18:00:15]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\website-project\README.md
+[2026-02-02 18:00:15]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Apps\LiTlab'Studio 3.0\website-project\README.md
+[2026-02-02 18:00:15]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Labs-Ai\merged\EverythingHomebase\master\Code\Apps\LiTlab'Studio 3.0\website-project\README.md
+[2026-02-02 18:00:16]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Labs-Ai\website-project\README.md
+[2026-02-02 18:00:16]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\Apps\Apps\LiTlab'Studio 3.0\website-project\README.md
+[2026-02-02 18:00:16]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\Apps\Apps\LiTlab'Studio 3.0\website-project-1\README.md
+[2026-02-02 18:00:16]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\Apps\LiTlab'Studio 3.0\website-project\README.md
+[2026-02-02 18:00:16]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\Apps\LiTlab'Studio 3.0\website-project-1\README.md
+[2026-02-02 18:00:16]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\LiTlab'Studio 3.0\website-project\README.md
+[2026-02-02 18:00:16]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\LiTlab'Studio 3.0 (VSCode)\website-project\README.md
+[2026-02-02 18:00:16]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Apps\LiTlab'Studio 3.0 (VSCode)\website-project-1\README.md
+[2026-02-02 18:00:16]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Projects\website-project-1\README.md
+[2026-02-02 18:00:16]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\src\website-project-1\README.md
+[2026-02-02 18:00:16] Duplicate Group (SHA256: 7418CEC2AB51FB1FC17FF167515663D6DBECDA2A71AA2CE2C7D890022BEB8383):
+[2026-02-02 18:00:16]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\tsconfig.json
+[2026-02-02 18:00:16]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\tsconfig.json
+[2026-02-02 18:00:16]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\tsconfig.json
+[2026-02-02 18:00:16] Duplicate Group (SHA256: 625B424B11186BA4B8188EE8C347E4CEA823B482C22049D2B70AB50D218A985B):
+[2026-02-02 18:00:16]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\COMPLETE_DELIVERABLES.md
+[2026-02-02 18:00:16]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\COMPLETE_DELIVERABLES.md
+[2026-02-02 18:00:16]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\COMPLETE_DELIVERABLES.md
+[2026-02-02 18:00:16]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\COMPLETE_DELIVERABLES.md
+[2026-02-02 18:00:16]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\COMPLETE_DELIVERABLES.md
+[2026-02-02 18:00:16]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\COMPLETE_DELIVERABLES.md
+[2026-02-02 18:00:16] Duplicate Group (SHA256: 12D3A82A7D1378E6F597EC23D63A081AEB6EC4BC8DE2A76EE9DC96C34C6D7A1B):
+[2026-02-02 18:00:16]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\LICENSE
+[2026-02-02 18:00:16]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\LICENSE
+[2026-02-02 18:00:16]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\LICENSE
+[2026-02-02 18:00:16]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\LICENSE
+[2026-02-02 18:00:16]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\LICENSE
+[2026-02-02 18:00:16]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\LICENSE
+[2026-02-02 18:00:16]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\LICENSE
+[2026-02-02 18:00:16]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\LICENSE
+[2026-02-02 18:00:16]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\LICENSE
+[2026-02-02 18:00:16] Duplicate Group (SHA256: E9F6B044C276D944EE389CC2570D45425810F74F38E8A90EFD90CBA2DEED4A2E):
+[2026-02-02 18:00:16]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\firestore.rules
+[2026-02-02 18:00:16]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\firestore.rules
+[2026-02-02 18:00:16]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\firestore.rules
+[2026-02-02 18:00:16] Duplicate Group (SHA256: DD3073EAC08CDB129B97A9661B0708D8CBD40E2BA6EC726FAA0B02CB4791C179):
+[2026-02-02 18:00:16]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\TemplateLibrary.tsx
+[2026-02-02 18:00:16]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\TemplateLibrary.tsx
+[2026-02-02 18:00:16] Duplicate Group (SHA256: E9990E0EE60F48837ED704863B592492F7CA794FA81EC4EB825EFF0491A4D991):
+[2026-02-02 18:00:16]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\RESOURCES.md
+[2026-02-02 18:00:16]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\RESOURCES.md
+[2026-02-02 18:00:16]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\RESOURCES.md
+[2026-02-02 18:00:16] Duplicate Group (SHA256: CBC7D4718AB35DF6A690366294296DD2D92F7D1C14FEE2AAE13461DE934AAE0F):
+[2026-02-02 18:00:16]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\VOICE_SYSTEM_README.md
+[2026-02-02 18:00:16]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\VOICE_SYSTEM_README.md
+[2026-02-02 18:00:16]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\VOICE_SYSTEM_README.md
+[2026-02-02 18:00:16] Duplicate Group (SHA256: 304D03FD69DCAE3313A80ABA70DEA759C113B4FCAFB44AEEF5F28E3D3C54CEBA):
+[2026-02-02 18:00:16]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\SUBSCRIPTION_CONFIGURED.md
+[2026-02-02 18:00:16]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\SUBSCRIPTION_CONFIGURED.md
+[2026-02-02 18:00:16]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\SUBSCRIPTION_CONFIGURED.md
+[2026-02-02 18:00:16]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\SUBSCRIPTION_CONFIGURED.md
+[2026-02-02 18:00:16] Duplicate Group (SHA256: EBDC3049908ACF28C724CCF00083F7A2AF459EC7A5D9EB0ADA9F3EEE940FFB6C):
+[2026-02-02 18:00:16]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\.devcontainer\Dockerfile
+[2026-02-02 18:00:17]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\.devcontainer\Dockerfile
+[2026-02-02 18:00:17]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\.devcontainer\Dockerfile
+[2026-02-02 18:00:17]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\.devcontainer\Dockerfile
+[2026-02-02 18:00:17]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\.devcontainer\Dockerfile
+[2026-02-02 18:00:17]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\.devcontainer\Dockerfile
+[2026-02-02 18:00:17] Duplicate Group (SHA256: DFAC7AC2D86D326A0E5ADB024E7943C181393ED17A5FCB8F0315B24C7DA6DDDE):
+[2026-02-02 18:00:17]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\postcss.config.mjs
+[2026-02-02 18:00:17]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\postcss.config.mjs
+[2026-02-02 18:00:17]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\postcss.config.mjs
+[2026-02-02 18:00:17] Duplicate Group (SHA256: BC43412703FDD20B9C37F43CAF7E767BCF350E6704AF9CF3FC73692C3A86D9DA):
+[2026-02-02 18:00:17]   KEEP: C:\Users\litre\homebase-2.0\litlabs\out\404.html
+[2026-02-02 18:00:17]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\_not-found.html
+[2026-02-02 18:00:17] Duplicate Group (SHA256: B1C152A0042D70E2E5B6EA6EE17BEA663B6B5C4EC743223796C577788D3089D1):
+[2026-02-02 18:00:17]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\firebase.json
+[2026-02-02 18:00:17]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\firebase.json
+[2026-02-02 18:00:17]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\firebase.json
+[2026-02-02 18:00:17] Duplicate Group (SHA256: 598FDDC1B421FB36F4BBA1605E2586E5BBE7A1CD4C5E167A1B2211D1C77530F0):
+[2026-02-02 18:00:17]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\.gitconfig
+[2026-02-02 18:00:17]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\.gitconfig
+[2026-02-02 18:00:17]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\.gitconfig
+[2026-02-02 18:00:17] Duplicate Group (SHA256: B59A1FB3395968898EB70288511217BB4A88C4570C5CC81A8FCA810D805508BA):
+[2026-02-02 18:00:17]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\LITLABS_OS_BUILD_PROGRESS.md
+[2026-02-02 18:00:17]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\LITLABS_OS_BUILD_PROGRESS.md
+[2026-02-02 18:00:17]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\LITLABS_OS_BUILD_PROGRESS.md
+[2026-02-02 18:00:17] Duplicate Group (SHA256: 239270030146BB7E5E6049FDE4F10E49757AFD25969730B0F0FFECAA9E049C02):
+[2026-02-02 18:00:17]   KEEP: C:\Users\litre\homebase-2.0\github\assets\dd76f054-fbf5-427c-8983-c19c073682f9.mp4
+[2026-02-02 18:00:17]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\merged\EverythingHomebase\assets\dd76f054-fbf5-427c-8983-c19c073682f9.mp4
+[2026-02-02 18:00:17]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\Media\dd76f054-fbf5-427c-8983-c19c073682f9.mp4
+[2026-02-02 18:00:17]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\packages\shared\assets\dd76f054-fbf5-427c-8983-c19c073682f9.mp4
+[2026-02-02 18:00:17] Duplicate Group (SHA256: AAEB57FCAD12CBFB4D507B1BA5383DF6DDAC534707D448C647CC0E8091B45E1E):
+[2026-02-02 18:00:17]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\LabPreferences.tsx
+[2026-02-02 18:00:17]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\LabPreferences.tsx
+[2026-02-02 18:00:17] Duplicate Group (SHA256: 1772A89D56137B99FD208E0E6301981B865FDF524DBF599674606776EFA0F542):
+[2026-02-02 18:00:17]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\COMPLETION_CONFIRMED.md
+[2026-02-02 18:00:17]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\COMPLETION_CONFIRMED.md
+[2026-02-02 18:00:17]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\COMPLETION_CONFIRMED.md
+[2026-02-02 18:00:17] Duplicate Group (SHA256: FA3909885613FEB447364F1C59063A02A235590714E0EA2F352C70AEDF16EF92):
+[2026-02-02 18:00:17]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\.github\COPILOT_SYSTEM_PROMPT.md
+[2026-02-02 18:00:17]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\.github\COPILOT_SYSTEM_PROMPT.md
+[2026-02-02 18:00:17] Duplicate Group (SHA256: 10E4C90DE703DCB3619EB8385A82F1A071F22263C6131A659745CB8A227707CE):
+[2026-02-02 18:00:17]   KEEP: C:\Users\litre\homebase-2.0\litlabs\out\lab.txt
+[2026-02-02 18:00:17]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\lab\__next._full.txt
+[2026-02-02 18:00:17] Duplicate Group (SHA256: ACD98CDBDD1219DDEB2AC775FFBD0C9F5FF7119026B0AF8815B11253F60B24D4):
+[2026-02-02 18:00:17]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\DOCUMENTATION_INDEX.md
+[2026-02-02 18:00:18]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\DOCUMENTATION_INDEX.md
+[2026-02-02 18:00:18]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\DOCUMENTATION_INDEX.md
+[2026-02-02 18:00:18]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\DOCUMENTATION_INDEX.md
+[2026-02-02 18:00:18] Duplicate Group (SHA256: 04103FAFFE06D726C266FDF73868F09F513B7BE021DF89B20A3838106BD47193):
+[2026-02-02 18:00:18]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\LabPaymentMock.tsx
+[2026-02-02 18:00:18]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\LabPaymentMock.tsx
+[2026-02-02 18:00:18] Duplicate Group (SHA256: 11955C0156812A6B0317775FC3B765293600E1C271A3DB5609BB2CFD2F2528D8):
+[2026-02-02 18:00:18]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\eslint.config.mjs
+[2026-02-02 18:00:18]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\eslint.config.mjs
+[2026-02-02 18:00:18]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\eslint.config.mjs
+[2026-02-02 18:00:18] Duplicate Group (SHA256: FF309DDCDD65EBD02BC724DBF2BCC4A0FF53A5B61792A44548D383E4EBB19D3B):
+[2026-02-02 18:00:18]   KEEP: C:\Users\litre\homebase-2.0\.venv\Lib\site-packages\requests-2.32.5.dist-info\WHEEL
+[2026-02-02 18:00:18]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\.venv\Lib\site-packages\certifi-2026.1.4.dist-info\WHEEL
+[2026-02-02 18:00:18] Duplicate Group (SHA256: B0C966E41D035956524609E9DE7F2E92019A0352904609C70E80DB53F205406B):
+[2026-02-02 18:00:18]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\LANDING_PAGE_ENHANCEMENTS.md
+[2026-02-02 18:00:18]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\LANDING_PAGE_ENHANCEMENTS.md
+[2026-02-02 18:00:18]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\LANDING_PAGE_ENHANCEMENTS.md
+[2026-02-02 18:00:18] Duplicate Group (SHA256: 1F2D0A4AF2B08693458F49B33A246A0C014AFD088D87470CAE565579D75D0A76):
+[2026-02-02 18:00:18]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\dashboard\FunArcadeBanner.tsx
+[2026-02-02 18:00:18]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\dashboard\FunArcadeBanner.tsx
+[2026-02-02 18:00:18] Duplicate Group (SHA256: E419CD97CAF8AC95536B57B22FCEEFBC8E4847B24DD7AEFE61F1D3C361741CC0):
+[2026-02-02 18:00:18]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\Labs-Ai-Complete.zip
+[2026-02-02 18:00:18]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\Labs-Ai-Complete.zip
+[2026-02-02 18:00:18]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\Labs-Ai-Complete.zip
+[2026-02-02 18:00:18] Duplicate Group (SHA256: DC03C818DD9C1299158207036F42F59747AEB12DE1F54D135B0870C2BD30486C):
+[2026-02-02 18:00:18]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\PAYMENT_SETUP_GUIDE.md
+[2026-02-02 18:00:18]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\PAYMENT_SETUP_GUIDE.md
+[2026-02-02 18:00:18]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\PAYMENT_SETUP_GUIDE.md
+[2026-02-02 18:00:18]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\PAYMENT_SETUP_GUIDE.md
+[2026-02-02 18:00:18]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\PAYMENT_SETUP_GUIDE.md
+[2026-02-02 18:00:18]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\PAYMENT_SETUP_GUIDE.md
+[2026-02-02 18:00:18]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\PAYMENT_SETUP_GUIDE.md
+[2026-02-02 18:00:18]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\PAYMENT_SETUP_GUIDE.md
+[2026-02-02 18:00:18]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\PAYMENT_SETUP_GUIDE.md
+[2026-02-02 18:00:18] Duplicate Group (SHA256: 2CC05B709C227CD7DBA97447F515F8071AB1F281CD47DFF4B45423FCEB294F41):
+[2026-02-02 18:00:18]   KEEP: C:\Users\litre\homebase-2.0\litlabs\out\__next._head.txt
+[2026-02-02 18:00:18]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\calendar\__next._head.txt
+[2026-02-02 18:00:18]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\drops\__next._head.txt
+[2026-02-02 18:00:18]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\files\__next._head.txt
+[2026-02-02 18:00:18]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\lab\__next._head.txt
+[2026-02-02 18:00:18]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\login\__next._head.txt
+[2026-02-02 18:00:18]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\notes\__next._head.txt
+[2026-02-02 18:00:18]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\studio\__next._head.txt
+[2026-02-02 18:00:18]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\litlabs\out\tasks\__next._head.txt
+[2026-02-02 18:00:18] Duplicate Group (SHA256: E6184CE10E266134FDCFA401E8F1A95005BCD4F18D16B62B757323E2833FE9A9):
+[2026-02-02 18:00:18]   KEEP: C:\Users\litre\homebase-2.0\.venv\Lib\site-packages\idna-3.11.dist-info\INSTALLER
+[2026-02-02 18:00:18]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\.venv\Lib\site-packages\certifi-2026.1.4.dist-info\INSTALLER
+[2026-02-02 18:00:18]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\.venv\Lib\site-packages\charset_normalizer-3.4.4.dist-info\INSTALLER
+[2026-02-02 18:00:18]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\.venv\Lib\site-packages\requests-2.32.5.dist-info\INSTALLER
+[2026-02-02 18:00:18]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\.venv\Lib\site-packages\urllib3-2.6.3.dist-info\INSTALLER
+[2026-02-02 18:00:18] Duplicate Group (SHA256: 95871794157A957F1658C3F5B56703DC4B2114C9072588CDD85AA5F34AE775B7):
+[2026-02-02 18:00:18]   KEEP: C:\Users\litre\homebase-2.0\github\src\litlabs-web\_- Copy.gitignore
+[2026-02-02 18:00:19]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\.archive\duplicates\Labs-Ai_litlabs-web\_- Copy.gitignore
+[2026-02-02 18:00:19]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honey-comb-home\_- Copy.gitignore
+[2026-02-02 18:00:19]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\honeycomb-blueprint\_- Copy.gitignore
+[2026-02-02 18:00:19]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\litlabs-web\_- Copy.gitignore
+[2026-02-02 18:00:19]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litlabs-web\_- Copy.gitignore
+[2026-02-02 18:00:19]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\GitHub\litlabs-web\_- Copy.gitignore
+[2026-02-02 18:00:19]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\GitHub\litlabs-web\_- Copy.gitignore
+[2026-02-02 18:00:19]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\Organized\GitHub\VSCode\litlabs-web\_- Copy.gitignore
+[2026-02-02 18:00:19] Duplicate Group (SHA256: 1250CB5E4A4918D6D76C74F1F901620841513316EED135FF316C7E9777EF7585):
+[2026-02-02 18:00:19]   KEEP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\components\LabLiveInteractive.tsx
+[2026-02-02 18:00:19]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\temp-extract\components\LabLiveInteractive.tsx
+[2026-02-02 18:00:19] Duplicate Group (SHA256: 61507C8BFAAD3B0CB17BADE3C5CB56AEB01DF1F671681E069C2AAE263B10A909):
+[2026-02-02 18:00:19]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\PROJECT_COMPLETION.md
+[2026-02-02 18:00:19]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\PROJECT_COMPLETION.md
+[2026-02-02 18:00:19]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\PROJECT_COMPLETION.md
+[2026-02-02 18:00:19] Duplicate Group (SHA256: 4FC56A646F0E2C4379183C34B71A0C83ACF7D30851C56A1F6B176B4AD409861E):
+[2026-02-02 18:00:19]   KEEP: C:\Users\litre\homebase-2.0\github\apps\litreestudio\.codacy\codacy.yaml
+[2026-02-02 18:00:19]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\litreelabsfirebase\.codacy\codacy.yaml
+[2026-02-02 18:00:19] Duplicate Group (SHA256: 1E31AA9672981EAA2E15A771982B7FA3B9D7899DA5D4CCAF8D446F894DF202ED):
+[2026-02-02 18:00:19]   KEEP: C:\Users\litre\homebase-2.0\github\Labs-Ai\.vercelignore
+[2026-02-02 18:00:19]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\apps\labs-ai\.vercelignore
+[2026-02-02 18:00:19]   MOVE TO BACKUP: C:\Users\litre\homebase-2.0\github\docs\Labs-Ai\.vercelignore
+[2026-02-02 18:00:19] Duplicates moved to backup: C:\Users\litre\homebase-2.0\_duplicates_backup_20260202-175734
+[2026-02-02 18:00:19] Scan Complete.

@@ -1,0 +1,41 @@
+services:
+  agent-zero:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: agent-zero
+    environment:
+      - AGENT_ZERO_INTERACTIVE=false
+      - AGENT_ZERO_HOST=0.0.0.0
+      - AGENT_ZERO_PORT=8000
+      - GOOGLE_GENERATIVE_AI_API_KEY=${GOOGLE_GENERATIVE_AI_API_KEY}
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+    ports:
+      - "8000:8000"
+    volumes:
+      # Named volumes for persistent data
+      - agent-zero-logs:/app/logs
+      - agent-zero-data:/app/data
+      # Mount docker socket to allow controlling docker from inside
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+    # Use web_api.py for web mode
+    command: ["python", "web_api.py"]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - agent-zero-network
+
+volumes:
+  agent-zero-logs:
+  agent-zero-data:
+
+networks:
+  agent-zero-network:
+    driver: bridge

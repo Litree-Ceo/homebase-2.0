@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from 'astro-icon';
+---
+
+<Layout>
+  <div class="relative z-10">
+    <!-- Hero Section -->
+    <section class="text-center py-20 px-4 sm:px-6 lg:px-8">
+      <div class="absolute inset-0 -z-10 overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-green-600/30 rounded-full blur-3xl opacity-50"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/4 -translate-y-1/4 w-72 h-72 bg-lime-600/30 rounded-full blur-3xl opacity-40"></div>
+      </div>
+      <h1 class="text-4xl md:text-6xl font-extrabold tracking-tighter text-white mb-4 font-display">
+        The <span class="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-lime-500">Lab</span>
+      </h1>
+      <p class="max-w-2xl mx-auto text-lg md:text-xl text-gray-300">
+        Where innovation happens. Explore experimental features, cutting-edge projects, and the future of decentralized AI.
+      </p>
+    </section>
+
+    <!-- Experiments Section -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Experiment Card 1 -->
+        <div class="bg-gray-800/60 backdrop-blur-xl border border-gray-700/50 rounded-xl p-6 shadow-2xl transition-all duration-300 hover:border-green-500/80">
+          <div class="flex items-center justify-center h-12 w-12 rounded-full bg-green-600/50 mb-4">
+            <Icon name="mdi:test-tube" class="w-6 h-6 text-green-300" />
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Project Chimera</h3>
+          <p class="text-gray-400 text-sm">
+            A self-evolving neural network that adapts to new data in real-time. Currently in a closed alpha.
+          </p>
+        </div>
+
+        <!-- Experiment Card 2 -->
+        <div class="bg-gray-800/60 backdrop-blur-xl border border-gray-700/50 rounded-xl p-6 shadow-2xl transition-all duration-300 hover:border-lime-500/80">
+          <div class="flex items-center justify-center h-12 w-12 rounded-full bg-lime-600/50 mb-4">
+            <Icon name="mdi:atom" class="w-6 h-6 text-lime-300" />
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Quantum Entanglement</h3>
+          <p class="text-gray-400 text-sm">
+            An experimental quantum communication protocol for secure, instantaneous data transfer between nodes.
+          </p>
+        </div>
+
+        <!-- Experiment Card 3 -->
+        <div class="bg-gray-800/60 backdrop-blur-xl border border-gray-700/50 rounded-xl p-6 shadow-2xl transition-all duration-300 hover:border-yellow-500/80">
+          <div class="flex items-center justify-center h-12 w-12 rounded-full bg-yellow-600/50 mb-4">
+            <Icon name="mdi:brain" class="w-6 h-6 text-yellow-300" />
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Hive Mind</h3>
+          <p class="text-gray-400 text-sm">
+            A decentralized autonomous organization (DAO) that governs the LitLabs network. Join the conversation and help shape the future.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>

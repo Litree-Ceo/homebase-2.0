@@ -1,0 +1,77 @@
+:root {
+  --font-family: 'Inter', sans-serif;
+  --background: #121212;
+  --surface: #1E1E1E;
+  --primary: #7F5AF0;
+  --secondary: #2CB67D;
+  --text-primary: #FFFFFF;
+  --text-secondary: #A8A8A8;
+}
+
+.light {
+  --background: #F5F5F5;
+  --surface: #FFFFFF;
+  --text-primary: #121212;
+  --text-secondary: #5C5C5C;
+}
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  background: var(--background-primary, #0A0A10);
+  color: var(--text-primary, #EAEAEF);
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--accent-primary, #7F5AF0);
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background: var(--accent-primary, #7F5AF0);
+  color: white;
+}
+
+/* Links */
+a {
+  color: var(--accent-primary, #7F5AF0);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-secondary, #2CB67D);
+}
+
+/* Smooth transitions for interactive elements */
+button, input, textarea {
+  font-family: inherit;
+}
+
+/* Disable animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

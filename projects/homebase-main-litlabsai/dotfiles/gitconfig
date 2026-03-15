@@ -1,0 +1,34 @@
+[user]
+	name = Litree
+	email = litree@github.com
+[core]
+	quotepath = false
+	compression = 9
+	editor = nano
+	pager = delta
+[http]
+	postBuffer = 524288000
+	lowSpeedLimit = 100
+	lowSpeedTime = 10
+	maxRequestBuffer = 100M
+[pack]
+	windowMemory = 100m
+[init]
+	defaultBranch = main
+[credential "https://github.com"]
+	helper = 
+	helper = !/data/data/com.termux/files/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/data/data/com.termux/files/usr/bin/gh auth git-credential
+[safe]
+	directory = /storage/emulated/0/Projects/homebase
+	directory = *
+	directory = *
+[alias]
+	st = status
+	co = checkout
+	br = branch
+	ci = commit
+[advice]
+	addEmptyPathspec = false

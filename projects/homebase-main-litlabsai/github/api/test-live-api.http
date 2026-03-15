@@ -1,0 +1,82 @@
+<!-- REST API Test Suite for Live Monitoring -->
+
+@hostname = localhost
+@port = 7071
+@baseUrl = http://{{hostname}}:{{port}}/api
+
+### 🏥 Health Check
+GET {{baseUrl}}/health
+Accept: application/json
+
+### 🤖 List All Bots
+GET {{baseUrl}}/bot-api
+Accept: application/json
+
+### 🤖 Create New Bot (Price Alert)
+POST {{baseUrl}}/bot-api
+Content-Type: application/json
+
+{
+  "name": "Bitcoin Price Alert",
+  "strategy": "price-alert",
+  "coins": ["bitcoin", "ethereum", "cardano"],
+  "enabled": true,
+  "params": {
+    "priceAlert": {
+      "alerts": [
+        {
+          "coin": "bitcoin",
+          "targetPrice": 95000,
+          "direction": "above"
+        },
+        {
+          "coin": "ethereum",
+          "targetPrice": 3500,
+          "direction": "below"
+        }
+      ]
+    }
+  }
+}
+
+### 🤖 Create Opportunity Detector Bot
+POST {{baseUrl}}/bot-api
+Content-Type: application/json
+
+{
+  "name": "Opportunity Detector",
+  "strategy": "opportunity-detector",
+  "coins": ["solana", "polkadot", "avalanche"],
+  "enabled": true,
+  "params": {
+    "opportunityDetector": {
+      "minChangePercent": 5,
+      "volumeMultiplier": 2,
+      "timeframeHours": 24
+    }
+  }
+}
+
+### 📊 Crypto Prices (CoinGecko)
+GET {{baseUrl}}/crypto?ids=bitcoin,ethereum,cardano,solana
+
+### 💰 Crypto Premium (with advanced metrics)
+GET {{baseUrl}}/crypto-premium?ids=bitcoin,ethereum&metrics=market_data,market_cap,volume
+
+### 🪵 Get Blob Storage Info
+GET {{baseUrl}}/blob
+
+### 📋 Health Status Verbose
+GET {{baseUrl}}/health?verbose=true
+
+###
+# Testing Notes:
+# 1. Run Frontend: pnpm -C apps/web dev (port 3000)
+# 2. Run API: pnpm -C api start (port 7071)
+# 3. Use these requests with "Send Request" button
+# 4. Check terminal output for logs
+# 5. Monitor response times and status codes
+#
+# Keyboard Shortcut: Ctrl+Alt+R to send request
+# Or click "Send Request" link above each request
+###

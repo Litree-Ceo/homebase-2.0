@@ -1,0 +1,15 @@
+# Azure Functions ignore file
+*.js.map
+*.ts
+*.ts.map
+.git*
+.vscode
+local.settings.json
+test
+tsconfig.json
+node_modules
+README.md
+*.md
+jest.config.js
+coverage
+.nyc_output

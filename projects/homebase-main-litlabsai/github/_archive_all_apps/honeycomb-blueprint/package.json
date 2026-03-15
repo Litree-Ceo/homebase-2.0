@@ -1,0 +1,40 @@
+{
+  "name": "@homebase/honeycomb-blueprint",
+  "version": "2.0.0",
+  "description": "LitreeLabs - AI-Powered Beauty Business Automation Platform with Multi-Provider Authentication",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo \"Build complete\"",
+    "start": "npx serve public",
+    "dev": "npx serve public",
+    "deploy": "echo 'Deploy using Azure Static Web Apps workflow or Azure CLI'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LiTree89/litlabs-web.git"
+  },
+  "keywords": [
+    "litlabs",
+    "beauty",
+    "saas",
+    "stripe",
+    "firebase",
+    "ai-automation",
+    "multi-auth"
+  ],
+  "author": "LiTree Labs",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/LiTree89/litlabs-web/issues"
+  },
+  "homepage": "https://github.com/LiTree89/litlabs-web#readme",
+  "dependencies": {
+      "serve": "^14.2.1"
+    },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}

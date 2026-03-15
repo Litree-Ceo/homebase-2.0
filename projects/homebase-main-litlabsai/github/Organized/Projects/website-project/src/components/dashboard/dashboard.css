@@ -1,0 +1,66 @@
+.dashboard-container {
+  padding: 40px 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+}
+
+.dashboard-title {
+  color: #ffd700;
+  font-size: 2.8em;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 12px #b084cc99;
+}
+
+.honeycomb-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 32px;
+  max-width: 900px;
+  width: 100%;
+  justify-items: center;
+}
+
+.honeycomb-cell {
+  width: 160px;
+  height: 140px;
+  background: linear-gradient(135deg, #18141a 70%, #b084cc 100%);
+  border-radius: 16px 16px 0 0 / 32px 32px 0 0;
+  box-shadow: 0 4px 24px #00000055;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0 50%);
+  border: 3px solid #ffd700;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.honeycomb-cell:hover {
+  transform: scale(1.07) rotate(-2deg);
+  box-shadow: 0 8px 32px #ffd70099;
+}
+
+.honeycomb-icon {
+  font-size: 2.2em;
+  margin-bottom: 8px;
+}
+
+.honeycomb-value {
+  color: #ffd700;
+  font-size: 1.7em;
+  font-weight: bold;
+}
+
+.honeycomb-label {
+  color: #b084cc;
+  font-size: 1em;
+  margin-top: 4px;
+  text-align: center;
+}

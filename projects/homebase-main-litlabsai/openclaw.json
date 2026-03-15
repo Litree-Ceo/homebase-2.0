@@ -1,0 +1,19 @@
+{
+  "agent": {
+    "name": "OpenClaw-Agent",
+    "version": "2026.2.1",
+    "capabilities": [
+      "file-system",
+      "terminal",
+      "browser-automation"
+    ]
+  },
+  "runtime": {
+    "environment": "node",
+    "timeout": 30000
+  },
+  "logging": {
+    "level": "info",
+    "file": "openclaw.log"
+  }
+}

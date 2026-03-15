@@ -1,0 +1,18 @@
+/* ThemeSwitcher.module.css */
+.themeSwitcher {
+    padding: 16px;
+}
+
+.themePreview {
+    margin-left: 16px;
+    color: var(--theme-preview-color);
+}
+.themePreview {
+    margin-left: 16px;
+}
+.cyber { color: #ff00cc; }
+.midnight { color: #1a237e; }
+.sunrise { color: #ff9800; }
+.arctic { color: #00eaff; }
+.ocean { color: #0077be; }
+.forest { color: #388e3c; }

@@ -1,0 +1,125 @@
+name: CI Build + Secrets Scan
+
+on:
+  pull_request:
+    branches: [ master ]
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    name: Build, Lint & Audit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Run ESLint
+        run: npm run lint --if-present
+
+      - name: Run npm audit
+        run: npm audit --audit-level=high || true
+
+  secrets-scan:
+    name: Secrets Scan (Gitleaks)
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Go (required for gitleaks build fallback)
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.25.4'
+
+      - name: Run Gitleaks (binary or build)
+        run: |
+          set -e
+          echo "Downloading gitleaks binary and running scan"
+          # Try pinned release URLs first (avoid 'latest' HTML redirect), then fall back to latest
+          ARCHIVE_URLS=(
+            "https://github.com/zricethezav/gitleaks/releases/download/v8.30.0/gitleaks-linux-amd64"
+            "https://github.com/gitleaks/gitleaks/releases/download/v8.30.0/gitleaks-linux-amd64"
+            "https://github.com/zricethezav/gitleaks/releases/latest/download/gitleaks-linux-amd64"
+            "https://github.com/gitleaks/gitleaks/releases/latest/download/gitleaks-linux-amd64"
+          )
+          downloaded=0
+          for url in "${ARCHIVE_URLS[@]}"; do
+            echo "trying $url"
+            if curl -sSL "$url" -o gitleaks.tmp; then
+              # quick validation: the file should be a binary (not HTML)
+              if head -c 4 gitleaks.tmp | grep -q "\x7fELF\|MZ"; then
+                mv gitleaks.tmp gitleaks
+                downloaded=1
+                break
+              else
+                echo "downloaded file doesn't look like a binary, trying next" >&2
+              fi
+            else
+              echo "curl failed for $url" >&2
+            fi
+          done
+          if [ "$downloaded" -ne 1 ]; then
+            echo "Failed to download a usable gitleaks binary from known URLs; will attempt to build via Go"
+            if command -v go >/dev/null 2>&1; then
+              GOPATH=$(go env GOPATH 2>/dev/null || echo "$HOME/go")
+              GITLEAKS_BIN="$GOPATH/bin/gitleaks"
+              echo "Attempting 'go install' using known module paths"
+              # Try module path declared by upstream (zricethezav) first, then the canonical path
+              GOFLAGS="" GO111MODULE=on go install github.com/zricethezav/gitleaks/v8@v8.30.0 || true
+              if [ ! -x "$GITLEAKS_BIN" ]; then
+                GOFLAGS="" GO111MODULE=on go install github.com/gitleaks/gitleaks/v8@v8.30.0 || true
+              fi
+              if [ -x "$GITLEAKS_BIN" ]; then
+                echo "Running built gitleaks at $GITLEAKS_BIN"
+                "$GITLEAKS_BIN" detect --source . --redact --report-format json --report-path gitleaks-report.json || true
+              else
+                echo "gitleaks build failed or binary not found; skipping scan" >&2
+                exit 0
+              fi
+            else
+              echo "Go not available; skipping gitleaks scan" >&2
+              exit 0
+            fi
+          else
+            chmod +x gitleaks
+            ./gitleaks detect --source . --redact --report-format json --report-path gitleaks-report.json || true
+          fi
+      - name: Setup Node (fallback scanner)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run JS fallback scanner if no gitleaks report
+        run: |
+          set -e
+          if [ -f gitleaks-report.json ] && [ -s gitleaks-report.json ]; then
+            echo "gitleaks-report.json exists and is non-empty; skipping JS fallback"
+            cat gitleaks-report.json | head -c 200 || true
+          else
+            echo "gitleaks-report.json missing or empty; running Node fallback scanner"
+            node ./scripts/generate-secret-report.js || true
+          fi
+
+      - name: Check gitleaks report threshold
+        run: node ./scripts/check-report.js
+        env:
+          GITLEAKS_FAIL_THRESHOLD: '0'
+
+      - name: Upload gitleaks report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gitleaks-report
+          path: gitleaks-report.json

@@ -1,0 +1,179 @@
+.ai-status-active {
+    font-weight: bold;
+    color: #ffd700;
+    font-size: 1.08em;
+    letter-spacing: 0.5px;
+    transition: opacity 0.3s;
+}
+
+body {
+    background: #0a0a23;
+    overflow: hidden;
+
+    .starfield {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .star {
+        position: absolute;
+        background: white;
+        border-radius: 50%;
+        box-shadow: 0 0 8px 2px #fff, 0 0 24px 4px #1dbf73;
+    }
+
+    font-family: 'Segoe UI',
+    Arial,
+    sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.honeycomb-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    padding: 24px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.honeycomb-cell {
+    width: 120px;
+    background: linear-gradient(135deg, #6a1b9a 60%, #ffd700 100%);
+    /* purple to gold */
+    background: linear-gradient(135deg, #1a1a3a 60%, #2e2e5e 100%);
+    clip-path: polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+    color: #fff;
+    box-shadow: 0 0 24px 6px #ffd700, 0 2px 12px #6a1b9a44;
+    box-shadow: 0 0 24px 6px #1dbf73, 0 2px 12px #fff2;
+    border: 1.5px solid #1dbf73;
+    transition: transform 0.18s, box-shadow 0.18s;
+    opacity: 0.98;
+    animation: honeyFadeIn 0.5s cubic-bezier(.4, 0, .2, 1) both;
+}
+
+box-shadow: 0 0 32px 8px #ffd700,
+0 2px 16px #6a1b9a44;
+background: linear-gradient(135deg, #6a1b9a 60%, #ffd700 100%);
+border: 1.5px solid #6a1b9a;
+border: 1.5px solid #1dbf73;
+}
+}
+
+.ai-widget {
+    width: 100%;
+    width: 100%;
+    box-shadow: 0 0 32px 8px #ffd700, 0 2px 16px #6a1b9a44;
+    background: rgba(10, 20, 40, 0.85);
+    border-radius: 16px;
+    box-shadow: 0 0 32px 8px #1dbf73, 0 2px 16px #fff2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 8px;
+    font-size: 1em;
+    color: #fff;
+    border: 2px solid #1dbf73;
+    transition: box-shadow 0.15s;
+}
+
+.command-center h3 {
+    color: #ffd700;
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #1dbf73;
+    letter-spacing: 1px;
+    text-shadow: 0 0 8px #1dbf73, 0 0 16px #fff;
+}
+
+color: #ffd700;
+margin: 0 0 10px 0;
+font-size: 1em;
+color: #fff;
+text-shadow: 0 0 4px #1dbf73;
+background: linear-gradient(90deg, #6a1b9a 60%, #ffd700 100%);
+
+.command-center button {
+    background: linear-gradient(90deg, #1dbf73 60%, #2e2e5e 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 18px;
+    font-size: 1em;
+    box-shadow: 0 2px 8px #ffd700;
+    cursor: pointer;
+    margin: 4px 0;
+    box-shadow: 0 2px 8px #1dbf73;
+    transition: background 0.2s, transform 0.2s;
+    background: linear-gradient(90deg, #ffd700 60%, #6a1b9a 100%);
+
+    .command-center button:hover {
+        background: linear-gradient(90deg, #2e2e5e 60%, #1dbf73 100%);
+        transform: scale(1.08);
+    }
+
+    .ai-widget h3 {
+        color: #ffd700;
+        font-size: 1em;
+        font-weight: 600;
+        color: #ff9800;
+        letter-spacing: 0.3px;
+        background: linear-gradient(90deg, #6a1b9a 60%, #ffd700 100%);
+
+        .ai-widget p {
+            margin: 0 0 7px 0;
+            font-size: 0.92em;
+            color: #333;
+        }
+
+        .ai-widget button {
+            background: linear-gradient(90deg, #ffd700 60%, #ff9800 100%);
+            color: #222;
+            border: none;
+            border-radius: 6px;
+            background: linear-gradient(90deg, #ffd700 60%, #6a1b9a 100%);
+            font-size: 0.95em;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: 0 1px 4px rgba(255, 215, 0, 0.10);
+            transition: background 0.15s, transform 0.15s;
+        }
+
+        .ai-widget button:hover {
+            background: linear-gradient(90deg, #ff9800 60%, #ffd700 100%);
+            transform: scale(1.04);
+        }
+    }
+
+    @keyframes honeyFadeIn {
+        0% {
+            opacity: 0;
+            transform: scale(0.8);
+            background: linear-gradient(135deg, #6a1b9a 60%, #ffd700 100%);
+
+            box-shadow: 0 12px 40px #6a1b9a44, 0 2px 8px #ffd70044;
+            opacity: 0.95;
+            transform: scale(1);
+        }
+    }
+}
+
+.honeycomb-cell:hover {
+    transform: scale(1.12) rotate(-2deg);
+    background: linear-gradient(135deg, #ff9800 60%, #ffd700 100%);
+    color: #222;
+    box-shadow: 0 12px 40px rgba(255, 152, 0, 0.18), 0 2px 8px rgba(255, 215, 0, 0.18);
+}

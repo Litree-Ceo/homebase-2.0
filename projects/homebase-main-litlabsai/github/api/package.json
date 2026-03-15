@@ -1,0 +1,37 @@
+{
+  "name": "@homebase/api",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "LITLABS Azure Functions v4 API (Node 20)",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "clean": "rimraf dist",
+    "prestart": "npm run clean && npm run build",
+    "dev": "func start",
+    "start": "func start",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "@azure/cosmos": "^4.9.0",
+    "@azure/functions": "^4.10.0",
+    "@azure/identity": "^4.13.0",
+    "@azure/keyvault-secrets": "^4.10.0",
+    "@azure/storage-blob": "^12.29.1",
+    "axios": "^1.13.2",
+    "binance-api-node": "^0.13.6"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.3",
+    "formidable": "^3.5.4",
+    "jest": "^29.7.0",
+    "rimraf": "^6.1.2",
+    "tshy": "^3.1.0",
+    "typescript": "^5.9.3"
+  }
+}

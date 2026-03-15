@@ -1,0 +1,88 @@
+# EverythingHomebase VS Code Blueprint
+# This file describes your workspace setup for syncing, control, and style.
+
+## 1. Git Automation
+- Use auto-git-sync.ps1 to pull, add, commit, and push changes with one command.
+- Always work in G:/My Drive/EverythingHomebase for correct repo context.
+
+## 2. VS Code Settings (sync across devices)
+- Place the following in .vscode/settings.json for workspace-level control.
+- Use the Syncing extension to keep settings/extensions synced everywhere.
+
+## settings.json
+{
+    "editor.fastScrollSensitivity": 10,
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorSmoothCaretAnimation": true,
+    "editor.smoothScrolling": true,
+    "editor.renderWhitespace": "all",
+    "editor.minimap.enabled": false,
+    "editor.quickSuggestionsDelay": 0,
+    "editor.wordBasedSuggestions": true,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "on",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.codeActionsOnSave": { "source.fixAll": true },
+    "terminal.integrated.gpuAcceleration": "on",
+    "terminal.integrated.fastScrollSensitivity": 10,
+    "terminal.integrated.scrollback": 10000,
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.cursorStyle": "block",
+    "terminal.integrated.fontWeight": "bold",
+    "terminal.integrated.fontWeightBold": "900",
+    "terminal.integrated.copyOnSelection": true,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 300,
+    "workbench.editor.enablePreview": false,
+    "workbench.startupEditor": "none",
+    "workbench.tree.indent": 16,
+    "extensions.ignoreRecommendations": false,
+    "workbench.colorTheme": "Light+ (default light)",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#FFD700",
+        "statusBar.background": "#FFB300",
+        "statusBar.foreground": "#222222",
+        "editor.background": "#FFF8E1",
+        "editor.foreground": "#222222",
+        "editorCursor.foreground": "#FFB300",
+        "editor.lineHighlightBackground": "#FFFDE7",
+        "editor.selectionBackground": "#FFD70088",
+        "editor.selectionHighlightBackground": "#FFECB3",
+        "editorIndentGuide.background": "#FFECB3",
+        "editorIndentGuide.activeBackground": "#FFD700",
+        "editorBracketMatch.background": "#FFD70044",
+        "editorBracketMatch.border": "#FFB300",
+        "editorGutter.background": "#FFF8E1",
+        "editorGutter.modifiedBackground": "#FFB300",
+        "editorGutter.addedBackground": "#FFD700",
+        "editorGutter.deletedBackground": "#FF5252",
+        "editorWhitespace.foreground": "#FFECB3",
+        "editorGroupHeader.tabsBackground": "#FFD700",
+        "tab.activeBackground": "#FFF8E1",
+        "tab.inactiveBackground": "#FFECB3",
+        "tab.activeForeground": "#222222",
+        "tab.inactiveForeground": "#888888",
+        "sideBar.background": "#FFFDE7",
+        "sideBar.foreground": "#222222",
+        "sideBarSectionHeader.background": "#FFD700",
+        "sideBarSectionHeader.foreground": "#222222"
+    }
+}
+
+## 3. Recommended Extensions
+- Prettier - Code formatter
+- Material Icon Theme
+- Syncing
+- Peacock
+- Background Cover
+- Format on Auto Save
+
+## 4. How to Control Everything
+- Use the auto-git-sync.ps1 script for all git operations.
+- Use the Syncing extension to keep settings/extensions synced across VS Code installs.
+- All workspace settings are in .vscode/settings.json—edit this file for tweaks.
+- Theme and icons are set for Honeycomb Vision style.
+- All performance tweaks are applied for fast writing and terminal speed.

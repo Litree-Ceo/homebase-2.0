@@ -1,0 +1,171 @@
+# SAVAGE TERMUX - ZSH CONFIG
+# -------------------------
+
+# Powerlevel10k instant prompt
+if [[ -r "${XDG_CACHE_HOME:-\( HOME/.cache}/p10k-instant-prompt- \){(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-\( HOME/.cache}/p10k-instant-prompt- \){(%):-%n}.zsh"
+fi
+
+# Path to oh-my-zsh
+export ZSH="$HOME/.oh-my-zsh"
+
+# Theme & UI
+ZSH_THEME="powerlevel10k/powerlevel10k"
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+
+# Smart Plugins
+plugins=(zoxide 
+  git
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  zsh-history-substring-search
+  z
+  fzf
+  vi-mode
+)
+
+# Standard Environment Setup
+unset PREFIX 2>/dev/null || true
+source $ZSH/oh-my-zsh.sh
+[[ ! -f \~/.p10k.zsh ]] || source \~/.p10k.zsh
+
+# PATHS (add your custom paths here if needed, e.g., export PATH="$PATH:$HOME/bin")
+
+# --- GOD MODE: CUSTOM ALIASES & POWER TOOLS ---
+
+# Upgrade Standard Commands
+if command -v lsd >/dev/null; then
+  alias ls='lsd'
+  alias l='ls -l'
+  alias la='ls -a'
+  alias lla='ls -la'
+  alias lt='ls --tree'
+fi
+
+if command -v bat >/dev/null; then
+  alias cat='bat --paging=never --style=plain'
+  alias help='bathelp'
+  function bathelp() {
+    "$@" --help 2>&1 | bat --plain --language=help
+  }
+fi
+
+if command -v htop >/dev/null; then
+  alias top='htop'
+fi
+
+if command -v nnn >/dev/null; then
+  alias n='nnn -de'
+fi
+
+# LazyGit & Git Shortcuts
+if command -v lazygit >/dev/null; then
+  alias lg='lazygit'
+fi
+alias gs='git status'
+alias ga='git add'
+alias gaa='git add .'
+alias gc='git commit -m'
+alias gp='git push'
+alias gl='git log --oneline --graph --decorate'
+alias gd='git diff'
+alias gco='git checkout'
+alias gbr='git branch'
+
+# FZF: Fast Navigation & Previews
+if command -v fzf >/dev/null; then
+  # FZF Preview File (with bat)
+  alias fp='fzf --preview "bat --style=numbers --color=always --line-range :500 {}"'
+  # FZF Search History
+  alias fh='history | fzf --tac | sed "s/^[ ]*[0-9]*[ ]*//" | xargs -I {} -r print -z "{}"'
+fi
+
+# Termux Utilities
+alias clip='termux-clipboard-set'
+alias paste='termux-clipboard-get'
+alias notify='termux-notification'
+alias vibrate='termux-vibrate'
+alias battery='termux-battery-status'
+
+# Folder Shortcuts
+alias d='cd ~/downloads && ls'
+alias s='cd ~/storage && ls'
+alias p='cd ~/projects && ls'
+alias h='cd ~ && ls'
+
+# System Management
+alias update='pkg update && pkg upgrade'
+alias install='pkg install'
+alias uninstall='pkg uninstall'
+
+function god-update() {
+  echo -e "\033[0;35m✦ STARTING SYSTEM-WIDE SYNCHRONIZATION ✦\033[0m"
+  
+  echo -e "\n\033[0;36m1. Termux Packages...\033[0m"
+  pkg update -y && pkg upgrade -y
+
+  echo -e "\n\033[0;36m2. Oh My Zsh & Plugins...\033[0m"
+  omz update
+  
+  if [ -d "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]; then
+    (cd "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions" && git pull)
+  fi
+  if [ -d "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ]; then
+    (cd "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" && git pull)
+  fi
+
+  if command -v bun >/dev/null; then
+    echo -e "\n\033[0;36m3. Bun Runtime...\033[0m"
+    bun upgrade
+  fi
+
+  if command -v uv >/dev/null; then
+    echo -e "\n\033[0;36m4. UV (Python Ecosystem)...\033[0m"
+    uv self update
+  fi
+
+  echo -e "\n\033[0;32m✦ SYNCHRONIZATION COMPLETE ✦\033[0m"
+  bash ~/.welcome.sh
+}
+
+function search() {
+  pkg list-all | fzf --preview 'pkg show {1}' | cut -d'/' -f1 | xargs -r pkg install
+}
+
+# Quick Navigation & Shortcuts
+alias c='clear'
+alias q='exit'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../../..'
+alias reload='source ~/.zshrc && echo "Zsh reloaded!"'
+alias godhelp='bash ~/.welcome.sh'
+
+# Project Shortcuts (Matches your Welcome Page)
+alias ai='gemini'
+alias status='python ~/scripts/status.py'
+alias u='ubuntu' # Assuming 'ubuntu' is your proot-distro command
+alias dev='tmux attach || tmux new-session'
+alias kill='tmux kill-server'
+alias split='tmux split-window -h'
+
+# --- END GOD MODE ---
+
+# Thefuck Fix: Explicitly set shell and suppress startup errors
+if command -v thefuck >/dev/null 2>&1; then
+  eval $(TF_SHELL=zsh thefuck --alias fuck 2>/dev/null) 2>/dev/null
+fi
+
+# Weather and Welcome (assuming your welcome is called here; adjust if in motd)
+# Example: If you have a welcome script, call it like this:
+# \~/welcome.sh  # Uncomment and adjust path if needed
+
+# If your weather is called directly, ensure \~/termux-weather.sh is fixed as per previous instructions
+
+# End of .zshrc
+alias sync='~/dev/homebase-main/sync.sh'
+eval "$(zoxide init zsh)"
+alias root='cd ~/dev/homebase-main'
+alias chat='cd ~/dev/homebase-main/github/apps/firebase-ai-chat-v2 && node index.js'
+alias web='cd ~/dev/homebase-main/github/apps/litgrid-unified && pnpm dev'
+alias ai-on='tmux new-session -d -s AI "cd ~/dev/homebase-main/github/apps/firebase-ai-chat-v2 && node index.js"; tmux split-window -v "cd ~/dev/homebase-main/github/apps/litgrid-mobile-v2 && pnpm dev"; tmux attach-session -t AI'

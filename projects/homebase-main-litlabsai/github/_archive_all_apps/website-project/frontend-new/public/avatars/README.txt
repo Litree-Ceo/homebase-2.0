@@ -1,0 +1,1 @@
+Drop your avatar PNGs here (avatar-1.png to avatar-6.png, etc.).

@@ -1,0 +1,3 @@
+packages:
+  - 'github/apps/*'
+  - 'github'

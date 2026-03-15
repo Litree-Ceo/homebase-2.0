@@ -1,0 +1,18 @@
+---
+// No server-side Javascript needed for this component
+---
+
+<div class="agent-console-inner glass-card p-4 rounded-lg shadow-lg w-96 font-mono text-sm">
+  <div class="log-output text-green-400 mb-4 h-20 overflow-y-auto border border-green-700 bg-black bg-opacity-50 p-2 rounded-md">
+    <p>System online. AI agent initialized. Listening for user commands...</p>
+  </div>
+  <button id="connect-btn" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl">
+    Connect with GitHub
+  </button>
+</div>
+
+<script>
+  document.getElementById('connect-btn').addEventListener('click', () => {
+    alert('Connection feature coming soon!');
+  });
+</script>

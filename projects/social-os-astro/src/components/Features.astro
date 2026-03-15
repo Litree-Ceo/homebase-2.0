@@ -1,0 +1,68 @@
+---
+import Icon from 'astro-icon';
+---
+<section class="py-20 px-8">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8" style="perspective: 1000px;">
+      <div class="card bg-gray-800 bg-opacity-50 rounded-lg p-8 text-center transition-transform duration-300 shadow-lg">
+        <div class="text-purple-400 text-5xl mb-6 mx-auto">
+          <Icon name="mdi:rocket-launch" />
+        </div>
+        <h3 class="text-2xl font-bold mb-2">Blazing Fast</h3>
+        <p class="text-gray-400">Astro pages are pre-rendered to static HTML, resulting in the fastest possible load times.</p>
+        <hr class="border-gray-700 my-4"/>
+        <p class="text-xs text-cyan-400 glow">Last Synced: Jan 31, 2026 - 2:08AM</p>
+      </div>
+      <div class="card bg-gray-800 bg-opacity-50 rounded-lg p-8 text-center transition-transform duration-300 shadow-lg">
+        <div class="text-purple-400 text-5xl mb-6 mx-auto">
+          <Icon name="mdi:island" />
+        </div>
+        <h3 class="text-2xl font-bold mb-2">Islands Architecture</h3>
+        <p class="text-gray-400">Ship zero JavaScript by default. Opt-in to client-side interactivity only when you need it.</p>
+        <hr class="border-gray-700 my-4"/>
+        <p class="text-xs text-cyan-400 glow">Last Synced: Jan 31, 2026 - 2:09AM</p>
+      </div>
+      <div class="card bg-gray-800 bg-opacity-50 rounded-lg p-8 text-center transition-transform duration-300 shadow-lg">
+        <div class="text-purple-400 text-5xl mb-6 mx-auto">
+          <Icon name="mdi:puzzle" />
+        </div>
+        <h3 class="text-2xl font-bold mb-2">UI Framework Agnostic</h3>
+        <p class="text-gray-400">Use your favorite frameworks like React, Vue, Svelte, and more, all in the same project.</p>
+        <hr class="border-gray-700 my-4"/>
+        <p class="text-xs text-cyan-400 glow">Last Synced: Jan 31, 2026 - 2:10AM</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .card {
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+  }
+
+  @keyframes glow {
+    0%, 100% { text-shadow: 0 0 2px rgba(0, 255, 255, 0.7), 0 0 5px rgba(0, 255, 255, 0.5); }
+    50% { text-shadow: 0 0 5px rgba(0, 255, 255, 1), 0 0 10px rgba(0, 255, 255, 0.7); }
+  }
+
+  .glow {
+    animation: glow 3s ease-in-out infinite;
+  }
+</style>
+
+<script>
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const { left, top, width, height } = card.getBoundingClientRect();
+      const x = (e.clientX - left - width / 2) / 25;
+      const y = (e.clientY - top - height / 2) / 25;
+      card.style.transform = `rotateY(${-x}deg) rotateX(${y}deg) scale(1.05)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'rotateY(0) rotateX(0) scale(1)';
+    });
+  });
+</script>

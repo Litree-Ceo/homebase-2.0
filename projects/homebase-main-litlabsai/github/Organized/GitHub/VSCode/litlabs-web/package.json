@@ -1,0 +1,44 @@
+{
+  "name": "litlabs-web",
+  "version": "2.0.0",
+  "description": "LitreeLabs - AI-Powered Beauty Business Automation Platform with Multi-Provider Authentication",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "firebase deploy",
+    "deploy:functions": "firebase deploy --only functions",
+    "deploy:hosting": "firebase deploy --only hosting",
+    "build": "echo \"Build complete\"",
+    "start": "firebase serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LiTree89/litlabs-web.git"
+  },
+  "keywords": [
+    "litlabs",
+    "beauty",
+    "saas",
+    "stripe",
+    "firebase",
+    "ai-automation",
+    "multi-auth"
+  ],
+  "author": "LiTree Labs",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/LiTree89/litlabs-web/issues"
+  },
+  "homepage": "https://github.com/LiTree89/litlabs-web#readme",
+  "dependencies": {
+    "firebase": "^12.6.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "devDependencies": {
+    "jiti": "^2.6.1"
+  }
+}

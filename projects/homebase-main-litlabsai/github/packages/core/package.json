@@ -1,0 +1,19 @@
+{
+  "name": "@homebase/core",
+  "version": "1.0.0",
+  "description": "Shared utilities for HomeBase 2.0",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "build": "echo 'No build step required'",
+    "test": "echo 'No tests specified' && exit 0"
+  },
+  "keywords": [
+    "homebase",
+    "core",
+    "utilities"
+  ],
+  "author": "LiTree89",
+  "license": "MIT",
+  "type": "commonjs"
+}

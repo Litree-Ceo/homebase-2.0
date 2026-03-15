@@ -1,0 +1,112 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return request.auth.uid == userId;
+    }
+    
+    function isAdmin() {
+      return isSignedIn() && 
+             (request.auth.token.email == 'dyingbreed243@gmail.com' ||
+              get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin');
+    }
+    
+    // Users collection
+    match /users/{userId} {
+      // Users can read their own data
+      allow read: if isSignedIn() && isOwner(userId);
+      
+      // Users can create their own document on signup
+      allow create: if isSignedIn() && isOwner(userId);
+      
+      // Users can update their own data (except role/tier - those are server-controlled)
+      allow update: if isSignedIn() && isOwner(userId) &&
+                       !request.resource.data.diff(resource.data).affectedKeys().hasAny(['role', 'tier']);
+      
+      // Only admins can delete users
+      allow delete: if isAdmin();
+      
+      // Admins can read all users
+      allow read: if isAdmin();
+      
+      // Admins can update any user (including role/tier)
+      allow update: if isAdmin();
+    }
+    
+    // Referrals collection
+    match /referrals/{referralId} {
+      // Anyone can read referral codes (for validation)
+      allow read: if isSignedIn();
+      
+      // Users can create referrals for themselves
+      allow create: if isSignedIn() && 
+                       request.resource.data.referrerId == request.auth.uid;
+      
+      // Users can update their own referrals
+      allow update: if isSignedIn() && 
+                       resource.data.referrerId == request.auth.uid;
+      
+      // Admins have full access
+      allow read, write: if isAdmin();
+    }
+    
+    // Analytics collection (admin only)
+    match /analytics/{document=**} {
+      allow read, write: if isAdmin();
+    }
+    
+    // Transactions collection
+    match /transactions/{transactionId} {
+      // Users can read their own transactions
+      allow read: if isSignedIn() && 
+                     resource.data.userId == request.auth.uid;
+      
+      // Only server (Cloud Functions) can write transactions
+      allow write: if false;
+      
+      // Admins can read all transactions
+      allow read: if isAdmin();
+    }
+    
+    // AI History collection
+    match /ai_history/{historyId} {
+      // Users can read their own AI history
+      allow read: if isSignedIn() && 
+                     resource.data.userId == request.auth.uid;
+      
+      // Users can create their own AI history
+      allow create: if isSignedIn() && 
+                       request.resource.data.userId == request.auth.uid;
+      
+      // Users cannot update or delete history
+      allow update, delete: if false;
+      
+      // Admins can read all history
+      allow read: if isAdmin();
+    }
+    
+    // XP/Achievements collection
+    match /xp/{userId} {
+      // Users can read their own XP
+      allow read: if isSignedIn() && isOwner(userId);
+      
+      // Only server can write XP
+      allow write: if false;
+      
+      // Admins can read all XP
+      allow read: if isAdmin();
+    }
+    
+    // Default deny all other collections
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

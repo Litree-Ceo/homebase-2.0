@@ -1,0 +1,25 @@
+{
+  "name": "homebase-tests",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:browser": "jest tests/browser-test.js",
+    "test:responsive": "jest tests/responsive-test.js",
+    "test:performance": "jest tests/performance-test.js",
+    "test:accessibility": "jest tests/accessibility-test.js",
+    "test:preview": "jest tests/preview-generator.js",
+    "test:ci": "jest tests/ci-config.js",
+    "test:all": "jest"
+  },
+  "devDependencies": {
+    "@jest/globals": "^29.7.0",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/jest-dom": "^6.1.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-19": "^1.0.0",
+    "puppeteer": "^21.0.0"
+  }
+}

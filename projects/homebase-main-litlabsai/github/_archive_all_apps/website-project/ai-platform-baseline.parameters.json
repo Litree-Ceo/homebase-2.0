@@ -1,0 +1,14 @@
+{
+  "location": { "value": "eastus2" },
+  "name": { "value": "baseline01" },
+  "tags": { "value": { "env": "dev", "project": "trusted-mcp" } },
+  "enableTelemetry": { "value": true },
+  "managedIdentityName": { "value": null },
+  "logAnalyticsConfiguration": { "value": null },
+  "keyVaultConfiguration": { "value": null },
+  "containerRegistryConfiguration": { "value": null },
+  "workspaceConfiguration": { "value": null },
+  "virtualNetworkConfiguration": { "value": { "enabled": false } },
+  "bastionConfiguration": { "value": { "enabled": false } },
+  "virtualMachineConfiguration": { "value": { "enabled": false } }
+}

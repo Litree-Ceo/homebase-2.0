@@ -1,0 +1,507 @@
+﻿E:\
+E:\Python\Lib\test\libregrtest
+E:\Python\Lib\test\test_cppext
+E:\VSCode\.console-ninja\mcp
+E:\VSCode\.platformio\packages\contrib-piohome
+E:\VSCode\.platformio\python3
+E:\VSCode\.vscode\extensions\adpyke.codesnap-1.3.4
+E:\VSCode\.vscode\extensions\andrewbutson.vscode-openai-1.6.19
+E:\VSCode\.vscode\extensions\anseki.vscode-color-0.4.5
+E:\VSCode\.vscode\extensions\antfu.browse-lite-0.3.9
+E:\VSCode\.vscode\extensions\apidev.azure-api-center-1.3.0
+E:\VSCode\.vscode\extensions\azps-tools.azps-tools-0.3.0
+E:\VSCode\.vscode\extensions\azurite.azurite-3.35.0
+E:\VSCode\.vscode\extensions\bierner.color-info-0.7.2
+E:\VSCode\.vscode\extensions\bierner.github-markdown-preview-0.3.0
+E:\VSCode\.vscode\extensions\bierner.markdown-checkbox-0.4.0
+E:\VSCode\.vscode\extensions\bierner.markdown-emoji-0.3.1
+E:\VSCode\.vscode\extensions\bierner.markdown-footnotes-0.1.1
+E:\VSCode\.vscode\extensions\bierner.markdown-mermaid-1.29.0
+E:\VSCode\.vscode\extensions\bierner.markdown-preview-github-styles-2.2.0
+E:\VSCode\.vscode\extensions\bierner.markdown-yaml-preamble-0.1.0
+E:\VSCode\.vscode\extensions\bradlc.vscode-tailwindcss-0.14.29
+E:\VSCode\.vscode\extensions\catppuccin.catppuccin-vsc-3.18.1
+E:\VSCode\.vscode\extensions\charliermarsh.ruff-2025.32.0-win32-x64
+E:\VSCode\.vscode\extensions\chouzz.vscode-better-align-1.4.4
+E:\VSCode\.vscode\extensions\christian-kohler.npm-intellisense-1.4.5
+E:\VSCode\.vscode\extensions\christian-kohler.path-intellisense-2.10.0
+E:\VSCode\.vscode\extensions\codacy-app.codacy-1.11.8
+E:\VSCode\.vscode\extensions\codespaces-contrib.codeswing-0.0.25
+E:\VSCode\.vscode\extensions\connor4312.esbuild-problem-matchers-0.0.3
+E:\VSCode\.vscode\extensions\dart-code.dart-code-3.126.0
+E:\VSCode\.vscode\extensions\dart-code.flutter-3.126.0
+E:\VSCode\.vscode\extensions\davidanson.vscode-markdownlint-0.61.1
+E:\VSCode\.vscode\extensions\dbaeumer.vscode-eslint-3.0.20
+E:\VSCode\.vscode\extensions\d-biehl.robotcode-2.2.0
+E:\VSCode\.vscode\extensions\devsense.composer-php-vscode-1.64.18270
+E:\VSCode\.vscode\extensions\devsense.intelli-php-vscode-0.12.17700-win32-x64
+E:\VSCode\.vscode\extensions\devsense.phptools-vscode-1.64.18270-win32-x64
+E:\VSCode\.vscode\extensions\devsense.profiler-php-vscode-1.64.18270
+E:\VSCode\.vscode\extensions\donjayamanne.githistory-0.6.20
+E:\VSCode\.vscode\extensions\dotjoshjohnson.xml-2.5.1
+E:\VSCode\.vscode\extensions\dracula-theme.theme-dracula-2.25.1
+E:\VSCode\.vscode\extensions\dsznajder.es7-react-js-snippets-4.4.3
+E:\VSCode\.vscode\extensions\eamodio.gitlens-17.8.1
+E:\VSCode\.vscode\extensions\editorconfig.editorconfig-0.17.4
+E:\VSCode\.vscode\extensions\emanuelebartolesi.powershell-like-a-pro-1.0.3
+E:\VSCode\.vscode\extensions\emanuelebartolesi.powershell-snippets-vscode-1.0.2
+E:\VSCode\.vscode\extensions\ericsia.pythonsnippets3-3.3.20
+E:\VSCode\.vscode\extensions\esbenp.prettier-vscode-11.0.2
+E:\VSCode\.vscode\extensions\everettjf.filter-line-2.0.1
+E:\VSCode\.vscode\extensions\fermelone.simple-browser-multi-1.0.3
+E:\VSCode\.vscode\extensions\firefox-devtools.vscode-firefox-debug-2.15.0
+E:\VSCode\.vscode\extensions\formulahendry.auto-rename-tag-0.1.10
+E:\VSCode\.vscode\extensions\frenco.vscode-vercel-2.2.1
+E:\VSCode\.vscode\extensions\georgejames.thefoldingstuff-0.2.1
+E:\VSCode\.vscode\extensions\github.codespaces-1.18.4
+E:\VSCode\.vscode\extensions\github.copilot-1.388.0
+E:\VSCode\.vscode\extensions\github.copilot-chat-0.35.2
+E:\VSCode\.vscode\extensions\github.remotehub-0.64.0
+E:\VSCode\.vscode\extensions\github.vscode-github-actions-0.29.0
+E:\VSCode\.vscode\extensions\github.vscode-pull-request-github-0.124.1
+E:\VSCode\.vscode\extensions\glenbuktenica.unicode-substitutions-2.3.4
+E:\VSCode\.vscode\extensions\golang.go-0.52.1
+E:\VSCode\.vscode\extensions\grapecity.gc-excelviewer-4.2.64
+E:\VSCode\.vscode\extensions\gruntfuggly.todo-tree-0.0.226
+E:\VSCode\.vscode\extensions\hediet.vscode-drawio-1.9.0
+E:\VSCode\.vscode\extensions\humao.rest-client-0.25.1
+E:\VSCode\.vscode\extensions\ionutvmi.reg-1.1.0
+E:\VSCode\.vscode\extensions\ironmansoftware.powershellprotools-2024.12.0
+E:\VSCode\.vscode\extensions\ironmansoftware.powershell-universal-5.6.2
+E:\VSCode\.vscode\extensions\jacobtoepfer.youtube-watch-0.0.3
+E:\VSCode\.vscode\extensions\jianguoyun.cline-3.35.4
+E:\VSCode\.vscode\extensions\jianguoyun.cline-3.35.4\cli
+E:\VSCode\.vscode\extensions\jianguoyun.cline-3.35.4\testing-platform
+E:\VSCode\.vscode\extensions\johnpapa.vscode-peacock-4.2.2
+E:\VSCode\.vscode\extensions\justin-grote.powershell-extension-pack-0.0.8
+E:\VSCode\.vscode\extensions\kevinmagus.open-with-custom-app-0.1.1
+E:\VSCode\.vscode\extensions\llvm-vs-code-extensions.lldb-dap-0.4.1
+E:\VSCode\.vscode\extensions\lostintangent.vsls-whiteboard-0.0.12
+E:\VSCode\.vscode\extensions\louiswt.regexp-preview-0.1.5
+E:\VSCode\.vscode\extensions\manassahu.openai-developer-0.0.4
+E:\VSCode\.vscode\extensions\marcuslyons.azure-serverless-tools-0.0.1
+E:\VSCode\.vscode\extensions\mechatroner.rainbow-csv-3.23.0
+E:\VSCode\.vscode\extensions\mhutchie.git-graph-1.30.0
+E:\VSCode\.vscode\extensions\miguelsolorio.fluent-icons-0.0.19
+E:\VSCode\.vscode\extensions\ms-azure-devops.azure-pipelines-1.261.1
+E:\VSCode\.vscode\extensions\ms-azuretools.azure-dev-0.10.0
+E:\VSCode\.vscode\extensions\ms-azuretools.vscode-azureappservice-0.26.4
+E:\VSCode\.vscode\extensions\ms-azuretools.vscode-azurecontainerapps-0.10.0
+E:\VSCode\.vscode\extensions\ms-azuretools.vscode-azurefunctions-1.20.3
+E:\VSCode\.vscode\extensions\ms-azuretools.vscode-azure-github-copilot-1.0.153-win32-x64
+E:\VSCode\.vscode\extensions\ms-azuretools.vscode-azure-mcp-server-1.0.1-win32-x64
+E:\VSCode\.vscode\extensions\ms-azuretools.vscode-azureresourcegroups-0.11.7
+E:\VSCode\.vscode\extensions\ms-azuretools.vscode-azurestaticwebapps-0.13.2
+E:\VSCode\.vscode\extensions\ms-azuretools.vscode-azurestorage-0.17.1
+E:\VSCode\.vscode\extensions\ms-azuretools.vscode-azureterraform-0.8.0-win32-x64
+E:\VSCode\.vscode\extensions\ms-azuretools.vscode-azurevirtualmachines-0.6.10
+E:\VSCode\.vscode\extensions\ms-azuretools.vscode-bicep-0.39.26
+E:\VSCode\.vscode\extensions\ms-azuretools.vscode-containers-2.3.0
+E:\VSCode\.vscode\extensions\ms-azuretools.vscode-cosmosdb-0.30.1
+E:\VSCode\.vscode\extensions\ms-azuretools.vscode-docker-2.0.0
+E:\VSCode\.vscode\extensions\ms-azuretools.vscode-documentdb-0.6.3
+E:\VSCode\.vscode\extensions\ms-dotnettools.csdevkit-1.90.2-win32-x64
+E:\VSCode\.vscode\extensions\ms-dotnettools.csharp-2.110.4-win32-x64
+E:\VSCode\.vscode\extensions\ms-dotnettools.vscode-dotnet-runtime-3.0.0
+E:\VSCode\.vscode\extensions\ms-edgedevtools.vscode-edge-devtools-2.1.10
+E:\VSCode\.vscode\extensions\ms-kubernetes-tools.vscode-aks-tools-1.6.14
+E:\VSCode\.vscode\extensions\ms-kubernetes-tools.vscode-kubernetes-tools-1.3.28
+E:\VSCode\.vscode\extensions\ms-mssql.data-workspace-vscode-0.6.3
+E:\VSCode\.vscode\extensions\ms-mssql.mssql-1.38.0
+E:\VSCode\.vscode\extensions\ms-mssql.sql-bindings-vscode-0.4.1
+E:\VSCode\.vscode\extensions\ms-mssql.sql-database-projects-vscode-1.5.5
+E:\VSCode\.vscode\extensions\ms-mssql.sqlops-debug-1.4.0
+E:\VSCode\.vscode\extensions\ms-python.black-formatter-2025.2.0
+E:\VSCode\.vscode\extensions\ms-python.debugpy-2025.18.0-win32-x64
+E:\VSCode\.vscode\extensions\ms-python.isort-2025.0.0
+E:\VSCode\.vscode\extensions\ms-python.mypy-type-checker-2025.2.0
+E:\VSCode\.vscode\extensions\ms-python.python-2025.20.1-win32-x64
+E:\VSCode\.vscode\extensions\ms-python.python-2025.20.1-win32-x64\python_files
+E:\VSCode\.vscode\extensions\ms-python.vscode-pylance-2025.10.4
+E:\VSCode\.vscode\extensions\ms-python.vscode-python-envs-1.14.0-win32-x64
+E:\VSCode\.vscode\extensions\ms-ssdevteam.scope-vscode-ext-1.5.0
+E:\VSCode\.vscode\extensions\ms-toolsai.jupyter-2025.9.1-win32-x64
+E:\VSCode\.vscode\extensions\ms-toolsai.jupyter-2025.9.1-win32-x64\pythonFiles
+E:\VSCode\.vscode\extensions\ms-toolsai.jupyter-keymap-1.1.2
+E:\VSCode\.vscode\extensions\ms-toolsai.jupyter-renderers-1.3.0
+E:\VSCode\.vscode\extensions\ms-toolsai.vscode-ai-1.4.1
+E:\VSCode\.vscode\extensions\ms-toolsai.vscode-ai-1.4.1\azureml-language-server
+E:\VSCode\.vscode\extensions\ms-toolsai.vscode-ai-remote-1.4.5
+E:\VSCode\.vscode\extensions\ms-toolsai.vscode-jupyter-cell-tags-0.1.9
+E:\VSCode\.vscode\extensions\ms-toolsai.vscode-jupyter-slideshow-0.1.6
+E:\VSCode\.vscode\extensions\ms-vscode.azure-account-0.13.0
+E:\VSCode\.vscode\extensions\ms-vscode.azurecli-0.6.0
+E:\VSCode\.vscode\extensions\ms-vscode.azure-repos-0.40.0
+E:\VSCode\.vscode\extensions\ms-vscode.cmake-tools-1.21.36
+E:\VSCode\.vscode\extensions\ms-vscode.cpptools-1.30.0-win32-x64
+E:\VSCode\.vscode\extensions\ms-vscode.cpptools-extension-pack-1.3.1
+E:\VSCode\.vscode\extensions\ms-vscode.cpptools-themes-2.0.0
+E:\VSCode\.vscode\extensions\ms-vscode.live-server-0.4.16
+E:\VSCode\.vscode\extensions\ms-vscode.makefile-tools-0.12.17
+E:\VSCode\.vscode\extensions\ms-vscode.powershell-2025.4.0
+E:\VSCode\.vscode\extensions\ms-vscode.remote-explorer-0.5.0
+E:\VSCode\.vscode\extensions\ms-vscode.remote-repositories-0.42.0
+E:\VSCode\.vscode\extensions\ms-vscode.remote-server-1.5.3
+E:\VSCode\.vscode\extensions\ms-vscode.vscode-github-issue-notebooks-0.0.134
+E:\VSCode\.vscode\extensions\ms-vscode.vscode-node-azure-pack-1.8.0
+E:\VSCode\.vscode\extensions\ms-vscode.vscode-speech-0.16.0-win32-x64
+E:\VSCode\.vscode\extensions\ms-vscode.vscode-typescript-next-6.0.20260104
+E:\VSCode\.vscode\extensions\ms-vscode.vscode-websearchforcopilot-0.1.4
+E:\VSCode\.vscode\extensions\ms-vscode-remote.remote-containers-0.434.0
+E:\VSCode\.vscode\extensions\ms-vscode-remote.remote-containers-0.434.0\dev-containers-user-cli
+E:\VSCode\.vscode\extensions\ms-vscode-remote.remote-ssh-0.122.0
+E:\VSCode\.vscode\extensions\ms-vscode-remote.remote-ssh-edit-0.87.0
+E:\VSCode\.vscode\extensions\ms-vscode-remote.remote-wsl-0.104.3
+E:\VSCode\.vscode\extensions\ms-vscode-remote.vscode-remote-extensionpack-0.26.0
+E:\VSCode\.vscode\extensions\ms-vsliveshare.vsliveshare-1.0.5959
+E:\VSCode\.vscode\extensions\ms-windows-ai-studio.windows-ai-studio-0.26.5-win32-x64
+E:\VSCode\.vscode\extensions\mtxr.sqltools-0.28.5
+E:\VSCode\.vscode\extensions\mtxr.sqltools-driver-mysql-0.6.6
+E:\VSCode\.vscode\extensions\oderwat.indent-rainbow-8.3.1
+E:\VSCode\.vscode\extensions\openai.chatgpt-0.4.56-win32-x64
+E:\VSCode\.vscode\extensions\oracle.oracle-java-25.0.0
+E:\VSCode\.vscode\extensions\parallel-universe.gpt-copilot-0.0.4
+E:\VSCode\.vscode\extensions\pkief.material-icon-theme-5.30.0
+E:\VSCode\.vscode\extensions\platformio.platformio-ide-3.3.4-win32-x64
+E:\VSCode\.vscode\extensions\pod212.vscode-github-projects-1.0.0
+E:\VSCode\.vscode\extensions\postman.postman-for-vscode-1.19.1
+E:\VSCode\.vscode\extensions\pspester.pester-test-2023.7.7
+E:\VSCode\.vscode\extensions\rangav.vscode-thunder-client-2.38.6
+E:\VSCode\.vscode\extensions\redhat.java-1.50.0-win32-x64
+E:\VSCode\.vscode\extensions\redhat.vscode-yaml-1.19.1
+E:\VSCode\.vscode\extensions\richie5um2.vscode-sort-json-1.20.0
+E:\VSCode\.vscode\extensions\ritwickdey.liveserver-5.7.9
+E:\VSCode\.vscode\extensions\robbowen.synthwave-vscode-0.1.20
+E:\VSCode\.vscode\extensions\ryanluker.vscode-coverage-gutters-2.14.0
+E:\VSCode\.vscode\extensions\samerde.pspreworkout-powershell-extensions-pack-0.1.2
+E:\VSCode\.vscode\extensions\saoudrizwan.claude-dev-3.46.1
+E:\VSCode\.vscode\extensions\saoudrizwan.claude-dev-3.46.1\testing-platform
+E:\VSCode\.vscode\extensions\slevesque.vscode-zipexplorer-0.3.1
+E:\VSCode\.vscode\extensions\sonarsource.sonarlint-vscode-4.38.1-win32-x64
+E:\VSCode\.vscode\extensions\sqrtt.prophet-1.4.69
+E:\VSCode\.vscode\extensions\streetsidesoftware.code-spell-checker-4.4.0
+E:\VSCode\.vscode\extensions\stripe.vscode-stripe-3.8.6
+E:\VSCode\.vscode\extensions\swiftlang.swift-vscode-2.14.2
+E:\VSCode\.vscode\extensions\taldennis-unfoldai-chatgpt-copilot.unfoldai-1.7.0
+E:\VSCode\.vscode\extensions\teabyii.ayu-1.1.7
+E:\VSCode\.vscode\extensions\teamsdevapp.vscode-ai-foundry-0.12.5
+E:\VSCode\.vscode\extensions\techer.open-in-browser-2.0.0
+E:\VSCode\.vscode\extensions\the0807.uv-toolkit-0.1.7
+E:\VSCode\.vscode\extensions\tianguaduizhang.claude-dev-china-3.12.4
+E:\VSCode\.vscode\extensions\tianguaduizhang.claude-dev-china-3.12.4\proto
+E:\VSCode\.vscode\extensions\tylerleonhardt.vscode-inline-values-powershell-0.0.7
+E:\VSCode\.vscode\extensions\tyriar.luna-paint-0.17.0
+E:\VSCode\.vscode\extensions\usernamehw.errorlens-3.26.0
+E:\VSCode\.vscode\extensions\vmware.vscode-boot-dev-pack-0.2.2
+E:\VSCode\.vscode\extensions\vmware.vscode-spring-boot-2.0.1
+E:\VSCode\.vscode\extensions\vscjava.vscode-gradle-3.17.1
+E:\VSCode\.vscode\extensions\vscjava.vscode-java-debug-0.58.4
+E:\VSCode\.vscode\extensions\vscjava.vscode-java-dependency-0.27.0
+E:\VSCode\.vscode\extensions\vscjava.vscode-java-pack-0.30.5
+E:\VSCode\.vscode\extensions\vscjava.vscode-java-test-0.43.2
+E:\VSCode\.vscode\extensions\vscjava.vscode-maven-0.45.1
+E:\VSCode\.vscode\extensions\vscjava.vscode-spring-boot-dashboard-0.14.0
+E:\VSCode\.vscode\extensions\vscjava.vscode-spring-initializr-0.12.0
+E:\VSCode\.vscode\extensions\vscode-icons-team.vscode-icons-12.15.0
+E:\VSCode\.vscode\extensions\vsls-contrib.codetour-0.0.61
+E:\VSCode\.vscode\extensions\vsls-contrib.gistfs-0.9.5
+E:\VSCode\.vscode\extensions\vsls-contrib.gitdoc-0.2.3
+E:\VSCode\.vscode\extensions\wallabyjs.console-ninja-1.0.504
+E:\VSCode\.vscode\extensions\wallabyjs.quokka-vscode-1.0.750
+E:\VSCode\.vscode\extensions\wallabyjs.wallaby-vscode-1.0.484
+E:\VSCode\.vscode\extensions\wallabyjs.wallaby-vscode-1.0.484\wallaby6ea07d
+E:\VSCode\.vscode\extensions\wayou.vscode-todo-highlight-1.0.5
+E:\VSCode\.vscode\extensions\wscats.cors-browser-1.0.11
+E:\VSCode\.vscode\extensions\yoavbls.pretty-ts-errors-0.7.0
+E:\VSCode\.vscode\extensions\yutengjing.open-in-external-app-0.11.2
+E:\VSCode\.vscode\extensions\yzhang.markdown-all-in-one-3.6.3
+E:\VSCode\.vscode\extensions\zt5.http-server-0.0.5
+E:\VSCode\.wallaby\mcp
+E:\VSCode\google-cloud-sdk\bin\bootstrapping
+E:\VSCode\google-cloud-sdk\lib\third_party\prompt_toolkit
+E:\VSCode\google-cloud-sdk\platform\ext-runtime\java
+E:\VSCode\HomeBase 2.0
+E:\VSCode\HomeBase 2.0\.archive\legacy-packages-api-express
+E:\VSCode\HomeBase 2.0\.archive\legacy-packages-api-functions
+E:\VSCode\HomeBase 2.0\api
+E:\VSCode\HomeBase 2.0\apps\web
+E:\VSCode\HomeBase 2.0\apps\web\.next
+E:\VSCode\HomeBase 2.0\functions
+E:\VSCode\HomeBase 2.0\functions\node_modules\asynckit
+E:\VSCode\HomeBase 2.0\functions\node_modules\axios
+E:\VSCode\HomeBase 2.0\functions\node_modules\azure-functions-core-tools
+E:\VSCode\HomeBase 2.0\functions\node_modules\call-bind-apply-helpers
+E:\VSCode\HomeBase 2.0\functions\node_modules\combined-stream
+E:\VSCode\HomeBase 2.0\functions\node_modules\delayed-stream
+E:\VSCode\HomeBase 2.0\functions\node_modules\dunder-proto
+E:\VSCode\HomeBase 2.0\functions\node_modules\es-define-property
+E:\VSCode\HomeBase 2.0\functions\node_modules\es-errors
+E:\VSCode\HomeBase 2.0\functions\node_modules\es-object-atoms
+E:\VSCode\HomeBase 2.0\functions\node_modules\es-set-tostringtag
+E:\VSCode\HomeBase 2.0\functions\node_modules\follow-redirects
+E:\VSCode\HomeBase 2.0\functions\node_modules\form-data
+E:\VSCode\HomeBase 2.0\functions\node_modules\function-bind
+E:\VSCode\HomeBase 2.0\functions\node_modules\get-intrinsic
+E:\VSCode\HomeBase 2.0\functions\node_modules\get-proto
+E:\VSCode\HomeBase 2.0\functions\node_modules\gopd
+E:\VSCode\HomeBase 2.0\functions\node_modules\hasown
+E:\VSCode\HomeBase 2.0\functions\node_modules\has-symbols
+E:\VSCode\HomeBase 2.0\functions\node_modules\has-tostringtag
+E:\VSCode\HomeBase 2.0\functions\node_modules\math-intrinsics
+E:\VSCode\HomeBase 2.0\functions\node_modules\mime-db
+E:\VSCode\HomeBase 2.0\functions\node_modules\mime-types
+E:\VSCode\HomeBase 2.0\functions\node_modules\node-fetch
+E:\VSCode\HomeBase 2.0\functions\node_modules\proxy-from-env
+E:\VSCode\HomeBase 2.0\functions\node_modules\tr46
+E:\VSCode\HomeBase 2.0\functions\node_modules\undici-types
+E:\VSCode\HomeBase 2.0\functions\node_modules\webidl-conversions
+E:\VSCode\HomeBase 2.0\functions\node_modules\whatwg-url
+E:\VSCode\HomeBase 2.0\packages\core
+E:\VSCode\HomeBase 2.0\workspace
+E:\VSCode\HomeBase 2.0\workspace\apps\labs-ai
+E:\VSCode\HomeBase 2.0\workspace\apps\litlabs-web
+E:\VSCode\HomeBase 2.0\workspace\apps\web
+E:\VSCode\HomeBase 2.0\workspace\docs\Labs-Ai
+E:\VSCode\HomeBase 2.0\workspace\functions
+E:\VSCode\HomeBase 2.0\workspace\packages\api
+E:\VSCode\HomeBase 2.0\workspace\src\litlabs-web
+E:\VSCode\HomeBase 2.0-backup-20260102-175952\apps\web
+E:\VSCode\HomeBase 2.0-backup-20260102-175952\packages\api
+E:\VSCode\HomeBase 2.0-backup-20260102-180012\apps\web
+E:\VSCode\HomeBase 2.0-backup-20260102-180012\packages\api
+E:\VSCode\main-base
+E:\VSCode\main-base\apps\labs-ai
+E:\VSCode\main-base\apps\labs-ai\litlabs-web
+E:\VSCode\main-base\apps\labs-ai\website-project
+E:\VSCode\main-base\apps\litlabs-web
+E:\VSCode\main-base\apps\litlabs-web\functions
+E:\VSCode\main-base\apps\web
+E:\VSCode\main-base\docs\GitHub\litlabs-web
+E:\VSCode\main-base\docs\Labs-Ai
+E:\VSCode\main-base\docs\Labs-Ai\temp-extract
+E:\VSCode\main-base\functions
+E:\VSCode\main-base\Labs-Ai
+E:\VSCode\main-base\Labs-Ai\litlabs-web
+E:\VSCode\main-base\Labs-Ai\website-project
+E:\VSCode\main-base\Organized\Projects\website-project
+E:\VSCode\main-base\Organized\Projects\website-project-1
+E:\VSCode\main-base\packages\api
+E:\VSCode\main-base\src\litlabs-web
+E:\VSCode\main-base\src\litlabs-web\functions
+E:\VSCode\main-base\src\website-project
+E:\VSCode\main-base\src\website-project-1
+E:\VSCode\monorepo-merge
+E:\VSCode\monorepo-merge\apps\labs-ai
+E:\VSCode\monorepo-merge\apps\labs-ai\litlabs-web
+E:\VSCode\monorepo-merge\apps\labs-ai\website-project
+E:\VSCode\monorepo-merge\apps\litlabs-web
+E:\VSCode\monorepo-merge\apps\litlabs-web\functions
+E:\VSCode\monorepo-merge\apps\web
+E:\VSCode\monorepo-merge\docs\GitHub\litlabs-web
+E:\VSCode\monorepo-merge\docs\Labs-Ai
+E:\VSCode\monorepo-merge\docs\Labs-Ai\temp-extract
+E:\VSCode\monorepo-merge\functions
+E:\VSCode\monorepo-merge\Labs-Ai
+E:\VSCode\monorepo-merge\Labs-Ai\litlabs-web
+E:\VSCode\monorepo-merge\Labs-Ai\website-project
+E:\VSCode\monorepo-merge\Organized\Projects\website-project
+E:\VSCode\monorepo-merge\Organized\Projects\website-project-1
+E:\VSCode\monorepo-merge\packages\api
+E:\VSCode\monorepo-merge\src\litlabs-web
+E:\VSCode\monorepo-merge\src\litlabs-web\functions
+E:\VSCode\monorepo-merge\src\website-project
+E:\VSCode\monorepo-merge\src\website-project-1
+E:\VSCode\resources\app
+E:\VSCode\resources\app\extensions\bat
+E:\VSCode\resources\app\extensions\clojure
+E:\VSCode\resources\app\extensions\coffeescript
+E:\VSCode\resources\app\extensions\configuration-editing
+E:\VSCode\resources\app\extensions\cpp
+E:\VSCode\resources\app\extensions\csharp
+E:\VSCode\resources\app\extensions\css
+E:\VSCode\resources\app\extensions\css-language-features
+E:\VSCode\resources\app\extensions\dart
+E:\VSCode\resources\app\extensions\debug-auto-launch
+E:\VSCode\resources\app\extensions\debug-server-ready
+E:\VSCode\resources\app\extensions\diff
+E:\VSCode\resources\app\extensions\docker
+E:\VSCode\resources\app\extensions\dotenv
+E:\VSCode\resources\app\extensions\emmet
+E:\VSCode\resources\app\extensions\extension-editing
+E:\VSCode\resources\app\extensions\fsharp
+E:\VSCode\resources\app\extensions\git
+E:\VSCode\resources\app\extensions\git-base
+E:\VSCode\resources\app\extensions\github
+E:\VSCode\resources\app\extensions\github-authentication
+E:\VSCode\resources\app\extensions\go
+E:\VSCode\resources\app\extensions\groovy
+E:\VSCode\resources\app\extensions\grunt
+E:\VSCode\resources\app\extensions\gulp
+E:\VSCode\resources\app\extensions\handlebars
+E:\VSCode\resources\app\extensions\hlsl
+E:\VSCode\resources\app\extensions\html
+E:\VSCode\resources\app\extensions\html-language-features
+E:\VSCode\resources\app\extensions\ini
+E:\VSCode\resources\app\extensions\ipynb
+E:\VSCode\resources\app\extensions\jake
+E:\VSCode\resources\app\extensions\java
+E:\VSCode\resources\app\extensions\javascript
+E:\VSCode\resources\app\extensions\json
+E:\VSCode\resources\app\extensions\json-language-features
+E:\VSCode\resources\app\extensions\julia
+E:\VSCode\resources\app\extensions\latex
+E:\VSCode\resources\app\extensions\less
+E:\VSCode\resources\app\extensions\log
+E:\VSCode\resources\app\extensions\lua
+E:\VSCode\resources\app\extensions\make
+E:\VSCode\resources\app\extensions\markdown-basics
+E:\VSCode\resources\app\extensions\markdown-language-features
+E:\VSCode\resources\app\extensions\markdown-math
+E:\VSCode\resources\app\extensions\media-preview
+E:\VSCode\resources\app\extensions\merge-conflict
+E:\VSCode\resources\app\extensions\mermaid-chat-features
+E:\VSCode\resources\app\extensions\microsoft-authentication
+E:\VSCode\resources\app\extensions\ms-vscode.js-debug
+E:\VSCode\resources\app\extensions\ms-vscode.js-debug-companion
+E:\VSCode\resources\app\extensions\ms-vscode.vscode-js-profile-table
+E:\VSCode\resources\app\extensions\notebook-renderers
+E:\VSCode\resources\app\extensions\npm
+E:\VSCode\resources\app\extensions\objective-c
+E:\VSCode\resources\app\extensions\perl
+E:\VSCode\resources\app\extensions\php
+E:\VSCode\resources\app\extensions\php-language-features
+E:\VSCode\resources\app\extensions\powershell
+E:\VSCode\resources\app\extensions\prompt-basics
+E:\VSCode\resources\app\extensions\pug
+E:\VSCode\resources\app\extensions\python
+E:\VSCode\resources\app\extensions\r
+E:\VSCode\resources\app\extensions\razor
+E:\VSCode\resources\app\extensions\references-view
+E:\VSCode\resources\app\extensions\restructuredtext
+E:\VSCode\resources\app\extensions\ruby
+E:\VSCode\resources\app\extensions\rust
+E:\VSCode\resources\app\extensions\scss
+E:\VSCode\resources\app\extensions\search-result
+E:\VSCode\resources\app\extensions\shaderlab
+E:\VSCode\resources\app\extensions\shellscript
+E:\VSCode\resources\app\extensions\simple-browser
+E:\VSCode\resources\app\extensions\sql
+E:\VSCode\resources\app\extensions\swift
+E:\VSCode\resources\app\extensions\terminal-suggest
+E:\VSCode\resources\app\extensions\theme-abyss
+E:\VSCode\resources\app\extensions\theme-defaults
+E:\VSCode\resources\app\extensions\theme-kimbie-dark
+E:\VSCode\resources\app\extensions\theme-monokai
+E:\VSCode\resources\app\extensions\theme-monokai-dimmed
+E:\VSCode\resources\app\extensions\theme-quietlight
+E:\VSCode\resources\app\extensions\theme-red
+E:\VSCode\resources\app\extensions\theme-seti
+E:\VSCode\resources\app\extensions\theme-solarized-dark
+E:\VSCode\resources\app\extensions\theme-solarized-light
+E:\VSCode\resources\app\extensions\theme-tomorrow-night-blue
+E:\VSCode\resources\app\extensions\tunnel-forwarding
+E:\VSCode\resources\app\extensions\typescript-basics
+E:\VSCode\resources\app\extensions\typescript-language-features
+E:\VSCode\resources\app\extensions\vb
+E:\VSCode\resources\app\extensions\xml
+E:\VSCode\resources\app\extensions\yaml
+E:\VSCode\resources\app\node_modules\agent-base
+E:\VSCode\resources\app\node_modules\base64-js
+E:\VSCode\resources\app\node_modules\bindings
+E:\VSCode\resources\app\node_modules\bl
+E:\VSCode\resources\app\node_modules\braces
+E:\VSCode\resources\app\node_modules\buffer
+E:\VSCode\resources\app\node_modules\buffer-crc32
+E:\VSCode\resources\app\node_modules\bundle-name
+E:\VSCode\resources\app\node_modules\chownr
+E:\VSCode\resources\app\node_modules\chrome-remote-interface
+E:\VSCode\resources\app\node_modules\debug
+E:\VSCode\resources\app\node_modules\decompress-response
+E:\VSCode\resources\app\node_modules\deep-extend
+E:\VSCode\resources\app\node_modules\default-browser
+E:\VSCode\resources\app\node_modules\default-browser-id
+E:\VSCode\resources\app\node_modules\define-lazy-prop
+E:\VSCode\resources\app\node_modules\detect-libc
+E:\VSCode\resources\app\node_modules\end-of-stream
+E:\VSCode\resources\app\node_modules\expand-template
+E:\VSCode\resources\app\node_modules\fd-slicer
+E:\VSCode\resources\app\node_modules\file-uri-to-path
+E:\VSCode\resources\app\node_modules\fill-range
+E:\VSCode\resources\app\node_modules\font-finder
+E:\VSCode\resources\app\node_modules\font-ligatures
+E:\VSCode\resources\app\node_modules\fs-constants
+E:\VSCode\resources\app\node_modules\fs-extra
+E:\VSCode\resources\app\node_modules\fs-minipass
+E:\VSCode\resources\app\node_modules\get-system-fonts
+E:\VSCode\resources\app\node_modules\github-from-package
+E:\VSCode\resources\app\node_modules\graceful-fs
+E:\VSCode\resources\app\node_modules\http-proxy-agent
+E:\VSCode\resources\app\node_modules\https-proxy-agent
+E:\VSCode\resources\app\node_modules\ieee754
+E:\VSCode\resources\app\node_modules\inherits
+E:\VSCode\resources\app\node_modules\ini
+E:\VSCode\resources\app\node_modules\ip-address
+E:\VSCode\resources\app\node_modules\is-docker
+E:\VSCode\resources\app\node_modules\is-extglob
+E:\VSCode\resources\app\node_modules\is-glob
+E:\VSCode\resources\app\node_modules\is-inside-container
+E:\VSCode\resources\app\node_modules\is-number
+E:\VSCode\resources\app\node_modules\is-wsl
+E:\VSCode\resources\app\node_modules\js-base64
+E:\VSCode\resources\app\node_modules\jsbn
+E:\VSCode\resources\app\node_modules\jschardet
+E:\VSCode\resources\app\node_modules\jsonfile
+E:\VSCode\resources\app\node_modules\katex
+E:\VSCode\resources\app\node_modules\kerberos
+E:\VSCode\resources\app\node_modules\micromatch
+E:\VSCode\resources\app\node_modules\minimist
+E:\VSCode\resources\app\node_modules\minipass
+E:\VSCode\resources\app\node_modules\minizlib
+E:\VSCode\resources\app\node_modules\mkdirp
+E:\VSCode\resources\app\node_modules\mkdirp-classic
+E:\VSCode\resources\app\node_modules\ms
+E:\VSCode\resources\app\node_modules\napi-build-utils
+E:\VSCode\resources\app\node_modules\native-is-elevated
+E:\VSCode\resources\app\node_modules\native-keymap
+E:\VSCode\resources\app\node_modules\native-watchdog
+E:\VSCode\resources\app\node_modules\node-abi
+E:\VSCode\resources\app\node_modules\node-pty
+E:\VSCode\resources\app\node_modules\once
+E:\VSCode\resources\app\node_modules\open
+E:\VSCode\resources\app\node_modules\opentype.js
+E:\VSCode\resources\app\node_modules\pend
+E:\VSCode\resources\app\node_modules\picomatch
+E:\VSCode\resources\app\node_modules\promise-stream-reader
+E:\VSCode\resources\app\node_modules\proxy-from-env
+E:\VSCode\resources\app\node_modules\rc
+E:\VSCode\resources\app\node_modules\readable-stream
+E:\VSCode\resources\app\node_modules\run-applescript
+E:\VSCode\resources\app\node_modules\safe-buffer
+E:\VSCode\resources\app\node_modules\semver
+E:\VSCode\resources\app\node_modules\simple-concat
+E:\VSCode\resources\app\node_modules\simple-get
+E:\VSCode\resources\app\node_modules\smart-buffer
+E:\VSCode\resources\app\node_modules\socks
+E:\VSCode\resources\app\node_modules\socks-proxy-agent
+E:\VSCode\resources\app\node_modules\sprintf-js
+E:\VSCode\resources\app\node_modules\string_decoder
+E:\VSCode\resources\app\node_modules\tar
+E:\VSCode\resources\app\node_modules\tas-client
+E:\VSCode\resources\app\node_modules\tiny-inflate
+E:\VSCode\resources\app\node_modules\to-regex-range
+E:\VSCode\resources\app\node_modules\tslib
+E:\VSCode\resources\app\node_modules\tunnel-agent
+E:\VSCode\resources\app\node_modules\undici
+E:\VSCode\resources\app\node_modules\universalify
+E:\VSCode\resources\app\node_modules\util-deprecate
+E:\VSCode\resources\app\node_modules\uuid
+E:\VSCode\resources\app\node_modules\v8-inspect-profiler
+E:\VSCode\resources\app\node_modules\vscode-oniguruma
+E:\VSCode\resources\app\node_modules\vscode-regexp-languagedetection
+E:\VSCode\resources\app\node_modules\vscode-regexpp
+E:\VSCode\resources\app\node_modules\vscode-textmate
+E:\VSCode\resources\app\node_modules\vsda
+E:\VSCode\resources\app\node_modules\windows-foreground-love
+E:\VSCode\resources\app\node_modules\wrappy
+E:\VSCode\resources\app\node_modules\yauzl
+E:\VSCode\resources\app\node_modules\yazl

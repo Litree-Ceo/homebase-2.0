@@ -1,0 +1,45 @@
+@baseUrl = http://localhost:7071/api
+
+# ─────────────────────────────────────────────────────────────────
+# 1. Unsplash Image API
+# ─────────────────────────────────────────────────────────────────
+
+### Search for images (Default: technology)
+GET {{baseUrl}}/images?query=technology HTTP/1.1
+
+### Search for 'crypto' images
+GET {{baseUrl}}/images?query=crypto&per_page=5&orientation=landscape HTTP/1.1
+
+# ─────────────────────────────────────────────────────────────────
+# 2. Financial Modeling Prep (Stocks)
+# ─────────────────────────────────────────────────────────────────
+
+### Get Stock Quote (Apple)
+GET {{baseUrl}}/stocks?symbol=AAPL&type=quote HTTP/1.1
+
+### Get Company Profile (Tesla)
+GET {{baseUrl}}/stocks?symbol=TSLA&type=profile HTTP/1.1
+
+### Search for a stock
+GET {{baseUrl}}/stocks?query=Microsoft&type=search HTTP/1.1
+
+# ─────────────────────────────────────────────────────────────────
+# 3. Twilio Social API
+# ─────────────────────────────────────────────────────────────────
+
+### Send Invite (Requires Twilio Config)
+POST {{baseUrl}}/social HTTP/1.1
+Content-Type: application/json
+
+{
+    "action": "invite",
+    "to": "+1234567890",
+    "message": "Hey! Check out HomeBase 2.0. It's awesome."
+}
+
+# ─────────────────────────────────────────────────────────────────
+# 4. Existing Crypto API (CoinGecko)
+# ─────────────────────────────────────────────────────────────────
+
+### Get Crypto Prices
+GET {{baseUrl}}/crypto?ids=bitcoin,ethereum,solana HTTP/1.1

@@ -1,0 +1,118 @@
+{
+  "name": "homebase-2.0-workspace",
+  "version": "2.0.0",
+  "description": "HomeBase 2.0 - Production-Grade Development Platform",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm dev:litlabs",
+    "dev:web": "cd github && pnpm dev",
+    "dev:litlabs": "cd litlabs && pnpm dev",
+    "dev:studio-metaverse": "cd github/apps/litreelab-studio-metaverse && pnpm dev",
+    "dev:genkit-rag": "cd github/apps/genkit-rag && pnpm dev",
+    "dev:honey-comb-home": "cd github/apps/honey-comb-home && pnpm dev",
+    "dev:honeycomb-blueprint": "cd github/apps/honeycomb-blueprint && pnpm dev",
+    "dev:labs-ai": "cd github/apps/labs-ai && pnpm dev",
+    "dev:litmaster1": "cd github/apps/litmaster1 && pnpm dev",
+    "dev:litree-unified": "cd github/apps/litree-unified && pnpm dev",
+    "dev:litreelabsfirebase": "cd github/apps/litreelabsfirebase && pnpm dev",
+    "dev:website-project": "cd github/apps/website-project && pnpm dev",
+    "deploy:studio-metaverse": "cd github/apps/litreelab-studio-metaverse && firebase deploy",
+    "smart": "powershell -ExecutionPolicy Bypass -File ./scripts/smart-start.ps1",
+    "optimize": "powershell -ExecutionPolicy Bypass -File ./scripts/run-kimi.ps1",
+    "dev:agent-zero": "cd github/apps/agent-zero && docker-compose up -d",
+    "build": "next build",
+    "build:web": "cd github/apps/web && pnpm build",
+    "build:github": "cd github && pnpm build",
+    "build:litlabs": "cd litlabs && pnpm build",
+    "build:genkit-rag": "cd github/apps/genkit-rag && pnpm build",
+    "build:honey-comb-home": "cd github/apps/honey-comb-home && pnpm build",
+    "build:honeycomb-blueprint": "cd github/apps/honeycomb-blueprint && pnpm build",
+    "build:labs-ai": "cd github/apps/labs-ai && pnpm build",
+    "build:litmaster1": "cd github/apps/litmaster1 && pnpm build",
+    "build:litree-unified": "cd github/apps/litree-unified && pnpm build",
+    "build:litreelabsfirebase": "cd github/apps/litreelabsfirebase && pnpm build",
+    "build:website-project": "cd github/apps/website-project && pnpm build",
+    "build:agent-zero": "cd github/apps/agent-zero && docker-compose build",
+    "build:all": "pnpm build:github && pnpm build:litlabs && pnpm build:agent-zero",
+    "start": "pnpm start:web",
+    "start:web": "cd github/apps/web && pnpm start",
+    "start:all": "powershell -ExecutionPolicy Bypass -File ./start-all.ps1",
+    "lint": "cd github && pnpm lint",
+    "lint:litlabs": "cd litlabs && pnpm lint",
+    "type-check": "cd github && pnpm type-check",
+    "test": "cd github && pnpm test",
+    "test:e2e": "playwright test",
+    "clean": "rimraf **/node_modules **/.next **/dist **/out **/.turbo",
+    "clean:locks": "rimraf **/pnpm-lock.yaml **/package-lock.yaml && pnpm install",
+    "sync:git": "powershell -ExecutionPolicy Bypass -File ./Unified-Git-Sync.ps1",
+    "sync:git:status": "powershell -ExecutionPolicy Bypass -File ./Unified-Git-Sync.ps1 -Status",
+    "sync:git:push": "powershell -ExecutionPolicy Bypass -File ./Unified-Git-Sync.ps1 -Push",
+    "sync:git:pull": "powershell -ExecutionPolicy Bypass -File ./Unified-Git-Sync.ps1 -Pull",
+    "agent-zero:start": "cd github/apps/agent-zero && docker-compose up -d",
+    "agent-zero:stop": "cd github/apps/agent-zero && docker-compose down",
+    "agent-zero:logs": "cd github/apps/agent-zero && docker-compose logs -f",
+    "agent-zero:build": "cd github/apps/agent-zero && docker-compose build",
+    "openclaw:start": "openclaw start",
+    "openclaw:stop": "openclaw stop",
+    "openclaw:status": "openclaw status",
+    "openclaw:doctor": "openclaw doctor",
+    "cleanup": "powershell -ExecutionPolicy Bypass -File ./scripts/cleanup.ps1",
+    "cleanup:full": "powershell -ExecutionPolicy Bypass -File ./scripts/cleanup-and-optimize.ps1",
+    "setup": "powershell -ExecutionPolicy Bypass -File ./scripts/setup.ps1",
+    "doctor": "pnpm run openclaw:doctor && echo 'Run: pnpm run build:all to verify builds'"
+  },
+  "pnpm": {
+    "overrides": {
+      "react": "18.3.1",
+      "react-dom": "18.3.1",
+      "@types/react": "18.3.1",
+      "@types/react-dom": "18.3.0",
+      "typescript": "5.9.3",
+      "zod": "^3.23.8",
+      "its-fine": "^1.2.5",
+      "firebase": "10.13.0"
+    },
+    "onlyBuiltDependencies": [
+      "@firebase/util",
+      "@heroui/shared-utils",
+      "@parcel/watcher",
+      "core-js",
+      "esbuild",
+      "protobufjs",
+      "re2",
+      "sharp",
+      "unrs-resolver"
+    ],
+    "ignoredBuiltDependencies": [
+      "isolated-vm"
+    ]
+  },
+  "devDependencies": {
+    "@next/swc-android-arm64": "^13.2.4",
+    "@playwright/test": "^1.58.2",
+    "concurrently": "^8.2.2",
+    "rimraf": "^5.0.5"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "keywords": [
+    "nextjs",
+    "react",
+    "typescript",
+    "azure",
+    "firebase",
+    "ai",
+    "monorepo"
+  ],
+  "author": "LiTree Labs",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LiTree89/HomeBase-2.0.git"
+  },
+  "dependencies": {
+    "@homebase/web": "workspace:*"
+  }
+}

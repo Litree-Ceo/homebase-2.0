@@ -1,0 +1,68 @@
+/* Honeycomb Theme - Gold, Black, Purple */
+
+body {
+  background: #18141a;
+  color: #ffd700;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+header,
+.footer {
+  background: #2d1836;
+  color: #ffd700;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #b084cc;
+}
+
+a {
+  color: #ffd700;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #b084cc;
+  text-shadow: 0 0 5px #ffd700;
+}
+
+.button,
+button {
+  background: linear-gradient(90deg, #ffd700 60%, #b084cc 100%);
+  color: #18141a;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-weight: bold;
+  box-shadow: 0 2px 8px #00000055;
+  cursor: pointer;
+  transition:
+    background 0.3s,
+    color 0.3s;
+}
+
+.button:hover,
+button:hover {
+  background: linear-gradient(90deg, #b084cc 60%, #ffd700 100%);
+  color: #fff;
+}
+
+.card,
+.container {
+  background: #221c24;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px #00000033;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+/* Honeycomb pattern accent */
+.honeycomb {
+  background-image: url('data:image/svg+xml;utf8,<svg width="40" height="35" viewBox="0 0 40 35" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="20,0 40,10 40,30 20,40 0,30 0,10" fill="%23ffd700" fill-opacity="0.08"/></svg>');
+  background-size: 40px 35px;
+}

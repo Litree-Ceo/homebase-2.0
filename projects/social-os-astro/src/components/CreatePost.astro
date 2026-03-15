@@ -1,0 +1,66 @@
+---
+const { user } = Astro.props;
+---
+
+<div class="create-post-card bg-gray-800 bg-opacity-60 backdrop-blur-lg border border-gray-700 rounded-lg p-5 mb-8 shadow-2xl transition-all duration-300 hover:border-purple-500">
+  <div class="flex items-start">
+    <img src={user.photoURL} alt="User Avatar" class="w-12 h-12 rounded-full mr-4 border-2 border-gray-600 shadow-md" />
+    <div class="w-full">
+      <form id="create-post-form" data-user={JSON.stringify(user)}>
+        <textarea 
+          id="post-content" 
+          class="w-full bg-transparent text-white text-lg placeholder-gray-400 focus:outline-none resize-none" 
+          rows="3" 
+          placeholder={`What\'s pulsing on the network, @${user.displayName}?`}
+        ></textarea>
+        
+        <input 
+          type="text"
+          id="post-image-url"
+          class="w-full bg-gray-900/50 text-white placeholder-gray-500 focus:outline-none rounded-md px-3 py-2 mt-2 border border-gray-700 focus:border-cyan-400 transition-colors"
+          placeholder="Paste an image URL (optional)..."
+        />
+
+        <div class="flex items-center justify-between mt-4 pt-3 border-t border-gray-700/50">
+          <div class="flex space-x-3 text-gray-400">
+            <!-- Icons would be components here -->
+          </div>
+          <button type="submit" class="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-2 px-6 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+            Post
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+  import { db } from '../firebase';
+
+  document.getElementById('create-post-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const content = document.getElementById('post-content').value;
+    const imageUrl = document.getElementById('post-image-url').value;
+    const user = JSON.parse(e.currentTarget.dataset.user);
+
+    if (content.trim() || imageUrl.trim()) {
+      try {
+        await addDoc(collection(db, 'posts'), {
+          uid: user.uid,
+          name: user.displayName,
+          handle: user.email.split('@')[0],
+          avatar: user.photoURL,
+          content,
+          imageUrl: imageUrl || null,
+          timestamp: serverTimestamp(),
+        });
+        document.getElementById('post-content').value = '';
+        document.getElementById('post-image-url').value = '';
+      } catch (error) {
+        console.error("Error adding document: ", error);
+        // Optionally, display an error message to the user
+      }
+    }
+  });
+</script>

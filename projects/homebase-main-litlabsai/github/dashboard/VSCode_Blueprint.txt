@@ -1,0 +1,15 @@
+(Copy of your VSCode_Blueprint.txt for quick access)
+
+---
+
+## EverythingHomebase VS Code Blueprint
+
+### 1. Git Automation
+- Use auto-git-sync.ps1 to pull, add, commit, and push changes with one command.
+- Always work in G:/My Drive/EverythingHomebase for correct repo context.
+
+### 2. VS Code Settings (sync across devices)
+- Place the following in settings.json for workspace-level control.
+- Use the Syncing extension to keep settings/extensions synced everywhere.
+
+...existing blueprint content...

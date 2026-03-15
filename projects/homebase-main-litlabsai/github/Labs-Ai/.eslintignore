@@ -1,0 +1,9 @@
+# Ignore non-code files and folders
+package.json
+.vscode/
+node_modules/
+dist/
+build/
+.next/
+*.md
+*.txt

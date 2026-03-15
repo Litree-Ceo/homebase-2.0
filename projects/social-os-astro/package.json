@@ -1,0 +1,15 @@
+{
+  "name": "homebase-workspace",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "build": "pnpm --filter @homebase/web build",
+    "dev": "pnpm --filter @homebase/web dev"
+  },
+  "dependencies": {
+    "@homebase/web": "workspace:*"
+  },
+  "devDependencies": {
+    "pnpm": "^10.0.0"
+  }
+}

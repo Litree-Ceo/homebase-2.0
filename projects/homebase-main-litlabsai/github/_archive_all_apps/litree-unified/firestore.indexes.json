@@ -1,0 +1,12 @@
+{
+  "indexes": [
+    {
+      "collectionId": "users",
+      "fields": [
+        { "fieldPath": "name", "mode": "ASCENDING" },
+        { "fieldPath": "createdAt", "mode": "DESCENDING" }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}

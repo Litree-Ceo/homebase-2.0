@@ -1,0 +1,58 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from 'astro-icon';
+import NetworkStatus from '../components/NetworkStatus.jsx';
+---
+
+<Layout>
+  <div class="relative z-10">
+    <!-- Hero Section -->
+    <section class="text-center py-20 px-4 sm:px-6 lg:px-8">
+      <div class="absolute inset-0 -z-10 overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-red-600/30 rounded-full blur-3xl opacity-50"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/4 -translate-y-1/4 w-72 h-72 bg-orange-600/30 rounded-full blur-3xl opacity-40"></div>
+      </div>
+      <h1 class="text-4xl md:text-6xl font-extrabold tracking-tighter text-white mb-4 font-display">
+        The LitLabs <span class="bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-orange-500">Network</span>
+      </h1>
+      <p class="max-w-2xl mx-auto text-lg md:text-xl text-gray-300">
+        The backbone of the decentralized web. Monitor the status of the network, explore the nodes, and join the revolution.
+      </p>
+    </section>
+
+    <!-- Network Status Section -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <!-- Nodes -->
+        <div class="bg-gray-800/60 backdrop-blur-xl border border-gray-700/50 rounded-xl p-6 shadow-2xl transition-all duration-300 hover:border-red-500/80">
+          <div class="flex items-center justify-center h-12 w-12 rounded-full bg-red-600/50 mx-auto mb-4">
+            <Icon name="mdi:server-network" class="w-6 h-6 text-red-300" />
+          </div>
+          <h3 class="text-3xl font-bold text-white">1,234</h3>
+          <p class="text-gray-400">Nodes Online</p>
+        </div>
+
+        <!-- Data Traffic -->
+        <div class="bg-gray-800/60 backdrop-blur-xl border border-gray-700/50 rounded-xl p-6 shadow-2xl transition-all duration-300 hover:border-orange-500/80">
+          <div class="flex items-center justify-center h-12 w-12 rounded-full bg-orange-600/50 mx-auto mb-4">
+            <Icon name="mdi:chart-line" class="w-6 h-6 text-orange-300" />
+          </div>
+          <h3 class="text-3xl font-bold text-white">5.67 TB</h3>
+          <p class="text-gray-400">Data Transferred</p>
+        </div>
+
+        <!-- Uptime -->
+        <div class="bg-gray-800/60 backdrop-blur-xl border border-gray-700/50 rounded-xl p-6 shadow-2xl transition-all duration-300 hover:border-yellow-500/80">
+          <div class="flex items-center justify-center h-12 w-12 rounded-full bg-yellow-600/50 mx-auto mb-4">
+            <Icon name="mdi:clock-outline" class="w-6 h-6 text-yellow-300" />
+          </div>
+          <h3 class="text-3xl font-bold text-white">99.9%</h3>
+          <p class="text-gray-400">Uptime</p>
+        </div>
+      </div>
+      <div class="mt-8">
+        <NetworkStatus client:load />
+      </div>
+    </section>
+  </div>
+</Layout>

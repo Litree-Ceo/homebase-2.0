@@ -1,0 +1,15 @@
+# Default robots.txt for Labs AI Studio
+# Allow all search engines to crawl and index the site
+User-agent: *
+Allow: /
+Disallow: /admin/*
+Disallow: /api/*
+Disallow: /.next/*
+Disallow: /node_modules/*
+Disallow: /private/*
+
+# Crawl delay (in seconds)
+Crawl-delay: 2
+
+# Sitemaps
+Sitemap: https://labs-ai.studio/sitemap.xml

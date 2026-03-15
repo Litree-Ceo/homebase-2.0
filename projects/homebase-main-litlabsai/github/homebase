@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+# God Mode CLI for EverythingHomebase
+set -e
+CMD="$1"
+shift || true
+
+case "$CMD" in
+  build)
+    echo "🔨 Building all apps/packages..."
+    npm install && npm run build --workspaces
+    ;;
+  test)
+    echo "🧪 Running all tests..."
+    npm test --workspaces
+    ;;
+  lint)
+    echo "🔍 Linting all code..."
+    npm run lint --workspaces
+    ;;
+  format)
+    echo "🎨 Formatting all code..."
+    npm run format --workspaces
+    ;;
+  sync)
+    echo "🔄 Syncing and pushing all changes..."
+    git add -A && git commit -m "Sync: auto god mode commit" --signoff || true
+    git push -u origin main || git push -u origin master || true
+    ;;
+  status)
+    echo "📊 Repo status:"
+    git status
+    ;;
+  fix)
+    echo "🛠️  Running quick fix (lint, format, build)..."
+    npm run lint --workspaces && npm run format --workspaces && npm run build --workspaces
+    ;;
+  reset)
+    echo "⚡ Emergency reset: hard clean and fresh install..."
+    git reset --hard HEAD && git clean -fdx && npm install
+    ;;
+  help|*)
+    echo "God Mode CLI for EverythingHomebase"
+    echo "Commands: build, test, lint, format, sync, status, fix, reset, help"
+    ;;
+esac
