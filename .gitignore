@@ -6,3 +6,15 @@
 
 # PM2 logs
 logs/
+
+.pnpm-store/
+.env.local
+# Sensitive data
+data/id_ed25519
+data/id_ed25519.pub
+data/*.sqlite3
+data/*.sqlite3-*
+
+# Environment files
+.env.local
+.env.*.local

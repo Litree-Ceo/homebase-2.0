@@ -1,0 +1,76 @@
+# HomeBase Pro - Trae IDE Configuration
+# This file contains rules and guidelines for the Trae IDE
+
+## Project Structure
+- This is a React 19 + Vite + Firebase application
+- Main source code is in `/src` directory
+- Components are in `/src/components`
+- Pages are in `/src/pages`
+- Hooks are in `/src/hooks`
+- Styles are in `/src/styles` and responsive.css
+
+## Coding Standards
+
+### JavaScript/React
+- Use functional components with hooks
+- Use ES6+ syntax
+- Use destructuring for props
+- Use semantic HTML elements
+- Always use key prop when rendering lists
+- Use PropTypes or TypeScript for type safety
+
+### CSS/Styling
+- Use CSS custom properties (variables) from :root
+- Follow mobile-first responsive design
+- Use the Aurora design system colors
+- Minimum touch target size: 44x44px
+- Use `env(safe-area-inset-*)` for notched devices
+
+### File Naming
+- Components: PascalCase (e.g., `Auth.jsx`)
+- Hooks: camelCase with use prefix (e.g., `useAuth.js`)
+- Utilities: camelCase (e.g., `formatDate.js`)
+- Styles: camelCase or kebab-case with .css extension
+
+### Responsive Breakpoints
+- xs: 0px (mobile)
+- sm: 320px (small mobile)
+- md: 768px (tablet)
+- lg: 1024px (desktop)
+- xl: 1440px (large desktop)
+- 2xl: 1920px (ultrawide)
+
+### Accessibility
+- Use proper heading hierarchy (h1 > h2 > h3)
+- Include alt text for images
+- Use ARIA labels where needed
+- Ensure color contrast ratio >= 4.5:1
+- Support keyboard navigation
+- Respect `prefers-reduced-motion`
+
+## Firebase Rules
+- Always use security rules
+- Validate data on client and server
+- Use transactions for concurrent updates
+- Implement proper error handling
+
+## Performance Guidelines
+- Lazy load routes with React.lazy()
+- Use React.memo for expensive components
+- Debounce rapid user inputs
+- Optimize images before adding to assets
+- Use WebP format for images when possible
+
+## Git Workflow
+- Main branch: `main`
+- Feature branches: `feature/description`
+- Bug fixes: `fix/description`
+- Write descriptive commit messages
+- Review code before merging
+
+## Testing
+- Test on multiple devices and browsers
+- Test in both light and dark modes
+- Verify responsive behavior at all breakpoints
+- Test offline functionality
+- Test with slow network (3G)
