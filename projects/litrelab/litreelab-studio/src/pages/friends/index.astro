@@ -1,0 +1,65 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Friends">
+  <style>
+    .placeholder {
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    .placeholder-icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+    .placeholder h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #e94560;
+    }
+    .placeholder p {
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .feature-item {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .feature-item-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+
+  <div class="placeholder">
+    <div class="placeholder-icon">👥</div>
+    <h2>Friends</h2>
+    <p>Connect with friends, see what they're up to, and stay in touch. This feature is coming soon!</p>
+    
+    <div class="feature-grid">
+      <div class="feature-item">
+        <div class="feature-item-icon">🔍</div>
+        <div>Find Friends</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-item-icon">➕</div>
+        <div>Add Friend</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-item-icon">📋</div>
+        <div>Friend Requests</div>
+      </div>
+    </div>
+  </div>
+</MainLayout>

@@ -1,0 +1,23 @@
+# Development Dockerfile for Astro with pnpm
+# Features: Fast installs, hot reload
+
+FROM node:22-slim
+
+# Install pnpm
+RUN corepack enable && corepack prepare pnpm@latest --activate
+
+WORKDIR /app
+
+# Copy package files for dependency caching
+COPY package.json pnpm-lock.yaml* ./
+
+# Install dependencies
+RUN pnpm install
+
+# Copy source (or mount as volume in dev)
+COPY . .
+
+EXPOSE 4321
+
+# Run dev server with host binding for Docker
+CMD ["pnpm", "dev", "--host", "0.0.0.0"]

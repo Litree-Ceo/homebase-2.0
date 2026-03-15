@@ -1,0 +1,121 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Settings">
+  <style>
+    .settings-section {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .settings-section h3 {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      color: #e94560;
+    }
+    .setting-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .setting-item:last-child {
+      border-bottom: none;
+    }
+    .setting-label {
+      display: flex;
+      flex-direction: column;
+    }
+    .setting-title {
+      font-weight: 500;
+    }
+    .setting-desc {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: 0.25rem;
+    }
+    .toggle {
+      width: 50px;
+      height: 26px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 13px;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .toggle.active {
+      background: #e94560;
+    }
+    .toggle::after {
+      content: '';
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      background: #fff;
+      border-radius: 50%;
+      top: 2px;
+      left: 2px;
+      transition: transform 0.3s;
+    }
+    .toggle.active::after {
+      transform: translateX(24px);
+    }
+  </style>
+
+  <div class="settings-section">
+    <h3>General</h3>
+    <div class="setting-item">
+      <div class="setting-label">
+        <span class="setting-title">Dark Mode</span>
+        <span class="setting-desc">Always use dark theme</span>
+      </div>
+      <div class="toggle active" onclick="this.classList.toggle('active')"></div>
+    </div>
+    <div class="setting-item">
+      <div class="setting-label">
+        <span class="setting-title">Notifications</span>
+        <span class="setting-desc">Receive push notifications</span>
+      </div>
+      <div class="toggle active" onclick="this.classList.toggle('active')"></div>
+    </div>
+    <div class="setting-item">
+      <div class="setting-label">
+        <span class="setting-title">Auto-save</span>
+        <span class="setting-desc">Automatically save drafts</span>
+      </div>
+      <div class="toggle" onclick="this.classList.toggle('active')"></div>
+    </div>
+  </div>
+
+  <div class="settings-section">
+    <h3>Privacy</h3>
+    <div class="setting-item">
+      <div class="setting-label">
+        <span class="setting-title">Profile Visibility</span>
+        <span class="setting-desc">Make profile visible to everyone</span>
+      </div>
+      <div class="toggle active" onclick="this.classList.toggle('active')"></div>
+    </div>
+    <div class="setting-item">
+      <div class="setting-label">
+        <span class="setting-title">Activity Status</span>
+        <span class="setting-desc">Show when you're online</span>
+      </div>
+      <div class="toggle active" onclick="this.classList.toggle('active')"></div>
+    </div>
+  </div>
+
+  <div class="settings-section">
+    <h3>About</h3>
+    <div class="setting-item">
+      <div class="setting-label">
+        <span class="setting-title">Version</span>
+        <span class="setting-desc">HomeBase 3.0.0</span>
+      </div>
+    </div>
+  </div>
+</MainLayout>

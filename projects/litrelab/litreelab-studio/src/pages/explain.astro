@@ -1,0 +1,340 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Explain Loop">
+  <div class="explain-container">
+    <div class="explain-header">
+      <div class="header-content">
+        <h2>AI Explain Loop</h2>
+        <p>Deep dive into any concept with structured AI learning</p>
+      </div>
+      <div class="controls">
+        <select id="modelSelect" class="cyber-select">
+          <option value="openai/gpt-4o-mini">GPT-4o Mini</option>
+          <option value="anthropic/claude-3-haiku">Claude 3 Haiku</option>
+          <option value="meta-llama/llama-3-8b-instruct">Llama 3 8B</option>
+        </select>
+        <select id="styleSelect" class="cyber-select">
+          <option value="detailed">Detailed</option>
+          <option value="concise">Concise</option>
+          <option value="technical">Technical</option>
+          <option value="simple">Simple (ELI5)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="explain-content" id="explainContent">
+      <div class="empty-state">
+        <div class="pulse-icon">?</div>
+        <h3>What would you like explained today?</h3>
+        <p>Ask anything from "How do JWTs work?" to "Explain quantum entanglement"</p>
+      </div>
+    </div>
+
+    <div class="loading-indicator" id="loadingIndicator">
+      <div class="spinner"></div>
+      <span>Generating Explanation...</span>
+    </div>
+
+    <div class="input-area">
+      <div class="input-wrapper">
+        <input 
+          type="text" 
+          id="questionInput" 
+          placeholder="Ask your question..." 
+          autocomplete="off"
+        />
+        <button id="askBtn" class="ask-btn">Explain</button>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .explain-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      height: calc(100vh - 180px);
+    }
+    .explain-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 2rem;
+    }
+    .header-content h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.25rem;
+      background: linear-gradient(135deg, #00fff2, #0066ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .header-content p {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.9rem;
+    }
+    .controls {
+      display: flex;
+      gap: 0.75rem;
+    }
+    .cyber-select {
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      outline: none;
+      cursor: pointer;
+    }
+    .explain-content {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      padding-bottom: 2rem;
+    }
+    .empty-state {
+      margin: auto;
+      text-align: center;
+      opacity: 0.6;
+    }
+    .pulse-icon {
+      width: 80px;
+      height: 80px;
+      background: rgba(0, 255, 242, 0.1);
+      border: 2px solid #00fff2;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: #00fff2;
+      margin: 0 auto 1.5rem;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(0, 255, 242, 0.4); }
+      70% { box-shadow: 0 0 0 20px rgba(0, 255, 242, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(0, 255, 242, 0); }
+    }
+    
+    .explanation-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      padding: 2rem;
+      animation: slideIn 0.4s ease-out;
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .card-question {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #00fff2;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .card-text {
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 2rem;
+      white-space: pre-wrap;
+    }
+    .code-block {
+      background: #1a1a1a;
+      border-radius: 0.5rem;
+      margin-bottom: 2rem;
+      overflow: hidden;
+    }
+    .code-header {
+      background: #2a2a2a;
+      padding: 0.5rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.5);
+    }
+    .code-block pre {
+      padding: 1rem;
+      margin: 0;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.9rem;
+      overflow-x: auto;
+    }
+    .follow-ups {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .follow-up-btn {
+      background: rgba(0, 255, 242, 0.05);
+      border: 1px solid rgba(0, 255, 242, 0.2);
+      color: #00fff2;
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .follow-up-btn:hover {
+      background: rgba(0, 255, 242, 0.15);
+      border-color: #00fff2;
+    }
+
+    .input-area {
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .input-wrapper {
+      display: flex;
+      gap: 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0.5rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .input-wrapper input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      padding: 0.75rem 1rem;
+      color: #fff;
+      font-size: 1.1rem;
+      outline: none;
+    }
+    .ask-btn {
+      background: linear-gradient(135deg, #0066ff, #00fff2);
+      border: none;
+      border-radius: 0.75rem;
+      padding: 0.75rem 2rem;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .ask-btn:hover { transform: scale(1.05); }
+
+    .loading-indicator {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      padding: 2rem;
+      color: #00fff2;
+    }
+    .loading-indicator.active { display: flex; }
+    .spinner {
+      width: 24px;
+      height: 24px;
+      border: 3px solid rgba(0, 255, 242, 0.3);
+      border-top-color: #00fff2;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+
+  <script>
+    import { ApiClient } from '../lib/api';
+
+    // Auth Guard
+    if (!ApiClient.isAuthenticated()) window.location.href = '/login';
+
+    const explainContent = document.getElementById('explainContent') as HTMLDivElement;
+    const questionInput = document.getElementById('questionInput') as HTMLInputElement;
+    const askBtn = document.getElementById('askBtn') as HTMLButtonElement;
+    const loadingIndicator = document.getElementById('loadingIndicator') as HTMLDivElement;
+    const modelSelect = document.getElementById('modelSelect') as HTMLSelectElement;
+    const styleSelect = document.getElementById('styleSelect') as HTMLSelectElement;
+
+    let context = "";
+
+    async function getExplanation(question: string) {
+      if (!question.trim()) return;
+
+      // Reset UI for loading
+      const emptyState = explainContent.querySelector('.empty-state');
+      if (emptyState) emptyState.remove();
+      
+      loadingIndicator.classList.add('active');
+      askBtn.disabled = true;
+      questionInput.value = '';
+
+      try {
+        const result = await ApiClient.explain(question, context, styleSelect.value);
+        loadingIndicator.classList.remove('active');
+        askBtn.disabled = false;
+
+        renderExplanation(question, result);
+        
+        // Update context for next round
+        context += `\nUser: ${question}\nAI: ${result.explanation.substring(0, 200)}...`;
+      } catch (error: any) {
+        loadingIndicator.classList.remove('active');
+        askBtn.disabled = false;
+        if (error.message === 'Unauthorized') window.location.href = '/login';
+        alert('Failed to get explanation. Please check your backend.');
+      }
+    }
+
+    function renderExplanation(question: string, data: any) {
+      const card = document.createElement('div');
+      card.className = 'explanation-card';
+      
+      let html = `
+        <div class="card-question">Q: ${question}</div>
+        <div class="card-text">${data.explanation}</div>
+      `;
+
+      if (data.code_example) {
+        html += `
+          <div class="code-block">
+            <div class="code-header">
+              <span>${data.language || 'code'}</span>
+              <span>OpenRouter / ${data.model_used}</span>
+            </div>
+            <pre><code>${escapeHtml(data.code_example)}</code></pre>
+          </div>
+        `;
+      }
+
+      if (data.follow_up_suggestions && data.follow_up_suggestions.length > 0) {
+        html += `<div class="follow-ups">`;
+        data.follow_up_suggestions.forEach((f: string) => {
+          html += `<button class="follow-up-btn">${f}</button>`;
+        });
+        html += `</div>`;
+      }
+
+      card.innerHTML = html;
+      explainContent.appendChild(card);
+      explainContent.scrollTop = explainContent.scrollHeight;
+
+      // Bind follow-up buttons
+      card.querySelectorAll('.follow-up-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          getExplanation(btn.textContent || '');
+        });
+      });
+    }
+
+    function escapeHtml(text: string) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    askBtn.addEventListener('click', () => getExplanation(questionInput.value));
+    questionInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') getExplanation(questionInput.value);
+    });
+  </script>
+</MainLayout>

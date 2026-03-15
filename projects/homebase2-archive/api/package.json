@@ -1,0 +1,11 @@
+{
+  "name": "homebase-api",
+  "version": "1.0.0",
+  "description": "HomeBase 2.0 API Functions",
+  "scripts": {
+    "start": "func start",
+    "test": "echo \"No tests yet\""
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

@@ -1,0 +1,77 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Dashboard">
+  <style>
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .stat-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      padding: 1.5rem;
+    }
+    .stat-card h3 {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+    .stat-value {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #e94560;
+    }
+    .stat-change {
+      font-size: 0.875rem;
+      color: #00ff88;
+      margin-top: 0.5rem;
+    }
+    .chart-placeholder {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      padding: 2rem;
+      margin-top: 1.5rem;
+      min-height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: rgba(255, 255, 255, 0.5);
+    }
+  </style>
+
+  <div class="dashboard-grid">
+    <div class="stat-card">
+      <h3>Total Users</h3>
+      <div class="stat-value">1,234</div>
+      <div class="stat-change">↑ 12% from last month</div>
+    </div>
+    <div class="stat-card">
+      <h3>Active Sessions</h3>
+      <div class="stat-value">89</div>
+      <div class="stat-change">↑ 5% from yesterday</div>
+    </div>
+    <div class="stat-card">
+      <h3>Messages Sent</h3>
+      <div class="stat-value">45.2K</div>
+      <div class="stat-change">↑ 23% from last week</div>
+    </div>
+    <div class="stat-card">
+      <h3>Agent Interactions</h3>
+      <div class="stat-value">3,456</div>
+      <div class="stat-change">↑ 18% from last month</div>
+    </div>
+  </div>
+
+  <div class="chart-placeholder">
+    <div style="font-size: 3rem; margin-bottom: 1rem;">📊</div>
+    <p>Analytics charts coming soon</p>
+  </div>
+</MainLayout>

@@ -1,0 +1,162 @@
+---
+const title = "LiTLaB Social Hub";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body {
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        background: #0a0a0c;
+        color: #fff;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+      .background-glow {
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #0a0a0c 100%);
+        z-index: -1;
+      }
+      .navbar {
+        position: sticky; top: 0; z-index: 100;
+        background: rgba(10, 10, 12, 0.7);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 1rem 2rem;
+        display: flex; justify-content: space-between; align-items: center;
+      }
+      .logo {
+        font-size: 1.5rem; font-weight: 800;
+        background: linear-gradient(90deg, #00f2ff, #0062ff);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      }
+      .feed-container {
+        max-width: 800px; margin: 2rem auto; padding: 0 1rem;
+        display: flex; flex-direction: column; gap: 2rem;
+      }
+      .post-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 1.5rem; overflow: hidden;
+        transition: transform 0.3s, border-color 0.3s;
+      }
+      .post-card:hover {
+        border-color: rgba(0, 242, 255, 0.5);
+        transform: translateY(-2px);
+      }
+      .post-header {
+        padding: 1.5rem; display: flex; justify-content: space-between; align-items: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .author-info { display: flex; align-items: center; gap: 0.75rem; }
+      .avatar {
+        width: 40px; height: 40px; border-radius: 50%;
+        background: linear-gradient(45deg, #00f2ff, #0062ff);
+      }
+      .author-name { font-weight: 600; color: #fff; }
+      .post-type {
+        font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em;
+        padding: 0.25rem 0.75rem; border-radius: 1rem;
+        background: rgba(0, 242, 255, 0.1); color: #00f2ff;
+      }
+      .post-content { padding: 1.5rem; }
+      .prompt-text {
+        font-size: 1.1rem; color: rgba(255, 255, 255, 0.9); margin-bottom: 1rem;
+        font-style: italic;
+      }
+      .artifact-container {
+        width: 100%; aspect-ratio: 16 / 10;
+        background: #000; border-radius: 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        overflow: hidden; position: relative;
+      }
+      iframe { width: 100%; height: 100%; border: none; }
+      .post-actions {
+        padding: 1rem 1.5rem; display: flex; gap: 1rem;
+        background: rgba(255, 255, 255, 0.02);
+      }
+      .btn {
+        padding: 0.6rem 1.2rem; border-radius: 0.75rem; border: none;
+        font-weight: 600; cursor: pointer; transition: 0.2s;
+        display: flex; align-items: center; gap: 0.5rem;
+      }
+      .btn-primary { background: #00f2ff; color: #000; }
+      .btn-primary:hover { background: #00d2df; transform: scale(1.05); }
+      .btn-secondary { background: rgba(255, 255, 255, 0.1); color: #fff; }
+      .btn-secondary:hover { background: rgba(255, 255, 255, 0.15); }
+      .empty-state {
+        text-align: center; padding: 4rem 2rem; color: rgba(255, 255, 255, 0.4);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background-glow"></div>
+    <nav class="navbar">
+      <div class="logo">LiTLaB Social Hub</div>
+      <div class="nav-links">
+        <button class="btn btn-primary" onclick="window.location.href='/studio'">+ Create Artifact</button>
+      </div>
+    </nav>
+
+    <main class="feed-container" id="feed">
+      <div class="empty-state">Initializing neural feed...</div>
+    </main>
+
+    <script>
+      async function loadFeed() {
+        const feedEl = document.getElementById('feed');
+        try {
+          const response = await fetch('http://localhost:8080/api/social/feed', {
+              headers: { 'X-API-Key': 'o49eSUdxJehy05JxECmP33I9GQLaQCh0pYaGk7aXeok' }
+          });
+          const posts = await response.json();
+
+          if (posts.length === 0) {
+            feedEl.innerHTML = '<div class="empty-state">The void is silent. Be the first to publish an artifact.</div>';
+            return;
+          }
+
+          feedEl.innerHTML = posts.map(post => `
+            <div class="post-card">
+              <div class="post-header">
+                <div class="author-info">
+                  <div class="avatar"></div>
+                  <div class="author-name">${post.author}</div>
+                </div>
+                <div class="post-type">${post.type}</div>
+              </div>
+              <div class="post-content">
+                <div class="prompt-text">"${post.prompt}"</div>
+                <div class="artifact-container">
+                  <iframe srcdoc="${post.code.replace(/"/g, '&quot;')}" sandbox="allow-scripts"></iframe>
+                </div>
+              </div>
+              <div class="post-actions">
+                <button class="btn btn-primary" onclick="forkPost('${post.id}')">🍴 Fork to Studio</button>
+                <button class="btn btn-secondary">❤️ Like</button>
+                <button class="btn btn-secondary">🔗 Share</button>
+              </div>
+            </div>
+          `).join('');
+        } catch (err) {
+          feedEl.innerHTML = '<div class="empty-state">Error connecting to the hub. Ensure the agent server is running.</div>';
+        }
+      }
+
+      window.forkPost = (id) => {
+        // Implementation for forking would go here - e.g. redirect to studio with post ID
+        window.location.href = `/studio?fork=${id}`;
+      };
+
+      loadFeed();
+      // Poll for new posts every 30 seconds
+      setInterval(loadFeed, 30000);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+# Docker Compose for Litrelab Stack (Development)
+# Usage: docker-compose -f docker-compose.litrelab.dev.yml up
+# Features: Hot reload, volume mounts, debug mode
+
+services:
+  # FastAPI Backend (Dev with hot reload)
+  backend:
+    build:
+      context: ./litreelab-backend
+      dockerfile: Dockerfile.backend.dev
+    container_name: litreelab-backend-dev
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PORT=8000
+      - UVICORN_RELOAD=true
+    volumes:
+      # Mount code for hot reload (read-only except main.py)
+      - ./litreelab-backend/main.py:/app/main.py:ro
+    restart: unless-stopped
+    networks:
+      - litreelab-network
+    # Override for additional debugging
+    command: ["uv", "run", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload", "--log-level", "debug"]
+
+  # Astro Frontend (Dev with hot reload)
+  frontend:
+    build:
+      context: ./litreelab-studio
+      dockerfile: Dockerfile.frontend.dev
+    container_name: litreelab-studio-dev
+    ports:
+      - "4321:4321"
+    environment:
+      - NODE_ENV=development
+      - API_URL=http://localhost:8000
+    volumes:
+      # Mount source code for hot reload
+      - ./litreelab-studio/src:/app/src:ro
+      - ./litreelab-studio/public:/app/public:ro
+      - ./litreelab-studio/astro.config.mjs:/app/astro.config.mjs:ro
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - litreelab-network
+    # Use polling for file changes in Docker
+    command: ["pnpm", "dev", "--host", "0.0.0.0", "--port", "4321"]
+
+networks:
+  litreelab-network:
+    driver: bridge

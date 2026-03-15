@@ -1,0 +1,67 @@
+# Docker Compose for Litrelab Stack (Production)
+# Usage: docker-compose -f docker-compose.litrelab.yml up --build
+# Features: Optimized builds, health checks, restart policies
+
+services:
+  # FastAPI Backend
+  backend:
+    build:
+      context: ./litreelab-backend
+      dockerfile: Dockerfile.backend
+    container_name: litreelab-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PORT=8000
+      - UVICORN_WORKERS=4
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/status')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    networks:
+      - litreelab-network
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 128M
+
+  # Astro Frontend
+  frontend:
+    build:
+      context: ./litreelab-studio
+      dockerfile: Dockerfile.frontend
+    container_name: litreelab-studio
+    ports:
+      - "4321:4321"
+    environment:
+      - NODE_ENV=production
+      - API_URL=http://backend:8000
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - litreelab-network
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+        reservations:
+          cpus: '0.1'
+          memory: 64M
+
+networks:
+  litreelab-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
